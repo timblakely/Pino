@@ -29,3 +29,17 @@ Probably going to be IAUT300N10S5N015, simply for lower Rds.
 
 - Falstad beta: 39.2156862745098
 - at Id 275ua, Vgs(th) = 3
+  
+Turns out the auto one isn't very common. will use IPT015N10N5 instead (it's non-auto sibling)
+
+# Power connectors
+
+Mini-Fit Jr is the type ben used in the corner.
+
+# 12v regulator
+
+- [ZXTR2005K](https://www.diodes.com/assets/Datasheets/ZXTR2005K.pdf) - 100v>5v, 50ma 
+
+# P Mosfet
+
+- [BSS84-7-F](https://www.digikey.com/product-detail/en/diodes-incorporated/BSS84-7-F/BSS84-FDICT-ND/717844)
