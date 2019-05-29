@@ -43,3 +43,14 @@ Mini-Fit Jr is the type ben used in the corner.
 # P Mosfet
 
 - [BSS84-7-F](https://www.digikey.com/product-detail/en/diodes-incorporated/BSS84-7-F/BSS84-FDICT-ND/717844)
+
+# Pot
+
+- [TC33X-2-204E](https://www.digikey.com/product-detail/en/bourns-inc/TC33X-2-204E/TC33X-2-204EDKR-ND/3438442)
+
+# Darlington
+
+- [MMBTA28-7-F](https://www.digikey.com/product-detail/en/diodes-incorporated/MMBTA28-7-F/MMBTA28-FDIDKR-ND/1837082)
+
+# Flip-flop
+- [SN74LVC1G175](https://www.digikey.com/product-detail/en/texas-instruments/SN74LVC1G175DBVR/296-17617-6-ND/1849578)
