@@ -1,0 +1,32 @@
+EESchema Schematic File Version 5
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
+$EndDescr
+$Comp
+L tim_mosfet:SMAJ12A D?
+U 1 1 5E0C5031
+P 3600 3050
+F 0 "D?" H 3600 3265 50  0000 C CNN
+F 1 "SMAJ12A" H 3600 3174 50  0000 C CNN
+F 2 "Diode_SMD:D_SMA" H 3600 3050 50  0001 C CNN
+F 3 "https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_smaj_datasheet.pdf.pdf" H 3600 3050 50  0001 C CNN
+	1    3600 3050
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
