@@ -338,6 +338,25 @@
 <rectangle x1="0.7" y1="0.85" x2="1.6" y2="1.45" layer="31"/>
 <rectangle x1="-1.6" y1="0.85" x2="-0.7" y2="1.45" layer="31"/>
 </package>
+<package name="DO-214AC" urn="urn:adsk.eagle:footprint:43216/1" library_version="37" library_locally_modified="yes">
+<description>&lt;b&gt;SURFACE MOUNT GENERAL RECTIFIER&lt;/b&gt; JEDEC DO-214AC molded platic body&lt;p&gt;
+Method 2026&lt;br&gt;
+Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
+<wire x1="-2.15" y1="1.3" x2="2.15" y2="1.3" width="0.2032" layer="51"/>
+<wire x1="2.15" y1="1.3" x2="2.15" y2="-1.3" width="0.2032" layer="51"/>
+<wire x1="2.15" y1="-1.3" x2="-2.15" y2="-1.3" width="0.2032" layer="51"/>
+<wire x1="-2.15" y1="-1.3" x2="-2.15" y2="1.3" width="0.2032" layer="51"/>
+<wire x1="-1.035" y1="1.3" x2="1.025" y2="1.3" width="0.2032" layer="21"/>
+<wire x1="1.025" y1="-1.3" x2="-1.035" y2="-1.3" width="0.2032" layer="21"/>
+<smd name="C" x="-2.025" y="0" dx="1.8" dy="2.4" layer="1"/>
+<smd name="A" x="2.025" y="0" dx="1.8" dy="2.4" layer="1" rot="R180"/>
+<text x="-2.54" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.825" y1="-1.1" x2="-2.175" y2="1.1" layer="51"/>
+<rectangle x1="2.175" y1="-1.1" x2="2.825" y2="1.1" layer="51" rot="R180"/>
+<rectangle x1="-1.065" y1="-1.225" x2="-0.39" y2="1.225" layer="21"/>
+<rectangle x1="-1.75" y1="-1.225" x2="-1.075" y2="1.225" layer="51"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="FASTON_MALE_RA_BLADE" urn="urn:adsk.eagle:package:16188667/2" type="model" library_version="10" library_locally_modified="yes">
@@ -368,6 +387,14 @@
 <package3d name="LFPAK56E" urn="urn:adsk.eagle:package:16249927/3" type="model" library_version="34">
 <packageinstances>
 <packageinstance name="LFPAK56E"/>
+</packageinstances>
+</package3d>
+<package3d name="DO-214AC" urn="urn:adsk.eagle:package:16356227/5" type="model" library_version="37" library_locally_modified="yes">
+<description>SURFACE MOUNT GENERAL RECTIFIER JEDEC DO-214AC molded platic body
+Method 2026
+Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
+<packageinstances>
+<packageinstance name="DO-214AC"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -503,6 +530,22 @@
 <vertex x="3.302" y="-0.254"/>
 <vertex x="4.318" y="-0.254"/>
 </polygon>
+</symbol>
+<symbol name="SUPPRESSOR" urn="urn:adsk.eagle:symbol:16356226/1" library_version="37" library_locally_modified="yes">
+<wire x1="1.27" y1="-1.27" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.905" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<text x="2.794" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.794" y="-0.889" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="0" y="-2.54" visible="off" length="point" direction="pas" rot="R90"/>
+<pin name="C" x="0" y="2.54" visible="off" length="point" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -669,7 +712,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="PWR163" urn="urn:adsk.eagle:component:16220038/2" locally_modified="yes" uservalue="yes" library_version="22" library_locally_modified="yes">
+<deviceset name="PWR163" urn="urn:adsk.eagle:component:16220038/4" prefix="R" uservalue="yes" library_version="38">
 <description>PWR163 power resistor
 &lt;P&gt;&lt;a href="https://www.bourns.com/docs/Product-Datasheets/PWR163.pdf"&gt;Datasheet&lt;/a&gt;</description>
 <gates>
@@ -705,6 +748,25 @@
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:16249927/3"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SMAJ12A" library_version="37" library_locally_modified="yes">
+<gates>
+<gate name="G$1" symbol="SUPPRESSOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DO-214AC">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/5"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5310,11 +5372,16 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="J6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
 <part name="J7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
 <part name="J8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
-<part name="U$9" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PWR163" device="" package3d_urn="urn:adsk.eagle:package:16220013/7" value="2"/>
-<part name="U$10" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PWR163" device="" package3d_urn="urn:adsk.eagle:package:16220013/7" value="2"/>
 <part name="U$11" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PSMN1R0-40YSH" device="" package3d_urn="urn:adsk.eagle:package:16249927/3"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="100"/>
+<part name="U$12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<part name="R2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PWR163" device="" package3d_urn="urn:adsk.eagle:package:16220013/7" value="2"/>
+<part name="U$9" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PSMN1R0-40YSH" device="" package3d_urn="urn:adsk.eagle:package:16249927/3"/>
+<part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="100"/>
+<part name="U$10" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<part name="R5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PWR163" device="" package3d_urn="urn:adsk.eagle:package:16220013/7" value="2"/>
 </parts>
 <sheets>
 <sheet>
@@ -5401,14 +5468,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <attribute name="NAME" x="156.718" y="150.368" size="1.27" layer="95" font="vector"/>
 <attribute name="VALUE" x="155.846" y="138.034" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="U$9" gate="G$1" x="215.9" y="104.14" smashed="yes">
-<attribute name="NAME" x="212.09" y="105.6386" size="1.778" layer="95"/>
-<attribute name="VALUE" x="212.09" y="100.838" size="1.778" layer="96"/>
-</instance>
-<instance part="U$10" gate="G$1" x="121.92" y="93.98" smashed="yes" rot="R90">
-<attribute name="NAME" x="120.4214" y="90.17" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="125.222" y="90.17" size="1.778" layer="96" rot="R90"/>
-</instance>
 <instance part="U$11" gate="G$1" x="119.38" y="81.28" smashed="yes">
 <attribute name="VALUE" x="107.95" y="85.09" size="1.778" layer="96" rot="MR180"/>
 <attribute name="NAME" x="107.95" y="82.55" size="1.778" layer="95" rot="MR180"/>
@@ -5416,9 +5475,36 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="GND5" gate="1" x="121.92" y="68.58" smashed="yes">
 <attribute name="VALUE" x="119.38" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="R1" gate="G$1" x="106.68" y="91.44" smashed="yes" rot="R90">
-<attribute name="NAME" x="105.1814" y="87.63" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="109.982" y="87.63" size="1.778" layer="96" rot="R90"/>
+<instance part="R1" gate="G$1" x="106.68" y="93.98" smashed="yes" rot="R90">
+<attribute name="NAME" x="105.1814" y="90.17" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="109.982" y="90.17" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="U$12" gate="G$1" x="111.76" y="73.66" smashed="yes">
+<attribute name="NAME" x="114.554" y="75.565" size="1.778" layer="95"/>
+<attribute name="VALUE" x="114.554" y="72.771" size="1.778" layer="96"/>
+</instance>
+<instance part="R2" gate="G$1" x="121.92" y="93.98" smashed="yes" rot="R270">
+<attribute name="NAME" x="123.4186" y="97.79" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="118.618" y="97.79" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="U$9" gate="G$1" x="160.02" y="78.74" smashed="yes">
+<attribute name="VALUE" x="148.59" y="82.55" size="1.778" layer="96" rot="MR180"/>
+<attribute name="NAME" x="148.59" y="80.01" size="1.778" layer="95" rot="MR180"/>
+</instance>
+<instance part="GND6" gate="1" x="162.56" y="66.04" smashed="yes">
+<attribute name="VALUE" x="160.02" y="63.5" size="1.778" layer="96"/>
+</instance>
+<instance part="R4" gate="G$1" x="147.32" y="91.44" smashed="yes" rot="R90">
+<attribute name="NAME" x="145.8214" y="87.63" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="150.622" y="87.63" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="U$10" gate="G$1" x="152.4" y="71.12" smashed="yes">
+<attribute name="NAME" x="155.194" y="73.025" size="1.778" layer="95"/>
+<attribute name="VALUE" x="155.194" y="70.231" size="1.778" layer="96"/>
+</instance>
+<instance part="R5" gate="G$1" x="162.56" y="91.44" smashed="yes" rot="R270">
+<attribute name="NAME" x="164.0586" y="95.25" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="159.258" y="95.25" size="1.778" layer="96" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -5577,13 +5663,55 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U$11" gate="G$1" pin="S"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="121.92" y1="76.2" x2="121.92" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U$12" gate="G$1" pin="A"/>
+<wire x1="111.76" y1="71.12" x2="121.92" y2="71.12" width="0.1524" layer="91"/>
+<junction x="121.92" y="71.12"/>
+</segment>
+<segment>
+<pinref part="U$9" gate="G$1" pin="S"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="162.56" y1="73.66" x2="162.56" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$10" gate="G$1" pin="A"/>
+<wire x1="152.4" y1="68.58" x2="162.56" y2="68.58" width="0.1524" layer="91"/>
+<junction x="162.56" y="68.58"/>
 </segment>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="U$10" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="88.9" x2="121.92" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="U$11" gate="G$1" pin="D"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U$12" gate="G$1" pin="C"/>
+<wire x1="111.76" y1="76.2" x2="111.76" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U$11" gate="G$1" pin="G"/>
+<wire x1="111.76" y1="78.74" x2="116.84" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="78.74" x2="106.68" y2="78.74" width="0.1524" layer="91"/>
+<junction x="111.76" y="78.74"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="78.74" x2="106.68" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<wire x1="162.56" y1="86.36" x2="162.56" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="D"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="U$10" gate="G$1" pin="C"/>
+<wire x1="152.4" y1="73.66" x2="152.4" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="G"/>
+<wire x1="152.4" y1="76.2" x2="157.48" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="76.2" x2="147.32" y2="76.2" width="0.1524" layer="91"/>
+<junction x="152.4" y="76.2"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="147.32" y1="76.2" x2="147.32" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
