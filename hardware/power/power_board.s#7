@@ -478,8 +478,8 @@ Metric Code Size 1005</description>
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="BATT_TERM" urn="urn:adsk.eagle:symbol:16188666/1" library_version="10" library_locally_modified="yes">
-<pin name="PIN1" x="-5.08" y="0" length="middle" direction="sup"/>
+<symbol name="BATT_TERM" urn="urn:adsk.eagle:symbol:16188666/1" locally_modified="yes" library_version="45" library_locally_modified="yes">
+<pin name="PIN1" x="-5.08" y="0" length="middle"/>
 <circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
 </symbol>
 <symbol name="MOLEX_4" urn="urn:adsk.eagle:symbol:16175099/2" library_version="10" library_locally_modified="yes">
@@ -676,6 +676,14 @@ Metric Code Size 1005</description>
 <pin name="BATT_GND" x="0" y="0" visible="off" length="short" direction="sup" rot="R270"/>
 <wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.381" layer="94"/>
 <text x="-5.08" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="+24V" library_version="45" library_locally_modified="yes">
+<wire x1="1.27" y1="-0.635" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.635" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-0.635" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+24V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -947,6 +955,19 @@ Metric Code Size 1005</description>
 <deviceset name="BATT_GND" library_version="45" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BATT_GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="V_BATT" prefix="P+" library_version="45" library_locally_modified="yes">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="+24V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -5616,7 +5637,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
 <part name="J1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="FASTON_MALE_RA_BLADE" device="" package3d_urn="urn:adsk.eagle:package:16188667/3"/>
 <part name="J2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="FASTON_MALE_RA_BLADE" device="" package3d_urn="urn:adsk.eagle:package:16188667/3"/>
-<part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+24V" device=""/>
+<part name="P+1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device=""/>
 <part name="J3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MOLEX_4_RA" device="" package3d_urn="urn:adsk.eagle:package:16152611/3" value="12v"/>
 <part name="J4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MOLEX_4_RA" device="" package3d_urn="urn:adsk.eagle:package:16152611/3" value="5v"/>
 <part name="U1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PDQ30-Q24-S5-D" device="" package3d_urn="urn:adsk.eagle:package:16187995/2"/>
@@ -5864,9 +5885,9 @@ RESIST</text>
 <attribute name="NAME" x="79.7814" y="133.35" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="84.582" y="133.35" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R12" gate="G$1" x="104.14" y="157.48" smashed="yes" rot="R180" grouprefs="ISO_SOFTSTART">
-<attribute name="NAME" x="113.03" y="155.9814" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="102.87" y="155.702" size="1.778" layer="96" rot="R180"/>
+<instance part="R12" gate="G$1" x="104.14" y="157.48" smashed="yes" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="100.33" y="158.9786" size="1.778" layer="95"/>
+<attribute name="VALUE" x="102.87" y="154.178" size="1.778" layer="96"/>
 </instance>
 <instance part="U$5" gate="G$1" x="40.64" y="152.4" smashed="yes" rot="R180" grouprefs="ISO_SOFTSTART">
 <attribute name="NAME" x="50.8" y="140.97" size="1.778" layer="95" rot="R180"/>
@@ -6050,7 +6071,11 @@ RESIST</text>
 <segment>
 <pinref part="P+5" gate="1" pin="+24V"/>
 <pinref part="U$9" gate="G$1" pin="INPUT"/>
-<wire x1="17.78" y1="76.2" x2="27.94" y2="76.2" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="17.78" y1="76.2" x2="20.32" y2="76.2" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="76.2" x2="27.94" y2="76.2" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="20.32" y1="73.66" x2="20.32" y2="76.2" width="0.1524" layer="91"/>
+<junction x="20.32" y="76.2"/>
 </segment>
 <segment>
 <pinref part="P+7" gate="1" pin="+24V"/>
@@ -6397,7 +6422,7 @@ RESIST</text>
 <label x="165.1" y="162.56" size="1.778" layer="95" xref="yes" grouprefs="ISO_SOFTSTART"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="165.1" y1="157.48" x2="165.1" y2="162.56" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="99.06" y1="157.48" x2="165.1" y2="157.48" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
+<wire x1="109.22" y1="157.48" x2="165.1" y2="157.48" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="165.1" y="157.48" grouprefs="ISO_SOFTSTART"/>
 </segment>
 </net>
@@ -6424,13 +6449,13 @@ RESIST</text>
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="111.76" y1="58.42" x2="111.76" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="111.76" y1="58.42" x2="114.3" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="IC1" gate="G$1" pin="+IN"/>
-<wire x1="111.76" y1="68.58" x2="111.76" y2="71.12" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="124.46" y1="68.58" x2="111.76" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="111.76" y="68.58" grouprefs="LEG_SOFTSTART"/>
+<wire x1="114.3" y1="68.58" x2="111.76" y2="71.12" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="124.46" y1="68.58" x2="114.3" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<junction x="114.3" y="68.58" grouprefs="LEG_SOFTSTART"/>
 <wire x1="104.14" y1="66.04" x2="104.14" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="104.14" y1="68.58" x2="111.76" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="104.14" y1="68.58" x2="114.3" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="C12" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -6618,16 +6643,10 @@ RESIST</text>
 <pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="BATT_+24V1" class="1">
-<segment>
-<wire x1="20.32" y1="73.66" x2="20.32" y2="76.2" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="157.48" x2="96.52" y2="157.48" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
+<wire x1="99.06" y1="157.48" x2="96.52" y2="157.48" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <pinref part="U$3" gate="G$1" pin="D"/>
 <wire x1="96.52" y1="157.48" x2="96.52" y2="134.62" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 </segment>
@@ -6635,6 +6654,12 @@ RESIST</text>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="202,1,27.94,86.36,U$9,VTAB,,,,"/>
+<approved hash="202,1,53.34,81.28,U$9,SENSE,,,,"/>
+<approved hash="202,1,27.94,154.94,U$5,VTAB,,,,"/>
+<approved hash="202,1,53.34,149.86,U$5,SENSE,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
