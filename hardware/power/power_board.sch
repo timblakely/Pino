@@ -214,6 +214,10 @@
 </library>
 <library name="timlib" urn="urn:adsk.eagle:library:16152524">
 <packages>
+<package name="FASTON_1289-ST" urn="urn:adsk.eagle:footprint:16406408/1" locally_modified="yes" library_version="51" library_locally_modified="yes">
+<pad name="P$1" x="-2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90" thermals="no"/>
+<pad name="P$2" x="2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90" thermals="no"/>
+</package>
 <package name="FASTON_MALE_RA_BLADE" urn="urn:adsk.eagle:footprint:16188665/2" library_version="45" library_locally_modified="yes">
 <pad name="P$1" x="-2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90"/>
 <pad name="P$2" x="2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90"/>
@@ -235,7 +239,7 @@
 <wire x1="-4.825" y1="-1.43" x2="-4.825" y2="-3.1" width="0.001" layer="21"/>
 <wire x1="-4.825" y1="-3.1" x2="-3.825" y2="-4.6" width="0.001" layer="21"/>
 </package>
-<package name="PDQ30-D" urn="urn:adsk.eagle:footprint:16187993/1" library_version="11">
+<package name="PDQ30-D" urn="urn:adsk.eagle:footprint:16187993/1" locally_modified="yes" library_version="51" library_locally_modified="yes">
 <wire x1="-12.2" y1="-12.7" x2="12.2" y2="-12.7" width="0.025" layer="21"/>
 <wire x1="12.2" y1="-12.7" x2="12.7" y2="-12.2" width="0.025" layer="21" curve="90"/>
 <wire x1="12.7" y1="-12.2" x2="12.7" y2="12.2" width="0.025" layer="21"/>
@@ -250,11 +254,11 @@
 <circle x="-10.12" y="-10.16" radius="0.5" width="0.025" layer="21"/>
 <circle x="0.04" y="-10.16" radius="0.5" width="0.025" layer="21"/>
 <circle x="10.2" y="-10.16" radius="0.5" width="0.025" layer="21"/>
-<pad name="P$1" x="-2.54" y="10.16" drill="1.3" diameter="2"/>
-<pad name="P$2" x="2.54" y="10.16" drill="1.3" diameter="2"/>
-<pad name="P$3" x="-10.16" y="-10.16" drill="1.3" diameter="2"/>
+<pad name="P$1" x="-2.54" y="10.16" drill="1.3" diameter="2" thermals="no"/>
+<pad name="P$2" x="2.54" y="10.16" drill="1.3" diameter="2" thermals="no"/>
+<pad name="P$3" x="-10.16" y="-10.16" drill="1.3" diameter="2" thermals="no"/>
 <pad name="P$4" x="0" y="-10.16" drill="1.3" diameter="2"/>
-<pad name="P$5" x="10.16" y="-10.16" drill="1.3" diameter="2"/>
+<pad name="P$5" x="10.16" y="-10.16" drill="1.3" diameter="2" thermals="no"/>
 <pad name="P$6" x="10.16" y="10.16" drill="1.3" diameter="2"/>
 </package>
 <package name="XT30PW-F" urn="urn:adsk.eagle:footprint:16203165/3" library_version="17">
@@ -301,17 +305,22 @@
 <wire x1="-1.25" y1="-3" x2="-1.7" y2="-3" width="0.001" layer="21"/>
 <wire x1="-1.7" y1="-3" x2="-1.7" y2="-5" width="0.001" layer="21"/>
 </package>
-<package name="PWR163" urn="urn:adsk.eagle:footprint:16220012/4" library_version="22" library_locally_modified="yes">
-<smd name="P$1" x="-2.54" y="-1.905" dx="1.651" dy="3.81" layer="1"/>
-<smd name="P$2" x="2.54" y="-1.905" dx="1.651" dy="3.81" layer="1"/>
+<package name="PWR163" urn="urn:adsk.eagle:footprint:16220012/4" locally_modified="yes" library_version="51" library_locally_modified="yes">
+<description>&lt;a href="https://www.bourns.com/docs/Product-Datasheets/PWR163.pdf"&gt;Datasheet&lt;/a&gt;</description>
+<smd name="P$1" x="-2.54" y="-1.905" dx="1.651" dy="3.81" layer="1" thermals="no"/>
+<smd name="P$2" x="2.54" y="-1.905" dx="1.651" dy="3.81" layer="1" thermals="no"/>
 <smd name="TAB" x="0" y="6.0325" dx="7.874" dy="8.509" layer="1"/>
+<wire x1="-4.065" y1="9.02" x2="-4.065" y2="1.78" width="0.127" layer="21"/>
+<wire x1="-4.065" y1="1.78" x2="4.065" y2="1.78" width="0.127" layer="21"/>
+<wire x1="4.065" y1="1.78" x2="4.065" y2="9.02" width="0.127" layer="21"/>
+<wire x1="4.065" y1="9.02" x2="-4.065" y2="9.02" width="0.127" layer="21"/>
 </package>
-<package name="LFPAK56E" urn="urn:adsk.eagle:footprint:16249926/2" library_version="34">
+<package name="LFPAK56E" urn="urn:adsk.eagle:footprint:16249926/2" locally_modified="yes" library_version="51" library_locally_modified="yes">
 <smd name="1" x="-1.905" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
 <smd name="2" x="-0.635" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
 <smd name="3" x="0.635" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
 <smd name="4" x="1.905" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
-<smd name="5" x="0" y="2.032" dx="0.7" dy="1.15" layer="1" rot="R90" stop="no" thermals="no" cream="no"/>
+<smd name="5" x="0" y="2.032" dx="2" dy="2" layer="1" rot="R90" stop="no" thermals="no" cream="no"/>
 <rectangle x1="-2.205" y1="-3.25" x2="-1.605" y2="-2.2" layer="31"/>
 <rectangle x1="-2.33" y1="-3.375" x2="-1.48" y2="-2.075" layer="29"/>
 <rectangle x1="-0.935" y1="-3.25" x2="-0.335" y2="-2.2" layer="31"/>
@@ -320,8 +329,6 @@
 <rectangle x1="0.21" y1="-3.375" x2="1.06" y2="-2.075" layer="29"/>
 <rectangle x1="1.605" y1="-3.25" x2="2.205" y2="-2.2" layer="31"/>
 <rectangle x1="1.48" y1="-3.375" x2="2.33" y2="-2.075" layer="29"/>
-<rectangle x1="-2.1" y1="-1.1" x2="2.1" y2="3.5" layer="1"/>
-<rectangle x1="-2.35" y1="2" x2="2.35" y2="3.5" layer="1"/>
 <rectangle x1="-2.425" y1="1.925" x2="2.425" y2="3.575" layer="29"/>
 <rectangle x1="-2.175" y1="-1.175" x2="2.175" y2="1.925" layer="29"/>
 <rectangle x1="-2.175" y1="2.55" x2="-1.575" y2="3.4" layer="31"/>
@@ -337,6 +344,20 @@
 <rectangle x1="-0.45" y1="0.85" x2="0.45" y2="1.45" layer="31"/>
 <rectangle x1="0.7" y1="0.85" x2="1.6" y2="1.45" layer="31"/>
 <rectangle x1="-1.6" y1="0.85" x2="-0.7" y2="1.45" layer="31"/>
+<wire x1="-2.6" y1="-3.05" x2="-2.6" y2="3.05" width="0.1" layer="21"/>
+<wire x1="2.6" y1="-3.05" x2="2.6" y2="3.05" width="0.1" layer="21"/>
+<wire x1="-2.6" y1="3.05" x2="2.6" y2="3.05" width="0.1" layer="21"/>
+<wire x1="2.6" y1="-3.05" x2="-2.6" y2="-3.05" width="0.1" layer="21"/>
+<polygon width="0.1" layer="1">
+<vertex x="-2.05" y="-1.05"/>
+<vertex x="2.05" y="-1.05"/>
+<vertex x="2.05" y="2.05"/>
+<vertex x="2.3" y="2.05"/>
+<vertex x="2.3" y="3.45"/>
+<vertex x="-2.3" y="3.45"/>
+<vertex x="-2.3" y="2.05"/>
+<vertex x="-2.05" y="2.05"/>
+</polygon>
 </package>
 <package name="DO-214AC" urn="urn:adsk.eagle:footprint:43216/1" library_version="37" library_locally_modified="yes">
 <description>&lt;b&gt;SURFACE MOUNT GENERAL RECTIFIER&lt;/b&gt; JEDEC DO-214AC molded platic body&lt;p&gt;
@@ -446,6 +467,11 @@ Metric Code Size 1005</description>
 </package>
 </packages>
 <packages3d>
+<package3d name="FASTON_1289-ST" urn="urn:adsk.eagle:package:16406409/2" type="model" library_version="51" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="FASTON_1289-ST"/>
+</packageinstances>
+</package3d>
 <package3d name="FASTON_MALE_RA_BLADE" urn="urn:adsk.eagle:package:16188667/3" type="model" library_version="45" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="FASTON_MALE_RA_BLADE"/>
@@ -456,7 +482,7 @@ Metric Code Size 1005</description>
 <packageinstance name="MOLEX_4_RA"/>
 </packageinstances>
 </package3d>
-<package3d name="PDQ30-D" urn="urn:adsk.eagle:package:16187995/2" type="model" library_version="11">
+<package3d name="PDQ30-D" urn="urn:adsk.eagle:package:16187995/2" type="model" library_version="51" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="PDQ30-D"/>
 </packageinstances>
@@ -466,12 +492,12 @@ Metric Code Size 1005</description>
 <packageinstance name="XT30PW-F"/>
 </packageinstances>
 </package3d>
-<package3d name="PWR163" urn="urn:adsk.eagle:package:16220013/7" type="model" library_version="22" library_locally_modified="yes">
+<package3d name="PWR163" urn="urn:adsk.eagle:package:16220013/7" type="model" library_version="51" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="PWR163"/>
 </packageinstances>
 </package3d>
-<package3d name="LFPAK56E" urn="urn:adsk.eagle:package:16249927/3" type="model" library_version="34">
+<package3d name="LFPAK56E" urn="urn:adsk.eagle:package:16249927/3" type="model" library_version="51" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="LFPAK56E"/>
 </packageinstances>
@@ -740,17 +766,28 @@ Metric Code Size 1005</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FASTON_MALE_RA_BLADE" urn="urn:adsk.eagle:component:16188674/3" prefix="J" library_version="50" library_locally_modified="yes">
+<deviceset name="FASTON" urn="urn:adsk.eagle:component:16188674/4" locally_modified="yes" prefix="J" library_version="51" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BATT_TERM" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="FASTON_MALE_RA_BLADE">
+<device name="RA_BLADE" package="FASTON_MALE_RA_BLADE">
 <connects>
 <connect gate="G$1" pin="PIN1" pad="P$1 P$2"/>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:16188667/3"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="1289_ST" package="FASTON_1289-ST">
+<connects>
+<connect gate="G$1" pin="PIN1" pad="P$1 P$2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16406409/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -784,7 +821,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PDQ30-Q24-S5-D" urn="urn:adsk.eagle:component:16188019/4" prefix="U" library_version="50" library_locally_modified="yes">
+<deviceset name="PDQ30-Q24-S5-D" urn="urn:adsk.eagle:component:16188019/4" prefix="U" library_version="51" library_locally_modified="yes">
 <description>PDQ30-Q24-S5-D Isolated 5v DC-DC  supply
 
 &lt;p&gt;&lt;a href="https://www.cui.com/product/resource/pdq30-d.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -810,7 +847,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PDQ30-Q24-S12-D" urn="urn:adsk.eagle:component:16188018/5" prefix="U" library_version="50" library_locally_modified="yes">
+<deviceset name="PDQ30-Q24-S12-D" urn="urn:adsk.eagle:component:16188018/5" prefix="U" library_version="51" library_locally_modified="yes">
 <description>PDQ30-Q24-S12-D Isolated 12v DC-DC  supply
 
 &lt;p&gt;&lt;a href="https://www.cui.com/product/resource/pdq30-d.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -855,7 +892,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PWR163" urn="urn:adsk.eagle:component:16220038/4" prefix="R" uservalue="yes" library_version="38">
+<deviceset name="PWR163" urn="urn:adsk.eagle:component:16220038/4" prefix="R" uservalue="yes" library_version="51" library_locally_modified="yes">
 <description>PWR163 power resistor
 &lt;P&gt;&lt;a href="https://www.bourns.com/docs/Product-Datasheets/PWR163.pdf"&gt;Datasheet&lt;/a&gt;</description>
 <gates>
@@ -876,7 +913,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PSMN1R0-40YSH" urn="urn:adsk.eagle:component:16250264/2" library_version="34">
+<deviceset name="PSMN1R0-40YSH" urn="urn:adsk.eagle:component:16250264/2" library_version="51" library_locally_modified="yes">
 <description>N-channel 40V 1mOhm 290A MOSFET
 &lt;P&gt;&lt;a href="https://assets.nexperia.com/documents/data-sheet/PSMN1R0-40YSH.pdf"&gt;Datasheet&lt;/a&gt;</description>
 <gates>
@@ -967,7 +1004,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="C_CERAMIC" prefix="C" library_version="50" library_locally_modified="yes">
+<deviceset name="C_CERAMIC" urn="urn:adsk.eagle:component:16406410/1" prefix="C" library_version="51" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="C_CERAMIC" x="0" y="0"/>
 </gates>
@@ -1042,7 +1079,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="2-PIN" urn="urn:adsk.eagle:component:16399531/1" locally_modified="yes" library_version="50" library_locally_modified="yes">
+<deviceset name="2-PIN" urn="urn:adsk.eagle:component:16399531/2" library_version="51" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="2-PIN-CON" x="-5.08" y="0"/>
 </gates>
@@ -5650,9 +5687,13 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0" drill="0.3">
 </class>
-<class number="1" name="High current" width="0.762" drill="0">
+<class number="1" name="power plane" width="0" drill="0">
+<clearance class="1" value="0.5"/>
+</class>
+<class number="2" name="power via" width="0" drill="0.25">
+<clearance class="2" value="0.0254"/>
 </class>
 </classes>
 <groups>
@@ -5665,8 +5706,8 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 </groups>
 <parts>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
-<part name="J1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="FASTON_MALE_RA_BLADE" device="" package3d_urn="urn:adsk.eagle:package:16188667/3"/>
-<part name="J2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="FASTON_MALE_RA_BLADE" device="" package3d_urn="urn:adsk.eagle:package:16188667/3"/>
+<part name="J1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="FASTON" device="1289_ST" package3d_urn="urn:adsk.eagle:package:16406409/2"/>
+<part name="J2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="FASTON" device="1289_ST" package3d_urn="urn:adsk.eagle:package:16406409/2"/>
 <part name="P+1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device=""/>
 <part name="J3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MOLEX_4_RA" device="" package3d_urn="urn:adsk.eagle:package:16152611/3" value="12v"/>
 <part name="J4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MOLEX_4_RA" device="" package3d_urn="urn:adsk.eagle:package:16152611/3" value="5v"/>
@@ -5813,9 +5854,9 @@ RESIST</text>
 <attribute name="NAME" x="82.3214" y="59.69" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="87.122" y="59.69" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R2" gate="G$1" x="106.68" y="83.82" smashed="yes" rot="R180" grouprefs="LEG_SOFTSTART">
-<attribute name="NAME" x="105.41" y="87.4014" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="105.41" y="82.042" size="1.778" layer="96" rot="R180"/>
+<instance part="R2" gate="G$1" x="106.68" y="83.82" smashed="yes" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="107.95" y="80.2386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="107.95" y="85.598" size="1.778" layer="96"/>
 </instance>
 <instance part="U$9" gate="G$1" x="45.72" y="78.74" smashed="yes" rot="R180" grouprefs="LEG_SOFTSTART">
 <attribute name="NAME" x="55.88" y="67.31" size="1.778" layer="95" rot="R180"/>
@@ -6324,7 +6365,7 @@ RESIST</text>
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="D"/>
-<wire x1="111.76" y1="83.82" x2="170.18" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="101.6" y1="83.82" x2="170.18" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <wire x1="170.18" y1="83.82" x2="170.18" y2="73.66" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$2" gate="G$1" pin="D"/>
 <wire x1="180.34" y1="58.42" x2="180.34" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6334,7 +6375,7 @@ RESIST</text>
 <label x="170.18" y="88.9" size="1.778" layer="95" xref="yes" grouprefs="LEG_SOFTSTART"/>
 </segment>
 </net>
-<net name="ISO_GND" class="0">
+<net name="ISO_GND" class="1">
 <segment>
 <pinref part="U2" gate="G$1" pin="-VIN"/>
 <wire x1="205.74" y1="182.88" x2="200.66" y2="182.88" width="0.1524" layer="91" grouprefs="ISO_POWER"/>
@@ -6351,8 +6392,8 @@ RESIST</text>
 <label x="170.18" y="165.1" size="1.778" layer="95" xref="yes" grouprefs="ISO_SOFTSTART"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="170.18" y1="160.02" x2="170.18" y2="165.1" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="114.3" y1="160.02" x2="170.18" y2="160.02" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<junction x="170.18" y="160.02" grouprefs="ISO_SOFTSTART"/>
+<wire x1="114.3" y1="160.02" x2="170.18" y2="160.02" width="0.1524" layer="91"/>
+<junction x="170.18" y="160.02"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -6360,7 +6401,7 @@ RESIST</text>
 <pinref part="U$11" gate="G$1" pin="D"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="99.06" y1="60.96" x2="99.06" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="99.06" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="99.06" y1="83.82" x2="111.76" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -6560,15 +6601,7 @@ RESIST</text>
 <pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="160.02" x2="101.6" y2="160.02" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="U$3" gate="G$1" pin="D"/>
-<wire x1="101.6" y1="160.02" x2="101.6" y2="137.16" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-</segment>
-</net>
-<net name="+24V" class="1">
+<net name="+24V" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="+VIN"/>
 <wire x1="198.12" y1="195.58" x2="198.12" y2="190.5" width="0.1524" layer="91" grouprefs="ISO_POWER"/>
@@ -6678,7 +6711,7 @@ RESIST</text>
 <wire x1="241.3" y1="175.26" x2="248.92" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$18" class="1">
+<net name="N$18" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="INPUT"/>
 <wire x1="25.4" y1="147.32" x2="33.02" y2="147.32" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
@@ -6690,7 +6723,7 @@ RESIST</text>
 <junction x="25.4" y="147.32" grouprefs="ISO_SOFTSTART"/>
 </segment>
 </net>
-<net name="N$19" class="1">
+<net name="N$19" class="0">
 <segment>
 <pinref part="U$9" gate="G$1" pin="INPUT"/>
 <pinref part="C10" gate="G$1" pin="1"/>
@@ -6700,6 +6733,14 @@ RESIST</text>
 <junction x="25.4" y="71.12" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$27" gate="G$1" pin="P$2"/>
 <wire x1="20.32" y1="71.12" x2="20.32" y2="76.2" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+</segment>
+</net>
+<net name="N$11" class="1">
+<segment>
+<pinref part="U$3" gate="G$1" pin="D"/>
+<wire x1="101.6" y1="137.16" x2="101.6" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="R12" gate="G$1" pin="1"/>
+<wire x1="101.6" y1="160.02" x2="104.14" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -6718,16 +6759,16 @@ RESIST</text>
 <approved hash="104,1,205.74,152.4,U1,-VIN,ISO_GND,,,"/>
 <approved hash="104,1,205.74,190.5,U2,+VIN,+24V,,,"/>
 <approved hash="104,1,205.74,182.88,U2,-VIN,ISO_GND,,,"/>
-<approved hash="202,1,27.94,86.36,U$9,VTAB,,,,"/>
-<approved hash="202,1,53.34,81.28,U$9,SENSE,,,,"/>
-<approved hash="104,1,53.34,91.44,U$9,GND,BATT_GND,,,"/>
-<approved hash="104,1,132.08,73.66,IC1,V+,LEG_12V,,,"/>
-<approved hash="104,1,132.08,58.42,IC1,V-,BATT_GND,,,"/>
-<approved hash="202,1,27.94,154.94,U$5,VTAB,,,,"/>
-<approved hash="202,1,53.34,149.86,U$5,SENSE,,,,"/>
-<approved hash="104,1,53.34,160.02,U$5,GND,BATT_GND,,,"/>
-<approved hash="104,1,134.62,142.24,IC2,V+,ISO_12V,,,"/>
-<approved hash="104,1,134.62,127,IC2,V-,BATT_GND,,,"/>
+<approved hash="202,1,33.02,81.28,U$9,VTAB,,,,"/>
+<approved hash="202,1,58.42,76.2,U$9,SENSE,,,,"/>
+<approved hash="104,1,58.42,86.36,U$9,GND,BATT_GND,,,"/>
+<approved hash="104,1,137.16,68.58,IC1,V+,LEG_12V,,,"/>
+<approved hash="104,1,137.16,53.34,IC1,V-,BATT_GND,,,"/>
+<approved hash="202,1,33.02,157.48,U$5,VTAB,,,,"/>
+<approved hash="202,1,58.42,152.4,U$5,SENSE,,,,"/>
+<approved hash="104,1,58.42,162.56,U$5,GND,BATT_GND,,,"/>
+<approved hash="104,1,139.7,144.78,IC2,V+,ISO_12V,,,"/>
+<approved hash="104,1,139.7,129.54,IC2,V-,BATT_GND,,,"/>
 <approved hash="113,1,139.596,107.846,FRAME1,,,,,"/>
 </errors>
 </schematic>
