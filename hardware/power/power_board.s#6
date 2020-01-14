@@ -214,9 +214,9 @@
 </library>
 <library name="timlib" urn="urn:adsk.eagle:library:16152524">
 <packages>
-<package name="FASTON_1289-ST" urn="urn:adsk.eagle:footprint:16406408/1" library_version="51" library_locally_modified="yes">
-<pad name="P$1" x="-2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90"/>
-<pad name="P$2" x="2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90"/>
+<package name="FASTON_1289-ST" urn="urn:adsk.eagle:footprint:16406408/1" locally_modified="yes" library_version="51" library_locally_modified="yes">
+<pad name="P$1" x="-2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90" thermals="no"/>
+<pad name="P$2" x="2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90" thermals="no"/>
 </package>
 <package name="FASTON_MALE_RA_BLADE" urn="urn:adsk.eagle:footprint:16188665/2" library_version="45" library_locally_modified="yes">
 <pad name="P$1" x="-2.54" y="0" locked="yes" drill="1.32" diameter="2" shape="long" rot="R90"/>
@@ -239,7 +239,7 @@
 <wire x1="-4.825" y1="-1.43" x2="-4.825" y2="-3.1" width="0.001" layer="21"/>
 <wire x1="-4.825" y1="-3.1" x2="-3.825" y2="-4.6" width="0.001" layer="21"/>
 </package>
-<package name="PDQ30-D" urn="urn:adsk.eagle:footprint:16187993/1" library_version="11">
+<package name="PDQ30-D" urn="urn:adsk.eagle:footprint:16187993/1" locally_modified="yes" library_version="51" library_locally_modified="yes">
 <wire x1="-12.2" y1="-12.7" x2="12.2" y2="-12.7" width="0.025" layer="21"/>
 <wire x1="12.2" y1="-12.7" x2="12.7" y2="-12.2" width="0.025" layer="21" curve="90"/>
 <wire x1="12.7" y1="-12.2" x2="12.7" y2="12.2" width="0.025" layer="21"/>
@@ -254,11 +254,11 @@
 <circle x="-10.12" y="-10.16" radius="0.5" width="0.025" layer="21"/>
 <circle x="0.04" y="-10.16" radius="0.5" width="0.025" layer="21"/>
 <circle x="10.2" y="-10.16" radius="0.5" width="0.025" layer="21"/>
-<pad name="P$1" x="-2.54" y="10.16" drill="1.3" diameter="2"/>
-<pad name="P$2" x="2.54" y="10.16" drill="1.3" diameter="2"/>
-<pad name="P$3" x="-10.16" y="-10.16" drill="1.3" diameter="2"/>
+<pad name="P$1" x="-2.54" y="10.16" drill="1.3" diameter="2" thermals="no"/>
+<pad name="P$2" x="2.54" y="10.16" drill="1.3" diameter="2" thermals="no"/>
+<pad name="P$3" x="-10.16" y="-10.16" drill="1.3" diameter="2" thermals="no"/>
 <pad name="P$4" x="0" y="-10.16" drill="1.3" diameter="2"/>
-<pad name="P$5" x="10.16" y="-10.16" drill="1.3" diameter="2"/>
+<pad name="P$5" x="10.16" y="-10.16" drill="1.3" diameter="2" thermals="no"/>
 <pad name="P$6" x="10.16" y="10.16" drill="1.3" diameter="2"/>
 </package>
 <package name="XT30PW-F" urn="urn:adsk.eagle:footprint:16203165/3" library_version="17">
@@ -307,8 +307,8 @@
 </package>
 <package name="PWR163" urn="urn:adsk.eagle:footprint:16220012/4" locally_modified="yes" library_version="51" library_locally_modified="yes">
 <description>&lt;a href="https://www.bourns.com/docs/Product-Datasheets/PWR163.pdf"&gt;Datasheet&lt;/a&gt;</description>
-<smd name="P$1" x="-2.54" y="-1.905" dx="1.651" dy="3.81" layer="1"/>
-<smd name="P$2" x="2.54" y="-1.905" dx="1.651" dy="3.81" layer="1"/>
+<smd name="P$1" x="-2.54" y="-1.905" dx="1.651" dy="3.81" layer="1" thermals="no"/>
+<smd name="P$2" x="2.54" y="-1.905" dx="1.651" dy="3.81" layer="1" thermals="no"/>
 <smd name="TAB" x="0" y="6.0325" dx="7.874" dy="8.509" layer="1"/>
 <wire x1="-4.065" y1="9.02" x2="-4.065" y2="1.78" width="0.127" layer="21"/>
 <wire x1="-4.065" y1="1.78" x2="4.065" y2="1.78" width="0.127" layer="21"/>
@@ -320,7 +320,7 @@
 <smd name="2" x="-0.635" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
 <smd name="3" x="0.635" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
 <smd name="4" x="1.905" y="-2.725" dx="0.7" dy="1.15" layer="1" stop="no" thermals="no" cream="no"/>
-<smd name="5" x="0" y="0.762" dx="0.7" dy="1.15" layer="1" rot="R90" stop="no" thermals="no" cream="no"/>
+<smd name="5" x="0" y="2.032" dx="2" dy="2" layer="1" rot="R90" stop="no" thermals="no" cream="no"/>
 <rectangle x1="-2.205" y1="-3.25" x2="-1.605" y2="-2.2" layer="31"/>
 <rectangle x1="-2.33" y1="-3.375" x2="-1.48" y2="-2.075" layer="29"/>
 <rectangle x1="-0.935" y1="-3.25" x2="-0.335" y2="-2.2" layer="31"/>
@@ -329,8 +329,8 @@
 <rectangle x1="0.21" y1="-3.375" x2="1.06" y2="-2.075" layer="29"/>
 <rectangle x1="1.605" y1="-3.25" x2="2.205" y2="-2.2" layer="31"/>
 <rectangle x1="1.48" y1="-3.375" x2="2.33" y2="-2.075" layer="29"/>
-<rectangle x1="-2.1" y1="-1.1" x2="2.1" y2="3.5" layer="1"/>
-<rectangle x1="-2.35" y1="2" x2="2.35" y2="3.5" layer="1"/>
+<rectangle x1="-2.425" y1="1.925" x2="2.425" y2="3.575" layer="29"/>
+<rectangle x1="-2.175" y1="-1.175" x2="2.175" y2="1.925" layer="29"/>
 <rectangle x1="-2.175" y1="2.55" x2="-1.575" y2="3.4" layer="31"/>
 <rectangle x1="-0.925" y1="2.55" x2="-0.325" y2="3.4" layer="31"/>
 <rectangle x1="0.325" y1="2.55" x2="0.925" y2="3.4" layer="31"/>
@@ -348,6 +348,16 @@
 <wire x1="2.6" y1="-3.05" x2="2.6" y2="3.05" width="0.1" layer="21"/>
 <wire x1="-2.6" y1="3.05" x2="2.6" y2="3.05" width="0.1" layer="21"/>
 <wire x1="2.6" y1="-3.05" x2="-2.6" y2="-3.05" width="0.1" layer="21"/>
+<polygon width="0.1" layer="1">
+<vertex x="-2.05" y="-1.05"/>
+<vertex x="2.05" y="-1.05"/>
+<vertex x="2.05" y="2.05"/>
+<vertex x="2.3" y="2.05"/>
+<vertex x="2.3" y="3.45"/>
+<vertex x="-2.3" y="3.45"/>
+<vertex x="-2.3" y="2.05"/>
+<vertex x="-2.05" y="2.05"/>
+</polygon>
 </package>
 <package name="DO-214AC" urn="urn:adsk.eagle:footprint:43216/1" library_version="37" library_locally_modified="yes">
 <description>&lt;b&gt;SURFACE MOUNT GENERAL RECTIFIER&lt;/b&gt; JEDEC DO-214AC molded platic body&lt;p&gt;
@@ -472,7 +482,7 @@ Metric Code Size 1005</description>
 <packageinstance name="MOLEX_4_RA"/>
 </packageinstances>
 </package3d>
-<package3d name="PDQ30-D" urn="urn:adsk.eagle:package:16187995/2" type="model" library_version="11">
+<package3d name="PDQ30-D" urn="urn:adsk.eagle:package:16187995/2" type="model" library_version="51" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="PDQ30-D"/>
 </packageinstances>
@@ -811,7 +821,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PDQ30-Q24-S5-D" urn="urn:adsk.eagle:component:16188019/4" prefix="U" library_version="50" library_locally_modified="yes">
+<deviceset name="PDQ30-Q24-S5-D" urn="urn:adsk.eagle:component:16188019/4" prefix="U" library_version="51" library_locally_modified="yes">
 <description>PDQ30-Q24-S5-D Isolated 5v DC-DC  supply
 
 &lt;p&gt;&lt;a href="https://www.cui.com/product/resource/pdq30-d.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -837,7 +847,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PDQ30-Q24-S12-D" urn="urn:adsk.eagle:component:16188018/5" prefix="U" library_version="50" library_locally_modified="yes">
+<deviceset name="PDQ30-Q24-S12-D" urn="urn:adsk.eagle:component:16188018/5" prefix="U" library_version="51" library_locally_modified="yes">
 <description>PDQ30-Q24-S12-D Isolated 12v DC-DC  supply
 
 &lt;p&gt;&lt;a href="https://www.cui.com/product/resource/pdq30-d.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -5677,7 +5687,12 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0" drill="0.3">
+</class>
+<class number="1" name="power plane" width="0" drill="0">
+</class>
+<class number="2" name="power via" width="0" drill="0.25">
+<clearance class="2" value="0.0254"/>
 </class>
 </classes>
 <groups>
@@ -6347,9 +6362,9 @@ RESIST</text>
 <label x="162.56" y="185.42" size="1.778" layer="95" xref="yes" grouprefs="BULK_CAP"/>
 </segment>
 <segment>
-<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="D"/>
-<wire x1="111.76" y1="83.82" x2="170.18" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="101.6" y1="83.82" x2="170.18" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <wire x1="170.18" y1="83.82" x2="170.18" y2="73.66" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$2" gate="G$1" pin="D"/>
 <wire x1="180.34" y1="58.42" x2="180.34" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6359,7 +6374,7 @@ RESIST</text>
 <label x="170.18" y="88.9" size="1.778" layer="95" xref="yes" grouprefs="LEG_SOFTSTART"/>
 </segment>
 </net>
-<net name="ISO_GND" class="0">
+<net name="ISO_GND" class="1">
 <segment>
 <pinref part="U2" gate="G$1" pin="-VIN"/>
 <wire x1="205.74" y1="182.88" x2="200.66" y2="182.88" width="0.1524" layer="91" grouprefs="ISO_POWER"/>
@@ -6383,9 +6398,9 @@ RESIST</text>
 <net name="N$1" class="0">
 <segment>
 <pinref part="U$11" gate="G$1" pin="D"/>
-<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="99.06" y1="60.96" x2="99.06" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="99.06" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="99.06" y1="83.82" x2="111.76" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -6719,7 +6734,7 @@ RESIST</text>
 <wire x1="20.32" y1="71.12" x2="20.32" y2="76.2" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="N$11" class="1">
 <segment>
 <pinref part="U$3" gate="G$1" pin="D"/>
 <wire x1="101.6" y1="137.16" x2="101.6" y2="160.02" width="0.1524" layer="91"/>
