@@ -261,7 +261,7 @@
 <pad name="P$5" x="10.16" y="-10.16" drill="1.3" diameter="2" thermals="no"/>
 <pad name="P$6" x="10.16" y="10.16" drill="1.3" diameter="2"/>
 </package>
-<package name="XT30PW-F" urn="urn:adsk.eagle:footprint:16203165/3" locally_modified="yes" library_version="52" library_locally_modified="yes">
+<package name="XT30PW-F" urn="urn:adsk.eagle:footprint:16203165/4" library_version="54">
 <pad name="P$1" x="-2.5" y="-5" drill="1.7" thermals="no"/>
 <pad name="P$2" x="2.5" y="-5" drill="1.7" thermals="no"/>
 <pad name="P$3" x="5.5" y="0" drill="1"/>
@@ -359,7 +359,7 @@
 <vertex x="-2.05" y="2.05"/>
 </polygon>
 </package>
-<package name="DO-214AC" urn="urn:adsk.eagle:footprint:43216/1" locally_modified="yes" library_version="52" library_locally_modified="yes">
+<package name="DO-214AC" urn="urn:adsk.eagle:footprint:16445199/1" library_version="54">
 <description>&lt;b&gt;SURFACE MOUNT GENERAL RECTIFIER&lt;/b&gt; JEDEC DO-214AC molded platic body&lt;p&gt;
 Method 2026&lt;br&gt;
 Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
@@ -499,7 +499,7 @@ Metric Code Size 1005</description>
 <packageinstance name="PDQ30-D"/>
 </packageinstances>
 </package3d>
-<package3d name="XT30PW-F" urn="urn:adsk.eagle:package:16203166/6" type="model" library_version="52" library_locally_modified="yes">
+<package3d name="XT30PW-F" urn="urn:adsk.eagle:package:16203166/7" type="model" library_version="54">
 <packageinstances>
 <packageinstance name="XT30PW-F"/>
 </packageinstances>
@@ -515,9 +515,9 @@ Metric Code Size 1005</description>
 <packageinstance name="LFPAK56E"/>
 </packageinstances>
 </package3d>
-<package3d name="DO-214AC" urn="urn:adsk.eagle:package:16356227/5" type="model" library_version="52" library_locally_modified="yes">
-<description>SURFACE MOUNT GENERAL RECTIFIER JEDEC DO-214AC molded platic body
-Method 2026
+<package3d name="DO-214AC" urn="urn:adsk.eagle:package:16356227/6" type="model" library_version="54">
+<description>&lt;b&gt;SURFACE MOUNT GENERAL RECTIFIER&lt;/b&gt; JEDEC DO-214AC molded platic body&lt;p&gt;
+Method 2026&lt;br&gt;
 Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <packageinstances>
 <packageinstance name="DO-214AC"/>
@@ -887,7 +887,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="XT30PW-F" urn="urn:adsk.eagle:component:16213772/5" prefix="J" library_version="52" library_locally_modified="yes">
+<deviceset name="XT30PW-F" urn="urn:adsk.eagle:component:16213772/6" prefix="J" library_version="54">
 <gates>
 <gate name="G$1" symbol="XT30PW" x="0" y="0"/>
 </gates>
@@ -898,7 +898,7 @@ Metric Code Size 1005</description>
 <connect gate="G$1" pin="V-" pad="P$1"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16203166/6"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16203166/7"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -949,7 +949,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SMAJ12A" urn="urn:adsk.eagle:component:16356378/2" prefix="D" library_version="52" library_locally_modified="yes">
+<deviceset name="SMAJ12A" urn="urn:adsk.eagle:component:16356378/3" prefix="D" library_version="54">
 <description>12V Schottkey
 
 &lt;P&gt;&lt;a href="https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_smaj_datasheet.pdf.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -963,7 +963,7 @@ Metric Code Size 1005</description>
 <connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/6"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1018,7 +1018,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="C_CERAMIC" urn="urn:adsk.eagle:component:16406410/1" locally_modified="yes" prefix="C" uservalue="yes" library_version="52" library_locally_modified="yes">
+<deviceset name="C_CERAMIC" urn="urn:adsk.eagle:component:16406410/2" prefix="C" uservalue="yes" library_version="54">
 <gates>
 <gate name="G$1" symbol="C_CERAMIC" x="0" y="0"/>
 </gates>
@@ -1105,7 +1105,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SK510A-LTP" prefix="D" library_version="52" library_locally_modified="yes">
+<deviceset name="SK510A-LTP" urn="urn:adsk.eagle:component:16445201/1" prefix="D" library_version="54">
 <gates>
 <gate name="G$1" symbol="SCHOTTKY" x="0" y="0"/>
 </gates>
@@ -1116,7 +1116,7 @@ Metric Code Size 1005</description>
 <connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/6"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5739,10 +5739,10 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="J4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MOLEX_4_RA" device="" package3d_urn="urn:adsk.eagle:package:16152611/3" value="5v"/>
 <part name="U1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PDQ30-Q24-S5-D" device="" package3d_urn="urn:adsk.eagle:package:16187995/3"/>
 <part name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PDQ30-Q24-S12-D" device="" package3d_urn="urn:adsk.eagle:package:16187995/3"/>
-<part name="J5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
-<part name="J6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
-<part name="J7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
-<part name="J8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/6"/>
+<part name="J5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/7"/>
+<part name="J6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/7"/>
+<part name="J7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/7"/>
+<part name="J8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="XT30PW-F" device="" package3d_urn="urn:adsk.eagle:package:16203166/7"/>
 <part name="U$11" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PSMN1R0-40YSH" device="" package3d_urn="urn:adsk.eagle:package:16249927/4"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="4.7k"/>
 <part name="R2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PWR163" device="" package3d_urn="urn:adsk.eagle:package:16220013/8" value="2"/>
@@ -5780,11 +5780,11 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="4.7k"/>
 <part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="0.5"/>
 <part name="R21" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="0.5"/>
-<part name="D1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
-<part name="D2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
-<part name="D3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
-<part name="D4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
-<part name="D5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<part name="D1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
+<part name="D2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
+<part name="D3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
+<part name="D4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
+<part name="D5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMAJ12A" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
 <part name="C8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2uF"/>
 <part name="C9" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2uF"/>
 <part name="C10" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2uF"/>
@@ -5826,8 +5826,8 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="C21" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C22" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C23" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
-<part name="D6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SK510A-LTP" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
-<part name="D7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SK510A-LTP" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<part name="D6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SK510A-LTP" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
+<part name="D7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SK510A-LTP" device="" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
 </parts>
 <sheets>
 <sheet>
@@ -5867,21 +5867,21 @@ RESIST</text>
 <attribute name="NAME" x="210.82" y="195.834" size="1.778" layer="95"/>
 <attribute name="VALUE" x="210.82" y="167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="J5" gate="G$1" x="246.38" y="96.52" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="102.108" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="89.774" size="1.27" layer="96" font="vector"/>
+<instance part="J5" gate="G$1" x="264.16" y="96.52" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="102.108" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="89.774" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J6" gate="G$1" x="246.38" y="81.28" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="86.868" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="74.534" size="1.27" layer="96" font="vector"/>
+<instance part="J6" gate="G$1" x="264.16" y="81.28" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="86.868" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="74.534" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J7" gate="G$1" x="246.38" y="66.04" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="71.628" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="59.294" size="1.27" layer="96" font="vector"/>
+<instance part="J7" gate="G$1" x="264.16" y="66.04" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="71.628" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="59.294" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J8" gate="G$1" x="246.38" y="50.8" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="56.388" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="44.054" size="1.27" layer="96" font="vector"/>
+<instance part="J8" gate="G$1" x="264.16" y="50.8" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="56.388" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="44.054" size="1.27" layer="96" font="vector"/>
 </instance>
 <instance part="U$11" gate="G$1" x="96.52" y="55.88" smashed="yes" grouprefs="LEG_SOFTSTART">
 <attribute name="VALUE" x="85.09" y="59.69" size="1.778" layer="96" rot="MR180"/>
@@ -6129,8 +6129,8 @@ RESIST</text>
 <instance part="P+2" gate="1" x="198.12" y="198.12" smashed="yes" grouprefs="ISO_POWER">
 <attribute name="VALUE" x="203.2" y="187.96" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="P+4" gate="1" x="220.98" y="99.06" smashed="yes" rot="R90">
-<attribute name="VALUE" x="231.14" y="104.14" size="1.778" layer="96" rot="R180"/>
+<instance part="P+4" gate="1" x="238.76" y="99.06" smashed="yes" rot="R90" grouprefs="LEG_POWER">
+<attribute name="VALUE" x="248.92" y="104.14" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="P+6" gate="1" x="109.22" y="198.12" smashed="yes" rot="R90" grouprefs="BULK_CAP">
 <attribute name="VALUE" x="119.38" y="203.2" size="1.778" layer="96" rot="R180"/>
@@ -6186,13 +6186,13 @@ RESIST</text>
 <attribute name="NAME" x="98.044" y="18.161" size="1.778" layer="95"/>
 <attribute name="VALUE" x="98.044" y="13.081" size="1.778" layer="96"/>
 </instance>
-<instance part="D6" gate="G$1" x="223.52" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="221.615" y="73.914" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="226.949" y="73.914" size="1.778" layer="96" rot="R90"/>
+<instance part="D6" gate="G$1" x="241.3" y="76.2" smashed="yes" rot="R90" grouprefs="LEG_POWER">
+<attribute name="NAME" x="239.395" y="73.914" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="244.729" y="73.914" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="D7" gate="G$1" x="228.6" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="226.695" y="73.914" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="232.029" y="73.914" size="1.778" layer="96" rot="R90"/>
+<instance part="D7" gate="G$1" x="246.38" y="76.2" smashed="yes" rot="R90" grouprefs="LEG_POWER">
+<attribute name="NAME" x="244.475" y="73.914" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="249.809" y="73.914" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -6390,27 +6390,27 @@ RESIST</text>
 <net name="LEG_GND" class="1">
 <segment>
 <pinref part="J8" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="48.26" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="48.26" x2="254" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <pinref part="J7" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="63.5" x2="236.22" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="236.22" y1="63.5" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="63.5" x2="254" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="254" y1="63.5" x2="254" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <pinref part="J6" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="78.74" x2="236.22" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="236.22" y1="78.74" x2="236.22" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="236.22" y="63.5" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="78.74" x2="254" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="254" y1="78.74" x2="254" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="254" y="63.5" grouprefs="LEG_POWER"/>
 <pinref part="J5" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="93.98" x2="236.22" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="236.22" y1="93.98" x2="236.22" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="236.22" y="78.74" grouprefs="LEG_POWER"/>
-<label x="220.98" y="48.26" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="LEG_POWER"/>
-<wire x1="220.98" y1="48.26" x2="223.52" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="236.22" y="48.26" grouprefs="LEG_POWER"/>
-<wire x1="223.52" y1="48.26" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="48.26" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="73.66" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="228.6" y="48.26" grouprefs="LEG_POWER"/>
-<wire x1="223.52" y1="73.66" x2="223.52" y2="48.26" width="0.1524" layer="91"/>
-<junction x="223.52" y="48.26"/>
+<wire x1="256.54" y1="93.98" x2="254" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="254" y1="93.98" x2="254" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="254" y="78.74" grouprefs="LEG_POWER"/>
+<label x="238.76" y="48.26" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="LEG_POWER"/>
+<wire x1="238.76" y1="48.26" x2="241.3" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="254" y="48.26" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="48.26" x2="246.38" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="48.26" x2="254" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="73.66" x2="246.38" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="246.38" y="48.26" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="73.66" x2="241.3" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="241.3" y="48.26" grouprefs="LEG_POWER"/>
 <pinref part="D6" gate="G$1" pin="A"/>
 <pinref part="D7" gate="G$1" pin="A"/>
 </segment>
@@ -6752,26 +6752,26 @@ RESIST</text>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="V+"/>
-<wire x1="223.52" y1="99.06" x2="228.6" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="99.06" x2="233.68" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="99.06" x2="238.76" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="99.06" x2="246.38" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="99.06" x2="251.46" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="99.06" x2="256.54" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <pinref part="J6" gate="G$1" pin="V+"/>
-<wire x1="238.76" y1="83.82" x2="233.68" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="83.82" x2="233.68" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="233.68" y="99.06" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="83.82" x2="251.46" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="83.82" x2="251.46" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="251.46" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="J7" gate="G$1" pin="V+"/>
-<wire x1="238.76" y1="68.58" x2="233.68" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="68.58" x2="233.68" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="233.68" y="83.82" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="68.58" x2="251.46" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="68.58" x2="251.46" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="251.46" y="83.82" grouprefs="LEG_POWER"/>
 <pinref part="J8" gate="G$1" pin="V+"/>
-<wire x1="238.76" y1="53.34" x2="233.68" y2="53.34" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="53.34" x2="233.68" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="233.68" y="68.58" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="78.74" x2="228.6" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="228.6" y="99.06" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="53.34" x2="251.46" y2="53.34" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="53.34" x2="251.46" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="251.46" y="68.58" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="78.74" x2="246.38" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="246.38" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="P+4" gate="1" pin="+24V"/>
-<wire x1="223.52" y1="78.74" x2="223.52" y2="99.06" width="0.1524" layer="91"/>
-<junction x="223.52" y="99.06"/>
+<wire x1="241.3" y1="78.74" x2="241.3" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="241.3" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="D6" gate="G$1" pin="C"/>
 <pinref part="D7" gate="G$1" pin="C"/>
 </segment>
