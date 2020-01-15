@@ -1631,41 +1631,31 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <clearance class="2" value="0.0254"/>
 </class>
 </classes>
-<designrules name="default *">
-<description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
+<designrules name="jlcpcb2layer *">
+<description language="en">&lt;b&gt;JLCPCB Design Rules by Jaap de Dood&lt;/b&gt;
 &lt;p&gt;
-Die Standard-Design-Rules sind so gewählt, dass sie für 
-die meisten Anwendungen passen. Sollte ihre Platine 
-besondere Anforderungen haben, treffen Sie die erforderlichen
-Einstellungen hier und speichern die Design Rules unter 
-einem neuen Namen ab.</description>
-<description language="en">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
-&lt;p&gt;
-The default Design Rules have been set to cover
-a wide range of applications. Your particular design
-may have different requirements, so please make the
-necessary adjustments and save your customized
-design rules under a new name.</description>
+Please make sure your boards conform to these design rules.
+&lt;/p&gt;</description>
 <param name="layerSetup" value="(1*16)"/>
-<param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
-<param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="6mil"/>
-<param name="mdWirePad" value="6mil"/>
-<param name="mdWireVia" value="6mil"/>
-<param name="mdPadPad" value="6mil"/>
-<param name="mdPadVia" value="6mil"/>
-<param name="mdViaVia" value="6mil"/>
-<param name="mdSmdPad" value="6mil"/>
-<param name="mdSmdVia" value="6mil"/>
-<param name="mdSmdSmd" value="6mil"/>
-<param name="mdViaViaSameLayer" value="6mil"/>
+<param name="mtCopper" value="0.035559375mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.035559375mm"/>
+<param name="mtIsolate" value="1.6mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm"/>
+<param name="mdWireWire" value="5mil"/>
+<param name="mdWirePad" value="5mil"/>
+<param name="mdWireVia" value="5mil"/>
+<param name="mdPadPad" value="5mil"/>
+<param name="mdPadVia" value="5mil"/>
+<param name="mdViaVia" value="5mil"/>
+<param name="mdSmdPad" value="5mil"/>
+<param name="mdSmdVia" value="5mil"/>
+<param name="mdSmdSmd" value="5mil"/>
+<param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="40mil"/>
+<param name="mdCopperDimension" value="8mil"/>
 <param name="mdDrill" value="6mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="6mil"/>
-<param name="msDrill" value="0.35mm"/>
-<param name="msMicroVia" value="9.99mm"/>
+<param name="msWidth" value="5mil"/>
+<param name="msDrill" value="0.3mm"/>
+<param name="msMicroVia" value="12mil"/>
 <param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
 <param name="rvPadInner" value="0.25"/>
@@ -1674,19 +1664,19 @@ design rules under a new name.</description>
 <param name="rvViaInner" value="0.25"/>
 <param name="rvMicroViaOuter" value="0.25"/>
 <param name="rvMicroViaInner" value="0.25"/>
-<param name="rlMinPadTop" value="10mil"/>
+<param name="rlMinPadTop" value="5mil"/>
 <param name="rlMaxPadTop" value="20mil"/>
-<param name="rlMinPadInner" value="10mil"/>
+<param name="rlMinPadInner" value="5mil"/>
 <param name="rlMaxPadInner" value="20mil"/>
-<param name="rlMinPadBottom" value="10mil"/>
+<param name="rlMinPadBottom" value="5mil"/>
 <param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="8mil"/>
+<param name="rlMinViaOuter" value="3mil"/>
 <param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="8mil"/>
+<param name="rlMinViaInner" value="3mil"/>
 <param name="rlMaxViaInner" value="20mil"/>
-<param name="rlMinMicroViaOuter" value="4mil"/>
+<param name="rlMinMicroViaOuter" value="3mil"/>
 <param name="rlMaxMicroViaOuter" value="20mil"/>
-<param name="rlMinMicroViaInner" value="4mil"/>
+<param name="rlMinMicroViaInner" value="3mil"/>
 <param name="rlMaxMicroViaInner" value="20mil"/>
 <param name="psTop" value="-1"/>
 <param name="psBottom" value="-1"/>
@@ -1695,8 +1685,8 @@ design rules under a new name.</description>
 <param name="psElongationOffset" value="100"/>
 <param name="mvStopFrame" value="1"/>
 <param name="mvCreamFrame" value="0"/>
-<param name="mlMinStopFrame" value="4mil"/>
-<param name="mlMaxStopFrame" value="4mil"/>
+<param name="mlMinStopFrame" value="2.5mil"/>
+<param name="mlMaxStopFrame" value="2.5mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
 <param name="mlViaStopLimit" value="0mil"/>
@@ -1819,6 +1809,7 @@ design rules under a new name.</description>
 <board_group name="EXTERNAL_PLUGS"/>
 <board_group name="ISO_SOFTSTART"/>
 <board_group name="LEG_SOFTSTART"/>
+<board_group name="POWER_VIAS"/>
 </groups>
 <elements>
 <element name="J1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="FASTON_1289-ST" package3d_urn="urn:adsk.eagle:package:16406409/3" value="FASTON1289_ST" x="53" y="57.3" smashed="yes" rot="MR0"/>
@@ -2044,45 +2035,45 @@ design rules under a new name.</description>
 </element>
 <element name="U$26" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="M80-8420242" package3d_urn="urn:adsk.eagle:package:16399492/3" value="2-PIN" x="53.85" y="10.65" smashed="yes" grouprefs="ISO_SOFTSTART"/>
 <element name="U$27" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="M80-8420242" package3d_urn="urn:adsk.eagle:package:16399492/3" value="2-PIN" x="63.85" y="10.65" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<element name="C14" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="11.55" y="30.6" smashed="yes" rot="R270">
-<attribute name="NAME" x="13.455" y="32.505" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="8.375" y="32.505" size="1.27" layer="27" rot="R270"/>
+<element name="C14" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="11.6625" y="30.6" smashed="yes" rot="R270">
+<attribute name="NAME" x="13.5675" y="32.505" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="8.4875" y="32.505" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C15" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="14.55" y="30.6" smashed="yes" rot="R270">
-<attribute name="NAME" x="16.455" y="32.505" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="11.375" y="32.505" size="1.27" layer="27" rot="R270"/>
+<element name="C15" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="14.7" y="30.6" smashed="yes" rot="R270">
+<attribute name="NAME" x="16.605" y="32.505" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="11.525" y="32.505" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C16" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="8.55" y="30.6" smashed="yes" rot="R270">
-<attribute name="NAME" x="10.455" y="32.505" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="5.375" y="32.505" size="1.27" layer="27" rot="R270"/>
+<element name="C16" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="8.625" y="30.6" smashed="yes" rot="R270">
+<attribute name="NAME" x="10.53" y="32.505" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="5.45" y="32.505" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C17" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="5.55" y="30.6" smashed="yes" rot="R270">
-<attribute name="NAME" x="7.455" y="32.505" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="2.375" y="32.505" size="1.27" layer="27" rot="R270"/>
+<element name="C17" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="5.5875" y="30.6" smashed="yes" rot="R270">
+<attribute name="NAME" x="7.4925" y="32.505" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="2.4125" y="32.505" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C18" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="2.55" y="30.6" smashed="yes" rot="R270">
 <attribute name="NAME" x="4.455" y="32.505" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="-0.625" y="32.505" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C19" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="27.0375" y="88.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="28.9425" y="90.105" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="23.8625" y="90.105" size="1.27" layer="27" rot="R270"/>
+<element name="C19" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="27.1125" y="88.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="29.0175" y="90.105" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="23.9375" y="90.105" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C20" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="21.1125" y="88.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="23.0175" y="90.105" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="17.9375" y="90.105" size="1.27" layer="27" rot="R270"/>
+<element name="C20" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="21.0375" y="88.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="22.9425" y="90.105" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="17.8625" y="90.105" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C21" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="30" y="88.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="31.905" y="90.105" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="26.825" y="90.105" size="1.27" layer="27" rot="R270"/>
+<element name="C21" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="30.15" y="88.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="32.055" y="90.105" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="26.975" y="90.105" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C22" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="24.075" y="88.2" smashed="yes" rot="R270">
 <attribute name="NAME" x="25.98" y="90.105" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="20.9" y="90.105" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C23" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="18.15" y="88.2" smashed="yes" rot="R270">
-<attribute name="NAME" x="20.055" y="90.105" size="1.27" layer="25" rot="R270"/>
-<attribute name="VALUE" x="14.975" y="90.105" size="1.27" layer="27" rot="R270"/>
+<element name="C23" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF" x="18" y="88.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="19.905" y="90.105" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="14.825" y="90.105" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="D6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="DO-214AC" package3d_urn="urn:adsk.eagle:package:16356227/5" value="SK510A-LTP" x="77.85" y="3.9" smashed="yes"/>
 <element name="D7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="DO-214AC" package3d_urn="urn:adsk.eagle:package:16356227/5" value="SK510A-LTP" x="72.15" y="50.25" smashed="yes" rot="R270"/>
@@ -2129,55 +2120,55 @@ design rules under a new name.</description>
 <contactref element="C10" pad="2"/>
 <contactref element="C11" pad="2"/>
 <contactref element="C12" pad="2"/>
-<via x="38.4" y="52.95" extent="1-16" drill="0.3"/>
-<via x="39" y="52.95" extent="1-16" drill="0.3"/>
-<via x="39.6" y="52.95" extent="1-16" drill="0.3"/>
-<via x="40.2" y="52.95" extent="1-16" drill="0.3"/>
-<via x="40.8" y="52.95" extent="1-16" drill="0.3"/>
-<via x="41.4" y="52.95" extent="1-16" drill="0.3"/>
-<via x="42" y="52.95" extent="1-16" drill="0.3"/>
-<via x="42" y="52.35" extent="1-16" drill="0.3"/>
-<via x="41.4" y="52.35" extent="1-16" drill="0.3"/>
-<via x="40.8" y="52.35" extent="1-16" drill="0.3"/>
-<via x="40.2" y="52.35" extent="1-16" drill="0.3"/>
-<via x="39.6" y="52.35" extent="1-16" drill="0.3"/>
-<via x="39" y="52.35" extent="1-16" drill="0.3"/>
-<via x="38.4" y="52.35" extent="1-16" drill="0.3"/>
-<via x="38.4" y="51.75" extent="1-16" drill="0.3"/>
-<via x="39" y="51.75" extent="1-16" drill="0.3"/>
-<via x="39.6" y="51.75" extent="1-16" drill="0.3"/>
-<via x="40.2" y="51.75" extent="1-16" drill="0.3"/>
-<via x="40.8" y="51.75" extent="1-16" drill="0.3"/>
-<via x="41.4" y="51.75" extent="1-16" drill="0.3"/>
-<via x="42" y="51.75" extent="1-16" drill="0.3"/>
-<via x="42" y="51.15" extent="1-16" drill="0.3"/>
-<via x="41.4" y="51.15" extent="1-16" drill="0.3"/>
-<via x="40.8" y="51.15" extent="1-16" drill="0.3"/>
-<via x="40.2" y="51.15" extent="1-16" drill="0.3"/>
-<via x="39.6" y="51.15" extent="1-16" drill="0.3"/>
-<via x="39" y="51.15" extent="1-16" drill="0.3"/>
-<via x="38.4" y="51.15" extent="1-16" drill="0.3"/>
-<via x="38.4" y="50.55" extent="1-16" drill="0.3"/>
-<via x="39" y="50.55" extent="1-16" drill="0.3"/>
-<via x="39.6" y="50.55" extent="1-16" drill="0.3"/>
-<via x="40.2" y="50.55" extent="1-16" drill="0.3"/>
-<via x="40.8" y="50.55" extent="1-16" drill="0.3"/>
-<via x="41.4" y="50.55" extent="1-16" drill="0.3"/>
-<via x="42" y="50.55" extent="1-16" drill="0.3"/>
-<via x="42" y="49.95" extent="1-16" drill="0.3"/>
-<via x="41.4" y="49.95" extent="1-16" drill="0.3"/>
-<via x="40.8" y="49.95" extent="1-16" drill="0.3"/>
-<via x="40.2" y="49.95" extent="1-16" drill="0.3"/>
-<via x="39.6" y="49.95" extent="1-16" drill="0.3"/>
-<via x="39" y="49.95" extent="1-16" drill="0.3"/>
-<via x="38.4" y="49.95" extent="1-16" drill="0.3"/>
-<via x="38.4" y="49.35" extent="1-16" drill="0.3"/>
-<via x="39" y="49.35" extent="1-16" drill="0.3"/>
-<via x="39.6" y="49.35" extent="1-16" drill="0.3"/>
-<via x="40.2" y="49.35" extent="1-16" drill="0.3"/>
-<via x="40.8" y="49.35" extent="1-16" drill="0.3"/>
-<via x="41.4" y="49.35" extent="1-16" drill="0.3"/>
-<via x="42" y="49.35" extent="1-16" drill="0.3"/>
+<via x="38.4" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="52.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="52.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="51.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="51.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="50.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="49.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="49.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="36.45" y="53.25"/>
 <vertex x="42.3" y="53.25"/>
@@ -2186,76 +2177,76 @@ design rules under a new name.</description>
 <vertex x="45.15" y="49.05"/>
 <vertex x="36.45" y="49.05"/>
 </polygon>
-<via x="21.75" y="8.1" extent="1-16" drill="0.3"/>
-<via x="21.75" y="8.7" extent="1-16" drill="0.3"/>
-<via x="21.75" y="9.3" extent="1-16" drill="0.3"/>
-<via x="21.75" y="9.9" extent="1-16" drill="0.3"/>
-<via x="21.75" y="10.5" extent="1-16" drill="0.3"/>
-<via x="21.75" y="11.1" extent="1-16" drill="0.3"/>
-<via x="21.75" y="11.7" extent="1-16" drill="0.3"/>
-<via x="22.35" y="11.7" extent="1-16" drill="0.3"/>
-<via x="22.35" y="11.1" extent="1-16" drill="0.3"/>
-<via x="22.35" y="10.5" extent="1-16" drill="0.3"/>
-<via x="22.35" y="9.9" extent="1-16" drill="0.3"/>
-<via x="22.35" y="9.3" extent="1-16" drill="0.3"/>
-<via x="22.35" y="8.7" extent="1-16" drill="0.3"/>
-<via x="22.35" y="8.1" extent="1-16" drill="0.3"/>
-<via x="22.95" y="8.1" extent="1-16" drill="0.3"/>
-<via x="22.95" y="8.7" extent="1-16" drill="0.3"/>
-<via x="22.95" y="9.3" extent="1-16" drill="0.3"/>
-<via x="22.95" y="9.9" extent="1-16" drill="0.3"/>
-<via x="22.95" y="10.5" extent="1-16" drill="0.3"/>
-<via x="22.95" y="11.1" extent="1-16" drill="0.3"/>
-<via x="22.95" y="11.7" extent="1-16" drill="0.3"/>
-<via x="23.55" y="11.7" extent="1-16" drill="0.3"/>
-<via x="23.55" y="11.1" extent="1-16" drill="0.3"/>
-<via x="23.55" y="10.5" extent="1-16" drill="0.3"/>
-<via x="23.55" y="9.9" extent="1-16" drill="0.3"/>
-<via x="23.55" y="9.3" extent="1-16" drill="0.3"/>
-<via x="23.55" y="8.7" extent="1-16" drill="0.3"/>
-<via x="23.55" y="8.1" extent="1-16" drill="0.3"/>
-<via x="24.15" y="8.1" extent="1-16" drill="0.3"/>
-<via x="24.15" y="8.7" extent="1-16" drill="0.3"/>
-<via x="24.15" y="9.3" extent="1-16" drill="0.3"/>
-<via x="24.15" y="9.9" extent="1-16" drill="0.3"/>
-<via x="24.15" y="10.5" extent="1-16" drill="0.3"/>
-<via x="24.15" y="11.1" extent="1-16" drill="0.3"/>
-<via x="24.15" y="11.7" extent="1-16" drill="0.3"/>
-<via x="21.75" y="1.65" extent="1-16" drill="0.3"/>
-<via x="21.75" y="2.25" extent="1-16" drill="0.3"/>
-<via x="21.75" y="2.85" extent="1-16" drill="0.3"/>
-<via x="21.75" y="3.45" extent="1-16" drill="0.3"/>
-<via x="21.75" y="4.05" extent="1-16" drill="0.3"/>
-<via x="21.75" y="4.65" extent="1-16" drill="0.3"/>
-<via x="21.75" y="5.25" extent="1-16" drill="0.3"/>
-<via x="22.35" y="5.25" extent="1-16" drill="0.3"/>
-<via x="22.35" y="4.65" extent="1-16" drill="0.3"/>
-<via x="22.35" y="4.05" extent="1-16" drill="0.3"/>
-<via x="22.35" y="3.45" extent="1-16" drill="0.3"/>
-<via x="22.35" y="2.85" extent="1-16" drill="0.3"/>
-<via x="22.35" y="2.25" extent="1-16" drill="0.3"/>
-<via x="22.35" y="1.65" extent="1-16" drill="0.3"/>
-<via x="22.95" y="1.65" extent="1-16" drill="0.3"/>
-<via x="22.95" y="2.25" extent="1-16" drill="0.3"/>
-<via x="22.95" y="2.85" extent="1-16" drill="0.3"/>
-<via x="22.95" y="3.45" extent="1-16" drill="0.3"/>
-<via x="22.95" y="4.05" extent="1-16" drill="0.3"/>
-<via x="22.95" y="4.65" extent="1-16" drill="0.3"/>
-<via x="22.95" y="5.25" extent="1-16" drill="0.3"/>
-<via x="23.55" y="5.25" extent="1-16" drill="0.3"/>
-<via x="23.55" y="4.65" extent="1-16" drill="0.3"/>
-<via x="23.55" y="4.05" extent="1-16" drill="0.3"/>
-<via x="23.55" y="3.45" extent="1-16" drill="0.3"/>
-<via x="23.55" y="2.85" extent="1-16" drill="0.3"/>
-<via x="23.55" y="2.25" extent="1-16" drill="0.3"/>
-<via x="23.55" y="1.65" extent="1-16" drill="0.3"/>
-<via x="24.15" y="1.65" extent="1-16" drill="0.3"/>
-<via x="24.15" y="2.25" extent="1-16" drill="0.3"/>
-<via x="24.15" y="2.85" extent="1-16" drill="0.3"/>
-<via x="24.15" y="3.45" extent="1-16" drill="0.3"/>
-<via x="24.15" y="4.05" extent="1-16" drill="0.3"/>
-<via x="24.15" y="4.65" extent="1-16" drill="0.3"/>
-<via x="24.15" y="5.25" extent="1-16" drill="0.3"/>
+<via x="21.75" y="8.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="8.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="9.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="9.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="10.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="11.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="11.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="11.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="11.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="10.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="9.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="9.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="8.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="8.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="8.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="8.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="9.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="9.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="10.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="11.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="11.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="11.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="11.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="10.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="9.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="9.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="8.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="8.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="8.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="8.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="9.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="9.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="10.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="11.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="11.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="1.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="2.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="2.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="3.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="4.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="4.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="21.75" y="5.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="5.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="4.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="4.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="3.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="2.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="2.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.35" y="1.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="1.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="2.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="2.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="3.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="4.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="4.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="22.95" y="5.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="5.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="4.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="4.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="3.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="2.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="2.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="23.55" y="1.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="1.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="2.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="2.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="3.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="4.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="4.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="24.15" y="5.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="19.8" y="12.15"/>
 <vertex x="24.45" y="12.15"/>
@@ -2272,55 +2263,55 @@ design rules under a new name.</description>
 <vertex x="27.3" y="1.65"/>
 <vertex x="19.8" y="1.65"/>
 </polygon>
-<via x="38.4" y="37.35" extent="1-16" drill="0.3"/>
-<via x="39" y="37.35" extent="1-16" drill="0.3"/>
-<via x="39.6" y="37.35" extent="1-16" drill="0.3"/>
-<via x="40.2" y="37.35" extent="1-16" drill="0.3"/>
-<via x="40.8" y="37.35" extent="1-16" drill="0.3"/>
-<via x="41.4" y="37.35" extent="1-16" drill="0.3"/>
-<via x="42" y="37.35" extent="1-16" drill="0.3"/>
-<via x="42" y="36.75" extent="1-16" drill="0.3"/>
-<via x="41.4" y="36.75" extent="1-16" drill="0.3"/>
-<via x="40.8" y="36.75" extent="1-16" drill="0.3"/>
-<via x="40.2" y="36.75" extent="1-16" drill="0.3"/>
-<via x="39.6" y="36.75" extent="1-16" drill="0.3"/>
-<via x="39" y="36.75" extent="1-16" drill="0.3"/>
-<via x="38.4" y="36.75" extent="1-16" drill="0.3"/>
-<via x="38.4" y="36.15" extent="1-16" drill="0.3"/>
-<via x="39" y="36.15" extent="1-16" drill="0.3"/>
-<via x="39.6" y="36.15" extent="1-16" drill="0.3"/>
-<via x="40.2" y="36.15" extent="1-16" drill="0.3"/>
-<via x="40.8" y="36.15" extent="1-16" drill="0.3"/>
-<via x="41.4" y="36.15" extent="1-16" drill="0.3"/>
-<via x="42" y="36.15" extent="1-16" drill="0.3"/>
-<via x="42" y="35.55" extent="1-16" drill="0.3"/>
-<via x="41.4" y="35.55" extent="1-16" drill="0.3"/>
-<via x="40.8" y="35.55" extent="1-16" drill="0.3"/>
-<via x="40.2" y="35.55" extent="1-16" drill="0.3"/>
-<via x="39.6" y="35.55" extent="1-16" drill="0.3"/>
-<via x="39" y="35.55" extent="1-16" drill="0.3"/>
-<via x="38.4" y="35.55" extent="1-16" drill="0.3"/>
-<via x="38.4" y="34.95" extent="1-16" drill="0.3"/>
-<via x="39" y="34.95" extent="1-16" drill="0.3"/>
-<via x="39.6" y="34.95" extent="1-16" drill="0.3"/>
-<via x="40.2" y="34.95" extent="1-16" drill="0.3"/>
-<via x="40.8" y="34.95" extent="1-16" drill="0.3"/>
-<via x="41.4" y="34.95" extent="1-16" drill="0.3"/>
-<via x="42" y="34.95" extent="1-16" drill="0.3"/>
-<via x="42" y="34.35" extent="1-16" drill="0.3"/>
-<via x="41.4" y="34.35" extent="1-16" drill="0.3"/>
-<via x="40.8" y="34.35" extent="1-16" drill="0.3"/>
-<via x="40.2" y="34.35" extent="1-16" drill="0.3"/>
-<via x="39.6" y="34.35" extent="1-16" drill="0.3"/>
-<via x="39" y="34.35" extent="1-16" drill="0.3"/>
-<via x="38.4" y="34.35" extent="1-16" drill="0.3"/>
-<via x="38.4" y="33.75" extent="1-16" drill="0.3"/>
-<via x="39" y="33.75" extent="1-16" drill="0.3"/>
-<via x="39.6" y="33.75" extent="1-16" drill="0.3"/>
-<via x="40.2" y="33.75" extent="1-16" drill="0.3"/>
-<via x="40.8" y="33.75" extent="1-16" drill="0.3"/>
-<via x="41.4" y="33.75" extent="1-16" drill="0.3"/>
-<via x="42" y="33.75" extent="1-16" drill="0.3"/>
+<via x="38.4" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="37.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="36.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="36.15" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="35.55" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="34.95" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="34.35" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="33.75" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="36.45" y="37.65"/>
 <vertex x="42.3" y="37.65"/>
@@ -2329,55 +2320,55 @@ design rules under a new name.</description>
 <vertex x="45.15" y="33.45"/>
 <vertex x="36.45" y="33.45"/>
 </polygon>
-<via x="38.4" y="60.45" extent="1-16" drill="0.3"/>
-<via x="39" y="60.45" extent="1-16" drill="0.3"/>
-<via x="39.6" y="60.45" extent="1-16" drill="0.3"/>
-<via x="40.2" y="60.45" extent="1-16" drill="0.3"/>
-<via x="40.8" y="60.45" extent="1-16" drill="0.3"/>
-<via x="41.4" y="60.45" extent="1-16" drill="0.3"/>
-<via x="42" y="60.45" extent="1-16" drill="0.3"/>
-<via x="42" y="59.85" extent="1-16" drill="0.3"/>
-<via x="41.4" y="59.85" extent="1-16" drill="0.3"/>
-<via x="40.8" y="59.85" extent="1-16" drill="0.3"/>
-<via x="40.2" y="59.85" extent="1-16" drill="0.3"/>
-<via x="39.6" y="59.85" extent="1-16" drill="0.3"/>
-<via x="39" y="59.85" extent="1-16" drill="0.3"/>
-<via x="38.4" y="59.85" extent="1-16" drill="0.3"/>
-<via x="38.4" y="59.25" extent="1-16" drill="0.3"/>
-<via x="39" y="59.25" extent="1-16" drill="0.3"/>
-<via x="39.6" y="59.25" extent="1-16" drill="0.3"/>
-<via x="40.2" y="59.25" extent="1-16" drill="0.3"/>
-<via x="40.8" y="59.25" extent="1-16" drill="0.3"/>
-<via x="41.4" y="59.25" extent="1-16" drill="0.3"/>
-<via x="42" y="59.25" extent="1-16" drill="0.3"/>
-<via x="42" y="58.65" extent="1-16" drill="0.3"/>
-<via x="41.4" y="58.65" extent="1-16" drill="0.3"/>
-<via x="40.8" y="58.65" extent="1-16" drill="0.3"/>
-<via x="40.2" y="58.65" extent="1-16" drill="0.3"/>
-<via x="39.6" y="58.65" extent="1-16" drill="0.3"/>
-<via x="39" y="58.65" extent="1-16" drill="0.3"/>
-<via x="38.4" y="58.65" extent="1-16" drill="0.3"/>
-<via x="38.4" y="58.05" extent="1-16" drill="0.3"/>
-<via x="39" y="58.05" extent="1-16" drill="0.3"/>
-<via x="39.6" y="58.05" extent="1-16" drill="0.3"/>
-<via x="40.2" y="58.05" extent="1-16" drill="0.3"/>
-<via x="40.8" y="58.05" extent="1-16" drill="0.3"/>
-<via x="41.4" y="58.05" extent="1-16" drill="0.3"/>
-<via x="42" y="58.05" extent="1-16" drill="0.3"/>
-<via x="42" y="57.45" extent="1-16" drill="0.3"/>
-<via x="41.4" y="57.45" extent="1-16" drill="0.3"/>
-<via x="40.8" y="57.45" extent="1-16" drill="0.3"/>
-<via x="40.2" y="57.45" extent="1-16" drill="0.3"/>
-<via x="39.6" y="57.45" extent="1-16" drill="0.3"/>
-<via x="39" y="57.45" extent="1-16" drill="0.3"/>
-<via x="38.4" y="57.45" extent="1-16" drill="0.3"/>
-<via x="38.4" y="56.85" extent="1-16" drill="0.3"/>
-<via x="39" y="56.85" extent="1-16" drill="0.3"/>
-<via x="39.6" y="56.85" extent="1-16" drill="0.3"/>
-<via x="40.2" y="56.85" extent="1-16" drill="0.3"/>
-<via x="40.8" y="56.85" extent="1-16" drill="0.3"/>
-<via x="41.4" y="56.85" extent="1-16" drill="0.3"/>
-<via x="42" y="56.85" extent="1-16" drill="0.3"/>
+<via x="38.4" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="60.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="59.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="59.25" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="58.65" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="58.05" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="57.45" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="38.4" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="39.6" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.2" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="40.8" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="41.4" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="42" y="56.85" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="36.45" y="60.75"/>
 <vertex x="42.3" y="60.75"/>
@@ -2386,46 +2377,47 @@ design rules under a new name.</description>
 <vertex x="45.15" y="56.55"/>
 <vertex x="36.45" y="56.55"/>
 </polygon>
-<wire x1="47.675" y1="18.9" x2="46.5" y2="18.9" width="0.1524" layer="1"/>
+<wire x1="47.675" y1="18.9" x2="46.5" y2="18.9" width="0.3" layer="1"/>
 <via x="46.5" y="18.9" extent="1-16" drill="0.35"/>
-<wire x1="47.525" y1="28.65" x2="46.3568" y2="28.65" width="0.1524" layer="1"/>
+<wire x1="47.525" y1="28.65" x2="46.3568" y2="28.65" width="0.3" layer="1"/>
 <via x="46.3568" y="28.65" extent="1-16" drill="0.35"/>
-<wire x1="56.1" y1="23.6" x2="54.35" y2="23.6" width="0.1524" layer="1"/>
-<wire x1="54.35" y1="23.6" x2="54.3" y2="23.55" width="0.1524" layer="1"/>
+<wire x1="56.1" y1="23.6" x2="54.35" y2="23.6" width="0.3" layer="1"/>
+<wire x1="54.35" y1="23.6" x2="54.3" y2="23.55" width="0.3" layer="1"/>
 <via x="54.3" y="23.55" extent="1-16" drill="0.35"/>
-<wire x1="52.65" y1="23.6" x2="54.25" y2="23.6" width="0.1524" layer="1"/>
-<wire x1="54.25" y1="23.6" x2="54.3" y2="23.55" width="0.1524" layer="1"/>
-<wire x1="62.95" y1="23.445" x2="62.95" y2="24.715" width="0.1524" layer="1"/>
-<wire x1="62.95" y1="24.715" x2="64.935" y2="26.7" width="0.1524" layer="1"/>
-<wire x1="64.935" y1="26.7" x2="64.95" y2="26.7" width="0.1524" layer="1"/>
-<via x="64.95" y="26.7" extent="1-16" drill="0.35"/>
-<wire x1="66.5" y1="29.1" x2="66.5" y2="28.95" width="0.1524" layer="1"/>
-<wire x1="66.5" y1="28.95" x2="66.5" y2="28.25" width="0.1524" layer="1"/>
-<wire x1="66.5" y1="28.25" x2="64.95" y2="26.7" width="0.1524" layer="1"/>
-<wire x1="67.8" y1="29.1" x2="67.65" y2="28.95" width="0.1524" layer="1"/>
-<wire x1="67.65" y1="28.95" x2="66.5" y2="28.95" width="0.1524" layer="1"/>
-<wire x1="67.8" y1="19.05" x2="66.5" y2="19.05" width="0.1524" layer="1"/>
-<wire x1="62.95" y1="13.245" x2="62.95" y2="14.4" width="0.1524" layer="1"/>
-<wire x1="62.95" y1="14.4" x2="62.95" y2="14.515" width="0.1524" layer="1"/>
-<wire x1="62.95" y1="14.515" x2="64.165" y2="14.515" width="0.1524" layer="1"/>
-<wire x1="64.165" y1="14.515" x2="64.65" y2="15" width="0.1524" layer="1"/>
-<wire x1="64.65" y1="15" x2="64.65" y2="16.2" width="0.1524" layer="1"/>
+<wire x1="52.65" y1="23.6" x2="54.25" y2="23.6" width="0.3" layer="1"/>
+<wire x1="54.25" y1="23.6" x2="54.3" y2="23.55" width="0.3" layer="1"/>
+<wire x1="62.95" y1="23.445" x2="62.95" y2="24.715" width="0.3" layer="1"/>
+<wire x1="65.535" y1="26.25" x2="64" y2="24.715" width="0.3" layer="1"/>
+<wire x1="62.95" y1="24.715" x2="64" y2="24.715" width="0.3" layer="1"/>
+<wire x1="65.535" y1="26.25" x2="65.55" y2="26.25" width="0.3" layer="1"/>
+<via x="65.55" y="26.25" extent="1-16" drill="0.35"/>
+<wire x1="66.5" y1="29.1" x2="66.5" y2="28.95" width="0.3" layer="1"/>
+<wire x1="66.5" y1="28.95" x2="66.5" y2="27.2" width="0.3" layer="1"/>
+<wire x1="66.5" y1="27.2" x2="65.55" y2="26.25" width="0.3" layer="1"/>
+<wire x1="67.8" y1="29.1" x2="67.65" y2="28.95" width="0.3" layer="1"/>
+<wire x1="67.65" y1="28.95" x2="66.5" y2="28.95" width="0.3" layer="1"/>
+<wire x1="67.8" y1="19.05" x2="66.5" y2="19.05" width="0.3" layer="1"/>
+<wire x1="62.95" y1="13.245" x2="62.95" y2="14.4" width="0.3" layer="1"/>
+<wire x1="62.95" y1="14.4" x2="62.95" y2="14.515" width="0.3" layer="1"/>
+<wire x1="62.95" y1="14.515" x2="64.165" y2="14.515" width="0.3" layer="1"/>
+<wire x1="64.165" y1="14.515" x2="64.65" y2="15" width="0.3" layer="1"/>
+<wire x1="64.65" y1="15" x2="64.65" y2="16.2" width="0.3" layer="1"/>
 <via x="64.65" y="16.2" extent="1-16" drill="0.35"/>
-<wire x1="66.5" y1="19.05" x2="64.65" y2="17.2" width="0.1524" layer="1"/>
-<wire x1="64.65" y1="17.2" x2="64.65" y2="16.2" width="0.1524" layer="1"/>
-<wire x1="59.7" y1="13.55" x2="60.8" y2="13.55" width="0.1524" layer="1"/>
-<wire x1="60.8" y1="13.55" x2="61.65" y2="14.4" width="0.1524" layer="1"/>
-<wire x1="61.65" y1="14.4" x2="62.95" y2="14.4" width="0.1524" layer="1"/>
-<wire x1="52.65" y1="13.55" x2="56.175" y2="13.55" width="0.1524" layer="1"/>
-<wire x1="56.175" y1="13.55" x2="59.7" y2="13.55" width="0.1524" layer="1"/>
-<wire x1="47.069" y1="24.45" x2="46.05" y2="24.45" width="0.1524" layer="1"/>
-<wire x1="46.05" y1="24.45" x2="45.75" y2="24.75" width="0.1524" layer="1"/>
-<wire x1="45.75" y1="24.75" x2="45.75" y2="28.0432" width="0.1524" layer="1"/>
-<wire x1="45.75" y1="28.0432" x2="46.3568" y2="28.65" width="0.1524" layer="1"/>
-<wire x1="47.069" y1="14.4" x2="46.2" y2="14.4" width="0.1524" layer="1"/>
-<wire x1="46.2" y1="14.4" x2="46.05" y2="14.55" width="0.1524" layer="1"/>
-<wire x1="46.05" y1="14.55" x2="46.05" y2="18.45" width="0.1524" layer="1"/>
-<wire x1="46.05" y1="18.45" x2="46.5" y2="18.9" width="0.1524" layer="1"/>
+<wire x1="66.5" y1="19.05" x2="64.65" y2="17.2" width="0.3" layer="1"/>
+<wire x1="64.65" y1="17.2" x2="64.65" y2="16.2" width="0.3" layer="1"/>
+<wire x1="59.7" y1="13.55" x2="60.8" y2="13.55" width="0.3" layer="1"/>
+<wire x1="60.8" y1="13.55" x2="61.65" y2="14.4" width="0.3" layer="1"/>
+<wire x1="61.65" y1="14.4" x2="62.95" y2="14.4" width="0.3" layer="1"/>
+<wire x1="52.65" y1="13.55" x2="56.175" y2="13.55" width="0.3" layer="1"/>
+<wire x1="56.175" y1="13.55" x2="59.7" y2="13.55" width="0.3" layer="1"/>
+<wire x1="47.069" y1="24.45" x2="46.05" y2="24.45" width="0.3" layer="1"/>
+<wire x1="46.05" y1="24.45" x2="45.75" y2="24.75" width="0.3" layer="1"/>
+<wire x1="45.75" y1="24.75" x2="45.75" y2="28.0432" width="0.3" layer="1"/>
+<wire x1="45.75" y1="28.0432" x2="46.3568" y2="28.65" width="0.3" layer="1"/>
+<wire x1="47.069" y1="14.4" x2="46.2" y2="14.4" width="0.3" layer="1"/>
+<wire x1="46.2" y1="14.4" x2="46.05" y2="14.55" width="0.3" layer="1"/>
+<wire x1="46.05" y1="14.55" x2="46.05" y2="18.45" width="0.3" layer="1"/>
+<wire x1="46.05" y1="18.45" x2="46.5" y2="18.9" width="0.3" layer="1"/>
 <polygon width="0.1524" layer="16">
 <vertex x="21.3" y="0.75"/>
 <vertex x="38.55" y="0.75"/>
@@ -2439,12 +2431,12 @@ design rules under a new name.</description>
 <vertex x="34.65" y="32.85"/>
 <vertex x="42" y="32.85"/>
 <vertex x="42" y="15.75"/>
-<vertex x="40.8" y="14.55"/>
-<vertex x="21.3" y="14.55"/>
+<vertex x="41.1" y="14.85"/>
+<vertex x="21.3" y="14.85"/>
 </polygon>
-<wire x1="62.95" y1="23.445" x2="59.855" y2="23.445" width="0.1524" layer="1"/>
-<wire x1="59.855" y1="23.445" x2="59.7" y2="23.6" width="0.1524" layer="1"/>
-<wire x1="59.7" y1="23.6" x2="56.1" y2="23.6" width="0.1524" layer="1"/>
+<wire x1="62.95" y1="23.445" x2="59.855" y2="23.445" width="0.3" layer="1"/>
+<wire x1="59.855" y1="23.445" x2="59.7" y2="23.6" width="0.3" layer="1"/>
+<wire x1="59.7" y1="23.6" x2="56.1" y2="23.6" width="0.3" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="U$11" pad="4"/>
@@ -2564,61 +2556,61 @@ design rules under a new name.</description>
 </polygon>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="16.5" y="87.6"/>
-<vertex x="31.5" y="87.6"/>
-<vertex x="31.5" y="85.8"/>
+<vertex x="31.65" y="87.6"/>
+<vertex x="31.65" y="85.8"/>
 <vertex x="16.5" y="85.8"/>
 </polygon>
-<via x="3.6" y="26.7" extent="1-16" drill="0.3"/>
-<via x="4.2" y="26.7" extent="1-16" drill="0.3"/>
-<via x="4.8" y="26.7" extent="1-16" drill="0.3"/>
-<via x="5.4" y="26.7" extent="1-16" drill="0.3"/>
-<via x="6" y="26.7" extent="1-16" drill="0.3"/>
-<via x="6.6" y="26.7" extent="1-16" drill="0.3"/>
-<via x="7.2" y="26.7" extent="1-16" drill="0.3"/>
-<via x="7.2" y="26.1" extent="1-16" drill="0.3"/>
-<via x="6.6" y="26.1" extent="1-16" drill="0.3"/>
-<via x="6" y="26.1" extent="1-16" drill="0.3"/>
-<via x="5.4" y="26.1" extent="1-16" drill="0.3"/>
-<via x="4.8" y="26.1" extent="1-16" drill="0.3"/>
-<via x="4.2" y="26.1" extent="1-16" drill="0.3"/>
-<via x="3.6" y="26.1" extent="1-16" drill="0.3"/>
-<via x="3.6" y="25.5" extent="1-16" drill="0.3"/>
-<via x="4.2" y="25.5" extent="1-16" drill="0.3"/>
-<via x="4.8" y="25.5" extent="1-16" drill="0.3"/>
-<via x="5.4" y="25.5" extent="1-16" drill="0.3"/>
-<via x="6" y="25.5" extent="1-16" drill="0.3"/>
-<via x="6.6" y="25.5" extent="1-16" drill="0.3"/>
-<via x="7.2" y="25.5" extent="1-16" drill="0.3"/>
-<via x="7.2" y="24.9" extent="1-16" drill="0.3"/>
-<via x="6.6" y="24.9" extent="1-16" drill="0.3"/>
-<via x="6" y="24.9" extent="1-16" drill="0.3"/>
-<via x="5.4" y="24.9" extent="1-16" drill="0.3"/>
-<via x="4.8" y="24.9" extent="1-16" drill="0.3"/>
-<via x="4.2" y="24.9" extent="1-16" drill="0.3"/>
-<via x="3.6" y="24.9" extent="1-16" drill="0.3"/>
-<via x="3.6" y="24.3" extent="1-16" drill="0.3"/>
-<via x="4.2" y="24.3" extent="1-16" drill="0.3"/>
-<via x="4.8" y="24.3" extent="1-16" drill="0.3"/>
-<via x="5.4" y="24.3" extent="1-16" drill="0.3"/>
-<via x="6" y="24.3" extent="1-16" drill="0.3"/>
-<via x="6.6" y="24.3" extent="1-16" drill="0.3"/>
-<via x="7.2" y="24.3" extent="1-16" drill="0.3"/>
-<via x="7.2" y="23.7" extent="1-16" drill="0.3"/>
-<via x="6.6" y="23.7" extent="1-16" drill="0.3"/>
-<via x="6" y="23.7" extent="1-16" drill="0.3"/>
-<via x="5.4" y="23.7" extent="1-16" drill="0.3"/>
-<via x="4.8" y="23.7" extent="1-16" drill="0.3"/>
-<via x="4.2" y="23.7" extent="1-16" drill="0.3"/>
-<via x="3.6" y="23.7" extent="1-16" drill="0.3"/>
-<via x="3.6" y="23.1" extent="1-16" drill="0.3"/>
-<via x="4.2" y="23.1" extent="1-16" drill="0.3"/>
-<via x="4.8" y="23.1" extent="1-16" drill="0.3"/>
-<via x="5.4" y="23.1" extent="1-16" drill="0.3"/>
-<via x="6" y="23.1" extent="1-16" drill="0.3"/>
-<via x="6.6" y="23.1" extent="1-16" drill="0.3"/>
-<via x="7.2" y="23.1" extent="1-16" drill="0.3"/>
-<wire x1="16.34" y1="82.01" x2="16.34" y2="84.14" width="2" layer="1"/>
-<wire x1="16.34" y1="84.14" x2="18.75" y2="86.55" width="2" layer="1"/>
+<via x="3.6" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="26.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="3.6" y="26.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="3.6" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="25.5" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="3.6" y="24.9" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="3.6" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="24.3" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="3.6" y="23.7" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="3.6" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.2" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="4.8" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="5.4" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="6.6" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<via x="7.2" y="23.1" extent="1-16" drill="0.3" diameter="0.6" grouprefs="POWER_VIAS"/>
+<wire x1="16.34" y1="82.01" x2="16.34" y2="84.89" width="2" layer="1"/>
+<wire x1="16.34" y1="84.89" x2="18" y2="86.55" width="2" layer="1"/>
 <polygon width="0.1524" layer="16">
 <vertex x="-2.1" y="21.45"/>
 <vertex x="8.7" y="21.45"/>
@@ -2632,6 +2624,64 @@ design rules under a new name.</description>
 <vertex x="18.9" y="84.6"/>
 <vertex x="-7.35" y="84.6"/>
 </polygon>
+<polygon width="0.1524" layer="16" thermals="no" rank="2">
+<vertex x="12.188096875" y="22.161903125"/>
+<vertex x="20.55" y="13.8"/>
+<vertex x="20.55" y="7.2"/>
+<vertex x="0.15" y="7.2"/>
+<vertex x="0" y="7.35"/>
+<vertex x="0" y="22.2"/>
+<vertex x="0.15" y="22.35"/>
+</polygon>
+<via x="12.75" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="17.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="12.75" y="16.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="12.75" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="16.35" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="12.75" y="15.75" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="12.75" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="15.15" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="12.75" y="14.55" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="12.75" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.35" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="13.95" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="14.55" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.15" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="15.75" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
+<via x="16.35" y="13.95" extent="1-16" drill="0.3" diameter="0.6"/>
 </signal>
 <signal name="N$1">
 <contactref element="U$11" pad="5"/>
@@ -2891,16 +2941,15 @@ design rules under a new name.</description>
 </polygon>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="16.5" y="90.75"/>
-<vertex x="31.5" y="90.75"/>
-<vertex x="31.5" y="88.8"/>
+<vertex x="31.65" y="90.75"/>
+<vertex x="31.65" y="88.8"/>
 <vertex x="16.5" y="88.8"/>
 </polygon>
-<wire x1="11.26" y1="82.01" x2="11.26" y2="84.467" width="2" layer="1"/>
-<wire x1="11.26" y1="84.467" x2="16.65" y2="89.857" width="2" layer="1"/>
+<wire x1="11.26" y1="82.01" x2="11.26" y2="85.367" width="2" layer="1"/>
 <wire x1="11.26" y1="82.01" x2="14.7" y2="78.57" width="2" layer="1"/>
 <wire x1="14.7" y1="78.57" x2="14.7" y2="75.3" width="2" layer="1"/>
 <via x="14.7" y="75.3" extent="1-16" drill="1" diameter="2"/>
-<wire x1="16.5" y1="73.5" x2="14.7" y2="75.3" width="3" layer="16"/>
+<wire x1="16.2" y1="73.8" x2="14.7" y2="75.3" width="3" layer="16"/>
 <polygon width="0.1524" layer="1" thermals="no">
 <vertex x="0.9" y="31.05"/>
 <vertex x="16.05" y="31.05"/>
@@ -2911,6 +2960,8 @@ design rules under a new name.</description>
 <vertex x="11.25" y="32.85"/>
 <vertex x="0.9" y="32.85"/>
 </polygon>
+<wire x1="15.493" y1="89.6" x2="18" y2="89.6" width="2" layer="1"/>
+<wire x1="11.26" y1="85.367" x2="15.493" y2="89.6" width="2" layer="1"/>
 </signal>
 <signal name="5V_GND" class="1">
 <contactref element="J4" pad="CIRCUIT1"/>
