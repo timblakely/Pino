@@ -477,10 +477,6 @@ Metric Code Size 1005</description>
 <rectangle x1="0.9517" y1="-1.3045" x2="1.7018" y2="1.2954" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
-<package name="DO-214AA" urn="urn:adsk.eagle:footprint:16398372/2" locally_modified="yes" library_version="52" library_locally_modified="yes">
-<smd name="C" x="-2.15" y="0" dx="2.5" dy="2.3" layer="1"/>
-<smd name="A" x="2.15" y="0" dx="2.5" dy="2.3" layer="1"/>
-</package>
 </packages>
 <packages3d>
 <package3d name="FASTON_1289-ST" urn="urn:adsk.eagle:package:16406409/3" type="model" library_version="52" library_locally_modified="yes">
@@ -563,11 +559,6 @@ Metric Code Size 1005</description>
 <description>CAPACITOR</description>
 <packageinstances>
 <packageinstance name="C1210"/>
-</packageinstances>
-</package3d>
-<package3d name="DO-214AA" urn="urn:adsk.eagle:package:16398373/3" type="model" library_version="52" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="DO-214AA"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1114,18 +1105,18 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CDBB5100-HF" urn="urn:adsk.eagle:component:16399424/1" locally_modified="yes" prefix="D" library_version="52" library_locally_modified="yes">
+<deviceset name="SK510A-LTP" prefix="D" library_version="52" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="SCHOTTKY" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="DO-214AA">
+<device name="" package="DO-214AC">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16398373/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/5"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5836,8 +5827,8 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="C21" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C22" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C23" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
-<part name="D6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="CDBB5100-HF" device="" package3d_urn="urn:adsk.eagle:package:16398373/3"/>
-<part name="D7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="CDBB5100-HF" device="" package3d_urn="urn:adsk.eagle:package:16398373/3"/>
+<part name="D6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SK510A-LTP" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
+<part name="D7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SK510A-LTP" device="" package3d_urn="urn:adsk.eagle:package:16356227/5"/>
 </parts>
 <sheets>
 <sheet>

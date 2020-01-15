@@ -5837,6 +5837,7 @@ Source: http://cache.national.com/ds/LM/LM321.pdf</description>
 <part name="C21" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C22" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C23" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
+<part name="U$28" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="CDBB5100-HF" device="" package3d_urn="urn:adsk.eagle:package:16398373/3"/>
 </parts>
 <sheets>
 <sheet>
@@ -6199,6 +6200,10 @@ RESIST</text>
 <attribute name="NAME" x="128.524" y="18.161" size="1.778" layer="95"/>
 <attribute name="VALUE" x="128.524" y="13.081" size="1.778" layer="96"/>
 </instance>
+<instance part="U$28" gate="G$1" x="223.52" y="76.2" smashed="yes" rot="R90">
+<attribute name="NAME" x="221.615" y="73.914" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="226.949" y="73.914" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -6407,13 +6412,17 @@ RESIST</text>
 <wire x1="238.76" y1="93.98" x2="236.22" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <wire x1="236.22" y1="93.98" x2="236.22" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <junction x="236.22" y="78.74" grouprefs="LEG_POWER"/>
-<label x="226.06" y="48.26" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="LEG_POWER"/>
-<wire x1="226.06" y1="48.26" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<label x="220.98" y="48.26" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="LEG_POWER"/>
+<wire x1="220.98" y1="48.26" x2="223.52" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <junction x="236.22" y="48.26" grouprefs="LEG_POWER"/>
 <pinref part="U$4" gate="G$1" pin="A"/>
+<wire x1="223.52" y1="48.26" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <wire x1="228.6" y1="48.26" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <wire x1="228.6" y1="73.66" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <junction x="228.6" y="48.26" grouprefs="LEG_POWER"/>
+<pinref part="U$28" gate="G$1" pin="A"/>
+<wire x1="223.52" y1="73.66" x2="223.52" y2="48.26" width="0.1524" layer="91"/>
+<junction x="223.52" y="48.26"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="-"/>
@@ -6777,6 +6786,9 @@ RESIST</text>
 <wire x1="228.6" y1="78.74" x2="228.6" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <junction x="228.6" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="P+4" gate="1" pin="+24V"/>
+<pinref part="U$28" gate="G$1" pin="C"/>
+<wire x1="223.52" y1="78.74" x2="223.52" y2="99.06" width="0.1524" layer="91"/>
+<junction x="223.52" y="99.06"/>
 </segment>
 <segment>
 <wire x1="111.76" y1="198.12" x2="114.3" y2="198.12" width="0.1524" layer="91" grouprefs="BULK_CAP"/>
