@@ -2100,35 +2100,35 @@ Please make sure your boards conform to these design rules.
 </element>
 <element name="D6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="DO-214AC" package3d_urn="urn:adsk.eagle:package:16356227/6" value="SK510A-LTP" x="77.85" y="3.9" smashed="yes"/>
 <element name="D7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="DO-214AC" package3d_urn="urn:adsk.eagle:package:16356227/6" value="SK510A-LTP" x="72.15" y="50.25" smashed="yes" rot="R270"/>
-<element name="R22" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470" x="0.45" y="-15.15" smashed="yes">
-<attribute name="NAME" x="-0.185" y="-14.515" size="1.27" layer="25"/>
-<attribute name="POPULARITY" value="77" x="0.45" y="-15.15" size="1.778" layer="27" display="off"/>
-<attribute name="SPICEPREFIX" value="R" x="0.45" y="-15.15" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-0.185" y="-17.055" size="1.27" layer="27"/>
+<element name="R22" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470" x="73.35" y="80.7" smashed="yes">
+<attribute name="NAME" x="72.715" y="81.335" size="1.27" layer="25"/>
+<attribute name="POPULARITY" value="77" x="73.35" y="80.7" size="1.778" layer="27" display="off"/>
+<attribute name="SPICEPREFIX" value="R" x="73.35" y="80.7" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="72.715" y="78.795" size="1.27" layer="27"/>
 </element>
-<element name="R23" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470" x="0.45" y="-20.1" smashed="yes">
-<attribute name="NAME" x="-0.185" y="-19.465" size="1.27" layer="25"/>
-<attribute name="POPULARITY" value="77" x="0.45" y="-20.1" size="1.778" layer="27" display="off"/>
-<attribute name="SPICEPREFIX" value="R" x="0.45" y="-20.1" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-0.185" y="-22.005" size="1.27" layer="27"/>
+<element name="R23" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470" x="73.2" y="73.35" smashed="yes">
+<attribute name="NAME" x="72.565" y="73.985" size="1.27" layer="25"/>
+<attribute name="POPULARITY" value="77" x="73.2" y="73.35" size="1.778" layer="27" display="off"/>
+<attribute name="SPICEPREFIX" value="R" x="73.2" y="73.35" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="72.565" y="71.445" size="1.27" layer="27"/>
 </element>
-<element name="D8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LTST-C191TBKT" package3d_urn="urn:adsk.eagle:package:16446604/3" value="LTST-C191TBKT" x="1.05" y="-25.35" smashed="yes">
-<attribute name="NAME" x="-0.45" y="-24.35" size="1.27" layer="25"/>
-<attribute name="VALUE" x="-0.45" y="-27.55" size="1.27" layer="27"/>
+<element name="D8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LTST-C191TBKT" package3d_urn="urn:adsk.eagle:package:16446604/3" value="LTST-C191TBKT" x="73.35" y="70.8" smashed="yes">
+<attribute name="NAME" x="71.85" y="71.8" size="1.27" layer="25"/>
+<attribute name="VALUE" x="71.85" y="68.6" size="1.27" layer="27"/>
 </element>
-<element name="D9" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LTST-C191TBKT" package3d_urn="urn:adsk.eagle:package:16446604/3" value="LTST-C191TBKT" x="1.05" y="-30.9" smashed="yes">
-<attribute name="NAME" x="-0.45" y="-29.9" size="1.27" layer="25"/>
-<attribute name="VALUE" x="-0.45" y="-33.1" size="1.27" layer="27"/>
+<element name="D9" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LTST-C191TBKT" package3d_urn="urn:adsk.eagle:package:16446604/3" value="LTST-C191TBKT" x="73.65" y="83.4" smashed="yes">
+<attribute name="NAME" x="72.15" y="84.4" size="1.27" layer="25"/>
+<attribute name="VALUE" x="72.15" y="81.2" size="1.27" layer="27"/>
 </element>
-<element name="D10" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LTST-C191TBKT" package3d_urn="urn:adsk.eagle:package:16446604/3" value="LTST-C191KRKT" x="1.05" y="-36.45" smashed="yes">
-<attribute name="NAME" x="-0.45" y="-35.45" size="1.27" layer="25"/>
-<attribute name="VALUE" x="-0.45" y="-38.65" size="1.27" layer="27"/>
+<element name="D10" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LTST-C191TBKT" package3d_urn="urn:adsk.eagle:package:16446604/3" value="LTST-C191KRKT" x="73.2" y="5.85" smashed="yes" rot="R90">
+<attribute name="NAME" x="72.2" y="4.35" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="75.4" y="4.35" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R24" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470" x="0.45" y="-41.7" smashed="yes">
-<attribute name="NAME" x="-0.185" y="-41.065" size="1.27" layer="25"/>
-<attribute name="POPULARITY" value="77" x="0.45" y="-41.7" size="1.778" layer="27" display="off"/>
-<attribute name="SPICEPREFIX" value="R" x="0.45" y="-41.7" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-0.185" y="-43.605" size="1.27" layer="27"/>
+<element name="R24" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470" x="73.95" y="8.55" smashed="yes">
+<attribute name="NAME" x="73.315" y="9.185" size="1.27" layer="25"/>
+<attribute name="POPULARITY" value="77" x="73.95" y="8.55" size="1.778" layer="27" display="off"/>
+<attribute name="SPICEPREFIX" value="R" x="73.95" y="8.55" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="73.315" y="6.645" size="1.27" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -2581,22 +2581,6 @@ Please make sure your boards conform to these design rules.
 <vertex x="70.65" y="1.232353125"/>
 </polygon>
 <contactref element="D10" pad="C"/>
-<wire x1="72.15" y1="48.225" x2="75.85" y2="57.3" width="0" layer="19" extent="1-1"/>
-<wire x1="75.85" y1="43.567" x2="72.15" y2="48.225" width="0" layer="19" extent="1-1"/>
-<wire x1="75.85" y1="29.833" x2="75.85" y2="43.567" width="0" layer="19" extent="1-1"/>
-<wire x1="75.85" y1="16.1" x2="75.85" y2="29.833" width="0" layer="19" extent="1-1"/>
-<wire x1="79.875" y1="3.9" x2="75.85" y2="16.1" width="0" layer="19" extent="1-1"/>
-<wire x1="38.7" y1="17.6" x2="75.85" y2="16.1" width="0" layer="19" extent="1-1"/>
-<wire x1="30.45" y1="17.6" x2="38.7" y2="17.6" width="0" layer="19" extent="1-1"/>
-<wire x1="22.2" y1="17.6" x2="30.45" y2="17.6" width="0" layer="19" extent="1-1"/>
-<wire x1="15" y1="22.1" x2="22.2" y2="17.6" width="0" layer="19" extent="1-1"/>
-<wire x1="22.2" y1="26.45" x2="15" y2="22.1" width="0" layer="19" extent="1-1"/>
-<wire x1="30.45" y1="26.45" x2="22.2" y2="26.45" width="0" layer="19" extent="1-1"/>
-<wire x1="38.7" y1="26.45" x2="30.45" y2="26.45" width="0" layer="19" extent="1-1"/>
-<wire x1="32.745" y1="46.64" x2="30.45" y2="26.45" width="0" layer="19" extent="1-1"/>
-<wire x1="32.468" y1="52.05" x2="32.745" y2="46.64" width="0" layer="19" extent="1-1"/>
-<wire x1="32.468" y1="59.55" x2="32.468" y2="52.05" width="0" layer="19" extent="1-1"/>
-<wire x1="0.29" y1="-36.45" x2="22.2" y2="17.6" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="ISO_GND" class="1">
 <contactref element="U2" pad="P$2"/>
@@ -2842,7 +2826,7 @@ Please make sure your boards conform to these design rules.
 <wire x1="21.45" y1="67.3" x2="21.45" y2="58.72" width="2" layer="1"/>
 <wire x1="21.45" y1="58.72" x2="23.96" y2="56.21" width="2" layer="1"/>
 <contactref element="R23" pad="2"/>
-<wire x1="1.3" y1="-20.1" x2="23.96" y2="56.21" width="0" layer="19" extent="1-1"/>
+<wire x1="77.88" y1="66.95" x2="74.05" y2="73.35" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+12VOUT" class="1">
 <contactref element="J3" pad="CIRCUIT2"/>
@@ -2858,7 +2842,7 @@ Please make sure your boards conform to these design rules.
 <wire x1="14.25" y1="72.3" x2="3.64" y2="61.69" width="2" layer="1"/>
 <wire x1="74.2444625" y1="81.2" x2="30.2855375" y2="81.2" width="2" layer="16"/>
 <contactref element="R22" pad="2"/>
-<wire x1="1.3" y1="-15.15" x2="3.64" y2="61.69" width="0" layer="19" extent="1-1"/>
+<wire x1="77.88" y1="78.1" x2="74.2" y2="80.7" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$7">
 <contactref element="U$3" pad="4"/>
@@ -3035,6 +3019,8 @@ Please make sure your boards conform to these design rules.
 </polygon>
 <wire x1="15.493" y1="89.6" x2="18" y2="89.6" width="2" layer="1"/>
 <wire x1="11.26" y1="85.367" x2="15.493" y2="89.6" width="2" layer="1"/>
+<contactref element="R24" pad="2"/>
+<wire x1="75.85" y1="11.1" x2="74.8" y2="8.55" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5V_GND" class="1">
 <contactref element="J4" pad="CIRCUIT1"/>
@@ -3051,7 +3037,7 @@ Please make sure your boards conform to these design rules.
 <wire x1="31.3855375" y1="78.7" x2="73.208925" y2="78.7" width="2" layer="16"/>
 <wire x1="80.88" y1="69.95" x2="77.88" y2="69.95" width="2" layer="16"/>
 <contactref element="D8" pad="C"/>
-<wire x1="0.29" y1="-25.35" x2="3.64" y2="56.21" width="0" layer="19" extent="1-1"/>
+<wire x1="77.88" y1="69.95" x2="72.59" y2="70.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12V_GND" class="1">
 <contactref element="J3" pad="CIRCUIT3"/>
@@ -3065,7 +3051,7 @@ Please make sure your boards conform to these design rules.
 <wire x1="24" y1="61.73" x2="23.96" y2="61.69" width="2" layer="1"/>
 <wire x1="75.28" y1="83.7" x2="29.25" y2="83.7" width="2" layer="16"/>
 <contactref element="D9" pad="C"/>
-<wire x1="0.29" y1="-30.9" x2="23.96" y2="61.69" width="0" layer="19" extent="1-1"/>
+<wire x1="77.88" y1="81.1" x2="72.89" y2="83.4" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$18">
 <contactref element="U$5" pad="8"/>
@@ -3115,20 +3101,18 @@ Please make sure your boards conform to these design rules.
 <signal name="N$20">
 <contactref element="R22" pad="1"/>
 <contactref element="D9" pad="A"/>
-<wire x1="-0.4" y1="-15.15" x2="1.81" y2="-30.9" width="0" layer="19" extent="1-1"/>
+<wire x1="72.5" y1="80.7" x2="74.41" y2="83.4" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="R23" pad="1"/>
 <contactref element="D8" pad="A"/>
-<wire x1="-0.4" y1="-20.1" x2="1.81" y2="-25.35" width="0" layer="19" extent="1-1"/>
+<wire x1="74.11" y1="70.8" x2="72.35" y2="73.35" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$22">
 <contactref element="D10" pad="A"/>
 <contactref element="R24" pad="1"/>
-<wire x1="1.81" y1="-36.45" x2="-0.4" y2="-41.7" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="V_BATT">
-<contactref element="R24" pad="2"/>
+<wire x1="73.2" y1="6.61" x2="73.2" y2="8.45" width="0.1524" layer="1"/>
+<wire x1="73.2" y1="8.45" x2="73.1" y2="8.55" width="0.1524" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

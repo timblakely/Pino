@@ -6216,7 +6216,7 @@ RESIST</text>
 <attribute name="VALUE" x="203.2" y="187.96" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="P+4" gate="1" x="241.3" y="99.06" smashed="yes" rot="R90" grouprefs="LEG_POWER">
-<attribute name="VALUE" x="251.46" y="104.14" size="1.778" layer="96" rot="R180"/>
+<attribute name="VALUE" x="238.76" y="99.06" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="P+6" gate="1" x="109.22" y="198.12" smashed="yes" rot="R90" grouprefs="BULK_CAP">
 <attribute name="VALUE" x="119.38" y="203.2" size="1.778" layer="96" rot="R180"/>
@@ -6994,6 +6994,11 @@ RESIST</text>
 <label x="104.14" y="22.86" size="1.778" layer="95" xref="yes" grouprefs="ISO_DECOUPLE"/>
 <label x="45.72" y="22.86" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="ISO_DECOUPLE"/>
 </segment>
+<segment>
+<pinref part="R24" gate="G$1" pin="2"/>
+<wire x1="195.58" y1="81.28" x2="195.58" y2="83.82" width="0.1524" layer="91" grouprefs="INDICATOR"/>
+<label x="195.58" y="83.82" size="1.778" layer="95" rot="R90" xref="yes" grouprefs="INDICATOR"/>
+</segment>
 </net>
 <net name="5V_GND" class="1">
 <segment>
@@ -7089,13 +7094,6 @@ RESIST</text>
 <pinref part="D10" gate="G$1" pin="A"/>
 <pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="68.58" x2="195.58" y2="71.12" width="0.1524" layer="91" grouprefs="INDICATOR"/>
-</segment>
-</net>
-<net name="V_BATT" class="0">
-<segment>
-<pinref part="R24" gate="G$1" pin="2"/>
-<wire x1="195.58" y1="81.28" x2="195.58" y2="83.82" width="0.1524" layer="91" grouprefs="INDICATOR"/>
-<label x="195.58" y="83.82" size="1.778" layer="95" rot="R90" xref="yes" grouprefs="INDICATOR"/>
 </segment>
 </net>
 </nets>

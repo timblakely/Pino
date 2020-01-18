@@ -5891,9 +5891,9 @@ RESIST</text>
 <attribute name="NAME" x="82.3214" y="59.69" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="87.122" y="59.69" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R2" gate="G$1" x="106.68" y="83.82" smashed="yes" grouprefs="LEG_SOFTSTART">
-<attribute name="NAME" x="107.95" y="80.2386" size="1.778" layer="95"/>
-<attribute name="VALUE" x="107.95" y="85.598" size="1.778" layer="96"/>
+<instance part="R2" gate="G$1" x="106.68" y="83.82" smashed="yes" rot="R180" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="105.41" y="87.4014" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="105.41" y="82.042" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="U$9" gate="G$1" x="45.72" y="78.74" smashed="yes" rot="R180" grouprefs="LEG_SOFTSTART">
 <attribute name="NAME" x="55.88" y="67.31" size="1.778" layer="95" rot="R180"/>
@@ -6450,7 +6450,7 @@ RESIST</text>
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="D"/>
-<wire x1="101.6" y1="83.82" x2="170.18" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="111.76" y1="83.82" x2="170.18" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <wire x1="170.18" y1="83.82" x2="170.18" y2="73.66" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$2" gate="G$1" pin="D"/>
 <wire x1="180.34" y1="58.42" x2="180.34" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6531,7 +6531,7 @@ RESIST</text>
 <pinref part="U$11" gate="G$1" pin="D"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="99.06" y1="60.96" x2="99.06" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="99.06" y1="83.82" x2="111.76" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="99.06" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -6941,6 +6941,13 @@ RESIST</text>
 </sheet>
 </sheets>
 <errors>
+<approved hash="102,1,27.94,198.12,+24V,BATT_+24V,,,,"/>
+<approved hash="102,1,12.7,147.32,+24V,BATT_+24V,,,,"/>
+<approved hash="102,1,12.7,71.12,+24V,BATT_+24V,,,,"/>
+<approved hash="102,1,198.12,195.58,+24V,BATT_+24V,,,,"/>
+<approved hash="102,1,223.52,99.06,+24V,BATT_+24V,,,,"/>
+<approved hash="102,1,111.76,198.12,+24V,BATT_+24V,,,,"/>
+<approved hash="102,1,162.56,198.12,+24V,BATT_+24V,,,,"/>
 <approved hash="104,1,256.54,187.96,J3,CONN1,12V_GND,,,"/>
 <approved hash="104,1,256.54,185.42,J3,CONN2,+12VOUT,,,"/>
 <approved hash="104,1,256.54,182.88,J3,CONN3,12V_GND,,,"/>
@@ -6949,9 +6956,9 @@ RESIST</text>
 <approved hash="104,1,256.54,154.94,J4,CONN2,+5VOUT,,,"/>
 <approved hash="104,1,256.54,152.4,J4,CONN3,5V_GND,,,"/>
 <approved hash="104,1,256.54,149.86,J4,CONN4,+5VOUT,,,"/>
-<approved hash="104,1,205.74,160.02,U1,+VIN,+24V,,,"/>
+<approved hash="104,1,205.74,160.02,U1,+VIN,BATT_+24V,,,"/>
 <approved hash="104,1,205.74,152.4,U1,-VIN,ISO_GND,,,"/>
-<approved hash="104,1,205.74,190.5,U2,+VIN,+24V,,,"/>
+<approved hash="104,1,205.74,190.5,U2,+VIN,BATT_+24V,,,"/>
 <approved hash="104,1,205.74,182.88,U2,-VIN,ISO_GND,,,"/>
 <approved hash="202,1,33.02,81.28,U$9,VTAB,,,,"/>
 <approved hash="202,1,58.42,76.2,U$9,SENSE,,,,"/>

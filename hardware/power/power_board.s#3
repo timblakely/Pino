@@ -5867,21 +5867,21 @@ RESIST</text>
 <attribute name="NAME" x="210.82" y="195.834" size="1.778" layer="95"/>
 <attribute name="VALUE" x="210.82" y="167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="J5" gate="G$1" x="246.38" y="96.52" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="102.108" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="89.774" size="1.27" layer="96" font="vector"/>
+<instance part="J5" gate="G$1" x="264.16" y="96.52" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="102.108" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="89.774" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J6" gate="G$1" x="246.38" y="81.28" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="86.868" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="74.534" size="1.27" layer="96" font="vector"/>
+<instance part="J6" gate="G$1" x="264.16" y="81.28" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="86.868" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="74.534" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J7" gate="G$1" x="246.38" y="66.04" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="71.628" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="59.294" size="1.27" layer="96" font="vector"/>
+<instance part="J7" gate="G$1" x="264.16" y="66.04" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="71.628" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="59.294" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J8" gate="G$1" x="246.38" y="50.8" smashed="yes" grouprefs="LEG_POWER">
-<attribute name="NAME" x="243.078" y="56.388" size="1.27" layer="95" font="vector"/>
-<attribute name="VALUE" x="242.206" y="44.054" size="1.27" layer="96" font="vector"/>
+<instance part="J8" gate="G$1" x="264.16" y="50.8" smashed="yes" grouprefs="LEG_POWER">
+<attribute name="NAME" x="260.858" y="56.388" size="1.27" layer="95" font="vector"/>
+<attribute name="VALUE" x="259.986" y="44.054" size="1.27" layer="96" font="vector"/>
 </instance>
 <instance part="U$11" gate="G$1" x="96.52" y="55.88" smashed="yes" grouprefs="LEG_SOFTSTART">
 <attribute name="VALUE" x="85.09" y="59.69" size="1.778" layer="96" rot="MR180"/>
@@ -6129,8 +6129,8 @@ RESIST</text>
 <instance part="P+2" gate="1" x="198.12" y="198.12" smashed="yes" grouprefs="ISO_POWER">
 <attribute name="VALUE" x="203.2" y="187.96" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="P+4" gate="1" x="220.98" y="99.06" smashed="yes" rot="R90">
-<attribute name="VALUE" x="231.14" y="104.14" size="1.778" layer="96" rot="R180"/>
+<instance part="P+4" gate="1" x="238.76" y="99.06" smashed="yes" rot="R90" grouprefs="LEG_POWER">
+<attribute name="VALUE" x="248.92" y="104.14" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="P+6" gate="1" x="109.22" y="198.12" smashed="yes" rot="R90" grouprefs="BULK_CAP">
 <attribute name="VALUE" x="119.38" y="203.2" size="1.778" layer="96" rot="R180"/>
@@ -6186,13 +6186,13 @@ RESIST</text>
 <attribute name="NAME" x="98.044" y="18.161" size="1.778" layer="95"/>
 <attribute name="VALUE" x="98.044" y="13.081" size="1.778" layer="96"/>
 </instance>
-<instance part="D6" gate="G$1" x="223.52" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="221.615" y="73.914" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="226.949" y="73.914" size="1.778" layer="96" rot="R90"/>
+<instance part="D6" gate="G$1" x="241.3" y="76.2" smashed="yes" rot="R90" grouprefs="LEG_POWER">
+<attribute name="NAME" x="239.395" y="73.914" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="244.729" y="73.914" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="D7" gate="G$1" x="228.6" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="226.695" y="73.914" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="232.029" y="73.914" size="1.778" layer="96" rot="R90"/>
+<instance part="D7" gate="G$1" x="246.38" y="76.2" smashed="yes" rot="R90" grouprefs="LEG_POWER">
+<attribute name="NAME" x="244.475" y="73.914" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="249.809" y="73.914" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -6390,27 +6390,27 @@ RESIST</text>
 <net name="LEG_GND" class="1">
 <segment>
 <pinref part="J8" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="48.26" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="48.26" x2="254" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <pinref part="J7" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="63.5" x2="236.22" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="236.22" y1="63.5" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="63.5" x2="254" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="254" y1="63.5" x2="254" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <pinref part="J6" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="78.74" x2="236.22" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="236.22" y1="78.74" x2="236.22" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="236.22" y="63.5" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="78.74" x2="254" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="254" y1="78.74" x2="254" y2="63.5" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="254" y="63.5" grouprefs="LEG_POWER"/>
 <pinref part="J5" gate="G$1" pin="V-"/>
-<wire x1="238.76" y1="93.98" x2="236.22" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="236.22" y1="93.98" x2="236.22" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="236.22" y="78.74" grouprefs="LEG_POWER"/>
-<label x="220.98" y="48.26" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="LEG_POWER"/>
-<wire x1="220.98" y1="48.26" x2="223.52" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="236.22" y="48.26" grouprefs="LEG_POWER"/>
-<wire x1="223.52" y1="48.26" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="48.26" x2="236.22" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="73.66" x2="228.6" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="228.6" y="48.26" grouprefs="LEG_POWER"/>
-<wire x1="223.52" y1="73.66" x2="223.52" y2="48.26" width="0.1524" layer="91"/>
-<junction x="223.52" y="48.26"/>
+<wire x1="256.54" y1="93.98" x2="254" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="254" y1="93.98" x2="254" y2="78.74" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="254" y="78.74" grouprefs="LEG_POWER"/>
+<label x="238.76" y="48.26" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="LEG_POWER"/>
+<wire x1="238.76" y1="48.26" x2="241.3" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="254" y="48.26" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="48.26" x2="246.38" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="48.26" x2="254" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="73.66" x2="246.38" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="246.38" y="48.26" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="73.66" x2="241.3" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="241.3" y="48.26" grouprefs="LEG_POWER"/>
 <pinref part="D6" gate="G$1" pin="A"/>
 <pinref part="D7" gate="G$1" pin="A"/>
 </segment>
@@ -6752,26 +6752,26 @@ RESIST</text>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="V+"/>
-<wire x1="223.52" y1="99.06" x2="228.6" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="99.06" x2="233.68" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="99.06" x2="238.76" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="99.06" x2="246.38" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="99.06" x2="251.46" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="99.06" x2="256.54" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 <pinref part="J6" gate="G$1" pin="V+"/>
-<wire x1="238.76" y1="83.82" x2="233.68" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="83.82" x2="233.68" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="233.68" y="99.06" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="83.82" x2="251.46" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="83.82" x2="251.46" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="251.46" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="J7" gate="G$1" pin="V+"/>
-<wire x1="238.76" y1="68.58" x2="233.68" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="68.58" x2="233.68" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="233.68" y="83.82" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="68.58" x2="251.46" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="68.58" x2="251.46" y2="83.82" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="251.46" y="83.82" grouprefs="LEG_POWER"/>
 <pinref part="J8" gate="G$1" pin="V+"/>
-<wire x1="238.76" y1="53.34" x2="233.68" y2="53.34" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="233.68" y1="53.34" x2="233.68" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="233.68" y="68.58" grouprefs="LEG_POWER"/>
-<wire x1="228.6" y1="78.74" x2="228.6" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="228.6" y="99.06" grouprefs="LEG_POWER"/>
+<wire x1="256.54" y1="53.34" x2="251.46" y2="53.34" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="251.46" y1="53.34" x2="251.46" y2="68.58" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="251.46" y="68.58" grouprefs="LEG_POWER"/>
+<wire x1="246.38" y1="78.74" x2="246.38" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="246.38" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="P+4" gate="1" pin="+24V"/>
-<wire x1="223.52" y1="78.74" x2="223.52" y2="99.06" width="0.1524" layer="91"/>
-<junction x="223.52" y="99.06"/>
+<wire x1="241.3" y1="78.74" x2="241.3" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="241.3" y="99.06" grouprefs="LEG_POWER"/>
 <pinref part="D6" gate="G$1" pin="C"/>
 <pinref part="D7" gate="G$1" pin="C"/>
 </segment>

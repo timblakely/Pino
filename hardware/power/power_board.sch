@@ -7071,7 +7071,9 @@ RESIST</text>
 <net name="N$11" class="1">
 <segment>
 <pinref part="U$3" gate="G$1" pin="D"/>
-<wire x1="99.06" y1="137.16" x2="101.6" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="137.16" x2="99.06" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="157.48" x2="99.06" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="160.02" x2="101.6" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 </segment>
 </net>
