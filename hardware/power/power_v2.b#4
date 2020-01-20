@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MB3VqYkNRX6Sa_ecpPTqbA" pcbguid="9dcfff74-9686-4bdf-a14e-dd144a326308" lastpulledtime="2020-01-18T04:37:27Z" lastsyncedchangeguid="93088360-dd8e-1d43-d0cc-ae6af3c3b770"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MB3VqYkNRX6Sa_ecpPTqbA" pcbguid="9dcfff74-9686-4bdf-a14e-dd144a326308" lastpulledtime="2020-01-18T04:37:27Z" lastsyncedchangeguid="30fce54c-48fa-602d-77f9-6023b09cda53"/>
 <plain>
 <hole x="39" y="89" drill="3.4"/>
 <hole x="9" y="89" drill="3.4"/>
@@ -2071,9 +2071,9 @@ Please make sure your boards conform to these design rules.
 <contactref element="R12" pad="1A"/>
 <polygon width="0.1524" layer="1" isolate="0.3" thermals="no" rank="2">
 <vertex x="60.6" y="61"/>
-<vertex x="60.6" y="38.3"/>
-<vertex x="22.5" y="38.3"/>
-<vertex x="22.5" y="61"/>
+<vertex x="60.6" y="38.4"/>
+<vertex x="22.3" y="38.4"/>
+<vertex x="22.3" y="61"/>
 </polygon>
 <wire x1="19.3" y1="11" x2="21.4" y2="8.9" width="0.3" layer="1"/>
 <wire x1="21.4" y1="8.9" x2="27.5" y2="8.9" width="0.3" layer="1"/>
@@ -2352,9 +2352,9 @@ Please make sure your boards conform to these design rules.
 <contactref element="R4" pad="2B"/>
 <contactref element="R4" pad="2A"/>
 <polygon width="0.1524" layer="1" isolate="0.3" thermals="no" rank="3">
-<vertex x="49" y="13"/>
-<vertex x="49" y="37.9"/>
-<vertex x="22.5" y="37.9"/>
+<vertex x="49.1" y="13"/>
+<vertex x="49.1" y="37.8"/>
+<vertex x="22.5" y="37.8"/>
 <vertex x="22.5" y="13"/>
 </polygon>
 </signal>
@@ -2602,8 +2602,8 @@ Please make sure your boards conform to these design rules.
 <polygon width="0.1524" layer="1" isolate="0.3" thermals="no">
 <vertex x="2" y="61"/>
 <vertex x="2" y="45.4"/>
-<vertex x="21.8" y="45.4"/>
-<vertex x="21.8" y="61"/>
+<vertex x="21.7" y="45.4"/>
+<vertex x="21.7" y="61"/>
 </polygon>
 </signal>
 <signal name="N$21">
