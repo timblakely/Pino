@@ -1269,7 +1269,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="1N4148W-7-F" urn="urn:adsk.eagle:component:16502584/1" library_version="67" library_locally_modified="yes">
+<deviceset name="1N4148W-7-F" urn="urn:adsk.eagle:component:16502584/1" locally_modified="yes" prefix="D" library_version="67" library_locally_modified="yes">
 <gates>
 <gate name="A" symbol="D-1" x="0" y="0"/>
 </gates>
@@ -5858,8 +5858,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="U$1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
 <part name="P+3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
 <part name="D1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMA" device="J30A" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
-<part name="U$2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
-<part name="U$3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="C8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="0.01uF"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="3.4k"/>
@@ -5876,7 +5874,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="Q1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MMBT5401L" device="" package3d_urn="urn:adsk.eagle:package:16500238/3"/>
 <part name="Q2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PSMN1R0-40YSH" device="" package3d_urn="urn:adsk.eagle:package:16249927/4"/>
 <part name="C10" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="16nF"/>
-<part name="U$6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="1N4148W-7-F" device="" package3d_urn="urn:adsk.eagle:package:16502213/2"/>
 <part name="U$11" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="U$12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="R4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PMR25HZPFV" device="" package3d_urn="urn:adsk.eagle:package:16502583/2"/>
@@ -5884,10 +5881,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="U$13" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/3"/>
 <part name="U$14" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
 <part name="P+4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
-<part name="D3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMA" device="J30A" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
-<part name="U$15" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
-<part name="U$16" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
-<part name="C11" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="0.01uF"/>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
 <part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="3.4k"/>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="4.32k"/>
@@ -5903,9 +5896,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="Q3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MMBT5401L" device="" package3d_urn="urn:adsk.eagle:package:16500238/3"/>
 <part name="Q4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PSMN1R0-40YSH" device="" package3d_urn="urn:adsk.eagle:package:16249927/4"/>
 <part name="C13" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="16nF"/>
-<part name="U$22" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="1N4148W-7-F" device="" package3d_urn="urn:adsk.eagle:package:16502213/2"/>
 <part name="U$23" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="R12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PMR25HZPFV" device="" package3d_urn="urn:adsk.eagle:package:16502583/2"/>
+<part name="D3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="1N4148W-7-F" device="" package3d_urn="urn:adsk.eagle:package:16502213/2"/>
+<part name="D5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="1N4148W-7-F" device="" package3d_urn="urn:adsk.eagle:package:16502213/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -5935,8 +5929,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <attribute name="NAME" x="245.618" y="86.868" size="1.27" layer="95" font="vector"/>
 <attribute name="VALUE" x="237.126" y="79.614" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J1" gate="G$1" x="22.86" y="198.12" smashed="yes" grouprefs="BATT"/>
-<instance part="J2" gate="G$1" x="22.86" y="190.5" smashed="yes" grouprefs="BATT"/>
+<instance part="J1" gate="G$1" x="38.1" y="198.12" smashed="yes" grouprefs="BATT"/>
+<instance part="J2" gate="G$1" x="38.1" y="190.5" smashed="yes" grouprefs="BATT"/>
 <instance part="P+1" gate="1" x="12.7" y="198.12" smashed="yes" rot="R90" grouprefs="BATT">
 <attribute name="VALUE" x="22.86" y="203.2" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -5975,28 +5969,65 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="U$26" gate="G$1" x="101.6" y="129.54" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART"/>
 <instance part="U$1" gate="A" x="137.16" y="99.06" smashed="yes" grouprefs="LEG_SOFTSTART"/>
 <instance part="P+3" gate="1" x="73.66" y="124.46" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART"/>
-<instance part="D1" gate="G$1" x="86.36" y="119.38" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="U$2" gate="G$1" x="86.36" y="111.76" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="U$3" gate="G$1" x="78.74" y="111.76" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="C8" gate="G$1" x="78.74" y="119.38" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="R1" gate="G$1" x="101.6" y="116.84" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
-<instance part="R2" gate="G$1" x="101.6" y="101.6" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
-<instance part="R3" gate="G$1" x="101.6" y="86.36" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
+<instance part="D1" gate="G$1" x="27.94" y="195.58" smashed="yes">
+<attribute name="NAME" x="30.734" y="197.485" size="1.778" layer="95"/>
+<attribute name="VALUE" x="30.734" y="194.691" size="1.778" layer="96"/>
+</instance>
+<instance part="C8" gate="G$1" x="22.86" y="195.58" smashed="yes">
+<attribute name="NAME" x="24.384" y="195.961" size="1.778" layer="95"/>
+<attribute name="VALUE" x="24.384" y="190.881" size="1.778" layer="96"/>
+</instance>
+<instance part="R1" gate="G$1" x="101.6" y="116.84" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="103.0986" y="120.65" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="98.298" y="120.65" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R2" gate="G$1" x="101.6" y="101.6" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="103.0986" y="105.41" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="98.298" y="105.41" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R3" gate="G$1" x="101.6" y="86.36" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="103.0986" y="90.17" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="98.298" y="90.17" size="1.778" layer="96" rot="R270"/>
+</instance>
 <instance part="U$4" gate="G$1" x="119.38" y="78.74" smashed="yes" grouprefs="LEG_SOFTSTART"/>
 <instance part="U$5" gate="G$1" x="101.6" y="78.74" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="D2" gate="G$1" x="170.18" y="119.38" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART"/>
-<instance part="R5" gate="G$1" x="165.1" y="88.9" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
-<instance part="C9" gate="G$1" x="157.48" y="88.9" smashed="yes" grouprefs="LEG_SOFTSTART"/>
+<instance part="D2" gate="G$1" x="170.18" y="119.38" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="168.275" y="117.094" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="173.609" y="117.094" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R5" gate="G$1" x="165.1" y="88.9" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="166.5986" y="92.71" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="161.798" y="92.71" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="C9" gate="G$1" x="157.48" y="88.9" smashed="yes" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="159.004" y="89.281" size="1.778" layer="95"/>
+<attribute name="VALUE" x="159.004" y="84.201" size="1.778" layer="96"/>
+</instance>
 <instance part="U$8" gate="G$1" x="157.48" y="78.74" smashed="yes" grouprefs="LEG_SOFTSTART"/>
 <instance part="U$9" gate="G$1" x="165.1" y="78.74" smashed="yes" grouprefs="LEG_SOFTSTART"/>
 <instance part="U$10" gate="G$1" x="170.18" y="114.3" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="R6" gate="G$1" x="177.8" y="96.52" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
-<instance part="Q1" gate="A" x="185.42" y="91.44" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="Q2" gate="G$1" x="137.16" y="121.92" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART"/>
-<instance part="C10" gate="G$1" x="193.04" y="93.98" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="U$6" gate="A" x="182.88" y="104.14" smashed="yes" grouprefs="LEG_SOFTSTART"/>
+<instance part="R6" gate="G$1" x="177.8" y="96.52" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="179.2986" y="100.33" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="174.498" y="100.33" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="Q1" gate="A" x="185.42" y="91.44" smashed="yes" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="175.26" y="99.06" size="1.778" layer="95"/>
+<attribute name="VALUE" x="175.26" y="96.52" size="1.778" layer="96"/>
+</instance>
+<instance part="Q2" gate="G$1" x="137.16" y="121.92" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART">
+<attribute name="VALUE" x="133.35" y="110.49" size="1.778" layer="96" rot="MR90"/>
+<attribute name="NAME" x="135.89" y="110.49" size="1.778" layer="95" rot="MR90"/>
+</instance>
+<instance part="C10" gate="G$1" x="193.04" y="93.98" smashed="yes" grouprefs="LEG_SOFTSTART">
+<attribute name="NAME" x="194.564" y="94.361" size="1.778" layer="95"/>
+<attribute name="VALUE" x="194.564" y="89.281" size="1.778" layer="96"/>
+</instance>
 <instance part="U$11" gate="G$1" x="190.5" y="78.74" smashed="yes" grouprefs="LEG_SOFTSTART"/>
 <instance part="R4" gate="A" x="114.3" y="124.46" smashed="yes" grouprefs="LEG_SOFTSTART"/>
+<instance part="D3" gate="A" x="182.88" y="104.14" smashed="yes">
+<attribute name="NAME" x="180.34" y="106.68" size="1.778" layer="95"/>
+<attribute name="VALUE" x="180.34" y="100.33" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -6005,20 +6036,18 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="P+1" gate="1" pin="+24V"/>
 <pinref part="J1" gate="G$1" pin="PIN1"/>
-<wire x1="15.24" y1="198.12" x2="17.78" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="198.12" x2="22.86" y2="198.12" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="22.86" y1="198.12" x2="27.94" y2="198.12" width="0.1524" layer="91"/>
+<junction x="22.86" y="198.12"/>
+<pinref part="D1" gate="G$1" pin="C"/>
+<wire x1="27.94" y1="198.12" x2="33.02" y2="198.12" width="0.1524" layer="91"/>
+<junction x="27.94" y="198.12"/>
 </segment>
 <segment>
 <pinref part="P+3" gate="1" pin="+24V"/>
-<pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="99.06" y1="124.46" x2="86.36" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="86.36" y1="124.46" x2="78.74" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="78.74" y1="124.46" x2="76.2" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="86.36" y1="121.92" x2="86.36" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="86.36" y="124.46" grouprefs="LEG_SOFTSTART"/>
-<pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="78.74" y1="121.92" x2="78.74" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="78.74" y="124.46" grouprefs="LEG_SOFTSTART"/>
+<wire x1="99.06" y1="124.46" x2="76.2" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$26" gate="G$1" pin="P$1"/>
 <wire x1="99.06" y1="127" x2="99.06" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <junction x="99.06" y="124.46" grouprefs="LEG_SOFTSTART"/>
@@ -6028,8 +6057,15 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <net name="GND_BATT" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="PIN1"/>
-<wire x1="15.24" y1="190.5" x2="17.78" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
+<wire x1="15.24" y1="190.5" x2="22.86" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
 <pinref part="U$7" gate="G$1" pin="GND_BATT"/>
+<pinref part="D1" gate="G$1" pin="A"/>
+<wire x1="22.86" y1="190.5" x2="27.94" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
+<wire x1="27.94" y1="190.5" x2="33.02" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
+<wire x1="27.94" y1="193.04" x2="27.94" y2="190.5" width="0.1524" layer="91"/>
+<junction x="27.94" y="190.5"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<junction x="22.86" y="190.5"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="-"/>
@@ -6084,11 +6120,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="231.14" y="83.82" grouprefs="LEG_POWER"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="GND_BATT"/>
-<pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="78.74" y1="111.76" x2="78.74" y2="114.3" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
 <pinref part="U$5" gate="G$1" pin="GND_BATT"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="78.74" x2="101.6" y2="81.28" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6118,11 +6149,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U$4" gate="G$1" pin="GND_BATT"/>
 <pinref part="U$1" gate="A" pin="GND"/>
 <wire x1="119.38" y1="78.74" x2="119.38" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="GND_BATT"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="86.36" y1="111.76" x2="86.36" y2="116.84" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="GND_BATT"/>
@@ -6249,10 +6275,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="154.94" y="109.22" grouprefs="LEG_SOFTSTART"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 <pinref part="Q2" gate="G$1" pin="G"/>
-<pinref part="U$6" gate="A" pin="A"/>
 <wire x1="177.8" y1="104.14" x2="177.8" y2="101.6" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <wire x1="180.34" y1="104.14" x2="177.8" y2="104.14" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <junction x="177.8" y="104.14" grouprefs="LEG_SOFTSTART"/>
+<pinref part="D3" gate="A" pin="A"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -6273,7 +6299,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="U$6" gate="A" pin="C"/>
 <wire x1="185.42" y1="104.14" x2="193.04" y2="104.14" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="104.14" x2="193.04" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6282,6 +6307,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="187.96" y1="96.52" x2="187.96" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <wire x1="187.96" y1="99.06" x2="193.04" y2="99.06" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <junction x="193.04" y="99.06" grouprefs="LEG_SOFTSTART"/>
+<pinref part="D3" gate="A" pin="C"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -6337,28 +6363,57 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="U$13" gate="G$1" x="63.5" y="119.38" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
 <instance part="U$14" gate="A" x="99.06" y="88.9" smashed="yes" grouprefs="ISO_SOFTSTART"/>
 <instance part="P+4" gate="1" x="35.56" y="114.3" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
-<instance part="D3" gate="G$1" x="48.26" y="109.22" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="U$15" gate="G$1" x="48.26" y="101.6" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="U$16" gate="G$1" x="40.64" y="101.6" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="C11" gate="G$1" x="40.64" y="109.22" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="R7" gate="G$1" x="63.5" y="106.68" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART"/>
-<instance part="R8" gate="G$1" x="63.5" y="91.44" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART"/>
-<instance part="R9" gate="G$1" x="63.5" y="76.2" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART"/>
+<instance part="R7" gate="G$1" x="63.5" y="106.68" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="64.9986" y="110.49" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="60.198" y="110.49" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R8" gate="G$1" x="63.5" y="91.44" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="64.9986" y="95.25" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="60.198" y="95.25" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R9" gate="G$1" x="63.5" y="76.2" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="64.9986" y="80.01" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="60.198" y="80.01" size="1.778" layer="96" rot="R270"/>
+</instance>
 <instance part="U$17" gate="G$1" x="81.28" y="68.58" smashed="yes" grouprefs="ISO_SOFTSTART"/>
 <instance part="U$18" gate="G$1" x="63.5" y="68.58" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="D4" gate="G$1" x="132.08" y="109.22" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
-<instance part="R10" gate="G$1" x="127" y="78.74" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART"/>
-<instance part="C12" gate="G$1" x="119.38" y="78.74" smashed="yes" grouprefs="ISO_SOFTSTART"/>
+<instance part="D4" gate="G$1" x="132.08" y="109.22" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="130.175" y="106.934" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="135.509" y="106.934" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R10" gate="G$1" x="127" y="78.74" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="128.4986" y="82.55" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="123.698" y="82.55" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="C12" gate="G$1" x="119.38" y="78.74" smashed="yes" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="120.904" y="79.121" size="1.778" layer="95"/>
+<attribute name="VALUE" x="120.904" y="74.041" size="1.778" layer="96"/>
+</instance>
 <instance part="U$19" gate="G$1" x="119.38" y="68.58" smashed="yes" grouprefs="ISO_SOFTSTART"/>
 <instance part="U$20" gate="G$1" x="127" y="68.58" smashed="yes" grouprefs="ISO_SOFTSTART"/>
 <instance part="U$21" gate="G$1" x="132.08" y="104.14" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="R11" gate="G$1" x="139.7" y="86.36" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART"/>
-<instance part="Q3" gate="A" x="147.32" y="81.28" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="Q4" gate="G$1" x="99.06" y="111.76" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
-<instance part="C13" gate="G$1" x="154.94" y="83.82" smashed="yes" grouprefs="ISO_SOFTSTART"/>
-<instance part="U$22" gate="A" x="144.78" y="93.98" smashed="yes" grouprefs="ISO_SOFTSTART"/>
+<instance part="R11" gate="G$1" x="139.7" y="86.36" smashed="yes" rot="R270" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="141.1986" y="90.17" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="136.398" y="90.17" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="Q3" gate="A" x="147.32" y="81.28" smashed="yes" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="137.16" y="88.9" size="1.778" layer="95"/>
+<attribute name="VALUE" x="137.16" y="86.36" size="1.778" layer="96"/>
+</instance>
+<instance part="Q4" gate="G$1" x="99.06" y="111.76" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART">
+<attribute name="VALUE" x="95.25" y="100.33" size="1.778" layer="96" rot="MR90"/>
+<attribute name="NAME" x="97.79" y="100.33" size="1.778" layer="95" rot="MR90"/>
+</instance>
+<instance part="C13" gate="G$1" x="154.94" y="83.82" smashed="yes" grouprefs="ISO_SOFTSTART">
+<attribute name="NAME" x="156.464" y="84.201" size="1.778" layer="95"/>
+<attribute name="VALUE" x="156.464" y="79.121" size="1.778" layer="96"/>
+</instance>
 <instance part="U$23" gate="G$1" x="152.4" y="68.58" smashed="yes" grouprefs="ISO_SOFTSTART"/>
 <instance part="R12" gate="A" x="76.2" y="114.3" smashed="yes" grouprefs="ISO_SOFTSTART"/>
+<instance part="D5" gate="A" x="144.78" y="93.98" smashed="yes">
+<attribute name="NAME" x="142.24" y="96.52" size="1.778" layer="95"/>
+<attribute name="VALUE" x="142.24" y="90.17" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -6366,19 +6421,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <net name="+24V_BATT" class="0">
 <segment>
 <wire x1="71.12" y1="114.3" x2="60.96" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="60.96" y1="114.3" x2="48.26" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="48.26" y1="114.3" x2="40.64" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="40.64" y1="114.3" x2="38.1" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="48.26" y1="111.76" x2="48.26" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<junction x="48.26" y="114.3" grouprefs="ISO_SOFTSTART"/>
-<wire x1="40.64" y1="111.76" x2="40.64" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<junction x="40.64" y="114.3" grouprefs="ISO_SOFTSTART"/>
+<wire x1="60.96" y1="114.3" x2="38.1" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="60.96" y1="116.84" x2="60.96" y2="114.3" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="60.96" y="114.3" grouprefs="ISO_SOFTSTART"/>
 <pinref part="U$13" gate="G$1" pin="P$1"/>
 <pinref part="P+4" gate="1" pin="+24V"/>
-<pinref part="D3" gate="G$1" pin="C"/>
-<pinref part="C11" gate="G$1" pin="1"/>
 <pinref part="R12" gate="A" pin="1"/>
 </segment>
 </net>
@@ -6427,16 +6474,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="88.9" y="147.32" grouprefs="ISO_DECOUPLE"/>
 <label x="142.24" y="147.32" size="1.778" layer="95" xref="yes" grouprefs="ISO_DECOUPLE"/>
 <label x="83.82" y="147.32" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="ISO_DECOUPLE"/>
-</segment>
-<segment>
-<wire x1="48.26" y1="101.6" x2="48.26" y2="106.68" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="D3" gate="G$1" pin="A"/>
-<pinref part="U$15" gate="G$1" pin="GND_BATT"/>
-</segment>
-<segment>
-<wire x1="40.64" y1="101.6" x2="40.64" y2="104.14" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="U$16" gate="G$1" pin="GND_BATT"/>
-<pinref part="C11" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <wire x1="81.28" y1="68.58" x2="81.28" y2="83.82" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
@@ -6681,7 +6718,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U$14" gate="A" pin="GATE"/>
 <pinref part="R11" gate="G$1" pin="1"/>
 <pinref part="Q4" gate="G$1" pin="G"/>
-<pinref part="U$22" gate="A" pin="A"/>
+<pinref part="D5" gate="A" pin="A"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -6710,7 +6747,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="154.94" y="88.9" grouprefs="ISO_SOFTSTART"/>
 <pinref part="Q3" gate="A" pin="E"/>
 <pinref part="C13" gate="G$1" pin="1"/>
-<pinref part="U$22" gate="A" pin="C"/>
+<pinref part="D5" gate="A" pin="C"/>
 </segment>
 </net>
 <net name="N$18" class="0">
