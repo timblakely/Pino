@@ -6534,8 +6534,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="C13" gate="G$1" pin="2"/>
 <pinref part="U$23" gate="G$1" pin="GND_BATT"/>
 </segment>
-</net>
-<net name="ISO_GND" class="1">
 <segment>
 <pinref part="U2" gate="G$1" pin="-VIN"/>
 <wire x1="205.74" y1="144.78" x2="200.66" y2="144.78" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>

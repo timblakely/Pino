@@ -2123,7 +2123,10 @@ Please make sure your boards conform to these design rules.
 <contactref element="D4" pad="A"/>
 <contactref element="Q3" pad="C"/>
 <contactref element="C13" pad="2"/>
-<wire x1="43.29" y1="77.780025" x2="43.29" y2="80.820028125" width="0" layer="19" extent="1-1"/>
+<contactref element="U2" pad="P$2"/>
+<contactref element="U1" pad="P$2"/>
+<wire x1="43.29" y1="77.780025" x2="49.51" y2="78.04" width="0" layer="19" extent="1-1"/>
+<wire x1="43.29" y1="80.820028125" x2="43.29" y2="77.780025" width="0" layer="19" extent="1-1"/>
 <wire x1="43.29" y1="74.740021875" x2="43.29" y2="77.780025" width="0" layer="19" extent="1-1"/>
 <wire x1="43.29" y1="71.70001875" x2="43.29" y2="74.740021875" width="0" layer="19" extent="1-1"/>
 <wire x1="43.29" y1="68.660015625" x2="43.29" y2="71.70001875" width="0" layer="19" extent="1-1"/>
@@ -2132,7 +2135,8 @@ Please make sure your boards conform to these design rules.
 <wire x1="30.41" y1="74.75999375" x2="30.41" y2="77.799996875" width="0" layer="19" extent="1-1"/>
 <wire x1="30.41" y1="71.719990625" x2="30.41" y2="74.75999375" width="0" layer="19" extent="1-1"/>
 <wire x1="30.41" y1="68.6799875" x2="30.41" y2="71.719990625" width="0" layer="19" extent="1-1"/>
-<wire x1="74.84" y1="59.48" x2="43.29" y2="68.660015625" width="0" layer="19" extent="1-1"/>
+<wire x1="25.26" y1="71.66" x2="30.41" y2="71.719990625" width="0" layer="19" extent="1-1"/>
+<wire x1="74.84" y1="59.48" x2="49.51" y2="78.04" width="0" layer="19" extent="1-1"/>
 <wire x1="13.8" y1="-14.4" x2="38.5" y2="14.02" width="0" layer="19" extent="1-1"/>
 <wire x1="12.9" y1="-22.9" x2="13.8" y2="-14.4" width="0" layer="19" extent="1-1"/>
 <wire x1="19.6" y1="-22.9" x2="12.9" y2="-22.9" width="0" layer="19" extent="1-1"/>
@@ -2142,11 +2146,6 @@ Please make sure your boards conform to these design rules.
 <wire x1="5.025" y1="-15.4" x2="5.025" y2="-22.9" width="0" layer="19" extent="1-1"/>
 <wire x1="16.7" y1="-36.2" x2="20.45" y2="-29.1" width="0" layer="19" extent="1-1"/>
 <wire x1="2.25" y1="-35" x2="5.025" y2="-22.9" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="ISO_GND" class="1">
-<contactref element="U2" pad="P$2"/>
-<contactref element="U1" pad="P$2"/>
-<wire x1="25.26" y1="71.66" x2="49.51" y2="78.04" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5VOUT" class="1">
 <contactref element="U1" pad="P$3"/>

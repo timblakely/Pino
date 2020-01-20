@@ -1660,7 +1660,7 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <clearance class="1" value="0.5"/>
 </class>
 </classes>
-<designrules name="jlcpcb2layer">
+<designrules name="jlcpcb2layer *">
 <description language="en">&lt;b&gt;JLCPCB Design Rules by Jaap de Dood&lt;/b&gt;
 &lt;p&gt;
 Please make sure your boards conform to these design rules.
@@ -1699,9 +1699,9 @@ Please make sure your boards conform to these design rules.
 <param name="rlMaxPadInner" value="20mil"/>
 <param name="rlMinPadBottom" value="5mil"/>
 <param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="3mil"/>
+<param name="rlMinViaOuter" value="4mil"/>
 <param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="3mil"/>
+<param name="rlMinViaInner" value="4mil"/>
 <param name="rlMaxViaInner" value="20mil"/>
 <param name="rlMinMicroViaOuter" value="3mil"/>
 <param name="rlMaxMicroViaOuter" value="20mil"/>
@@ -2243,18 +2243,6 @@ Please make sure your boards conform to these design rules.
 </signal>
 <signal name="N$4">
 <via x="51.1" y="43.7" extent="1-16" drill="0.35"/>
-</signal>
-<signal name="N$12">
-<via x="51.7" y="43.7" extent="1-16" drill="0.35"/>
-</signal>
-<signal name="N$13">
-<via x="52.7" y="43.7" extent="1-16" drill="0.35"/>
-</signal>
-<signal name="N$14">
-<via x="53.5" y="43.7" extent="1-16" drill="0.35"/>
-</signal>
-<signal name="N$15">
-<via x="54.3" y="43.7" extent="1-16" drill="0.35"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

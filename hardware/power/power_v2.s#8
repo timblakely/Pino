@@ -555,9 +555,9 @@ Metric Code Size 1005</description>
 <wire x1="-2.473" y1="-1.483" x2="-2.473" y2="1.483" width="0.0508" layer="39"/>
 <smd name="2_KELVIN" x="1.4" y="0" dx="1.6" dy="0.2794" layer="1"/>
 <smd name="1A" x="-1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
-<smd name="1B" x="-1.4" y="-20.955" dx="1.6" dy="1.05" layer="1"/>
+<smd name="1B" x="-1.4" y="-0.825" dx="1.6" dy="1.05" layer="1"/>
 <smd name="2A" x="1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
-<smd name="2B" x="1.4" y="-20.955" dx="1.6" dy="1.05" layer="1"/>
+<smd name="2B" x="1.4" y="-0.825" dx="1.6" dy="1.05" layer="1"/>
 <smd name="1_KELVIN" x="-1.4" y="0" dx="1.6" dy="0.2794" layer="1"/>
 <text x="-2.54" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
@@ -6154,6 +6154,23 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="83.82" y="17.78" size="1.778" layer="95" xref="yes" grouprefs="ISO_DECOUPLE"/>
 <label x="25.4" y="17.78" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="ISO_DECOUPLE"/>
 </segment>
+<segment>
+<pinref part="P+3" gate="1" pin="+24V"/>
+<pinref part="D1" gate="G$1" pin="C"/>
+<wire x1="68.58" y1="132.08" x2="58.42" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="58.42" y1="132.08" x2="45.72" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="45.72" y1="132.08" x2="38.1" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="38.1" y1="132.08" x2="35.56" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="45.72" y1="129.54" x2="45.72" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<junction x="45.72" y="132.08" grouprefs="LEG_SOFTSTART"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="129.54" x2="38.1" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<junction x="38.1" y="132.08" grouprefs="LEG_SOFTSTART"/>
+<pinref part="U$26" gate="G$1" pin="P$1"/>
+<wire x1="58.42" y1="134.62" x2="58.42" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<junction x="58.42" y="132.08" grouprefs="LEG_SOFTSTART"/>
+<pinref part="R4" gate="A" pin="1"/>
+</segment>
 </net>
 <net name="GND_BATT" class="0">
 <segment>
@@ -6253,6 +6270,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U$2" gate="G$1" pin="GND_BATT"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="45.72" y1="119.38" x2="45.72" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$10" gate="G$1" pin="GND_BATT"/>
+<pinref part="D2" gate="G$1" pin="A"/>
+<wire x1="129.54" y1="121.92" x2="129.54" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ISO_GND" class="1">
@@ -6380,25 +6402,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="243.84" y="172.72" grouprefs="ISO_POWER1"/>
 <wire x1="243.84" y1="167.64" x2="246.38" y2="167.64" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
 <label x="246.38" y="167.64" size="1.778" layer="95" xref="yes" grouprefs="ISO_POWER1"/>
-</segment>
-</net>
-<net name="+24V" class="0">
-<segment>
-<pinref part="P+3" gate="1" pin="+24V"/>
-<pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="68.58" y1="132.08" x2="58.42" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="58.42" y1="132.08" x2="45.72" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="45.72" y1="132.08" x2="38.1" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="38.1" y1="132.08" x2="35.56" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="45.72" y1="129.54" x2="45.72" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="45.72" y="132.08" grouprefs="LEG_SOFTSTART"/>
-<pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="129.54" x2="38.1" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="38.1" y="132.08" grouprefs="LEG_SOFTSTART"/>
-<pinref part="U$26" gate="G$1" pin="P$1"/>
-<wire x1="58.42" y1="134.62" x2="58.42" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="58.42" y="132.08" grouprefs="LEG_SOFTSTART"/>
-<pinref part="R4" gate="A" pin="1"/>
 </segment>
 </net>
 <net name="N$1" class="0">

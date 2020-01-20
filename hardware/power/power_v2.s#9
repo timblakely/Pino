@@ -554,10 +554,10 @@ Metric Code Size 1005</description>
 <wire x1="2.473" y1="-1.483" x2="-2.473" y2="-1.483" width="0.0508" layer="39"/>
 <wire x1="-2.473" y1="-1.483" x2="-2.473" y2="1.483" width="0.0508" layer="39"/>
 <smd name="2_KELVIN" x="1.4" y="0" dx="1.6" dy="0.2794" layer="1"/>
-<smd name="1A" x="-1.4" y="0.85" dx="1.6" dy="1" layer="1"/>
-<smd name="1B" x="-1.4" y="-0.85" dx="1.6" dy="1" layer="1"/>
-<smd name="2A" x="1.4" y="0.85" dx="1.6" dy="1" layer="1"/>
-<smd name="2B" x="1.4" y="-0.85" dx="1.6" dy="1" layer="1"/>
+<smd name="1A" x="-1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
+<smd name="1B" x="-1.4" y="-20.955" dx="1.6" dy="1.05" layer="1"/>
+<smd name="2A" x="1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
+<smd name="2B" x="1.4" y="-20.955" dx="1.6" dy="1.05" layer="1"/>
 <smd name="1_KELVIN" x="-1.4" y="0" dx="1.6" dy="0.2794" layer="1"/>
 <text x="-2.54" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
@@ -687,8 +687,8 @@ Metric Code Size 1005</description>
 <pin name="PIN1" x="-5.08" y="0" length="middle"/>
 <circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
 </symbol>
-<symbol name="BATT_GND" urn="urn:adsk.eagle:symbol:16399420/1" library_version="50" library_locally_modified="yes">
-<pin name="BATT_GND" x="0" y="0" visible="off" length="short" direction="sup" rot="R270"/>
+<symbol name="BATT_GND" urn="urn:adsk.eagle:symbol:16399420/1" locally_modified="yes" library_version="67" library_locally_modified="yes">
+<pin name="GND_BATT" x="0" y="0" visible="off" length="short" direction="sup" rot="R270"/>
 <wire x1="-2.54" y1="-2.54" x2="2.54" y2="-2.54" width="0.381" layer="94"/>
 <text x="-5.08" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
@@ -976,7 +976,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="BATT_GND" urn="urn:adsk.eagle:component:16399423/1" library_version="50" library_locally_modified="yes">
+<deviceset name="BATT_GND" urn="urn:adsk.eagle:component:16399423/1" library_version="67" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BATT_GND" x="0" y="0"/>
 </gates>
@@ -6159,7 +6159,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="J2" gate="G$1" pin="PIN1"/>
 <wire x1="15.24" y1="193.04" x2="17.78" y2="193.04" width="0.1524" layer="91" grouprefs="BATT"/>
-<pinref part="U$7" gate="G$1" pin="BATT_GND"/>
+<pinref part="U$7" gate="G$1" pin="GND_BATT"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="-"/>
@@ -6195,9 +6195,64 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="78.74" y="33.02" size="1.778" layer="95" xref="yes" grouprefs="BULK_CAP1"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="BATT_GND"/>
+<pinref part="U$3" gate="G$1" pin="GND_BATT"/>
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="119.38" x2="38.1" y2="121.92" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="GND_BATT"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="60.96" y1="86.36" x2="60.96" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$12" gate="G$1" pin="GND_BATT"/>
+<wire x1="241.3" y1="48.26" x2="241.3" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="J8" gate="G$1" pin="V-"/>
+<wire x1="251.46" y1="50.8" x2="248.92" y2="50.8" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<pinref part="J7" gate="G$1" pin="V-"/>
+<wire x1="251.46" y1="66.04" x2="248.92" y2="66.04" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="248.92" y1="66.04" x2="248.92" y2="50.8" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<pinref part="J6" gate="G$1" pin="V-"/>
+<wire x1="251.46" y1="81.28" x2="248.92" y2="81.28" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="248.92" y1="81.28" x2="248.92" y2="66.04" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="248.92" y="66.04" grouprefs="LEG_POWER"/>
+<pinref part="J5" gate="G$1" pin="V-"/>
+<wire x1="251.46" y1="96.52" x2="248.92" y2="96.52" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<wire x1="248.92" y1="96.52" x2="248.92" y2="81.28" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
+<junction x="248.92" y="81.28" grouprefs="LEG_POWER"/>
+<wire x1="241.3" y1="50.8" x2="248.92" y2="50.8" width="0.1524" layer="91"/>
+<junction x="248.92" y="50.8"/>
+</segment>
+<segment>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="152.4" y1="96.52" x2="152.4" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<pinref part="Q1" gate="A" pin="C"/>
+<wire x1="152.4" y1="91.44" x2="149.86" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="149.86" y1="91.44" x2="147.32" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<wire x1="147.32" y1="91.44" x2="147.32" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+<pinref part="U$11" gate="G$1" pin="GND_BATT"/>
+<wire x1="149.86" y1="86.36" x2="149.86" y2="91.44" width="0.1524" layer="91"/>
+<junction x="149.86" y="91.44"/>
+</segment>
+<segment>
+<pinref part="U$9" gate="G$1" pin="GND_BATT"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="86.36" x2="124.46" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="GND_BATT"/>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="86.36" x2="116.84" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="GND_BATT"/>
+<pinref part="U$1" gate="A" pin="GND"/>
+<wire x1="78.74" y1="86.36" x2="78.74" y2="101.6" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="GND_BATT"/>
+<pinref part="D1" gate="G$1" pin="A"/>
+<wire x1="45.72" y1="119.38" x2="45.72" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ISO_GND" class="1">
@@ -6344,68 +6399,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="58.42" y1="134.62" x2="58.42" y2="132.08" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <junction x="58.42" y="132.08" grouprefs="LEG_SOFTSTART"/>
 <pinref part="R4" gate="A" pin="1"/>
-</segment>
-</net>
-<net name="BATT_GND" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="BATT_GND"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="45.72" y1="119.38" x2="45.72" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="A" pin="GND"/>
-<pinref part="U$4" gate="G$1" pin="BATT_GND"/>
-<wire x1="78.74" y1="101.6" x2="78.74" y2="86.36" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="U$5" gate="G$1" pin="BATT_GND"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="86.36" x2="60.96" y2="88.9" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="U$8" gate="G$1" pin="BATT_GND"/>
-<pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="116.84" y1="86.36" x2="116.84" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="U$9" gate="G$1" pin="BATT_GND"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="86.36" x2="124.46" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="D2" gate="G$1" pin="A"/>
-<pinref part="U$10" gate="G$1" pin="BATT_GND"/>
-<wire x1="129.54" y1="124.46" x2="129.54" y2="121.92" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="C10" gate="G$1" pin="2"/>
-<wire x1="152.4" y1="96.52" x2="152.4" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<pinref part="Q1" gate="A" pin="C"/>
-<wire x1="152.4" y1="91.44" x2="149.86" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="149.86" y1="91.44" x2="147.32" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="147.32" y1="91.44" x2="147.32" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="149.86" y="91.44" grouprefs="LEG_SOFTSTART"/>
-<pinref part="U$11" gate="G$1" pin="BATT_GND"/>
-<wire x1="149.86" y1="86.36" x2="149.86" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="J8" gate="G$1" pin="V-"/>
-<wire x1="251.46" y1="50.8" x2="248.92" y2="50.8" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<pinref part="J7" gate="G$1" pin="V-"/>
-<wire x1="251.46" y1="66.04" x2="248.92" y2="66.04" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="248.92" y1="66.04" x2="248.92" y2="50.8" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<pinref part="J6" gate="G$1" pin="V-"/>
-<wire x1="251.46" y1="81.28" x2="248.92" y2="81.28" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="248.92" y1="81.28" x2="248.92" y2="66.04" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="248.92" y="66.04" grouprefs="LEG_POWER"/>
-<pinref part="J5" gate="G$1" pin="V-"/>
-<wire x1="251.46" y1="96.52" x2="248.92" y2="96.52" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<wire x1="248.92" y1="96.52" x2="248.92" y2="81.28" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<junction x="248.92" y="81.28" grouprefs="LEG_POWER"/>
-<junction x="248.92" y="50.8" grouprefs="LEG_POWER"/>
-<wire x1="241.3" y1="50.8" x2="248.92" y2="50.8" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
-<pinref part="U$12" gate="G$1" pin="BATT_GND"/>
-<wire x1="241.3" y1="50.8" x2="241.3" y2="48.26" width="0.1524" layer="91" grouprefs="LEG_POWER"/>
 </segment>
 </net>
 <net name="N$1" class="0">

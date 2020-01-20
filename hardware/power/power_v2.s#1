@@ -6001,7 +6001,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <busses>
 </busses>
 <nets>
-<net name="+24V_BATT" class="1">
+<net name="+24V_BATT" class="0">
 <segment>
 <pinref part="P+1" gate="1" pin="+24V"/>
 <pinref part="J1" gate="G$1" pin="PIN1"/>
@@ -6423,7 +6423,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <busses>
 </busses>
 <nets>
-<net name="+24V_BATT" class="1">
+<net name="+24V_BATT" class="0">
 <segment>
 <wire x1="71.12" y1="114.3" x2="60.96" y2="114.3" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART1"/>
 <wire x1="60.96" y1="114.3" x2="48.26" y2="114.3" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART1"/>
@@ -6545,7 +6545,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="200.66" y="99.06" size="1.778" layer="95" xref="yes" grouprefs="ISO_POWER1"/>
 </segment>
 </net>
-<net name="+5VOUT" class="1">
+<net name="+5VOUT" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="+5VOUT"/>
 <pinref part="J4" gate="G$1" pin="CONN2"/>
@@ -6563,7 +6563,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="251.46" y="127" size="1.778" layer="95" xref="yes" grouprefs="ISO_POWER1"/>
 </segment>
 </net>
-<net name="+12VOUT" class="1">
+<net name="+12VOUT" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="CONN4"/>
 <pinref part="J3" gate="G$1" pin="CONN2"/>
@@ -6581,7 +6581,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="251.46" y="157.48" size="1.778" layer="95" xref="yes" grouprefs="ISO_POWER1"/>
 </segment>
 </net>
-<net name="5V_GND" class="1">
+<net name="5V_GND" class="0">
 <segment>
 <pinref part="J4" gate="G$1" pin="CONN1"/>
 <wire x1="256.54" y1="119.38" x2="248.92" y2="119.38" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
@@ -6598,7 +6598,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="251.46" y="101.6" size="1.778" layer="95" xref="yes" grouprefs="ISO_POWER1"/>
 </segment>
 </net>
-<net name="12V_GND" class="1">
+<net name="12V_GND" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="CONN3"/>
 <wire x1="256.54" y1="144.78" x2="248.92" y2="144.78" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
@@ -6615,7 +6615,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="251.46" y="132.08" size="1.778" layer="95" xref="yes" grouprefs="ISO_POWER1"/>
 </segment>
 </net>
-<net name="+24V_ISO" class="1">
+<net name="+24V_ISO" class="0">
 <segment>
 <wire x1="83.82" y1="160.02" x2="88.9" y2="160.02" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
 <pinref part="C14" gate="G$1" pin="1"/>

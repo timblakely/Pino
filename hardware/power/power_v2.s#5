@@ -6102,51 +6102,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="P+2" gate="1" pin="+24V"/>
 </segment>
 <segment>
-<wire x1="25.4" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="30.48" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="35.56" y1="17.78" x2="40.64" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="40.64" y1="17.78" x2="45.72" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="45.72" y1="17.78" x2="50.8" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="50.8" y1="17.78" x2="55.88" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="55.88" y1="17.78" x2="60.96" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="60.96" y1="17.78" x2="66.04" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="66.04" y1="17.78" x2="71.12" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="71.12" y1="17.78" x2="76.2" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="76.2" y1="17.78" x2="83.82" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<wire x1="30.48" y1="15.24" x2="30.48" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="30.48" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C15" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="15.24" x2="35.56" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="35.56" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C16" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="15.24" x2="40.64" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="40.64" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C17" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="15.24" x2="45.72" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="45.72" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C18" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="15.24" x2="50.8" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="50.8" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C19" gate="G$1" pin="1"/>
-<wire x1="55.88" y1="15.24" x2="55.88" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="55.88" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C20" gate="G$1" pin="1"/>
-<wire x1="60.96" y1="15.24" x2="60.96" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="60.96" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C21" gate="G$1" pin="1"/>
-<wire x1="66.04" y1="15.24" x2="66.04" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="66.04" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C22" gate="G$1" pin="1"/>
-<wire x1="71.12" y1="15.24" x2="71.12" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="71.12" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<pinref part="C23" gate="G$1" pin="1"/>
-<wire x1="76.2" y1="15.24" x2="76.2" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
-<junction x="76.2" y="17.78" grouprefs="ISO_DECOUPLE"/>
-<label x="83.82" y="17.78" size="1.778" layer="95" xref="yes" grouprefs="ISO_DECOUPLE"/>
-<label x="25.4" y="17.78" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="ISO_DECOUPLE"/>
-</segment>
-<segment>
 <pinref part="P+3" gate="1" pin="+24V"/>
 <pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="50.8" y1="111.76" x2="40.64" y2="111.76" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6268,18 +6223,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="D2" gate="G$1" pin="A"/>
 <wire x1="111.76" y1="101.6" x2="111.76" y2="104.14" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
-</net>
-<net name="ISO_GND" class="1">
-<segment>
-<pinref part="U2" gate="G$1" pin="-VIN"/>
-<wire x1="200.66" y1="180.34" x2="195.58" y2="180.34" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
-<wire x1="195.58" y1="180.34" x2="195.58" y2="149.86" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
-<pinref part="U1" gate="G$1" pin="-VIN"/>
-<wire x1="195.58" y1="149.86" x2="195.58" y2="134.62" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
-<wire x1="200.66" y1="149.86" x2="195.58" y2="149.86" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
-<junction x="195.58" y="149.86" grouprefs="ISO_POWER1"/>
-<label x="195.58" y="134.62" size="1.778" layer="95" rot="R270" xref="yes" grouprefs="ISO_POWER1"/>
-</segment>
 <segment>
 <wire x1="83.82" y1="5.08" x2="76.2" y2="5.08" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
 <pinref part="C23" gate="G$1" pin="2"/>
@@ -6324,6 +6267,18 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="30.48" y="5.08" grouprefs="ISO_DECOUPLE"/>
 <label x="83.82" y="5.08" size="1.778" layer="95" xref="yes" grouprefs="ISO_DECOUPLE"/>
 <label x="25.4" y="5.08" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="ISO_DECOUPLE"/>
+</segment>
+</net>
+<net name="ISO_GND" class="1">
+<segment>
+<pinref part="U2" gate="G$1" pin="-VIN"/>
+<wire x1="200.66" y1="180.34" x2="195.58" y2="180.34" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
+<wire x1="195.58" y1="180.34" x2="195.58" y2="149.86" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
+<pinref part="U1" gate="G$1" pin="-VIN"/>
+<wire x1="195.58" y1="149.86" x2="195.58" y2="134.62" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
+<wire x1="200.66" y1="149.86" x2="195.58" y2="149.86" width="0.1524" layer="91" grouprefs="ISO_POWER1"/>
+<junction x="195.58" y="149.86" grouprefs="ISO_POWER1"/>
+<label x="195.58" y="134.62" size="1.778" layer="95" rot="R270" xref="yes" grouprefs="ISO_POWER1"/>
 </segment>
 </net>
 <net name="+5VOUT" class="1">
@@ -6571,6 +6526,53 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="58.42" y1="109.22" x2="58.42" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$1" gate="A" pin="SEN"/>
 <wire x1="58.42" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
+</segment>
+</net>
+<net name="+24V_ISO" class="1">
+<segment>
+<wire x1="25.4" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="30.48" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="35.56" y1="17.78" x2="40.64" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="40.64" y1="17.78" x2="45.72" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="45.72" y1="17.78" x2="50.8" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="50.8" y1="17.78" x2="55.88" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="55.88" y1="17.78" x2="60.96" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="60.96" y1="17.78" x2="66.04" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="66.04" y1="17.78" x2="71.12" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="71.12" y1="17.78" x2="76.2" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="76.2" y1="17.78" x2="83.82" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<wire x1="30.48" y1="15.24" x2="30.48" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="30.48" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C15" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="15.24" x2="35.56" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="35.56" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C16" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="15.24" x2="40.64" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="40.64" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C17" gate="G$1" pin="1"/>
+<wire x1="45.72" y1="15.24" x2="45.72" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="45.72" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C18" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="15.24" x2="50.8" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="50.8" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C19" gate="G$1" pin="1"/>
+<wire x1="55.88" y1="15.24" x2="55.88" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="55.88" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C20" gate="G$1" pin="1"/>
+<wire x1="60.96" y1="15.24" x2="60.96" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="60.96" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C21" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="15.24" x2="66.04" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="66.04" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C22" gate="G$1" pin="1"/>
+<wire x1="71.12" y1="15.24" x2="71.12" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="71.12" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<pinref part="C23" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="15.24" x2="76.2" y2="17.78" width="0.1524" layer="91" grouprefs="ISO_DECOUPLE"/>
+<junction x="76.2" y="17.78" grouprefs="ISO_DECOUPLE"/>
+<label x="83.82" y="17.78" size="1.778" layer="95" xref="yes" grouprefs="ISO_DECOUPLE"/>
+<label x="25.4" y="17.78" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="ISO_DECOUPLE"/>
 </segment>
 </net>
 </nets>
