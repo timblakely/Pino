@@ -5810,7 +5810,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <classes>
 <class number="0" name="default" width="0" drill="0.3">
 </class>
-<class number="1" name="power plane" width="0" drill="0">
+<class number="1" name="power plane" width="0.3048" drill="0">
 <clearance class="1" value="0.5"/>
 </class>
 </classes>
@@ -5900,6 +5900,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="R12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PMR25HZPFV" device="" package3d_urn="urn:adsk.eagle:package:16502583/2"/>
 <part name="D3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="1N4148W-7-F" device="" package3d_urn="urn:adsk.eagle:package:16502213/2"/>
 <part name="D5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="1N4148W-7-F" device="" package3d_urn="urn:adsk.eagle:package:16502213/2"/>
+<part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
+<part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6414,6 +6416,14 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <attribute name="NAME" x="142.24" y="96.52" size="1.778" layer="95"/>
 <attribute name="VALUE" x="142.24" y="90.17" size="1.778" layer="96"/>
 </instance>
+<instance part="R13" gate="G$1" x="76.2" y="96.52" smashed="yes" rot="R180">
+<attribute name="NAME" x="80.01" y="95.0214" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="80.01" y="99.822" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R14" gate="G$1" x="81.28" y="104.14" smashed="yes" rot="R270">
+<attribute name="NAME" x="82.7786" y="107.95" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="77.978" y="107.95" size="1.778" layer="96" rot="R270"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -6757,25 +6767,63 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="Q3" gate="A" pin="B"/>
 </segment>
 </net>
-<net name="N$19" class="0">
-<segment>
-<wire x1="81.28" y1="91.44" x2="73.66" y2="91.44" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="73.66" y1="111.76" x2="73.66" y2="91.44" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="U$14" gate="A" pin="VIN"/>
-<pinref part="R12" gate="A" pin="1K"/>
-</segment>
-</net>
 <net name="N$20" class="0">
 <segment>
-<wire x1="78.74" y1="111.76" x2="78.74" y2="93.98" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<wire x1="78.74" y1="93.98" x2="81.28" y2="93.98" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
+<wire x1="81.28" y1="96.52" x2="81.28" y2="93.98" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <pinref part="U$14" gate="A" pin="SEN"/>
+<pinref part="R13" gate="G$1" pin="1"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="81.28" y1="96.52" x2="81.28" y2="99.06" width="0.1524" layer="91"/>
+<junction x="81.28" y="96.52"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="R14" gate="G$1" pin="1"/>
 <pinref part="R12" gate="A" pin="2K"/>
+<wire x1="81.28" y1="109.22" x2="78.74" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="109.22" x2="78.74" y2="111.76" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$22" class="0">
+<segment>
+<pinref part="R12" gate="A" pin="1K"/>
+<wire x1="73.66" y1="111.76" x2="73.66" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="109.22" x2="71.12" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="R13" gate="G$1" pin="2"/>
+<wire x1="71.12" y1="109.22" x2="71.12" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="91.44" x2="71.12" y2="91.44" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
+<pinref part="U$14" gate="A" pin="VIN"/>
+<wire x1="71.12" y1="96.52" x2="71.12" y2="91.44" width="0.1524" layer="91"/>
+<junction x="71.12" y="96.52"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="102,1,15.24,198.12,+24V,+24V_BATT,,,,"/>
+<approved hash="102,1,76.2,124.46,+24V,+24V_BATT,,,,"/>
+<approved hash="102,2,38.1,114.3,+24V,+24V_BATT,,,,"/>
+<approved hash="104,2,256.54,149.86,J3,CONN1,12V_GND,,,"/>
+<approved hash="104,2,256.54,147.32,J3,CONN2,+12VOUT,,,"/>
+<approved hash="104,2,256.54,144.78,J3,CONN3,12V_GND,,,"/>
+<approved hash="104,2,256.54,142.24,J3,CONN4,+12VOUT,,,"/>
+<approved hash="104,2,256.54,119.38,J4,CONN1,5V_GND,,,"/>
+<approved hash="104,2,256.54,116.84,J4,CONN2,+5VOUT,,,"/>
+<approved hash="104,2,256.54,114.3,J4,CONN3,5V_GND,,,"/>
+<approved hash="104,2,256.54,111.76,J4,CONN4,+5VOUT,,,"/>
+<approved hash="104,2,205.74,121.92,U1,+VIN,+24V_ISO,,,"/>
+<approved hash="104,2,205.74,114.3,U1,-VIN,GND_BATT,,,"/>
+<approved hash="104,2,205.74,152.4,U2,+VIN,+24V_ISO,,,"/>
+<approved hash="104,2,205.74,144.78,U2,-VIN,GND_BATT,,,"/>
+<approved hash="104,1,119.38,101.6,U$1,VIN,N$10,,,"/>
+<approved hash="104,1,119.38,93.98,U$1,GND,GND_BATT,,,"/>
+<approved hash="104,2,81.28,91.44,U$14,VIN,N$19,,,"/>
+<approved hash="104,2,81.28,83.82,U$14,GND,GND_BATT,,,"/>
+<approved hash="113,1,139.596,107.846,FRAME1,,,,,"/>
+<approved hash="113,2,139.596,107.846,FRAME2,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
