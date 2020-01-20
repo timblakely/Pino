@@ -5810,7 +5810,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <classes>
 <class number="0" name="default" width="0" drill="0.3">
 </class>
-<class number="1" name="power plane" width="0" drill="0">
+<class number="1" name="power plane" width="0.3048" drill="0">
 <clearance class="1" value="0.5"/>
 </class>
 </classes>
@@ -6776,6 +6776,29 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="102,1,15.24,198.12,+24V,+24V_BATT,,,,"/>
+<approved hash="102,1,76.2,124.46,+24V,+24V_BATT,,,,"/>
+<approved hash="102,2,38.1,114.3,+24V,+24V_BATT,,,,"/>
+<approved hash="104,2,256.54,149.86,J3,CONN1,12V_GND,,,"/>
+<approved hash="104,2,256.54,147.32,J3,CONN2,+12VOUT,,,"/>
+<approved hash="104,2,256.54,144.78,J3,CONN3,12V_GND,,,"/>
+<approved hash="104,2,256.54,142.24,J3,CONN4,+12VOUT,,,"/>
+<approved hash="104,2,256.54,119.38,J4,CONN1,5V_GND,,,"/>
+<approved hash="104,2,256.54,116.84,J4,CONN2,+5VOUT,,,"/>
+<approved hash="104,2,256.54,114.3,J4,CONN3,5V_GND,,,"/>
+<approved hash="104,2,256.54,111.76,J4,CONN4,+5VOUT,,,"/>
+<approved hash="104,2,205.74,121.92,U1,+VIN,+24V_ISO,,,"/>
+<approved hash="104,2,205.74,114.3,U1,-VIN,GND_BATT,,,"/>
+<approved hash="104,2,205.74,152.4,U2,+VIN,+24V_ISO,,,"/>
+<approved hash="104,2,205.74,144.78,U2,-VIN,GND_BATT,,,"/>
+<approved hash="104,1,119.38,101.6,U$1,VIN,N$10,,,"/>
+<approved hash="104,1,119.38,93.98,U$1,GND,GND_BATT,,,"/>
+<approved hash="104,2,81.28,91.44,U$14,VIN,N$19,,,"/>
+<approved hash="104,2,81.28,83.82,U$14,GND,GND_BATT,,,"/>
+<approved hash="113,1,139.596,107.846,FRAME1,,,,,"/>
+<approved hash="113,2,139.596,107.846,FRAME2,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>

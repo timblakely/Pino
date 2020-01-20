@@ -1269,7 +1269,7 @@ Metric Code Size 1005</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="1N4148W-7-F" urn="urn:adsk.eagle:component:16502584/1" library_version="67" library_locally_modified="yes">
+<deviceset name="1N4148W-7-F" urn="urn:adsk.eagle:component:16502584/1" locally_modified="yes" prefix="D" library_version="67" library_locally_modified="yes">
 <gates>
 <gate name="A" symbol="D-1" x="0" y="0"/>
 </gates>

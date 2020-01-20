@@ -5858,8 +5858,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="U$1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
 <part name="P+3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
 <part name="D1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMA" device="J30A" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
-<part name="U$2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
-<part name="U$3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="C8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="0.01uF"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="3.4k"/>
@@ -5931,8 +5929,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <attribute name="NAME" x="245.618" y="86.868" size="1.27" layer="95" font="vector"/>
 <attribute name="VALUE" x="237.126" y="79.614" size="1.27" layer="96" font="vector"/>
 </instance>
-<instance part="J1" gate="G$1" x="22.86" y="198.12" smashed="yes" grouprefs="BATT"/>
-<instance part="J2" gate="G$1" x="22.86" y="190.5" smashed="yes" grouprefs="BATT"/>
+<instance part="J1" gate="G$1" x="38.1" y="198.12" smashed="yes" grouprefs="BATT"/>
+<instance part="J2" gate="G$1" x="38.1" y="190.5" smashed="yes" grouprefs="BATT"/>
 <instance part="P+1" gate="1" x="12.7" y="198.12" smashed="yes" rot="R90" grouprefs="BATT">
 <attribute name="VALUE" x="22.86" y="203.2" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -5971,10 +5969,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="U$26" gate="G$1" x="101.6" y="129.54" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART"/>
 <instance part="U$1" gate="A" x="137.16" y="99.06" smashed="yes" grouprefs="LEG_SOFTSTART"/>
 <instance part="P+3" gate="1" x="73.66" y="124.46" smashed="yes" rot="R90" grouprefs="LEG_SOFTSTART"/>
-<instance part="D1" gate="G$1" x="86.36" y="119.38" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="U$2" gate="G$1" x="86.36" y="111.76" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="U$3" gate="G$1" x="78.74" y="111.76" smashed="yes" grouprefs="LEG_SOFTSTART"/>
-<instance part="C8" gate="G$1" x="78.74" y="119.38" smashed="yes" grouprefs="LEG_SOFTSTART"/>
+<instance part="D1" gate="G$1" x="27.94" y="195.58" smashed="yes"/>
+<instance part="C8" gate="G$1" x="22.86" y="195.58" smashed="yes"/>
 <instance part="R1" gate="G$1" x="101.6" y="116.84" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
 <instance part="R2" gate="G$1" x="101.6" y="101.6" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
 <instance part="R3" gate="G$1" x="101.6" y="86.36" smashed="yes" rot="R270" grouprefs="LEG_SOFTSTART"/>
@@ -6001,20 +5997,18 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="P+1" gate="1" pin="+24V"/>
 <pinref part="J1" gate="G$1" pin="PIN1"/>
-<wire x1="15.24" y1="198.12" x2="17.78" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="198.12" x2="22.86" y2="198.12" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="22.86" y1="198.12" x2="27.94" y2="198.12" width="0.1524" layer="91"/>
+<junction x="22.86" y="198.12"/>
+<pinref part="D1" gate="G$1" pin="C"/>
+<wire x1="27.94" y1="198.12" x2="33.02" y2="198.12" width="0.1524" layer="91"/>
+<junction x="27.94" y="198.12"/>
 </segment>
 <segment>
 <pinref part="P+3" gate="1" pin="+24V"/>
-<pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="99.06" y1="124.46" x2="86.36" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="86.36" y1="124.46" x2="78.74" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="78.74" y1="124.46" x2="76.2" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<wire x1="86.36" y1="121.92" x2="86.36" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="86.36" y="124.46" grouprefs="LEG_SOFTSTART"/>
-<pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="78.74" y1="121.92" x2="78.74" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-<junction x="78.74" y="124.46" grouprefs="LEG_SOFTSTART"/>
+<wire x1="99.06" y1="124.46" x2="76.2" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <pinref part="U$26" gate="G$1" pin="P$1"/>
 <wire x1="99.06" y1="127" x2="99.06" y2="124.46" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 <junction x="99.06" y="124.46" grouprefs="LEG_SOFTSTART"/>
@@ -6024,8 +6018,15 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <net name="GND_BATT" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="PIN1"/>
-<wire x1="15.24" y1="190.5" x2="17.78" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
+<wire x1="15.24" y1="190.5" x2="22.86" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
 <pinref part="U$7" gate="G$1" pin="GND_BATT"/>
+<pinref part="D1" gate="G$1" pin="A"/>
+<wire x1="22.86" y1="190.5" x2="27.94" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
+<wire x1="27.94" y1="190.5" x2="33.02" y2="190.5" width="0.1524" layer="91" grouprefs="BATT"/>
+<wire x1="27.94" y1="193.04" x2="27.94" y2="190.5" width="0.1524" layer="91"/>
+<junction x="27.94" y="190.5"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<junction x="22.86" y="190.5"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="-"/>
@@ -6080,11 +6081,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="231.14" y="83.82" grouprefs="LEG_POWER"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="GND_BATT"/>
-<pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="78.74" y1="111.76" x2="78.74" y2="114.3" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
 <pinref part="U$5" gate="G$1" pin="GND_BATT"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="78.74" x2="101.6" y2="81.28" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
@@ -6114,11 +6110,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U$4" gate="G$1" pin="GND_BATT"/>
 <pinref part="U$1" gate="A" pin="GND"/>
 <wire x1="119.38" y1="78.74" x2="119.38" y2="93.98" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="GND_BATT"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="86.36" y1="111.76" x2="86.36" y2="116.84" width="0.1524" layer="91" grouprefs="LEG_SOFTSTART"/>
 </segment>
 <segment>
 <pinref part="U$10" gate="G$1" pin="GND_BATT"/>
