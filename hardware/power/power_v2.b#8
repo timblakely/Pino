@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MB3VqYkNRX6Sa_ecpPTqbA" pcbguid="9dcfff74-9686-4bdf-a14e-dd144a326308" lastpulledtime="2020-01-18T04:37:27Z" lastsyncedchangeguid="ea626e1d-bd38-a2ba-998e-c3714614e30b"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MB3VqYkNRX6Sa_ecpPTqbA" pcbguid="9dcfff74-9686-4bdf-a14e-dd144a326308" lastpulledtime="2020-01-18T04:37:27Z" lastsyncedchangeguid="4dd21494-0389-bce7-bd1b-602bba9568d1"/>
 <plain>
 <hole x="39" y="89" drill="3.4"/>
 <hole x="9" y="89" drill="3.4"/>

@@ -1885,33 +1885,33 @@ Please make sure your boards conform to these design rules.
 <attribute name="NAME" x="13.535" y="81.885" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="18.615" y="81.885" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="70.5475" y="48.6591625" smashed="yes" rot="R270">
-<attribute name="NAME" x="75.1825" y="48.6591625" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="65.9125" y="48.6591625" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="64.5475" y="32.959159375" smashed="yes" rot="R270">
+<attribute name="NAME" x="69.1825" y="32.959159375" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="59.9125" y="32.959159375" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="C2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="63.8475" y="54.024996875" smashed="yes" rot="R270">
-<attribute name="NAME" x="68.4825" y="54.024996875" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="59.2125" y="54.024996875" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="64.5475" y="24.593328125" smashed="yes" rot="R270">
+<attribute name="NAME" x="69.1825" y="24.593328125" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="59.9125" y="24.593328125" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="C3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="63.8475" y="21.829996875" smashed="yes" rot="R270">
-<attribute name="NAME" x="68.4825" y="21.829996875" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="59.2125" y="21.829996875" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="55.7475" y="7.861665625" smashed="yes" rot="R270">
+<attribute name="NAME" x="60.3825" y="7.861665625" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="51.1125" y="7.861665625" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="C4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="70.5475" y="37.927496875" smashed="yes" rot="R270">
-<attribute name="NAME" x="75.1825" y="37.927496875" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="65.9125" y="37.927496875" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="55.7475" y="16.227496875" smashed="yes" rot="R270">
+<attribute name="NAME" x="60.3825" y="16.227496875" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="51.1125" y="16.227496875" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="C5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="63.8475" y="43.293328125" smashed="yes" rot="R270">
-<attribute name="NAME" x="68.4825" y="43.293328125" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="59.2125" y="43.293328125" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="55.7475" y="24.593328125" smashed="yes" rot="R270">
+<attribute name="NAME" x="60.3825" y="24.593328125" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="51.1125" y="24.593328125" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="C6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="63.8475" y="32.561665625" smashed="yes" rot="R270">
-<attribute name="NAME" x="68.4825" y="32.561665625" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="59.2125" y="32.561665625" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="64.5475" y="7.861665625" smashed="yes" rot="R270">
+<attribute name="NAME" x="69.1825" y="7.861665625" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="59.9125" y="7.861665625" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
-<element name="C7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="70.5475" y="27.19583125" smashed="yes" rot="R270">
-<attribute name="NAME" x="75.1825" y="27.19583125" size="1.27" layer="25" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="65.9125" y="27.19583125" size="1.27" layer="27" rot="R270" align="top-center"/>
+<element name="C7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="C_ELEC_8X11_5" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf" x="64.5475" y="16.227496875" smashed="yes" rot="R270">
+<attribute name="NAME" x="69.1825" y="16.227496875" size="1.27" layer="25" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="59.9125" y="16.227496875" size="1.27" layer="27" rot="R270" align="top-center"/>
 </element>
 <element name="U$1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="VSSOP_DGS_10" package3d_urn="urn:adsk.eagle:package:16499421/2" value="LM5069_DGS_10" x="19.1" y="32.19" smashed="yes" rot="R270"/>
 <element name="D1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="DO-214AC" package3d_urn="urn:adsk.eagle:package:16356227/6" value="SMAJ30A" x="53.08213125" y="38.645" smashed="yes" rot="R270">
