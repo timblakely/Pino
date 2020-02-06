@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MB3VqYkNRX6Sa_ecpPTqbA" pcbguid="9dcfff74-9686-4bdf-a14e-dd144a326308" lastpulledtime="2020-01-18T04:37:27Z" lastsyncedchangeguid="949c5408-da32-ad4a-ba52-90464d57dd80"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MB3VqYkNRX6Sa_ecpPTqbA" pcbguid="9dcfff74-9686-4bdf-a14e-dd144a326308" lastpulledtime="2020-01-18T04:37:27Z" lastsyncedchangeguid="d8272236-d454-ed0b-d109-326f528a605c"/>
 <plain>
 <hole x="39" y="89" drill="3.4"/>
 <hole x="9" y="89" drill="3.4"/>
@@ -2285,9 +2285,9 @@ Please make sure your boards conform to these design rules.
 <contactref element="J4" pad="CIRCUIT1"/>
 <contactref element="J4" pad="CIRCUIT3"/>
 <contactref element="U1" pad="P$5"/>
-<wire x1="71.66" y1="84.41" x2="71.66" y2="79.84" width="2.5" layer="16"/>
-<wire x1="78.97" y1="72.53" x2="78.97" y2="71.58" width="2.5" layer="16"/>
-<wire x1="71.66" y1="79.84" x2="78.97" y2="72.53" width="2.5" layer="16"/>
+<wire x1="71.66" y1="84.41" x2="71.66" y2="78.64" width="2.5" layer="16"/>
+<wire x1="78.97" y1="71.58" x2="78.72" y2="71.58" width="2.5" layer="16"/>
+<wire x1="78.72" y1="71.58" x2="71.66" y2="78.64" width="2.5" layer="16"/>
 <wire x1="78.97" y1="71.58" x2="81.97" y2="71.58" width="2.5" layer="16"/>
 </signal>
 <signal name="12V_GND">
