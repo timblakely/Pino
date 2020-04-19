@@ -9205,7 +9205,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="J2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="MOLEX_4_RA" device="" package3d_urn="urn:adsk.eagle:package:16152611/3" value="5v"/>
 <part name="$$U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PDQ30-Q24-S5-D" device="" package3d_urn="urn:adsk.eagle:package:16187995/3"/>
 <part name="$$U1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PDQ30-Q24-S12-D" device="" package3d_urn="urn:adsk.eagle:package:16187995/3"/>
-<part name="$$U$7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/3"/>
+<part name="J8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/3"/>
 <part name="C8" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="2.2nF"/>
 <part name="C7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
 <part name="C6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="10uF"/>
@@ -9242,7 +9242,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="Q4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="PSMN1R0-40YSH" device="" package3d_urn="urn:adsk.eagle:package:16249927/4"/>
 <part name="U$11" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="U$12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
-<part name="$$U$6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/3"/>
+<part name="J7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/3"/>
 <part name="$$U$4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
 <part name="P+4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
@@ -9345,7 +9345,7 @@ Source: AVX .. aphvc.pdf</description>
 <attribute name="VALUE" x="229.616" y="44.069" size="1.778" layer="96"/>
 </instance>
 <instance part="U$12" gate="G$1" x="200.66" y="152.4" smashed="yes" grouprefs="24V_POWER"/>
-<instance part="$$U$7" gate="G$1" x="162.56" y="124.46" smashed="yes" rot="R90" grouprefs="24V_SOFTSTART"/>
+<instance part="J8" gate="G$1" x="162.56" y="124.46" smashed="yes" rot="R90" grouprefs="24V_SOFTSTART"/>
 <instance part="$$U$5" gate="A" x="198.12" y="93.98" smashed="yes" grouprefs="24V_SOFTSTART">
 <attribute name="VALUE" x="187.6806" y="105.6386" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
@@ -9417,7 +9417,7 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="C3" gate="G$1" x="78.74" y="35.56" smashed="yes" grouprefs="ISO_DECOUPLE"/>
 <instance part="C2" gate="G$1" x="83.82" y="35.56" smashed="yes" grouprefs="ISO_DECOUPLE"/>
 <instance part="C5" gate="G$1" x="88.9" y="35.56" smashed="yes" grouprefs="ISO_DECOUPLE"/>
-<instance part="$$U$6" gate="G$1" x="30.48" y="109.22" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
+<instance part="J7" gate="G$1" x="30.48" y="109.22" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
 <instance part="$$U$4" gate="A" x="66.04" y="78.74" smashed="yes" grouprefs="ISO_SOFTSTART">
 <attribute name="VALUE" x="55.6006" y="90.3986" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
@@ -9518,7 +9518,7 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="P+3" gate="1" pin="+24V"/>
 <wire x1="170.18" y1="119.38" x2="160.02" y2="119.38" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="160.02" y1="119.38" x2="149.86" y2="119.38" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
-<pinref part="$$U$7" gate="G$1" pin="P$1"/>
+<pinref part="J8" gate="G$1" pin="P$1"/>
 <wire x1="160.02" y1="121.92" x2="160.02" y2="119.38" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <junction x="160.02" y="119.38" grouprefs="24V_SOFTSTART"/>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -9528,7 +9528,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="27.94" y1="104.14" x2="17.78" y2="104.14" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="27.94" y1="106.68" x2="27.94" y2="104.14" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="27.94" y="104.14" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$6" gate="G$1" pin="P$1"/>
+<pinref part="J7" gate="G$1" pin="P$1"/>
 <pinref part="P+4" gate="1" pin="+24V"/>
 <pinref part="R7" gate="G$1" pin="1"/>
 </segment>
@@ -9847,7 +9847,7 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="$$U$7" gate="G$1" pin="P$2"/>
+<pinref part="J8" gate="G$1" pin="P$2"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="162.56" y1="121.92" x2="162.56" y2="116.84" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 </segment>
@@ -10044,7 +10044,7 @@ Source: AVX .. aphvc.pdf</description>
 <net name="N$13" class="0">
 <segment>
 <wire x1="30.48" y1="106.68" x2="30.48" y2="101.6" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$6" gate="G$1" pin="P$2"/>
+<pinref part="J7" gate="G$1" pin="P$2"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 </net>

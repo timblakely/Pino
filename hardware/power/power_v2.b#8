@@ -2668,6 +2668,9 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <contactref element="R12" pad="1_KELVIN"/>
 <wire x1="24.8" y1="40.8" x2="24.8" y2="39.5" width="0.1524" layer="1"/>
 </signal>
+<signal name="N$23">
+<via x="17.7" y="15.7" extent="1-16" drill="0.35"/>
+</signal>
 </signals>
 <mfgpreviewcolors>
 <mfgpreviewcolor name="soldermaskcolor" color="0xC8008000"/>

@@ -2080,11 +2080,11 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <attribute name="NAME" x="44.915" y="89.546" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="44.915" y="84.466" size="1.27" layer="27"/>
 </element>
-<element name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="18.9k" x="15" y="36.1" smashed="yes" rot="R180">
-<attribute name="NAME" x="15.035" y="37.365" size="0.8" layer="25" rot="R180" align="center"/>
-<attribute name="POPULARITY" value="77" x="23.1" y="45.6" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SPICEPREFIX" value="R" x="23.1" y="45.6" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="15.635" y="38.005" size="1.27" layer="27" rot="R180"/>
+<element name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="18.9k" x="14.8" y="36" smashed="yes" rot="R180">
+<attribute name="NAME" x="14.835" y="37.265" size="0.8" layer="25" rot="R180" align="center"/>
+<attribute name="POPULARITY" value="77" x="22.9" y="45.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SPICEPREFIX" value="R" x="22.9" y="45.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="15.435" y="37.905" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k" x="14.5" y="31.8" smashed="yes" rot="R180">
 <attribute name="NAME" x="16.335" y="31.535" size="0.8" layer="25" rot="R270" align="center"/>
@@ -2151,11 +2151,11 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <attribute name="SPICEPREFIX" value="C" x="15" y="38.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="15.635" y="40.005" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2nF" x="17.2" y="26.4" smashed="yes" rot="R270">
-<attribute name="NAME" x="17.835" y="27.035" size="1.27" layer="25" rot="R270"/>
-<attribute name="POPULARITY" value="73" x="17.2" y="26.4" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="SPICEPREFIX" value="C" x="17.2" y="26.4" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="15.295" y="27.035" size="1.27" layer="27" rot="R270"/>
+<element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2nF" x="17.1" y="26.4" smashed="yes" rot="R270">
+<attribute name="NAME" x="17.735" y="27.035" size="1.27" layer="25" rot="R270"/>
+<attribute name="POPULARITY" value="73" x="17.1" y="26.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SPICEPREFIX" value="C" x="17.1" y="26.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="15.195" y="27.035" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="47nF" x="11.1" y="36.2" smashed="yes" rot="R180">
 <attribute name="NAME" x="11.735" y="35.565" size="1.27" layer="25" rot="R180"/>
@@ -2273,8 +2273,11 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <via x="8.6" y="28.3" extent="1-16" drill="0.35"/>
 <via x="8.5" y="22.9" extent="1-16" drill="0.35"/>
 <via x="17.7" y="23.5" extent="1-16" drill="0.35"/>
-<wire x1="18.1" y1="34.39" x2="14.15" y2="36.1" width="0" layer="19" extent="1-1"/>
-<wire x1="17.4" y1="42" x2="14.15" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="18.1" y1="34.39" x2="18.1" y2="33.4" width="0.2" layer="1"/>
+<wire x1="18.1" y1="33.4" x2="17.9" y2="33.2" width="0.2" layer="1"/>
+<via x="17.9" y="33.2" extent="1-16" drill="0.35"/>
+<wire x1="17.4" y1="42" x2="17.4" y2="43.1" width="0.2" layer="1"/>
+<via x="17.4" y="43.1" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="+5VOUT">
 <contactref element="U1" pad="P$3"/>
@@ -2394,8 +2397,8 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <contactref element="U$1" pad="6"/>
 <contactref element="C9" pad="1"/>
 <wire x1="18.1" y1="29.99" x2="18.1" y2="28.9" width="0.2" layer="1"/>
-<wire x1="17.2" y1="28" x2="17.2" y2="27.25" width="0.2" layer="1"/>
-<wire x1="18.1" y1="28.9" x2="17.2" y2="28" width="0.2" layer="1"/>
+<wire x1="17.1" y1="27.9" x2="17.1" y2="27.25" width="0.2" layer="1"/>
+<wire x1="18.1" y1="28.9" x2="17.1" y2="27.9" width="0.2" layer="1"/>
 </signal>
 <signal name="+24V_POWER">
 <contactref element="U$1" pad="9"/>
@@ -2556,14 +2559,16 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <signal name="N$15">
 <contactref element="U$14" pad="7"/>
 <contactref element="R10" pad="1"/>
-<wire x1="17.096025" y1="36.1" x2="17.9" y2="36.903975" width="0.2" layer="1"/>
+<wire x1="16.996025" y1="36" x2="17.9" y2="36.903975" width="0.2" layer="1"/>
 <wire x1="17.9" y1="36.903975" x2="17.9" y2="37.6" width="0.2" layer="1"/>
-<wire x1="15.85" y1="36.1" x2="17.096025" y2="36.1" width="0.2" layer="1"/>
+<wire x1="15.65" y1="36" x2="16.996025" y2="36" width="0.2" layer="1"/>
 </signal>
 <signal name="N$16">
 <contactref element="U$14" pad="6"/>
 <contactref element="C11" pad="1"/>
-<wire x1="17.4" y1="37.6" x2="15.85" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="17.4" y1="37.6" x2="17.1" y2="37.6" width="0.2" layer="1"/>
+<wire x1="16.6" y1="38.1" x2="15.85" y2="38.1" width="0.2" layer="1"/>
+<wire x1="17.1" y1="37.6" x2="16.6" y2="38.1" width="0.2" layer="1"/>
 </signal>
 <signal name="N$20">
 <contactref element="U$14" pad="1"/>
