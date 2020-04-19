@@ -2139,7 +2139,7 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <attribute name="NAME" x="26.905" y="38.24" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="21.625" y="40.64" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="U$1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="HOLE_GND_M3" package3d_urn="urn:adsk.eagle:package:19295484/2" value="GND_HOLE_M3" x="9" y="89" smashed="yes"/>
+<element name="H4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="HOLE_GND_M3" package3d_urn="urn:adsk.eagle:package:19295484/2" value="GND_HOLE_M3" x="9" y="89" smashed="yes"/>
 <element name="H6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="HOLE_GND_M3" package3d_urn="urn:adsk.eagle:package:19295484/2" value="GND_HOLE_M3" x="89" y="89" smashed="yes"/>
 <element name="H5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="HOLE_GND_M3" package3d_urn="urn:adsk.eagle:package:19295484/2" value="GND_HOLE_M3" x="39" y="89" smashed="yes"/>
 <element name="H1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="HOLE_GND_M3" package3d_urn="urn:adsk.eagle:package:19295484/2" value="GND_HOLE_M3" x="89" y="3" smashed="yes"/>
@@ -2259,7 +2259,7 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <vertex x="60.6" y="37.8"/>
 <vertex x="49.4" y="37.8"/>
 </polygon>
-<contactref element="U$1" pad="P$1"/>
+<contactref element="H4" pad="P$1"/>
 <contactref element="H3" pad="P$1"/>
 <contactref element="H2" pad="P$1"/>
 <contactref element="H1" pad="P$1"/>

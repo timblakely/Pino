@@ -2241,10 +2241,10 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <contactref element="PS3" pad="P$2"/>
 <contactref element="PS4" pad="P$2"/>
 <polygon width="0.1524" layer="16" isolate="0.5" thermals="no">
-<vertex x="-0.6" y="92.5"/>
-<vertex x="92.4" y="92.5"/>
-<vertex x="92.4" y="-0.1"/>
-<vertex x="-0.6" y="-0.1"/>
+<vertex x="-0.6" y="92.6"/>
+<vertex x="92.6" y="92.6"/>
+<vertex x="92.6" y="-0.3"/>
+<vertex x="-0.6" y="-0.3"/>
 </polygon>
 <polygon width="0.1524" layer="1" isolate="0.3" thermals="no" rank="4">
 <vertex x="-0.5" y="92.6"/>
