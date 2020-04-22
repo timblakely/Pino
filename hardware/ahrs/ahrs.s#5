@@ -5673,6 +5673,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="3-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399489/2"/>
+<part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5874,6 +5875,9 @@ Source: AVX .. aphvc.pdf</description>
 <attribute name="VALUE" x="190.5" y="111.76" size="1.778" layer="96"/>
 </instance>
 <instance part="U$5" gate="G$1" x="139.7" y="17.78" smashed="yes"/>
+<instance part="GND15" gate="1" x="55.88" y="43.18" smashed="yes">
+<attribute name="VALUE" x="53.34" y="40.64" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -6023,6 +6027,12 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="U$5" gate="G$1" pin="P$3"/>
 <wire x1="134.62" y1="15.24" x2="129.54" y2="15.24" width="0.1524" layer="91"/>
 <label x="129.54" y="15.24" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="GND15" gate="1" pin="GND"/>
+<pinref part="U2" gate="A" pin="PB8-BOOT0"/>
+<wire x1="55.88" y1="45.72" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="48.26" x2="63.5" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VDD" class="0">
