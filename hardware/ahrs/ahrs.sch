@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -246,50 +246,6 @@
 <smd name="P$24" x="-1.075" y="1.225" dx="0.35" dy="0.23" layer="1" rot="R270"/>
 <text x="0" y="2.5" size="1.27" layer="21" align="center">&gt;NAME</text>
 <text x="0" y="-2.5" size="1.27" layer="21" align="center">&gt;VALUE</text>
-</package>
-<package name="C0402K" urn="urn:adsk.eagle:footprint:23186/1" library_version="69">
-<description>&lt;b&gt;Ceramic Chip Capacitor KEMET 0204 reflow solder&lt;/b&gt;&lt;p&gt;
-Metric Code Size 1005</description>
-<wire x1="-0.425" y1="0.2" x2="0.425" y2="0.2" width="0.1016" layer="51"/>
-<wire x1="0.425" y1="-0.2" x2="-0.425" y2="-0.2" width="0.1016" layer="51"/>
-<smd name="1" x="-0.6" y="0" dx="0.925" dy="0.74" layer="1"/>
-<smd name="2" x="0.6" y="0" dx="0.925" dy="0.74" layer="1"/>
-<text x="-0.5" y="0.425" size="1.016" layer="25">&gt;NAME</text>
-<text x="-0.5" y="-1.45" size="1.016" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.5" y1="-0.25" x2="-0.225" y2="0.25" layer="51"/>
-<rectangle x1="0.225" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
-</package>
-<package name="C0603" urn="urn:adsk.eagle:footprint:23123/1" library_version="69">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-<package name="C1210" urn="urn:adsk.eagle:footprint:23126/1" library_version="69">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-2.473" y1="1.483" x2="2.473" y2="1.483" width="0.0508" layer="39"/>
-<wire x1="2.473" y1="-1.483" x2="-2.473" y2="-1.483" width="0.0508" layer="39"/>
-<wire x1="-2.473" y1="-1.483" x2="-2.473" y2="1.483" width="0.0508" layer="39"/>
-<wire x1="-0.9652" y1="1.2446" x2="0.9652" y2="1.2446" width="0.1016" layer="51"/>
-<wire x1="-0.9652" y1="-1.2446" x2="0.9652" y2="-1.2446" width="0.1016" layer="51"/>
-<wire x1="2.473" y1="1.483" x2="2.473" y2="-1.483" width="0.0508" layer="39"/>
-<smd name="1" x="-1.4" y="0" dx="1.6" dy="2.7" layer="1"/>
-<smd name="2" x="1.4" y="0" dx="1.6" dy="2.7" layer="1"/>
-<text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.7018" y1="-1.2954" x2="-0.9517" y2="1.3045" layer="51"/>
-<rectangle x1="0.9517" y1="-1.3045" x2="1.7018" y2="1.2954" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 </package>
 <package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/1" library_version="82" library_locally_modified="yes">
 <smd name="1" x="-3.4544" y="2.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
@@ -657,30 +613,35 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <rectangle x1="-1.065" y1="-1.225" x2="-0.39" y2="1.225" layer="21"/>
 <rectangle x1="-1.75" y1="-1.225" x2="-1.075" y2="1.225" layer="51"/>
 </package>
+<package name="SM08B-SRSS-TB" urn="urn:adsk.eagle:footprint:19399859/1" library_version="92">
+<description>&lt;b&gt;Shrouded Header, side entry type&lt;/b&gt;</description>
+<wire x1="-4.873" y1="-1.473" x2="-4.873" y2="2.523" width="0.254" layer="51"/>
+<wire x1="-4.873" y1="2.523" x2="4.873" y2="2.523" width="0.254" layer="51"/>
+<wire x1="4.873" y1="2.523" x2="4.873" y2="-1.473" width="0.254" layer="51"/>
+<wire x1="4.873" y1="-1.473" x2="-4.873" y2="-1.473" width="0.254" layer="51"/>
+<wire x1="-4.873" y1="0.5" x2="-4.873" y2="2.523" width="0.254" layer="21"/>
+<wire x1="-4.873" y1="2.523" x2="-4.5" y2="2.523" width="0.254" layer="21"/>
+<wire x1="4.873" y1="0.5" x2="4.873" y2="2.523" width="0.254" layer="21"/>
+<wire x1="4.873" y1="2.523" x2="4.5" y2="2.523" width="0.254" layer="21"/>
+<wire x1="-3.5" y1="-1.473" x2="3.5" y2="-1.473" width="0.254" layer="21"/>
+<smd name="1" x="-3.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="2" x="-2.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="3" x="-1.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="4" x="-0.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="5" x="0.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="6" x="1.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="7" x="2.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="8" x="3.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
+<smd name="FIT@1" x="-4.8" y="-0.9" dx="1.2" dy="1.8" layer="1"/>
+<smd name="FIT@2" x="4.8" y="-0.9" dx="1.2" dy="1.8" layer="1"/>
+<text x="-6.35" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="7.62" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="LGA24_3.5X3X1" urn="urn:adsk.eagle:package:18130566/2" type="model" library_version="69">
 <packageinstances>
 <packageinstance name="LGA24_3.5X3X1"/>
-</packageinstances>
-</package3d>
-<package3d name="C0402K" urn="urn:adsk.eagle:package:23679/2" type="model" library_version="69">
-<description>Ceramic Chip Capacitor KEMET 0204 reflow solder
-Metric Code Size 1005</description>
-<packageinstances>
-<packageinstance name="C0402K"/>
-</packageinstances>
-</package3d>
-<package3d name="C0603" urn="urn:adsk.eagle:package:23616/2" type="model" library_version="69">
-<description>CAPACITOR</description>
-<packageinstances>
-<packageinstance name="C0603"/>
-</packageinstances>
-</package3d>
-<package3d name="C1210" urn="urn:adsk.eagle:package:23619/2" type="model" library_version="69">
-<description>CAPACITOR</description>
-<packageinstances>
-<packageinstance name="C1210"/>
 </packageinstances>
 </package3d>
 <package3d name="L0603" urn="urn:adsk.eagle:package:19324074/2" type="model" library_version="78" library_locally_modified="yes">
@@ -738,6 +699,12 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <packageinstance name="DO-214AC"/>
 </packageinstances>
 </package3d>
+<package3d name="SM08B-SRSS-TB" urn="urn:adsk.eagle:package:19399895/3" type="model" library_version="93">
+<description>&lt;b&gt;Shrouded Header, side entry type&lt;/b&gt;</description>
+<packageinstances>
+<packageinstance name="SM08B-SRSS-TB"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="LSM9DS1" urn="urn:adsk.eagle:symbol:18130564/3" library_version="82" library_locally_modified="yes">
@@ -772,17 +739,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <text x="-17.78" y="18.034" size="1.778" layer="95">&gt;NAME</text>
 <text x="-17.78" y="-17.78" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="C_CERAMIC" urn="urn:adsk.eagle:symbol:16385036/1" library_version="69">
-<wire x1="0" y1="0" x2="0" y2="-0.508" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="0" y2="-2.032" width="0.1524" layer="94"/>
-<text x="1.524" y="0.381" size="1.778" layer="95">&gt;NAME</text>
-<text x="1.524" y="-4.699" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.032" y1="-2.032" x2="2.032" y2="-1.524" layer="94"/>
-<rectangle x1="-2.032" y1="-1.016" x2="2.032" y2="-0.508" layer="94"/>
-<pin name="1" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-</symbol>
-<symbol name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:symbol:19324066/1" locally_modified="yes" library_version="89" library_locally_modified="yes">
+<symbol name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:symbol:19324066/2" library_version="90">
 <pin name="PA0" x="-22.86" y="33.02"/>
 <pin name="PA1" x="-22.86" y="30.48"/>
 <pin name="PA2" x="-22.86" y="27.94"/>
@@ -903,7 +860,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="ISO_+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
-<symbol name="MCP2542FD" urn="urn:adsk.eagle:symbol:19399096/1" locally_modified="yes" library_version="89" library_locally_modified="yes">
+<symbol name="MCP2542FD" urn="urn:adsk.eagle:symbol:19399096/2" library_version="90">
 <pin name="TXD" x="-12.7" y="0" length="middle"/>
 <pin name="VSS" x="-12.7" y="-7.62" length="middle"/>
 <pin name="VDD" x="-12.7" y="5.08" length="middle"/>
@@ -952,6 +909,17 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <pin name="A" x="0" y="-2.54" visible="off" length="point" direction="pas" rot="R90"/>
 <pin name="C" x="0" y="2.54" visible="off" length="point" direction="pas" rot="R270"/>
 </symbol>
+<symbol name="KV" urn="urn:adsk.eagle:symbol:19477959/1" library_version="92">
+<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
+<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
+<text x="-0.762" y="1.397" size="1.524" layer="96">&gt;VALUE</text>
+<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+</symbol>
+<symbol name="K" urn="urn:adsk.eagle:symbol:19477960/1" library_version="92">
+<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
+<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
+<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="LSM9DS1" urn="urn:adsk.eagle:component:18131000/2" prefix="U" library_version="82" library_locally_modified="yes">
@@ -996,50 +964,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="C_CERAMIC" urn="urn:adsk.eagle:component:16406410/2" prefix="C" uservalue="yes" library_version="69">
-<gates>
-<gate name="G$1" symbol="C_CERAMIC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="_0402" package="C0402K">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:23679/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="_0603" package="C0603">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:23616/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="_1210" package="C1210">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:23619/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:19324075/1" prefix="U" library_version="89" library_locally_modified="yes">
+<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:19324075/2" prefix="U" library_version="90">
 <gates>
 <gate name="A" symbol="STM32G4_UFQFPN48_T1" x="-31.05" y="4.15"/>
 <gate name="B" symbol="STM32G4_UFQFPN48_T1_1" x="-19.2" y="31.4"/>
@@ -1184,7 +1109,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP2542FD" urn="urn:adsk.eagle:component:19399202/1" library_version="89" library_locally_modified="yes">
+<deviceset name="MCP2542FD" urn="urn:adsk.eagle:component:19399202/2" library_version="90">
 <gates>
 <gate name="G$1" symbol="MCP2542FD" x="0" y="0"/>
 </gates>
@@ -1274,7 +1199,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SMA" urn="urn:adsk.eagle:component:16499629/2" locally_modified="yes" prefix="D" library_version="89" library_locally_modified="yes">
+<deviceset name="SMA" urn="urn:adsk.eagle:component:16499629/3" prefix="D" library_version="90">
 <description>12V Schottkey
 
 &lt;P&gt;&lt;a href="https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_smaj_datasheet.pdf.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -1313,6 +1238,39 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:16356227/6"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="?M08B-SRSS-TB" urn="urn:adsk.eagle:component:19477961/2" prefix="X" library_version="93">
+<description>&lt;b&gt;Disconnectable Crimp style connector, 1.0mm pitch&lt;/b&gt;&lt;br&gt;8 contacts</description>
+<gates>
+<gate name="-1" symbol="KV" x="0" y="10.16" addlevel="always" swaplevel="1"/>
+<gate name="-2" symbol="K" x="0" y="7.62" addlevel="always" swaplevel="1"/>
+<gate name="-3" symbol="K" x="0" y="5.08" addlevel="always" swaplevel="1"/>
+<gate name="-4" symbol="K" x="0" y="2.54" addlevel="always" swaplevel="1"/>
+<gate name="-5" symbol="K" x="0" y="0" addlevel="always" swaplevel="1"/>
+<gate name="-6" symbol="K" x="0" y="-2.54" addlevel="always" swaplevel="1"/>
+<gate name="-7" symbol="K" x="0" y="-5.08" addlevel="always" swaplevel="1"/>
+<gate name="-8" symbol="K" x="0" y="-7.62" addlevel="always" swaplevel="1"/>
+</gates>
+<devices>
+<device name="S" package="SM08B-SRSS-TB">
+<connects>
+<connect gate="-1" pin="S" pad="1"/>
+<connect gate="-2" pin="S" pad="2"/>
+<connect gate="-3" pin="S" pad="3"/>
+<connect gate="-4" pin="S" pad="4"/>
+<connect gate="-5" pin="S" pad="5"/>
+<connect gate="-6" pin="S" pad="6"/>
+<connect gate="-7" pin="S" pad="7"/>
+<connect gate="-8" pin="S" pad="8"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:19399895/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5748,142 +5706,6 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="con-jst2" urn="urn:adsk.eagle:library:19399826">
-<description>&lt;b&gt;J.S.T. Connectors&lt;/b&gt;&lt;p&gt;
-J.S.T Mfg Co.,Ltd.&lt;p&gt;
-http://www.jst-mfg.com&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="SM08B-SRSS-TB" urn="urn:adsk.eagle:footprint:19399859/1" library_version="1">
-<description>&lt;b&gt;Shrouded Header, side entry type&lt;/b&gt;</description>
-<wire x1="-4.873" y1="-1.473" x2="-4.873" y2="2.523" width="0.254" layer="51"/>
-<wire x1="-4.873" y1="2.523" x2="4.873" y2="2.523" width="0.254" layer="51"/>
-<wire x1="4.873" y1="2.523" x2="4.873" y2="-1.473" width="0.254" layer="51"/>
-<wire x1="4.873" y1="-1.473" x2="-4.873" y2="-1.473" width="0.254" layer="51"/>
-<wire x1="-4.873" y1="0.5" x2="-4.873" y2="2.523" width="0.254" layer="21"/>
-<wire x1="-4.873" y1="2.523" x2="-4.5" y2="2.523" width="0.254" layer="21"/>
-<wire x1="4.873" y1="0.5" x2="4.873" y2="2.523" width="0.254" layer="21"/>
-<wire x1="4.873" y1="2.523" x2="4.5" y2="2.523" width="0.254" layer="21"/>
-<wire x1="-3.5" y1="-1.473" x2="3.5" y2="-1.473" width="0.254" layer="21"/>
-<smd name="1" x="-3.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="2" x="-2.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="3" x="-1.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="4" x="-0.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="5" x="0.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="6" x="1.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="7" x="2.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="8" x="3.5" y="2.975" dx="0.6" dy="1.55" layer="1"/>
-<smd name="FIT@1" x="-4.8" y="-0.9" dx="1.2" dy="1.8" layer="1"/>
-<smd name="FIT@2" x="4.8" y="-0.9" dx="1.2" dy="1.8" layer="1"/>
-<text x="-6.35" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="7.62" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-</package>
-<package name="BM08B-SRSS-TB" urn="urn:adsk.eagle:footprint:19399874/1" library_version="1">
-<description>&lt;b&gt;Shrouded Header, top entry type&lt;/b&gt;</description>
-<wire x1="-4.873" y1="1.473" x2="-4.873" y2="-1.427" width="0.254" layer="51"/>
-<wire x1="-4.873" y1="-1.427" x2="4.873" y2="-1.427" width="0.254" layer="51"/>
-<wire x1="4.873" y1="-1.427" x2="4.873" y2="1.473" width="0.254" layer="51"/>
-<wire x1="4.873" y1="1.473" x2="-4.873" y2="1.473" width="0.254" layer="51"/>
-<wire x1="-4.873" y1="-0.5" x2="-4.873" y2="-1.427" width="0.254" layer="21"/>
-<wire x1="-4.873" y1="-1.427" x2="-4.5" y2="-1.427" width="0.254" layer="21"/>
-<wire x1="4.873" y1="-0.5" x2="4.873" y2="-1.427" width="0.254" layer="21"/>
-<wire x1="4.873" y1="-1.427" x2="4.5" y2="-1.427" width="0.254" layer="21"/>
-<wire x1="-3.5" y1="1.473" x2="3.5" y2="1.473" width="0.254" layer="21"/>
-<smd name="8" x="-3.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="7" x="-2.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="6" x="-1.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="5" x="-0.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="4" x="0.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="3" x="1.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="2" x="2.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="1" x="3.5" y="-1.625" dx="0.6" dy="1.55" layer="1"/>
-<smd name="FIT@1" x="4.8" y="0.9" dx="1.2" dy="1.8" layer="1"/>
-<smd name="FIT@2" x="-4.8" y="0.9" dx="1.2" dy="1.8" layer="1"/>
-<text x="-7.62" y="1.905" size="1.27" layer="25" rot="R270">&gt;NAME</text>
-<text x="6.35" y="1.905" size="1.27" layer="27" rot="R270">&gt;VALUE</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="SM08B-SRSS-TB" urn="urn:adsk.eagle:package:19399895/1" type="box" library_version="1">
-<description>&lt;b&gt;Shrouded Header, side entry type&lt;/b&gt;</description>
-<packageinstances>
-<packageinstance name="SM08B-SRSS-TB"/>
-</packageinstances>
-</package3d>
-<package3d name="BM08B-SRSS-TB" urn="urn:adsk.eagle:package:19399937/1" type="box" library_version="1">
-<description>&lt;b&gt;Shrouded Header, top entry type&lt;/b&gt;</description>
-<packageinstances>
-<packageinstance name="BM08B-SRSS-TB"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="KV" urn="urn:adsk.eagle:symbol:19399853/1" library_version="1">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<text x="-0.762" y="1.397" size="1.524" layer="96">&gt;VALUE</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
-<symbol name="K" urn="urn:adsk.eagle:symbol:19399854/1" library_version="1">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="?M08B-SRSS-TB" urn="urn:adsk.eagle:component:19399958/1" prefix="X" library_version="1">
-<description>&lt;b&gt;Disconnectable Crimp style connector, 1.0mm pitch&lt;/b&gt;&lt;br&gt;8 contacts</description>
-<gates>
-<gate name="-1" symbol="KV" x="0" y="10.16" addlevel="always" swaplevel="1"/>
-<gate name="-2" symbol="K" x="0" y="7.62" addlevel="always" swaplevel="1"/>
-<gate name="-3" symbol="K" x="0" y="5.08" addlevel="always" swaplevel="1"/>
-<gate name="-4" symbol="K" x="0" y="2.54" addlevel="always" swaplevel="1"/>
-<gate name="-5" symbol="K" x="0" y="0" addlevel="always" swaplevel="1"/>
-<gate name="-6" symbol="K" x="0" y="-2.54" addlevel="always" swaplevel="1"/>
-<gate name="-7" symbol="K" x="0" y="-5.08" addlevel="always" swaplevel="1"/>
-<gate name="-8" symbol="K" x="0" y="-7.62" addlevel="always" swaplevel="1"/>
-</gates>
-<devices>
-<device name="S" package="SM08B-SRSS-TB">
-<connects>
-<connect gate="-1" pin="S" pad="1"/>
-<connect gate="-2" pin="S" pad="2"/>
-<connect gate="-3" pin="S" pad="3"/>
-<connect gate="-4" pin="S" pad="4"/>
-<connect gate="-5" pin="S" pad="5"/>
-<connect gate="-6" pin="S" pad="6"/>
-<connect gate="-7" pin="S" pad="7"/>
-<connect gate="-8" pin="S" pad="8"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:19399895/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="B" package="BM08B-SRSS-TB">
-<connects>
-<connect gate="-1" pin="S" pad="1"/>
-<connect gate="-2" pin="S" pad="2"/>
-<connect gate="-3" pin="S" pad="3"/>
-<connect gate="-4" pin="S" pad="4"/>
-<connect gate="-5" pin="S" pad="5"/>
-<connect gate="-6" pin="S" pad="6"/>
-<connect gate="-7" pin="S" pad="7"/>
-<connect gate="-8" pin="S" pad="8"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:19399937/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5906,18 +5728,18 @@ http://www.jst-mfg.com&lt;p&gt;
 <parts>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
 <part name="U1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LSM9DS1" device="" package3d_urn="urn:adsk.eagle:package:18130566/2"/>
-<part name="C1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
+<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="VDD1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VDD" device=""/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="10uF 10v"/>
-<part name="C3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
-<part name="C4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="10nF 16v"/>
+<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" override_package3d_urn="urn:adsk.eagle:package:19477979/2" override_package_urn="urn:adsk.eagle:footprint:23123/1" value="10uF 10v"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="10nF 16v"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="VDD2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VDD" device=""/>
-<part name="C5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
-<part name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/1"/>
+<part name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/1" override_package3d_urn="urn:adsk.eagle:package:19324073/2" override_package_urn="urn:adsk.eagle:footprint:19324070/1"/>
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
 <part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1uF 10v"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -5959,7 +5781,7 @@ http://www.jst-mfg.com&lt;p&gt;
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="3-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399489/2"/>
 <part name="GND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="X2" library="con-jst2" library_urn="urn:adsk.eagle:library:19399826" deviceset="?M08B-SRSS-TB" device="S" package3d_urn="urn:adsk.eagle:package:19399895/1"/>
+<part name="X2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="?M08B-SRSS-TB" device="S" package3d_urn="urn:adsk.eagle:package:19399895/3"/>
 <part name="J1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/4"/>
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$6" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="ISO_+5V" device=""/>
@@ -6842,6 +6664,11 @@ packages will not be understood (or retained) with this version.
 <note version="9.5" severity="warning">
 Since Version 9.5, EAGLE supports persistent groups with
 schematics, and board files. Those persistent groups
+will not be understood (or retained) with this version.
+</note>
+<note version="9.4" severity="warning">
+Since Version 9.4, EAGLE supports the overriding of 3D packages
+in schematics and board files. Those overridden 3d packages
 will not be understood (or retained) with this version.
 </note>
 <note version="8.4" severity="warning">
