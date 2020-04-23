@@ -782,7 +782,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <pin name="1" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 </symbol>
-<symbol name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:symbol:19324066/1" locally_modified="yes" library_version="89" library_locally_modified="yes">
+<symbol name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:symbol:19324066/2" library_version="90">
 <pin name="PA0" x="-22.86" y="33.02"/>
 <pin name="PA1" x="-22.86" y="30.48"/>
 <pin name="PA2" x="-22.86" y="27.94"/>
@@ -903,7 +903,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="ISO_+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
-<symbol name="MCP2542FD" urn="urn:adsk.eagle:symbol:19399096/1" locally_modified="yes" library_version="89" library_locally_modified="yes">
+<symbol name="MCP2542FD" urn="urn:adsk.eagle:symbol:19399096/2" library_version="90">
 <pin name="TXD" x="-12.7" y="0" length="middle"/>
 <pin name="VSS" x="-12.7" y="-7.62" length="middle"/>
 <pin name="VDD" x="-12.7" y="5.08" length="middle"/>
@@ -1039,7 +1039,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:19324075/1" prefix="U" library_version="89" library_locally_modified="yes">
+<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:19324075/2" prefix="U" library_version="90">
 <gates>
 <gate name="A" symbol="STM32G4_UFQFPN48_T1" x="-31.05" y="4.15"/>
 <gate name="B" symbol="STM32G4_UFQFPN48_T1_1" x="-19.2" y="31.4"/>
@@ -1184,7 +1184,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP2542FD" urn="urn:adsk.eagle:component:19399202/1" library_version="89" library_locally_modified="yes">
+<deviceset name="MCP2542FD" urn="urn:adsk.eagle:component:19399202/2" library_version="90">
 <gates>
 <gate name="G$1" symbol="MCP2542FD" x="0" y="0"/>
 </gates>
@@ -1274,7 +1274,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SMA" urn="urn:adsk.eagle:component:16499629/2" locally_modified="yes" prefix="D" library_version="89" library_locally_modified="yes">
+<deviceset name="SMA" urn="urn:adsk.eagle:component:16499629/3" prefix="D" library_version="90">
 <description>12V Schottkey
 
 &lt;P&gt;&lt;a href="https://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_smaj_datasheet.pdf.pdf"&gt;Datasheet&lt;/a&gt;</description>
@@ -5917,7 +5917,7 @@ http://www.jst-mfg.com&lt;p&gt;
 <part name="VDD2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VDD" device=""/>
 <part name="C5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
-<part name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/1"/>
+<part name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/1" override_package3d_urn="urn:adsk.eagle:package:19324073/2" override_package_urn="urn:adsk.eagle:footprint:19324070/1"/>
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF 10v"/>
 <part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1uF 10v"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
