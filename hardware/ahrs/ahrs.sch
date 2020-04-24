@@ -5714,6 +5714,8 @@ Source: AVX .. aphvc.pdf</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="power" width="0.3" drill="0">
+</class>
 </classes>
 <groups>
 <schematic_group name="SWD_CONN"/>
@@ -6030,7 +6032,7 @@ Source: AVX .. aphvc.pdf</description>
 <busses>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="GND" class="1">
 <segment>
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="GND1" gate="1" pin="GND"/>
@@ -6197,7 +6199,7 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="U$3" gate="G$1" pin="VSS"/>
 </segment>
 </net>
-<net name="3.3V" class="0">
+<net name="3.3V" class="1">
 <segment>
 <pinref part="U1" gate="G$1" pin="VDD@1"/>
 <wire x1="226.06" y1="180.34" x2="228.6" y2="180.34" width="0.1524" layer="91" grouprefs="GYRO"/>
@@ -6322,7 +6324,7 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="182.88" y="182.88" grouprefs="GYRO"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="VDDA" class="1">
 <segment>
 <pinref part="C7" gate="G$1" pin="1"/>
 <wire x1="96.52" y1="167.64" x2="96.52" y2="170.18" width="0.1524" layer="91" grouprefs="UC_POWER"/>
@@ -6336,7 +6338,7 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="93.98" y="170.18" grouprefs="UC_POWER"/>
 </segment>
 </net>
-<net name="VREF" class="0">
+<net name="VREF" class="1">
 <segment>
 <pinref part="C14" gate="G$1" pin="1"/>
 <pinref part="C13" gate="G$1" pin="1"/>
@@ -6371,7 +6373,7 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="109.22" y="93.98" grouprefs="UC"/>
 </segment>
 </net>
-<net name="5V" class="0">
+<net name="5V" class="1">
 <segment>
 <pinref part="U$1" gate="G$1" pin="VIN"/>
 <pinref part="C19" gate="G$1" pin="1"/>
