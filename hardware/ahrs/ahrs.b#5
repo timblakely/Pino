@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MzfWSGJQS0CBInJEB5SxYw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="83726fd8-342f-433d-922d-9726394a2bd7" lastsyncedrevisionid="83726fd8-342f-433d-922d-9726394a2bd7" lastboardhashguid="58c3401f-0f4b-841a-c553-48b256c4bca3" lastpushedtime="2020-04-23T06:15:35Z" linktopcb3d="%12"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MzfWSGJQS0CBInJEB5SxYw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="277df541-77a3-43ea-bc14-d89825201daf" lastsyncedrevisionid="277df541-77a3-43ea-bc14-d89825201daf" lastboardhashguid="bab7cc4c-27ad-f72b-ef7f-8f1ed45a9c25" lastpushedtime="2020-04-23T06:20:30Z" linktopcb3d="%12"/>
 <plain>
 <circle x="3" y="27" radius="1.7" width="0" layer="20"/>
 <circle x="27" y="27" radius="1.7" width="0" layer="20"/>
