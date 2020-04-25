@@ -500,7 +500,7 @@
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 <circle x="0" y="0" radius="0.1" width="0.2" layer="21"/>
 </package>
-<package name="NX201SA" urn="urn:adsk.eagle:footprint:19324208/1" library_version="82">
+<package name="NX201SA" urn="urn:adsk.eagle:footprint:19324208/1" locally_modified="yes" library_version="98" library_locally_modified="yes">
 <wire x1="-1" y1="0.8" x2="-1" y2="-0.8" width="0.127" layer="21"/>
 <wire x1="-1" y1="-0.8" x2="1" y2="-0.8" width="0.127" layer="21"/>
 <wire x1="1" y1="-0.8" x2="1" y2="0.8" width="0.127" layer="21"/>
@@ -509,6 +509,8 @@
 <smd name="P$2" x="0.675" y="-0.525" dx="0.85" dy="0.75" layer="1"/>
 <smd name="P$3" x="0.675" y="0.525" dx="0.85" dy="0.75" layer="1"/>
 <smd name="P$4" x="-0.675" y="0.525" dx="0.85" dy="0.75" layer="1"/>
+<text x="-2.54" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="DFN6_2X2" urn="urn:adsk.eagle:footprint:19398438/2" locally_modified="yes" library_version="98" library_locally_modified="yes">
 <smd name="PAD" x="0" y="0" dx="1.8" dy="1" layer="1"/>
@@ -660,7 +662,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 <packageinstance name="L0603"/>
 </packageinstances>
 </package3d>
-<package3d name="NX201SA" urn="urn:adsk.eagle:package:19324209/2" type="model" library_version="82">
+<package3d name="NX201SA" urn="urn:adsk.eagle:package:19324209/2" type="model" library_version="98" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="NX201SA"/>
 </packageinstances>
@@ -1074,7 +1076,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="NX2016SA" urn="urn:adsk.eagle:component:19325052/3" prefix="X" library_version="83">
+<deviceset name="NX2016SA" urn="urn:adsk.eagle:component:19325052/3" prefix="X" library_version="98" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="CRYSTAL_GND" x="0" y="0"/>
 </gates>

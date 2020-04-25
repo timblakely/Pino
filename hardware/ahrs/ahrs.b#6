@@ -2350,9 +2350,6 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <via x="5.6" y="16.4" extent="1-16" drill="0.35"/>
 <wire x1="4.65" y1="13.2" x2="5.6" y2="13.2" width="0.3" layer="1"/>
 <via x="5.6" y="13.2" extent="1-16" drill="0.35"/>
-<wire x1="4.65" y1="8" x2="4.65" y2="7.05" width="0.3" layer="1"/>
-<wire x1="4.65" y1="7.05" x2="4.6" y2="7" width="0.3" layer="1"/>
-<via x="4.6" y="7" extent="1-16" drill="0.35"/>
 <wire x1="14.85" y1="11.9" x2="15.7" y2="11.9" width="0.3" layer="1"/>
 <wire x1="15.7" y1="11.9" x2="16.1" y2="12.3" width="0.3" layer="1"/>
 <via x="16.1" y="12.3" extent="1-16" drill="0.35"/>
@@ -2396,17 +2393,19 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <wire x1="25.4" y1="7.2" x2="24.6" y2="8" width="0.3" layer="16"/>
 <wire x1="24.6" y1="8" x2="24.6" y2="12.3" width="0.3" layer="16"/>
 <via x="24.6" y="12.3" extent="1-16" drill="0.25"/>
-<wire x1="4.65" y1="15.2" x2="5.6" y2="16.4" width="0" layer="19" extent="1-1"/>
-<wire x1="4.65" y1="8" x2="4.65" y2="13.2" width="0" layer="19" extent="1-1"/>
+<wire x1="4.65" y1="8" x2="4.65" y2="7.05" width="0.3" layer="1"/>
+<wire x1="4.65" y1="7.05" x2="4.6" y2="7" width="0.3" layer="1"/>
+<via x="4.6" y="7" extent="1-16" drill="0.25"/>
+<wire x1="4.6" y1="7" x2="4.6" y2="11.9" width="0.3" layer="16"/>
+<via x="4.6" y="11.9" extent="1-16" drill="0.25"/>
 </signal>
 <signal name="N$2">
 <contactref element="U1" pad="P$24"/>
 <contactref element="C1" pad="2"/>
-<wire x1="18.825" y1="25.675" x2="18.725" y2="25.675" width="0.1524" layer="1"/>
-<wire x1="18.725" y1="25.675" x2="18.625" y2="25.775" width="0.1524" layer="1"/>
+<wire x1="19.025" y1="25.775" x2="18.625" y2="25.775" width="0.1524" layer="1"/>
 <wire x1="23.15" y1="25.6" x2="23.0468" y2="25.4968" width="0.1524" layer="1"/>
-<wire x1="23.0468" y1="25.4968" x2="19.0032" y2="25.4968" width="0.1524" layer="1"/>
-<wire x1="19.0032" y1="25.4968" x2="18.825" y2="25.675" width="0.1524" layer="1"/>
+<wire x1="23.0468" y1="25.4968" x2="19.3032" y2="25.4968" width="0.1524" layer="1"/>
+<wire x1="19.3032" y1="25.4968" x2="19.025" y2="25.775" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="U1" pad="P$21"/>

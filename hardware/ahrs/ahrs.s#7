@@ -518,8 +518,8 @@
 <smd name="PIN3" x="-0.65" y="1.1" dx="0.4" dy="0.8" layer="1" rot="R180"/>
 <smd name="PIN2" x="0" y="1.1" dx="0.4" dy="0.8" layer="1" rot="R180"/>
 <smd name="PIN1" x="0.65" y="1.1" dx="0.4" dy="0.8" layer="1" rot="R180"/>
-<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="21">&gt;VALUE</text>
+<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="TDFN_2X3" urn="urn:adsk.eagle:footprint:19399097/1" locally_modified="yes" library_version="98" library_locally_modified="yes">
 <smd name="PAD" x="0" y="0" dx="1.46" dy="1.36" layer="1"/>
@@ -537,8 +537,8 @@
 <wire x1="-1.25" y1="-1.75" x2="-1.15" y2="-1.75" width="0.08" layer="21"/>
 <wire x1="-1.25" y1="-1.75" x2="-1.25" y2="1.75" width="0.08" layer="21"/>
 <wire x1="-1.25" y1="1.75" x2="-1.15" y2="1.75" width="0.08" layer="21"/>
-<text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="21">&gt;VALUE</text>
+<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="M80-8430342" urn="urn:adsk.eagle:footprint:16399483/1" locally_modified="yes" library_version="98" library_locally_modified="yes">
 <pad name="2" x="0" y="0" drill="0.8"/>
@@ -558,8 +558,8 @@
 <wire x1="-5" y1="-1" x2="-5" y2="-5" width="0.127" layer="21"/>
 <wire x1="5" y1="-1" x2="5" y2="-5" width="0.127" layer="21"/>
 <wire x1="-3" y1="-1" x2="3" y2="-1" width="0.127" layer="21"/>
-<text x="-2.54" y="-3.81" size="1.27" layer="21">&gt;NAME</text>
-<text x="-2.54" y="-7.62" size="1.27" layer="21">&gt;VALUE</text>
+<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-7.62" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="M80-8820342" urn="urn:adsk.eagle:footprint:16399484/1" library_version="89" library_locally_modified="yes">
 <pad name="P$1" x="0" y="0" drill="0.7"/>
@@ -1264,7 +1264,7 @@ Source: http://www.kingtronics.com/SMD_M7/M7_SMD_4007.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="?M08B-SRSS-TB" urn="urn:adsk.eagle:component:19477961/2" prefix="X" library_version="93">
+<deviceset name="?M08B-SRSS-TB" urn="urn:adsk.eagle:component:19477961/2" locally_modified="yes" prefix="J" library_version="98" library_locally_modified="yes">
 <description>&lt;b&gt;Disconnectable Crimp style connector, 1.0mm pitch&lt;/b&gt;&lt;br&gt;8 contacts</description>
 <gates>
 <gate name="-1" symbol="KV" x="0" y="10.16" addlevel="always" swaplevel="1"/>
