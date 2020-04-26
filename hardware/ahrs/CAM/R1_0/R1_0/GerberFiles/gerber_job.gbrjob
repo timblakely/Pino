@@ -1,7 +1,7 @@
 {
     "Header": {
         "Comment": "All values are metric (mm)",
-        "CreationDate": "2020-04-26T00:28:33Z",
+        "CreationDate": "2020-04-26T23:17:44Z",
         "GenerationSoftware": {
             "Application": "EAGLE",
             "Vendor": "Autodesk",
@@ -10,7 +10,7 @@
         "Part": "Single"
     },
     "Overall": {
-        "BoardThickness": 1.640844,
+        "BoardThickness": 1.49,
         "LayerNumber": 4,
         "Name": {
             "ProjectId": "ahrs"
