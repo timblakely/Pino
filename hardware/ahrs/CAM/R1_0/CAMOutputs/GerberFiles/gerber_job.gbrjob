@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2020-04-26T00:28:33Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.6.1"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.640844,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "ahrs"
+        },
+        "Owner": "Tim Blakely <skyfire360@gmail.com>",
+        "Size": {
+            "X": 32,
+            "Y": 30
+        }
+    }
+}
