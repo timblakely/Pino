@@ -156,13 +156,14 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:MzfWSGJQS0CBInJEB5SxYw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="cad069d0-54c5-44df-b114-c58309e67b1b" lastsyncedrevisionid="cad069d0-54c5-44df-b114-c58309e67b1b" lastboardhashguid="3784b1de-b935-57e8-db1c-6b4475f25a4e" lastpushedtime="2020-04-26T23:37:28Z" linktopcb3d="%12"/>
 <plain>
 <circle x="3" y="3" radius="2.75" width="0.1524" layer="21"/>
 <circle x="29" y="3" radius="2.75" width="0.1524" layer="21"/>
 <circle x="29" y="27" radius="2.75" width="0.1524" layer="21"/>
 <circle x="3" y="27" radius="2.75" width="0.1524" layer="21"/>
-<text x="11.9" y="27.5" size="0.85" layer="25" align="center">CS_M</text>
-<text x="14.4" y="29.6" size="0.85" layer="25" align="center">CS_AG</text>
+<text x="12" y="25.9" size="0.85" layer="25" rot="R90" align="center">CS_M</text>
+<text x="14.4" y="25.7" size="0.85" layer="25" rot="R90" align="center">CS_AG</text>
 <text x="17" y="27.5" size="0.85" layer="25" align="center">MISO</text>
 <text x="19.4" y="29.5" size="0.85" layer="25" align="center">MOSI</text>
 <text x="22" y="27.5" size="0.85" layer="25" align="center">SCK</text>
@@ -2063,7 +2064,6 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 </element>
 <element name="U1" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="LGA24_3.5X3X1" package3d_urn="urn:adsk.eagle:package:18130566/2" value="LSM9DS1" x="17.4" y="24.7" smashed="yes" rot="R270">
 <attribute name="NAME" x="17.5" y="22.4" size="0.8128" layer="21" align="center"/>
-<attribute name="VALUE" x="13.7" y="24.7" size="0.8128" layer="21" rot="R270" align="center"/>
 </element>
 <element name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" package="UFQFPN-48_7X7X0P55MM" package3d_urn="urn:adsk.eagle:package:19324073/5" value="STM32G4_UFQFPN48_T1" x="11.7" y="17.4" smashed="yes" rot="R180">
 <attribute name="BUILT_BY" value="EMA_Jessica" x="-6.08" y="22.48" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2404,7 +2404,7 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <wire x1="17.4" y1="12.55" x2="17.4" y2="14.1" width="0.3" layer="1"/>
 <via x="17.4" y="14.1" extent="1-16" drill="0.35"/>
 <wire x1="19.4" y1="10.15" x2="19.4" y2="10.9" width="0.3" layer="1"/>
-<wire x1="19.4" y1="10.9" x2="20.1" y2="11.6" width="0.3" layer="1"/>
+<wire x1="19.4" y1="10.9" x2="20.4" y2="11.9" width="0.3" layer="1"/>
 <wire x1="21.2" y1="9.55" x2="20" y2="9.55" width="0.3" layer="1"/>
 <wire x1="20" y1="9.55" x2="19.4" y2="10.15" width="0.3" layer="1"/>
 <wire x1="17.4" y1="8.45" x2="19.1" y2="10.15" width="0.3" layer="1"/>
@@ -2427,9 +2427,9 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <wire x1="21.65" y1="26.2" x2="21.7" y2="26.2" width="0.3" layer="1"/>
 <wire x1="21.7" y1="26.2" x2="22.8" y2="27.3" width="0.3" layer="1"/>
 <via x="22.8" y="27.3" extent="1-16" drill="0.35"/>
-<wire x1="20.1" y1="13.3" x2="21.1" y2="14.3" width="0.3" layer="1"/>
+<wire x1="20.4" y1="13.6" x2="21.1" y2="14.3" width="0.3" layer="1"/>
 <via x="21.1" y="14.3" extent="1-16" drill="0.6"/>
-<wire x1="20.1" y1="11.6" x2="20.1" y2="13.3" width="0.3" layer="1"/>
+<wire x1="20.4" y1="11.9" x2="20.4" y2="13.6" width="0.3" layer="1"/>
 <contactref element="D2" pad="2"/>
 <wire x1="4.65" y1="8" x2="4.65" y2="7.05" width="0.3" layer="1"/>
 <wire x1="4.65" y1="7.05" x2="4.6" y2="7" width="0.3" layer="1"/>
@@ -2631,6 +2631,9 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <wire x1="12.9" y1="26" x2="14" y2="26" width="0.1524" layer="1"/>
 <wire x1="14" y1="26" x2="14.225" y2="25.775" width="0.1524" layer="1"/>
 <wire x1="14.225" y1="25.775" x2="16.175" y2="25.775" width="0.1524" layer="1"/>
+<via x="14.5" y="28.5" extent="1-16" drill="1" alwaysstop="yes"/>
+<wire x1="12.6" y1="26.3" x2="14.5" y2="28.2" width="0.1524" layer="16"/>
+<wire x1="14.5" y1="28.2" x2="14.5" y2="28.5" width="0.1524" layer="16"/>
 </signal>
 <signal name="CS_M">
 <contactref element="U1" pad="P$8"/>
@@ -2648,6 +2651,10 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <wire x1="16" y1="20.6" x2="16" y2="20.4" width="0.1524" layer="1"/>
 <wire x1="16" y1="20.4" x2="15.75" y2="20.15" width="0.1524" layer="1"/>
 <wire x1="15.75" y1="20.15" x2="15.1544" y2="20.15" width="0.1524" layer="1"/>
+<via x="12" y="28.5" extent="1-16" drill="1" alwaysstop="yes"/>
+<wire x1="13.3" y1="25.3" x2="12.4" y2="25.3" width="0.1524" layer="1"/>
+<wire x1="12" y1="25.7" x2="12" y2="28.5" width="0.1524" layer="1"/>
+<wire x1="12.4" y1="25.3" x2="12" y2="25.7" width="0.1524" layer="1"/>
 </signal>
 <signal name="SCK">
 <contactref element="U1" pad="P$2"/>
@@ -2901,6 +2908,11 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
 with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports Fusion synchronisation.
+This feature will not be available in this version and saving
+the document will break the link to the Fusion PCB feature.
 </note>
 <note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports URNs for individual library

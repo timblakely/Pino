@@ -2708,7 +2708,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </signal>
 <signal name="SWO">
 <contactref element="U2" pad="41"/>
-<wire x1="24.8452" y1="18" x2="23.6412" y2="16.796" width="0.1524" layer="1"/>
+<wire x1="24.9452" y1="18.1" x2="23.6412" y2="16.796" width="0.1524" layer="1"/>
 <wire x1="23.6412" y1="16.796" x2="23.6412" y2="13.3" width="0.1524" layer="1"/>
 <wire x1="23.6412" y1="13.3" x2="23.1412" y2="12.8" width="0.1524" layer="1"/>
 <wire x1="22.2" y1="12.8" x2="21.7" y2="13.3" width="0.1524" layer="1"/>
@@ -2726,11 +2726,10 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="21.4412" y1="13.5588" x2="11.368525" y2="13.5588" width="0.1524" layer="16"/>
 <contactref element="J3" pad="6"/>
 <wire x1="26.825" y1="18.1" x2="24.9452" y2="18.1" width="0.1524" layer="1"/>
-<wire x1="24.9452" y1="18.1" x2="24.8452" y2="18" width="0.1524" layer="1"/>
 </signal>
 <signal name="SWDIO">
 <contactref element="U2" pad="36"/>
-<wire x1="24.8452" y1="16" x2="24.2" y2="15.3548" width="0.1524" layer="1"/>
+<wire x1="24.9452" y1="16.1" x2="24.2" y2="15.3548" width="0.1524" layer="1"/>
 <wire x1="24.2" y1="13.068525" x2="23.372675" y2="12.2412" width="0.1524" layer="1"/>
 <wire x1="20.8349" y1="12.2412" x2="20.73805" y2="12.33805" width="0.1524" layer="1"/>
 <via x="20.73805" y="12.33805" extent="1-16" drill="0.35"/>
@@ -2747,11 +2746,10 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="11" y1="12.3842625" x2="11" y2="11.8332" width="0.1524" layer="16"/>
 <contactref element="J3" pad="4"/>
 <wire x1="26.825" y1="16.1" x2="24.9452" y2="16.1" width="0.1524" layer="1"/>
-<wire x1="24.9452" y1="16.1" x2="24.8452" y2="16" width="0.1524" layer="1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="U2" pad="37"/>
-<wire x1="24.8452" y1="17" x2="23.9206" y2="16.0754" width="0.1524" layer="1"/>
+<wire x1="24.9452" y1="17.1" x2="23.9206" y2="16.0754" width="0.1524" layer="1"/>
 <wire x1="23.9206" y1="13.1842625" x2="23.2569375" y2="12.5206" width="0.1524" layer="1"/>
 <wire x1="21.51745" y1="12.5206" x2="21.219025" y2="12.819025" width="0.1524" layer="1"/>
 <via x="21.219025" y="12.819025" extent="1-16" drill="0.35"/>
@@ -2767,7 +2765,6 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="10.46816875" y1="12.24756875" x2="10.45241875" y2="12.24756875" width="0.1524" layer="16"/>
 <contactref element="J3" pad="5"/>
 <wire x1="26.825" y1="17.1" x2="24.9452" y2="17.1" width="0.1524" layer="1"/>
-<wire x1="24.9452" y1="17.1" x2="24.8452" y2="17" width="0.1524" layer="1"/>
 </signal>
 <signal name="LPUART_RX">
 <contactref element="U2" pad="22"/>
