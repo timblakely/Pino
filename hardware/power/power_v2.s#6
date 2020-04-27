@@ -9223,7 +9223,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="C17" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="35ZLH220MEFC8X11.5" device="" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf"/>
 <part name="C22" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="35ZLH220MEFC8X11.5" device="" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf"/>
 <part name="C20" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="35ZLH220MEFC8X11.5" device="" package3d_urn="urn:adsk.eagle:package:16381562/2" value="220uf"/>
-<part name="$$U$5" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
+<part name="U3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
 <part name="P+3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
 <part name="D2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMA" device="J30A" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
 <part name="C12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="0.01uF"/>
@@ -9243,7 +9243,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="U$11" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="U$12" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="BATT_GND" device="" value="GND_BATT"/>
 <part name="J7" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="2-PIN" device="" package3d_urn="urn:adsk.eagle:package:16399492/3"/>
-<part name="$$U$4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
+<part name="U4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/2"/>
 <part name="P+4" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="3.4k"/>
@@ -9346,7 +9346,7 @@ Source: AVX .. aphvc.pdf</description>
 </instance>
 <instance part="U$12" gate="G$1" x="200.66" y="152.4" smashed="yes" grouprefs="24V_POWER"/>
 <instance part="J8" gate="G$1" x="162.56" y="124.46" smashed="yes" rot="R90" grouprefs="24V_SOFTSTART"/>
-<instance part="$$U$5" gate="A" x="198.12" y="93.98" smashed="yes" grouprefs="24V_SOFTSTART">
+<instance part="U3" gate="A" x="198.12" y="93.98" smashed="yes" grouprefs="24V_SOFTSTART">
 <attribute name="VALUE" x="187.6806" y="105.6386" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
 <instance part="P+3" gate="1" x="149.86" y="121.92" smashed="yes" grouprefs="24V_SOFTSTART"/>
@@ -9418,7 +9418,7 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="C2" gate="G$1" x="83.82" y="35.56" smashed="yes" grouprefs="ISO_DECOUPLE"/>
 <instance part="C5" gate="G$1" x="88.9" y="35.56" smashed="yes" grouprefs="ISO_DECOUPLE"/>
 <instance part="J7" gate="G$1" x="30.48" y="109.22" smashed="yes" rot="R90" grouprefs="ISO_SOFTSTART"/>
-<instance part="$$U$4" gate="A" x="66.04" y="78.74" smashed="yes" grouprefs="ISO_SOFTSTART">
+<instance part="U4" gate="A" x="66.04" y="78.74" smashed="yes" grouprefs="ISO_SOFTSTART">
 <attribute name="VALUE" x="55.6006" y="90.3986" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
 <instance part="P+4" gate="1" x="17.78" y="106.68" smashed="yes" grouprefs="ISO_SOFTSTART"/>
@@ -9626,7 +9626,7 @@ Source: AVX .. aphvc.pdf</description>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="BATT_GND"/>
-<pinref part="$$U$5" gate="A" pin="GND"/>
+<pinref part="U3" gate="A" pin="GND"/>
 <wire x1="180.34" y1="73.66" x2="180.34" y2="88.9" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 </segment>
 <segment>
@@ -9681,7 +9681,7 @@ Source: AVX .. aphvc.pdf</description>
 </segment>
 <segment>
 <wire x1="48.26" y1="58.42" x2="48.26" y2="73.66" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="GND"/>
+<pinref part="U4" gate="A" pin="GND"/>
 <pinref part="U$17" gate="G$1" pin="BATT_GND"/>
 </segment>
 <segment>
@@ -9805,7 +9805,7 @@ Source: AVX .. aphvc.pdf</description>
 <label x="180.34" y="53.34" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BULK_CAP1"/>
 </segment>
 <segment>
-<pinref part="$$U$5" gate="A" pin="OUT"/>
+<pinref part="U3" gate="A" pin="OUT"/>
 <wire x1="215.9" y1="96.52" x2="220.98" y2="96.52" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="220.98" y1="96.52" x2="220.98" y2="119.38" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="220.98" y1="119.38" x2="203.2" y2="119.38" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
@@ -9824,7 +9824,7 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="162.56" y1="101.6" x2="162.56" y2="104.14" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
-<pinref part="$$U$5" gate="A" pin="UVLO"/>
+<pinref part="U3" gate="A" pin="UVLO"/>
 <wire x1="162.56" y1="104.14" x2="162.56" y2="106.68" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="180.34" y1="93.98" x2="167.64" y2="93.98" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="167.64" y1="93.98" x2="167.64" y2="104.14" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
@@ -9841,7 +9841,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="162.56" y1="88.9" x2="177.8" y2="88.9" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="177.8" y1="88.9" x2="177.8" y2="91.44" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <junction x="162.56" y="88.9" grouprefs="24V_SOFTSTART"/>
-<pinref part="$$U$5" gate="A" pin="OVLO"/>
+<pinref part="U3" gate="A" pin="OVLO"/>
 <wire x1="177.8" y1="91.44" x2="180.34" y2="91.44" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 </segment>
 </net>
@@ -9861,7 +9861,7 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="$$U$5" gate="A" pin="GATE"/>
+<pinref part="U3" gate="A" pin="GATE"/>
 <wire x1="215.9" y1="99.06" x2="215.9" y2="104.14" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="215.9" y1="104.14" x2="215.9" y2="109.22" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="215.9" y1="109.22" x2="200.66" y2="109.22" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
@@ -9880,14 +9880,14 @@ Source: AVX .. aphvc.pdf</description>
 <net name="N$6" class="0">
 <segment>
 <pinref part="R13" gate="G$1" pin="1"/>
-<pinref part="$$U$5" gate="A" pin="PWR"/>
+<pinref part="U3" gate="A" pin="PWR"/>
 <wire x1="226.06" y1="88.9" x2="226.06" y2="91.44" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="226.06" y1="91.44" x2="215.9" y2="91.44" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
-<pinref part="$$U$5" gate="A" pin="TIMER"/>
+<pinref part="U3" gate="A" pin="TIMER"/>
 <wire x1="215.9" y1="88.9" x2="218.44" y2="88.9" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="218.44" y1="88.9" x2="218.44" y2="86.36" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <pinref part="C14" gate="G$1" pin="1"/>
@@ -9915,7 +9915,7 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="$$U$5" gate="A" pin="SEN"/>
+<pinref part="U3" gate="A" pin="SEN"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="180.34" y1="99.06" x2="180.34" y2="101.6" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <pinref part="R14" gate="G$1" pin="2"/>
@@ -9937,7 +9937,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="172.72" y1="114.3" x2="170.18" y2="114.3" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="114.3" x2="170.18" y2="101.6" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
-<pinref part="$$U$5" gate="A" pin="VIN"/>
+<pinref part="U3" gate="A" pin="VIN"/>
 <wire x1="170.18" y1="101.6" x2="170.18" y2="96.52" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <wire x1="170.18" y1="96.52" x2="180.34" y2="96.52" width="0.1524" layer="91" grouprefs="24V_SOFTSTART"/>
 <junction x="170.18" y="101.6" grouprefs="24V_SOFTSTART"/>
@@ -10000,7 +10000,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="99.06" y1="104.14" x2="106.68" y2="104.14" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="99.06" y="104.14" grouprefs="ISO_SOFTSTART"/>
 <label x="106.68" y="104.14" size="1.778" layer="95" xref="yes" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="OUT"/>
+<pinref part="U4" gate="A" pin="OUT"/>
 <pinref part="D1" gate="G$1" pin="C"/>
 <pinref part="Q1" gate="G$1" pin="S"/>
 </segment>
@@ -10023,7 +10023,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="35.56" y1="78.74" x2="35.56" y2="88.9" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="35.56" y1="88.9" x2="30.48" y2="88.9" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="30.48" y="88.9" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="UVLO"/>
+<pinref part="U4" gate="A" pin="UVLO"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 </segment>
@@ -10036,7 +10036,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="45.72" y1="73.66" x2="45.72" y2="76.2" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="30.48" y="73.66" grouprefs="ISO_SOFTSTART"/>
 <wire x1="45.72" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="OVLO"/>
+<pinref part="U4" gate="A" pin="OVLO"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 </segment>
@@ -10067,7 +10067,7 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="106.68" y1="83.82" x2="106.68" y2="81.28" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="109.22" y1="83.82" x2="106.68" y2="83.82" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="106.68" y="83.82" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="GATE"/>
+<pinref part="U4" gate="A" pin="GATE"/>
 <pinref part="R11" gate="G$1" pin="1"/>
 <pinref part="Q1" gate="G$1" pin="G"/>
 <pinref part="D3" gate="A" pin="A"/>
@@ -10077,7 +10077,7 @@ Source: AVX .. aphvc.pdf</description>
 <segment>
 <wire x1="93.98" y1="73.66" x2="93.98" y2="76.2" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="93.98" y1="76.2" x2="83.82" y2="76.2" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="PWR"/>
+<pinref part="U4" gate="A" pin="PWR"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10085,7 +10085,7 @@ Source: AVX .. aphvc.pdf</description>
 <segment>
 <wire x1="83.82" y1="73.66" x2="86.36" y2="73.66" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="86.36" y1="73.66" x2="86.36" y2="71.12" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="TIMER"/>
+<pinref part="U4" gate="A" pin="TIMER"/>
 <pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -10112,7 +10112,7 @@ Source: AVX .. aphvc.pdf</description>
 <net name="N$20" class="0">
 <segment>
 <wire x1="48.26" y1="86.36" x2="48.26" y2="83.82" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="SEN"/>
+<pinref part="U4" gate="A" pin="SEN"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="48.26" y1="86.36" x2="48.26" y2="88.9" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
@@ -10134,7 +10134,7 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="99.06" x2="38.1" y2="86.36" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <wire x1="48.26" y1="81.28" x2="38.1" y2="81.28" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
-<pinref part="$$U$4" gate="A" pin="VIN"/>
+<pinref part="U4" gate="A" pin="VIN"/>
 <wire x1="38.1" y1="86.36" x2="38.1" y2="81.28" width="0.1524" layer="91" grouprefs="ISO_SOFTSTART"/>
 <junction x="38.1" y="86.36" grouprefs="ISO_SOFTSTART"/>
 <pinref part="R7" gate="G$1" pin="1K"/>

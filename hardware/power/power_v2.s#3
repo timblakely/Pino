@@ -9226,7 +9226,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="U2" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="LM5069_DGS_10" device="" package3d_urn="urn:adsk.eagle:package:16499421/3"/>
 <part name="P+3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="V_BATT" device="" value="+24V_BATT"/>
 <part name="D3" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="SMA" device="J30A" package3d_urn="urn:adsk.eagle:package:16356227/6"/>
-<part name="C13" library="timlib" library_urn="urn:adsk.eagle:library:16152524" deviceset="C_CERAMIC" device="_1210" package3d_urn="urn:adsk.eagle:package:23619/2" value="0.01uF"/>
+<part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.01uF"/>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="47.5k"/>
 <part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="3.4k"/>
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="4.32k"/>
