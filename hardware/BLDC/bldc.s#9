@@ -1497,7 +1497,6 @@
 <part name="GND1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="C1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="1uf 10v"/>
 <part name="+3V1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="U3" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/2"/>
 <part name="U4" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/2"/>
 <part name="U5" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/2"/>
 <part name="U6" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/2"/>
@@ -1547,6 +1546,7 @@
 <part name="GND12" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/1"/>
 <part name="GND13" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
+<part name="U3" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -1570,10 +1570,6 @@
 </instance>
 <instance part="+3V1" gate="G$1" x="218.44" y="50.8" smashed="yes">
 <attribute name="VALUE" x="215.9" y="45.72" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="U3" gate="G$1" x="200.66" y="137.16" smashed="yes">
-<attribute name="VALUE" x="189.23" y="140.97" size="1.778" layer="96" rot="MR180"/>
-<attribute name="NAME" x="189.23" y="138.43" size="1.778" layer="95" rot="MR180"/>
 </instance>
 <instance part="U4" gate="G$1" x="218.44" y="137.16" smashed="yes">
 <attribute name="VALUE" x="207.01" y="140.97" size="1.778" layer="96" rot="MR180"/>
@@ -1742,6 +1738,10 @@
 </instance>
 <instance part="GND13" gate="G$1" x="160.02" y="55.88" smashed="yes">
 <attribute name="VALUE" x="158.115" y="52.705" size="1.778" layer="96"/>
+</instance>
+<instance part="U3" gate="G$1" x="200.66" y="137.16" smashed="yes">
+<attribute name="VALUE" x="189.23" y="140.97" size="1.778" layer="96" rot="MR180"/>
+<attribute name="NAME" x="189.23" y="138.43" size="1.778" layer="95" rot="MR180"/>
 </instance>
 </instances>
 <busses>
@@ -2151,9 +2151,9 @@
 <pinref part="PHASE_A" gate="G$1" pin="P1"/>
 <wire x1="203.2" y1="114.3" x2="203.2" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="203.2" y1="124.46" x2="208.28" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="S"/>
 <wire x1="203.2" y1="132.08" x2="203.2" y2="124.46" width="0.1524" layer="91"/>
 <junction x="203.2" y="124.46"/>
+<pinref part="U3" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$3" class="0">

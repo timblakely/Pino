@@ -996,6 +996,14 @@
 <vertex x="1.35" y="0.8"/>
 <vertex x="-1.35" y="0.8"/>
 </polygon>
+<wire x1="-1.475" y1="0.3" x2="1.475" y2="0.3" width="0.127" layer="21" curve="-157.006874"/>
+<wire x1="1.475" y1="-0.3" x2="-1.475" y2="-0.3" width="0.127" layer="21" curve="-157.006874"/>
+<wire x1="-1.25" y1="0.3" x2="-1.25" y2="-0.3" width="0.127" layer="21" curve="-180"/>
+<wire x1="1.25" y1="-0.3" x2="1.25" y2="0.3" width="0.127" layer="21" curve="-180"/>
+<wire x1="-1.275" y1="0.3" x2="-1.475" y2="0.3" width="0.127" layer="21"/>
+<wire x1="-1.25" y1="-0.3" x2="-1.475" y2="-0.3" width="0.127" layer="21"/>
+<wire x1="1.25" y1="-0.3" x2="1.475" y2="-0.3" width="0.127" layer="21"/>
+<wire x1="1.25" y1="0.3" x2="1.475" y2="0.3" width="0.127" layer="21"/>
 </package>
 <package name="SOD123" urn="urn:adsk.eagle:footprint:16502212/1" library_version="5">
 <description>SOD-123FL CASE 498-01 ISSUE A&lt;br&gt;</description>
@@ -1277,14 +1285,11 @@
 <library name="_T_transistors" urn="urn:adsk.eagle:library:19605452">
 <packages>
 <package name="2-3X1S-TSONADVANCE" urn="urn:adsk.eagle:footprint:20292153/1" locally_modified="yes" library_version="2" library_locally_modified="yes">
-<smd name="PIN1" x="-0.975" y="-1.55" dx="0.4" dy="0.4" layer="1"/>
-<smd name="PIN2" x="-0.325" y="-1.55" dx="0.4" dy="0.4" layer="1"/>
-<smd name="PIN3" x="0.325" y="-1.55" dx="0.4" dy="0.4" layer="1"/>
-<smd name="PIN4" x="0.975" y="-1.55" dx="0.4" dy="0.4" layer="1"/>
-<smd name="PIN5" x="0.975" y="1.6" dx="0.39" dy="0.29" layer="1" rot="R180"/>
-<smd name="PIN6" x="0.325" y="1.6" dx="0.39" dy="0.29" layer="1" rot="R180"/>
-<smd name="PIN7" x="-0.325" y="1.6" dx="0.39" dy="0.29" layer="1" rot="R180"/>
-<smd name="PIN8" x="-0.975" y="1.6" dx="0.39" dy="0.29" layer="1" rot="R180"/>
+<smd name="SOURCE" x="-0.975" y="-1.55" dx="0.4" dy="0.4" layer="1" thermals="no"/>
+<smd name="SOURCE@1" x="-0.325" y="-1.55" dx="0.4" dy="0.4" layer="1" thermals="no"/>
+<smd name="SOURCE@2" x="0.325" y="-1.55" dx="0.4" dy="0.4" layer="1" thermals="no"/>
+<smd name="GATE" x="0.975" y="-1.55" dx="0.4" dy="0.4" layer="1" thermals="no"/>
+<smd name="DRAIN" x="0.005" y="0.33" dx="1" dy="1" layer="1" rot="R180" stop="no" thermals="no" cream="no"/>
 <wire x1="-1.55" y1="-1.55" x2="1.55" y2="-1.55" width="0.127" layer="21"/>
 <wire x1="1.55" y1="-1.55" x2="1.55" y2="1.55" width="0.127" layer="21"/>
 <wire x1="1.55" y1="1.55" x2="-1.55" y2="1.55" width="0.127" layer="21"/>
@@ -1318,6 +1323,34 @@
 <vertex x="-1.175" y="1.45"/>
 <vertex x="-1.325" y="1.45"/>
 </polygon>
+<polygon width="0.025" layer="29">
+<vertex x="1.175" y="1.75"/>
+<vertex x="1.175" y="1.425"/>
+<vertex x="0.775" y="1.425"/>
+<vertex x="0.775" y="1.75"/>
+</polygon>
+<polygon width="0.025" layer="29">
+<vertex x="0.525" y="1.75"/>
+<vertex x="0.525" y="1.425"/>
+<vertex x="0.125" y="1.425"/>
+<vertex x="0.125" y="1.75"/>
+</polygon>
+<polygon width="0.025" layer="29">
+<vertex x="-0.125" y="1.75"/>
+<vertex x="-0.125" y="1.425"/>
+<vertex x="-0.525" y="1.425"/>
+<vertex x="-0.525" y="1.75"/>
+</polygon>
+<polygon width="0.025" layer="29">
+<vertex x="-0.775" y="1.75"/>
+<vertex x="-0.775" y="1.425"/>
+<vertex x="-1.175" y="1.425"/>
+<vertex x="-1.175" y="1.75"/>
+</polygon>
+<rectangle x1="-1.25" y1="1.375" x2="-0.7" y2="1.825" layer="29"/>
+<rectangle x1="-0.6" y1="1.375" x2="-0.05" y2="1.825" layer="29"/>
+<rectangle x1="0.05" y1="1.375" x2="0.6" y2="1.825" layer="29"/>
+<rectangle x1="0.7" y1="1.375" x2="1.25" y2="1.825" layer="29"/>
 </package>
 </packages>
 <packages3d>
@@ -1374,9 +1407,9 @@
 <devices>
 <device name="" package="2-3X1S-TSONADVANCE">
 <connects>
-<connect gate="G$1" pin="D" pad="PIN5 PIN6 PIN7 PIN8"/>
-<connect gate="G$1" pin="G" pad="PIN4"/>
-<connect gate="G$1" pin="S" pad="PIN1 PIN2 PIN3"/>
+<connect gate="G$1" pin="D" pad="DRAIN"/>
+<connect gate="G$1" pin="G" pad="GATE"/>
+<connect gate="G$1" pin="S" pad="SOURCE SOURCE@1 SOURCE@2"/>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:20292156/2"/>
