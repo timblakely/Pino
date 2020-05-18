@@ -2148,7 +2148,7 @@
 <part name="+24V2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="+24V3" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="GND15" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
+<part name="GND" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
 <part name="C16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
 <part name="C17" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
 <part name="C18" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
@@ -2421,7 +2421,7 @@
 <instance part="GND15" gate="G$1" x="292.1" y="132.08" smashed="yes">
 <attribute name="VALUE" x="290.195" y="128.905" size="1.778" layer="96"/>
 </instance>
-<instance part="C15" gate="G$1" x="294.64" y="142.24" smashed="yes">
+<instance part="GND" gate="G$1" x="294.64" y="142.24" smashed="yes">
 <attribute name="NAME" x="296.164" y="142.621" size="1.778" layer="95"/>
 <attribute name="VALUE" x="296.164" y="137.541" size="1.778" layer="96"/>
 </instance>
@@ -3126,7 +3126,7 @@
 <pinref part="C16" gate="G$1" pin="2"/>
 <wire x1="304.8" y1="137.16" x2="299.72" y2="137.16" width="0.1524" layer="91"/>
 <junction x="304.8" y="137.16"/>
-<pinref part="C15" gate="G$1" pin="2"/>
+<pinref part="GND" gate="G$1" pin="2"/>
 <wire x1="299.72" y1="137.16" x2="294.64" y2="137.16" width="0.1524" layer="91"/>
 <junction x="299.72" y="137.16"/>
 <pinref part="C30" gate="G$1" pin="2"/>
@@ -3312,7 +3312,7 @@
 <pinref part="C30" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="147.32" x2="292.1" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="292.1" y1="144.78" x2="289.56" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="C15" gate="G$1" pin="1"/>
+<pinref part="GND" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="144.78" x2="294.64" y2="144.78" width="0.1524" layer="91"/>
 <junction x="292.1" y="144.78"/>
 <pinref part="C16" gate="G$1" pin="1"/>
