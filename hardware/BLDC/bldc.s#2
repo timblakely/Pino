@@ -263,7 +263,7 @@
 <rectangle x1="1.35" y1="-1.16" x2="2.41" y2="-0.1" layer="31"/>
 <rectangle x1="1.35" y1="0.1" x2="2.41" y2="1.16" layer="31"/>
 </package>
-<package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/1" library_version="7">
+<package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/1" locally_modified="yes" library_version="8" library_locally_modified="yes">
 <smd name="1" x="-3.4544" y="2.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
 <smd name="2" x="-3.4544" y="2.25" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
 <smd name="3" x="-3.4544" y="1.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
@@ -496,7 +496,7 @@
 </polygon>
 <text x="-5.08" y="2.3622" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
 <text x="-3.6322" y="2.3622" size="1.27" layer="51" ratio="6" rot="SR0">*</text>
-<text x="-0.0946" y="5.638" size="1.524" layer="51" ratio="12" rot="SR0" align="center">&gt;NAME</text>
+<text x="-0.0946" y="5.638" size="1.524" layer="25" ratio="12" rot="SR0" align="center">&gt;NAME</text>
 </package>
 <package name="TDFN_2X3" urn="urn:adsk.eagle:footprint:19399097/2" library_version="7" library_locally_modified="yes">
 <smd name="PAD" x="0" y="0" dx="1.46" dy="1.36" layer="1"/>
@@ -552,7 +552,7 @@
 <packageinstance name="VQFN-48_7X7"/>
 </packageinstances>
 </package3d>
-<package3d name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:package:19324073/5" type="model" library_version="7">
+<package3d name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:package:19324073/5" type="model" library_version="8" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="UFQFPN-48_7X7X0P55MM"/>
 </packageinstances>
@@ -723,7 +723,7 @@
 <text x="15.5956" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;Name</text>
 <text x="14.9606" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;Value</text>
 </symbol>
-<symbol name="MCP2542FD" library_version="7" library_locally_modified="yes">
+<symbol name="MCP2542FD" urn="urn:adsk.eagle:symbol:20326569/1" library_version="8" library_locally_modified="yes">
 <pin name="TXD" x="-12.7" y="0" length="middle"/>
 <pin name="VSS" x="-12.7" y="-7.62" length="middle"/>
 <pin name="VDD" x="-12.7" y="5.08" length="middle"/>
@@ -739,7 +739,7 @@
 <text x="-7.62" y="7.874" size="1.27" layer="95">&gt;NAME</text>
 <text x="-7.62" y="-12.7" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="CRYSTAL_GND" library_version="7" library_locally_modified="yes">
+<symbol name="CRYSTAL_GND" urn="urn:adsk.eagle:symbol:20326568/1" library_version="8" library_locally_modified="yes">
 <wire x1="1.016" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
 <wire x1="-2.54" y1="0" x2="-1.016" y2="0" width="0.1524" layer="94"/>
 <wire x1="-0.381" y1="1.524" x2="-0.381" y2="-1.524" width="0.254" layer="94"/>
@@ -759,7 +759,7 @@
 <pin name="1" x="-2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 <pin name="GND" x="0" y="-5.08" visible="pad" length="short" rot="R90"/>
 </symbol>
-<symbol name="LDFM33PUR" library_version="7" library_locally_modified="yes">
+<symbol name="LDFM33PUR" urn="urn:adsk.eagle:symbol:20326567/1" library_version="8" library_locally_modified="yes">
 <pin name="VIN" x="-12.7" y="5.08" visible="pin" length="middle"/>
 <pin name="EN" x="-12.7" y="0" visible="pin" length="middle"/>
 <pin name="GND" x="0" y="-7.62" visible="pin" length="middle" rot="R90"/>
@@ -876,7 +876,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:20293161/1" prefix="U" library_version="7">
+<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:20293161/1" prefix="U" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="A" symbol="STM32G4_UFQFPN48_T1" x="-31.05" y="4.15"/>
 <gate name="B" symbol="STM32G4_UFQFPN48_T1_1" x="-19.2" y="31.4"/>
@@ -948,7 +948,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP2542FD" prefix="U" library_version="7" library_locally_modified="yes">
+<deviceset name="MCP2542FD" urn="urn:adsk.eagle:component:20326572/1" prefix="U" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="MCP2542FD" x="0" y="0"/>
 </gates>
@@ -973,7 +973,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="CRYSTAL" prefix="X" library_version="7" library_locally_modified="yes">
+<deviceset name="CRYSTAL" urn="urn:adsk.eagle:component:20326571/1" prefix="X" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="CRYSTAL_GND" x="0" y="0"/>
 </gates>
@@ -993,7 +993,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LDFM" prefix="U" library_version="7" library_locally_modified="yes">
+<deviceset name="LDFM" urn="urn:adsk.eagle:component:20326570/1" prefix="U" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="LDFM33PUR" x="0" y="-2.54"/>
 </gates>
@@ -2181,8 +2181,8 @@
 <class number="2" name="HighCurrent" width="0.35" drill="0.3">
 <clearance class="2" value="0.2032"/>
 </class>
-<class number="3" name="midcurrent" width="0.3" drill="0.3">
-<clearance class="3" value="0.2032"/>
+<class number="3" name="midcurrent" width="0.25" drill="0.3">
+<clearance class="3" value="0.1778"/>
 </class>
 </classes>
 <groups>
