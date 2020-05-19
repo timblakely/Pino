@@ -2182,11 +2182,14 @@
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.16" drill="0.3">
+<class number="0" name="default" width="0.2" drill="0.3">
 <clearance class="0" value="0.1524"/>
 </class>
-<class number="1" name="Smallsig" width="0.16" drill="0.3">
+<class number="1" name="Smallsig" width="0.2" drill="0.3">
 <clearance class="1" value="0.1524"/>
+</class>
+<class number="2" name="HighCurrent" width="0.3" drill="0.35">
+<clearance class="2" value="0.2032"/>
 </class>
 </classes>
 <groups>
@@ -3145,7 +3148,7 @@
 <wire x1="142.24" y1="66.04" x2="149.86" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="N$8" class="2">
 <segment>
 <pinref part="U2" gate="G$1" pin="SW"/>
 <pinref part="C13" gate="G$1" pin="2"/>
@@ -3449,7 +3452,7 @@
 <wire x1="160.02" y1="58.42" x2="160.02" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+24V" class="0">
+<net name="+24V" class="2">
 <segment>
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="83.82" y1="63.5" x2="83.82" y2="60.96" width="0.1524" layer="91"/>

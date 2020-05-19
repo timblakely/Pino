@@ -1819,8 +1819,9 @@
 </library>
 <library name="_T_conn" urn="urn:adsk.eagle:library:19570503">
 <packages>
-<package name="M2" urn="urn:adsk.eagle:footprint:20293117/2" library_version="6" library_locally_modified="yes">
+<package name="M2" urn="urn:adsk.eagle:footprint:20293117/3" library_version="15">
 <pad name="PAD" x="0" y="0" drill="2.1" diameter="3.8" thermals="no"/>
+<circle x="0" y="0" radius="1.9" width="0.127" layer="21"/>
 </package>
 <package name="M3" urn="urn:adsk.eagle:footprint:20293137/2" library_version="7">
 <pad name="PAD" x="0" y="0" drill="3.1" diameter="5.6" thermals="no"/>
@@ -1983,7 +1984,7 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="M2" urn="urn:adsk.eagle:package:20293119/3" type="empty" library_version="6" library_locally_modified="yes">
+<package3d name="M2" urn="urn:adsk.eagle:package:20293119/4" type="empty" library_version="15">
 <packageinstances>
 <packageinstance name="M2"/>
 </packageinstances>
@@ -2081,7 +2082,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/2" prefix="H" library_version="7">
+<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/3" prefix="H" library_version="15">
 <gates>
 <gate name="G$1" symbol="PCB_HOLE" x="0" y="0"/>
 </gates>
@@ -2091,7 +2092,7 @@
 <connect gate="G$1" pin="P1" pad="PAD"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20293119/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:20293119/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -2257,10 +2258,10 @@
 <part name="U6" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
 <part name="U7" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
 <part name="U8" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
-<part name="H1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
-<part name="H2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
-<part name="H3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
-<part name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
+<part name="H1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
+<part name="H2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
+<part name="H3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
+<part name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
 <part name="GND2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="U9" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/5"/>
 <part name="L1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="DC_CHOKE" device="_FERRITE_BEAD_0603" package3d_urn="urn:adsk.eagle:package:20293176/3" value="600R@100MHz"/>
