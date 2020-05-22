@@ -263,7 +263,7 @@
 <rectangle x1="1.35" y1="-1.16" x2="2.41" y2="-0.1" layer="31"/>
 <rectangle x1="1.35" y1="0.1" x2="2.41" y2="1.16" layer="31"/>
 </package>
-<package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/1" library_version="7">
+<package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/1" locally_modified="yes" library_version="8" library_locally_modified="yes">
 <smd name="1" x="-3.4544" y="2.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
 <smd name="2" x="-3.4544" y="2.25" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
 <smd name="3" x="-3.4544" y="1.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
@@ -496,7 +496,7 @@
 </polygon>
 <text x="-5.08" y="2.3622" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
 <text x="-3.6322" y="2.3622" size="1.27" layer="51" ratio="6" rot="SR0">*</text>
-<text x="-0.0946" y="5.638" size="1.524" layer="51" ratio="12" rot="SR0" align="center">&gt;NAME</text>
+<text x="-0.0946" y="5.638" size="1.524" layer="25" ratio="12" rot="SR0" align="center">&gt;NAME</text>
 </package>
 <package name="TDFN_2X3" urn="urn:adsk.eagle:footprint:19399097/2" library_version="7" library_locally_modified="yes">
 <smd name="PAD" x="0" y="0" dx="1.46" dy="1.36" layer="1"/>
@@ -552,7 +552,7 @@
 <packageinstance name="VQFN-48_7X7"/>
 </packageinstances>
 </package3d>
-<package3d name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:package:19324073/5" type="model" library_version="7">
+<package3d name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:package:19324073/5" type="model" library_version="8" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="UFQFPN-48_7X7X0P55MM"/>
 </packageinstances>
@@ -723,7 +723,7 @@
 <text x="15.5956" y="9.1186" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;Name</text>
 <text x="14.9606" y="6.5786" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;Value</text>
 </symbol>
-<symbol name="MCP2542FD" library_version="7" library_locally_modified="yes">
+<symbol name="MCP2542FD" urn="urn:adsk.eagle:symbol:20326569/1" library_version="8" library_locally_modified="yes">
 <pin name="TXD" x="-12.7" y="0" length="middle"/>
 <pin name="VSS" x="-12.7" y="-7.62" length="middle"/>
 <pin name="VDD" x="-12.7" y="5.08" length="middle"/>
@@ -739,7 +739,7 @@
 <text x="-7.62" y="7.874" size="1.27" layer="95">&gt;NAME</text>
 <text x="-7.62" y="-12.7" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="CRYSTAL_GND" library_version="7" library_locally_modified="yes">
+<symbol name="CRYSTAL_GND" urn="urn:adsk.eagle:symbol:20326568/1" library_version="8" library_locally_modified="yes">
 <wire x1="1.016" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
 <wire x1="-2.54" y1="0" x2="-1.016" y2="0" width="0.1524" layer="94"/>
 <wire x1="-0.381" y1="1.524" x2="-0.381" y2="-1.524" width="0.254" layer="94"/>
@@ -759,7 +759,7 @@
 <pin name="1" x="-2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 <pin name="GND" x="0" y="-5.08" visible="pad" length="short" rot="R90"/>
 </symbol>
-<symbol name="LDFM33PUR" library_version="7" library_locally_modified="yes">
+<symbol name="LDFM33PUR" urn="urn:adsk.eagle:symbol:20326567/1" library_version="8" library_locally_modified="yes">
 <pin name="VIN" x="-12.7" y="5.08" visible="pin" length="middle"/>
 <pin name="EN" x="-12.7" y="0" visible="pin" length="middle"/>
 <pin name="GND" x="0" y="-7.62" visible="pin" length="middle" rot="R90"/>
@@ -876,7 +876,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:20293161/1" prefix="U" library_version="7">
+<deviceset name="STM32G4_UFQFPN48_T1" urn="urn:adsk.eagle:component:20293161/1" prefix="U" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="A" symbol="STM32G4_UFQFPN48_T1" x="-31.05" y="4.15"/>
 <gate name="B" symbol="STM32G4_UFQFPN48_T1_1" x="-19.2" y="31.4"/>
@@ -948,7 +948,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MCP2542FD" prefix="U" library_version="7" library_locally_modified="yes">
+<deviceset name="MCP2542FD" urn="urn:adsk.eagle:component:20326572/1" prefix="U" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="MCP2542FD" x="0" y="0"/>
 </gates>
@@ -973,7 +973,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="CRYSTAL" prefix="X" library_version="7" library_locally_modified="yes">
+<deviceset name="CRYSTAL" urn="urn:adsk.eagle:component:20326571/1" prefix="X" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="CRYSTAL_GND" x="0" y="0"/>
 </gates>
@@ -993,7 +993,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LDFM" prefix="U" library_version="7" library_locally_modified="yes">
+<deviceset name="LDFM" urn="urn:adsk.eagle:component:20326570/1" prefix="U" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="LDFM33PUR" x="0" y="-2.54"/>
 </gates>
@@ -1100,7 +1100,7 @@
 </library>
 <library name="_T_rcl" urn="urn:adsk.eagle:library:19571919">
 <packages>
-<package name="C0402" urn="urn:adsk.eagle:footprint:19572003/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="C0402" urn="urn:adsk.eagle:footprint:19572003/2" library_version="13" library_locally_modified="yes">
 <smd name="1" x="0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
 <smd name="2" x="-0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
 <wire x1="-0.5" y1="0.25" x2="0.5" y2="0.25" width="0.05" layer="51"/>
@@ -1110,7 +1110,7 @@
 <text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="C0603" urn="urn:adsk.eagle:footprint:19572001/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="C0603" urn="urn:adsk.eagle:footprint:19572001/2" library_version="13" library_locally_modified="yes">
 <smd name="1" x="0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <smd name="2" x="-0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <wire x1="-0.775" y1="0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
@@ -1128,7 +1128,7 @@
 <wire x1="1" y1="-0.6" x2="-1" y2="-0.6" width="0.05" layer="51"/>
 <wire x1="-1" y1="-0.6" x2="-1" y2="0.6" width="0.05" layer="51"/>
 </package>
-<package name="L0603" urn="urn:adsk.eagle:footprint:20293175/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="L0603" urn="urn:adsk.eagle:footprint:20293175/2" library_version="13" library_locally_modified="yes">
 <smd name="1" x="0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <smd name="2" x="-0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <wire x1="-0.775" y1="0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
@@ -1138,7 +1138,7 @@
 <text x="-2.54" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="R0402" urn="urn:adsk.eagle:footprint:19572004/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="R0402" urn="urn:adsk.eagle:footprint:19572004/2" library_version="13" library_locally_modified="yes">
 <smd name="1" x="0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
 <smd name="2" x="-0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
 <wire x1="-0.5" y1="0.25" x2="0.5" y2="0.25" width="0.05" layer="51"/>
@@ -1156,7 +1156,7 @@
 <wire x1="0.775" y1="-0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
 <wire x1="-0.775" y1="-0.425" x2="-0.775" y2="0.425" width="0.05" layer="51"/>
 </package>
-<package name="SDR0302" urn="urn:adsk.eagle:footprint:20294117/3" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="SDR0302" urn="urn:adsk.eagle:footprint:20294117/4" library_version="13" library_locally_modified="yes">
 <smd name="PIN1" x="0" y="1.025" dx="3" dy="1.25" layer="1" thermals="no"/>
 <smd name="PIN2" x="0" y="-1.025" dx="3" dy="1.25" layer="1" rot="R180" thermals="no"/>
 <polygon width="0.3" layer="31">
@@ -1222,7 +1222,7 @@
 <rectangle x1="1.425" y1="-0.55" x2="1.8" y2="0.55" layer="51" rot="R180"/>
 <rectangle x1="-0.95" y1="-0.775" x2="-0.65" y2="0.8" layer="21"/>
 </package>
-<package name="C1206" urn="urn:adsk.eagle:footprint:20295903/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="C1206" urn="urn:adsk.eagle:footprint:20295903/2" library_version="13" library_locally_modified="yes">
 <smd name="1" x="1.45" y="0" dx="0.9" dy="1.6" layer="1"/>
 <smd name="2" x="-1.45" y="0" dx="0.9" dy="1.6" layer="1"/>
 <wire x1="-1.6" y1="0.8" x2="1.6" y2="0.8" width="0.05" layer="51"/>
@@ -1240,7 +1240,7 @@
 <wire x1="1" y1="-0.6" x2="-1" y2="-0.6" width="0.05" layer="51"/>
 <wire x1="-1" y1="-0.6" x2="-1" y2="0.6" width="0.05" layer="51"/>
 </package>
-<package name="R1210_KELVIN" urn="urn:adsk.eagle:footprint:16502582/2" library_version="12">
+<package name="R1210_KELVIN" urn="urn:adsk.eagle:footprint:16502582/2" locally_modified="yes" library_version="13" library_locally_modified="yes">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <wire x1="-0.913" y1="1.219" x2="0.939" y2="1.219" width="0.1524" layer="51"/>
 <wire x1="-0.913" y1="-1.219" x2="0.939" y2="-1.219" width="0.1524" layer="51"/>
@@ -1248,12 +1248,12 @@
 <wire x1="2.473" y1="1.483" x2="2.473" y2="-1.483" width="0.0508" layer="39"/>
 <wire x1="2.473" y1="-1.483" x2="-2.473" y2="-1.483" width="0.0508" layer="39"/>
 <wire x1="-2.473" y1="-1.483" x2="-2.473" y2="1.483" width="0.0508" layer="39"/>
-<smd name="2_KELVIN" x="1.4" y="0" dx="1.6" dy="0.2286" layer="1"/>
-<smd name="1A" x="-1.4" y="0.8" dx="1.6" dy="1.1" layer="1"/>
-<smd name="1B" x="-1.4" y="-0.8" dx="1.6" dy="1.1" layer="1"/>
-<smd name="2A" x="1.4" y="0.8" dx="1.6" dy="1.1" layer="1"/>
-<smd name="2B" x="1.4" y="-0.8" dx="1.6" dy="1.1" layer="1"/>
-<smd name="1_KELVIN" x="-1.4" y="0" dx="1.6" dy="0.2286" layer="1"/>
+<smd name="2_KELVIN" x="1.4" y="0" dx="1.6" dy="0.2" layer="1"/>
+<smd name="1A" x="-1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
+<smd name="1B" x="-1.4" y="-0.825" dx="1.6" dy="1.05" layer="1"/>
+<smd name="2A" x="1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
+<smd name="2B" x="1.4" y="-0.825" dx="1.6" dy="1.05" layer="1"/>
+<smd name="1_KELVIN" x="-1.4" y="0" dx="1.6" dy="0.2" layer="1"/>
 <text x="-2.54" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-1.651" y1="-1.3081" x2="-0.9009" y2="1.2918" layer="51"/>
@@ -1280,16 +1280,12 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="C0402" urn="urn:adsk.eagle:package:19572013/3" type="model" library_version="12" library_locally_modified="yes">
-<description>Chip, 1.00 X 0.50 X 0.35 mm body
-&lt;p&gt;Chip package with body size 1.00 X 0.50 X 0.35 mm&lt;/p&gt;</description>
+<package3d name="C0402" urn="urn:adsk.eagle:package:19572013/4" type="model" library_version="13" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="C0402"/>
 </packageinstances>
 </package3d>
-<package3d name="C0603" urn="urn:adsk.eagle:package:19572011/2" type="model" library_version="12" library_locally_modified="yes">
-<description>Chip, 1.55 X 0.85 X 0.45 mm body
-&lt;p&gt;Chip package with body size 1.55 X 0.85 X 0.45 mm&lt;/p&gt;</description>
+<package3d name="C0603" urn="urn:adsk.eagle:package:19572011/3" type="model" library_version="13" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="C0603"/>
 </packageinstances>
@@ -1301,16 +1297,12 @@
 <packageinstance name="R0805"/>
 </packageinstances>
 </package3d>
-<package3d name="L0603" urn="urn:adsk.eagle:package:20293176/2" type="model" library_version="12" library_locally_modified="yes">
-<description>Chip, 1.60 X 0.80 X 0.60 mm body
-&lt;p&gt;Chip package with body size 1.60 X 0.80 X 0.60 mm&lt;/p&gt;</description>
+<package3d name="L0603" urn="urn:adsk.eagle:package:20293176/3" type="model" library_version="13" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="L0603"/>
 </packageinstances>
 </package3d>
-<package3d name="R0402" urn="urn:adsk.eagle:package:19572014/2" type="model" library_version="12" library_locally_modified="yes">
-<description>Chip, 1.00 X 0.50 X 0.35 mm body
-&lt;p&gt;Chip package with body size 1.00 X 0.50 X 0.35 mm&lt;/p&gt;</description>
+<package3d name="R0402" urn="urn:adsk.eagle:package:19572014/3" type="model" library_version="13" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="R0402"/>
 </packageinstances>
@@ -1322,7 +1314,7 @@
 <packageinstance name="R0603"/>
 </packageinstances>
 </package3d>
-<package3d name="SDR0302" urn="urn:adsk.eagle:package:20294118/4" type="model" library_version="12" library_locally_modified="yes">
+<package3d name="SDR0302" urn="urn:adsk.eagle:package:20294118/5" type="model" library_version="13" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="SDR0302"/>
 </packageinstances>
@@ -1333,9 +1325,7 @@
 <packageinstance name="SOD123"/>
 </packageinstances>
 </package3d>
-<package3d name="C1206" urn="urn:adsk.eagle:package:20295904/2" type="model" library_version="12" library_locally_modified="yes">
-<description>Chip, 3.20 X 1.60 X 1.60 mm body
-&lt;p&gt;Chip package with body size 3.20 X 1.60 X 1.60 mm&lt;/p&gt;</description>
+<package3d name="C1206" urn="urn:adsk.eagle:package:20295904/3" type="model" library_version="13" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="C1206"/>
 </packageinstances>
@@ -1347,7 +1337,7 @@
 <packageinstance name="C0805"/>
 </packageinstances>
 </package3d>
-<package3d name="R1210_KELVIN" urn="urn:adsk.eagle:package:16502583/3" type="model" library_version="12">
+<package3d name="R1210_KELVIN" urn="urn:adsk.eagle:package:16502583/3" type="model" library_version="13" library_locally_modified="yes">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="R1210_KELVIN"/>
@@ -1418,7 +1408,7 @@
 <pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
 </symbol>
-<symbol name="R_SENSE" urn="urn:adsk.eagle:symbol:20303303/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<symbol name="R_SENSE" urn="urn:adsk.eagle:symbol:20303303/2" library_version="13" library_locally_modified="yes">
 <wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
 <wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
 <wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
@@ -1437,7 +1427,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="C" urn="urn:adsk.eagle:component:20293178/2" prefix="C" uservalue="yes" library_version="12" library_locally_modified="yes">
+<deviceset name="C" urn="urn:adsk.eagle:component:20293178/3" prefix="C" uservalue="yes" library_version="13" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="C" x="0" y="2.54"/>
 </gates>
@@ -1448,7 +1438,7 @@
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:19572013/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:19572013/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1460,7 +1450,7 @@
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:19572011/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:19572011/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1472,7 +1462,7 @@
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20295904/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:20295904/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1492,7 +1482,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="DC_CHOKE" urn="urn:adsk.eagle:component:20293177/2" prefix="L" uservalue="yes" library_version="12" library_locally_modified="yes">
+<deviceset name="DC_CHOKE" urn="urn:adsk.eagle:component:20293177/3" prefix="L" uservalue="yes" library_version="13" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="L" x="0" y="0"/>
 </gates>
@@ -1503,7 +1493,7 @@
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20293176/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:20293176/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1511,7 +1501,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="R" urn="urn:adsk.eagle:component:20293179/2" prefix="R" uservalue="yes" library_version="12" library_locally_modified="yes">
+<deviceset name="R" urn="urn:adsk.eagle:component:20293179/3" prefix="R" uservalue="yes" library_version="13" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="R" x="0" y="0"/>
 </gates>
@@ -1522,7 +1512,7 @@
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:19572014/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:19572014/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1554,7 +1544,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="L" urn="urn:adsk.eagle:component:20295474/4" prefix="L" uservalue="yes" library_version="12" library_locally_modified="yes">
+<deviceset name="L" urn="urn:adsk.eagle:component:20295474/5" prefix="L" uservalue="yes" library_version="13" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="L" x="0" y="0"/>
 </gates>
@@ -1565,7 +1555,7 @@
 <connect gate="G$1" pin="2" pad="PIN2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20294118/4"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:20294118/5"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1592,7 +1582,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="R_SENSE" urn="urn:adsk.eagle:component:20303304/1" locally_modified="yes" prefix="R" uservalue="yes" library_version="12" library_locally_modified="yes">
+<deviceset name="R_SENSE" urn="urn:adsk.eagle:component:20303304/2" prefix="R" uservalue="yes" library_version="13" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="R_SENSE" x="0" y="0"/>
 </gates>
@@ -2188,8 +2178,11 @@
 <class number="1" name="Smallsig" width="0.2" drill="0.3">
 <clearance class="1" value="0.1524"/>
 </class>
-<class number="2" name="HighCurrent" width="0.3" drill="0.35">
+<class number="2" name="HighCurrent" width="0.35" drill="0.3">
 <clearance class="2" value="0.2032"/>
+</class>
+<class number="3" name="midcurrent" width="0.25" drill="0.3">
+<clearance class="3" value="0.1778"/>
 </class>
 </classes>
 <groups>
@@ -2199,7 +2192,7 @@
 <part name="U1" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="MA702" device="" package3d_urn="urn:adsk.eagle:package:19571298/3"/>
 <part name="U2" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="DRV8323RS" device="" package3d_urn="urn:adsk.eagle:package:19571846/3"/>
 <part name="GND1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="1uf 10v"/>
+<part name="C1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uf 10v"/>
 <part name="+3V1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 <part name="U4" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
 <part name="U5" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
@@ -2212,22 +2205,22 @@
 <part name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
 <part name="GND2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="U9" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/5"/>
-<part name="L1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="DC_CHOKE" device="_FERRITE_BEAD_0603" package3d_urn="urn:adsk.eagle:package:20293176/2" value="600R@100MHz"/>
-<part name="C2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="100nF 10V"/>
-<part name="C3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="1uF 10V"/>
-<part name="C4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="100nF 10V"/>
+<part name="L1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="DC_CHOKE" device="_FERRITE_BEAD_0603" package3d_urn="urn:adsk.eagle:package:20293176/3" value="600R@100MHz"/>
+<part name="C2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
+<part name="C3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uF 10V"/>
+<part name="C4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
 <part name="+3V2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 <part name="GND4" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="1uF 10V"/>
+<part name="C5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uF 10V"/>
 <part name="GND5" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="100nF 10V"/>
-<part name="C7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="100nF 10V"/>
-<part name="C8" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="100nF 10V"/>
-<part name="C9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="4.7uF 10V"/>
+<part name="C6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
+<part name="C7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
+<part name="C8" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
+<part name="C9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="4.7uF 10V"/>
 <part name="GND6" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="+3V4" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="C10" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="10nF 10V"/>
-<part name="C11" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="1uF 10V"/>
+<part name="C10" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="10nF 10V"/>
+<part name="C11" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uF 10V"/>
 <part name="GND7" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="+3V5" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 <part name="GND8" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
@@ -2235,16 +2228,16 @@
 <part name="PHASE_A" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="WIRE_HOLE" device="_AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2"/>
 <part name="PHASE_B" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="WIRE_HOLE" device="_AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2"/>
 <part name="PHASE_C" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="WIRE_HOLE" device="_AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2"/>
-<part name="C12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="2.2uF 50V"/>
-<part name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="100k"/>
+<part name="C12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="2.2uF 50V"/>
+<part name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k"/>
 <part name="GND9" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND10" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="100nF 10V"/>
-<part name="L2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="L" device="_SDR0302" package3d_urn="urn:adsk.eagle:package:20294118/4" value="22uH Bourns"/>
-<part name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="100k"/>
-<part name="R3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="100k"/>
+<part name="C13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="100nF 10V"/>
+<part name="L2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="L" device="_SDR0302" package3d_urn="urn:adsk.eagle:package:20294118/5" value="22uH Bourns"/>
+<part name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k"/>
+<part name="R3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k"/>
 <part name="GND11" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="2.2uF 10V"/>
+<part name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="2.2uF 10V"/>
 <part name="GND12" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
 <part name="GND13" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
@@ -2255,67 +2248,67 @@
 <part name="+24V2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="+24V3" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="GND15" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="GND" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C17" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C18" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C19" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C20" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C21" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C22" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C23" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C24" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C25" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C26" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C27" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C28" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C29" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
-<part name="C30" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/2" value="10uF V50"/>
+<part name="GND" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C17" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C18" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C19" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C20" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C21" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C22" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C23" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C24" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C25" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C26" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C27" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C28" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C29" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
+<part name="C30" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF V50"/>
 <part name="U10" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="MCP2542FD" device="" package3d_urn="urn:adsk.eagle:package:19399098/3"/>
-<part name="R4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="120"/>
-<part name="C31" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="1uf 50v"/>
+<part name="R4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="120"/>
+<part name="C31" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uf 50v"/>
 <part name="+24V4" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
-<part name="C32" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="1uf 50v"/>
+<part name="C32" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uf 50v"/>
 <part name="GND16" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND17" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C33" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="47nF 50v"/>
-<part name="C34" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="1uf 10v"/>
+<part name="C33" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="47nF 50v"/>
+<part name="C34" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uf 10v"/>
 <part name="GND18" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C35" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/2" value="1uf 10v"/>
+<part name="C35" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uf 10v"/>
 <part name="R5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/3" value="0.001"/>
 <part name="R6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/3" value="0.001"/>
 <part name="R7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/3" value="0.001"/>
 <part name="GND19" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND20" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND21" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="R8" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="10k"/>
+<part name="R8" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="10k"/>
 <part name="+3V9" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="10k"/>
+<part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="10k"/>
 <part name="+3V10" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 <part name="X1" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="CRYSTAL" device="_NX2016SA-24MHZ-EXS00A-CS11335" package3d_urn="urn:adsk.eagle:package:19324209/3"/>
-<part name="C37" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="6.8pF 10V"/>
+<part name="C37" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="6.8pF 10V"/>
 <part name="GND22" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="U11" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="LDFM" device="33PUR" package3d_urn="urn:adsk.eagle:package:19398872/3"/>
 <part name="+5V1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+5V" device=""/>
 <part name="+5V2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+5V" device=""/>
-<part name="C38" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="1uF 10V"/>
-<part name="C39" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="22uF 10V"/>
-<part name="C40" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="22uF 10V"/>
+<part name="C38" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uF 10V"/>
+<part name="C39" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="22uF 10V"/>
+<part name="C40" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="22uF 10V"/>
 <part name="GND23" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="+3V11" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="C36" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="0.1uF 10V"/>
+<part name="C36" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="0.1uF 10V"/>
 <part name="+5V3" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+5V" device=""/>
 <part name="GND24" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C41" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="0.1uF 10V"/>
+<part name="C41" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="0.1uF 10V"/>
 <part name="+3V12" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="C42" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/3" value="6.8pF 10V"/>
+<part name="C42" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="6.8pF 10V"/>
 <part name="GND25" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="+24V5" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="+24V6" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="+24V7" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="+24V9" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
-<part name="R10" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="150k 1%"/>
-<part name="R11" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/2" value="10k 1%"/>
+<part name="R10" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="150k 1%"/>
+<part name="R11" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="10k 1%"/>
 <part name="GND26" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="J2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="LINEAR_3" device="_JST_PH_RA" package3d_urn="urn:adsk.eagle:package:19570551/3"/>
 <part name="GND27" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
@@ -2501,12 +2494,12 @@
 <instance part="GND12" gate="G$1" x="177.8" y="55.88" smashed="yes">
 <attribute name="VALUE" x="175.895" y="52.705" size="1.778" layer="96"/>
 </instance>
-<instance part="D1" gate="G$1" x="160.02" y="63.5" smashed="yes" rot="R90">
-<attribute name="NAME" x="158.115" y="61.214" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="163.449" y="61.214" size="1.778" layer="96" rot="R90"/>
+<instance part="D1" gate="G$1" x="160.02" y="66.04" smashed="yes" rot="R90">
+<attribute name="NAME" x="158.115" y="63.754" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="163.449" y="63.754" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND13" gate="G$1" x="160.02" y="55.88" smashed="yes">
-<attribute name="VALUE" x="158.115" y="52.705" size="1.778" layer="96"/>
+<instance part="GND13" gate="G$1" x="160.02" y="58.42" smashed="yes">
+<attribute name="VALUE" x="158.115" y="55.245" size="1.778" layer="96"/>
 </instance>
 <instance part="U3" gate="G$1" x="193.04" y="129.54" smashed="yes">
 <attribute name="VALUE" x="181.61" y="133.35" size="1.778" layer="96" rot="MR180"/>
@@ -2776,7 +2769,7 @@
 <busses>
 </busses>
 <nets>
-<net name="+3V3" class="0">
+<net name="+3V3" class="3">
 <segment>
 <pinref part="U1" gate="G$1" pin="VDD"/>
 <pinref part="C1" gate="G$1" pin="1"/>
@@ -3159,12 +3152,12 @@
 <wire x1="142.24" y1="58.42" x2="149.86" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="L2" gate="G$1" pin="1"/>
 <wire x1="149.86" y1="58.42" x2="154.94" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="58.42" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="58.42" x2="154.94" y2="68.58" width="0.1524" layer="91"/>
 <junction x="149.86" y="58.42"/>
 <pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="154.94" y1="66.04" x2="154.94" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="66.04" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
-<junction x="154.94" y="66.04"/>
+<wire x1="154.94" y1="68.58" x2="154.94" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="68.58" x2="154.94" y2="68.58" width="0.1524" layer="91"/>
+<junction x="154.94" y="68.58"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -3453,7 +3446,7 @@
 <segment>
 <pinref part="GND13" gate="G$1" pin="GND"/>
 <pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="160.02" y1="58.42" x2="160.02" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="60.96" x2="160.02" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+24V" class="2">
@@ -3919,7 +3912,7 @@
 <label x="-48.26" y="81.28" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="+5V" class="0">
+<net name="+5V" class="3">
 <segment>
 <pinref part="L2" gate="G$1" pin="2"/>
 <pinref part="R2" gate="G$1" pin="2"/>

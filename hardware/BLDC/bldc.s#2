@@ -1240,7 +1240,7 @@
 <wire x1="1" y1="-0.6" x2="-1" y2="-0.6" width="0.05" layer="51"/>
 <wire x1="-1" y1="-0.6" x2="-1" y2="0.6" width="0.05" layer="51"/>
 </package>
-<package name="R1210_KELVIN" urn="urn:adsk.eagle:footprint:16502582/2" locally_modified="yes" library_version="13" library_locally_modified="yes">
+<package name="R1210_KELVIN" urn="urn:adsk.eagle:footprint:16502582/3" library_version="14">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <wire x1="-0.913" y1="1.219" x2="0.939" y2="1.219" width="0.1524" layer="51"/>
 <wire x1="-0.913" y1="-1.219" x2="0.939" y2="-1.219" width="0.1524" layer="51"/>
@@ -1347,7 +1347,7 @@
 <packageinstance name="C0805"/>
 </packageinstances>
 </package3d>
-<package3d name="R1210_KELVIN" urn="urn:adsk.eagle:package:16502583/3" type="model" library_version="13" library_locally_modified="yes">
+<package3d name="R1210_KELVIN" urn="urn:adsk.eagle:package:16502583/4" type="model" library_version="14">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="R1210_KELVIN"/>
@@ -1440,7 +1440,7 @@
 <pin name="K1" x="-2.54" y="-2.54" visible="off" length="short" rot="R90"/>
 <pin name="K2" x="2.54" y="-2.54" visible="off" length="short" rot="R90"/>
 </symbol>
-<symbol name="LED" library_version="13" library_locally_modified="yes">
+<symbol name="LED" urn="urn:adsk.eagle:symbol:20346177/1" library_version="14">
 <wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
@@ -1621,7 +1621,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="R_SENSE" urn="urn:adsk.eagle:component:20303304/2" prefix="R" uservalue="yes" library_version="13" library_locally_modified="yes">
+<deviceset name="R_SENSE" urn="urn:adsk.eagle:component:20303304/3" prefix="R" uservalue="yes" library_version="14">
 <gates>
 <gate name="G$1" symbol="R_SENSE" x="0" y="0"/>
 </gates>
@@ -1634,7 +1634,7 @@
 <connect gate="G$1" pin="K2" pad="2_KELVIN"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16502583/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16502583/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1656,7 +1656,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED" prefix="D" uservalue="yes" library_version="13" library_locally_modified="yes">
+<deviceset name="LED" urn="urn:adsk.eagle:component:20346178/1" prefix="D" uservalue="yes" library_version="14">
 <gates>
 <gate name="G$1" symbol="LED" x="0" y="0"/>
 </gates>
@@ -1819,8 +1819,9 @@
 </library>
 <library name="_T_conn" urn="urn:adsk.eagle:library:19570503">
 <packages>
-<package name="M2" urn="urn:adsk.eagle:footprint:20293117/2" library_version="6" library_locally_modified="yes">
+<package name="M2" urn="urn:adsk.eagle:footprint:20293117/3" library_version="15">
 <pad name="PAD" x="0" y="0" drill="2.1" diameter="3.8" thermals="no"/>
+<circle x="0" y="0" radius="1.9" width="0.127" layer="21"/>
 </package>
 <package name="M3" urn="urn:adsk.eagle:footprint:20293137/2" library_version="7">
 <pad name="PAD" x="0" y="0" drill="3.1" diameter="5.6" thermals="no"/>
@@ -1983,7 +1984,7 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="M2" urn="urn:adsk.eagle:package:20293119/3" type="empty" library_version="6" library_locally_modified="yes">
+<package3d name="M2" urn="urn:adsk.eagle:package:20293119/4" type="empty" library_version="15">
 <packageinstances>
 <packageinstance name="M2"/>
 </packageinstances>
@@ -2081,7 +2082,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/2" prefix="H" library_version="7">
+<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/3" prefix="H" library_version="15">
 <gates>
 <gate name="G$1" symbol="PCB_HOLE" x="0" y="0"/>
 </gates>
@@ -2091,7 +2092,7 @@
 <connect gate="G$1" pin="P1" pad="PAD"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20293119/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:20293119/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -2257,10 +2258,10 @@
 <part name="U6" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
 <part name="U7" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
 <part name="U8" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/3"/>
-<part name="H1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
-<part name="H2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
-<part name="H3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
-<part name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/3"/>
+<part name="H1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
+<part name="H2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
+<part name="H3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
+<part name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
 <part name="GND2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="U9" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/5"/>
 <part name="L1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="DC_CHOKE" device="_FERRITE_BEAD_0603" package3d_urn="urn:adsk.eagle:package:20293176/3" value="600R@100MHz"/>
@@ -2290,12 +2291,12 @@
 <part name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k"/>
 <part name="GND9" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND10" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="100nF 10V"/>
+<part name="C13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
 <part name="L2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="L" device="_SDR0302" package3d_urn="urn:adsk.eagle:package:20294118/5" value="22uH Bourns"/>
 <part name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k"/>
 <part name="R3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k"/>
 <part name="GND11" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="2.2uF 10V"/>
+<part name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="2.2uF 50V"/>
 <part name="GND12" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
 <part name="GND13" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
@@ -2332,10 +2333,10 @@
 <part name="C33" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="47nF 50v"/>
 <part name="C34" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uf 10v"/>
 <part name="GND18" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C35" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uf 10v"/>
-<part name="R5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/3" value="0.001"/>
-<part name="R6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/3" value="0.001"/>
-<part name="R7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/3" value="0.001"/>
+<part name="C35" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uf 10v"/>
+<part name="R5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/4" value="0.001"/>
+<part name="R6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/4" value="0.001"/>
+<part name="R7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_1210" package3d_urn="urn:adsk.eagle:package:16502583/4" value="0.001"/>
 <part name="GND19" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND20" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND21" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
@@ -3114,6 +3115,7 @@
 <segment>
 <pinref part="D2" gate="G$1" pin="A"/>
 <wire x1="45.72" y1="167.64" x2="45.72" y2="170.18" width="0.1524" layer="91"/>
+<label x="45.72" y="170.18" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="LED2" class="0">
@@ -3125,6 +3127,7 @@
 <segment>
 <pinref part="D3" gate="G$1" pin="A"/>
 <wire x1="53.34" y1="167.64" x2="53.34" y2="170.18" width="0.1524" layer="91"/>
+<label x="53.34" y="170.18" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="LED3" class="0">
@@ -3136,6 +3139,7 @@
 <segment>
 <pinref part="D4" gate="G$1" pin="A"/>
 <wire x1="60.96" y1="167.64" x2="60.96" y2="170.18" width="0.1524" layer="91"/>
+<label x="60.96" y="170.18" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="INHC" class="0">
