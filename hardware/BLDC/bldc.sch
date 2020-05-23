@@ -2393,6 +2393,8 @@
 <part name="GND28" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND3" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="GND29" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
+<part name="C15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
+<part name="GND30" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2871,6 +2873,13 @@
 <instance part="GND29" gate="G$1" x="-73.66" y="58.42" smashed="yes" grouprefs="UC_STM32G4">
 <attribute name="VALUE" x="-75.565" y="55.245" size="1.778" layer="96"/>
 </instance>
+<instance part="C15" gate="G$1" x="-12.7" y="93.98" smashed="yes">
+<attribute name="NAME" x="-11.176" y="94.361" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-11.176" y="89.281" size="1.778" layer="96"/>
+</instance>
+<instance part="GND30" gate="G$1" x="-12.7" y="83.82" smashed="yes">
+<attribute name="VALUE" x="-14.605" y="80.645" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -3020,22 +3029,17 @@
 </net>
 <net name="DRV_MOSI" class="0">
 <segment>
-<pinref part="U9" gate="A" pin="PB15"/>
-<wire x1="-58.42" y1="43.18" x2="-63.5" y2="43.18" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-63.5" y="43.18" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
-</segment>
-<segment>
 <pinref part="U2" gate="G$1" pin="SDI"/>
 <wire x1="101.6" y1="91.44" x2="99.06" y2="91.44" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <label x="99.06" y="91.44" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
 </segment>
+<segment>
+<pinref part="U9" gate="A" pin="PB5"/>
+<wire x1="-58.42" y1="68.58" x2="-63.5" y2="68.58" width="0.1524" layer="91"/>
+<label x="-63.5" y="68.58" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="DRV_MISO" class="0">
-<segment>
-<pinref part="U9" gate="A" pin="PB14"/>
-<wire x1="-58.42" y1="45.72" x2="-63.5" y2="45.72" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-63.5" y="45.72" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
-</segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="SDO"/>
 <wire x1="101.6" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
@@ -3044,17 +3048,22 @@
 <wire x1="81.28" y1="88.9" x2="78.74" y2="88.9" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <junction x="81.28" y="88.9" grouprefs="GATE_DRIVER_DRV8323RS"/>
 </segment>
+<segment>
+<pinref part="U9" gate="A" pin="PC11"/>
+<wire x1="-15.24" y1="116.84" x2="-10.16" y2="116.84" width="0.1524" layer="91"/>
+<label x="-10.16" y="116.84" size="1.27" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="DRV_SCK" class="0">
-<segment>
-<pinref part="U9" gate="A" pin="PB13"/>
-<wire x1="-58.42" y1="48.26" x2="-63.5" y2="48.26" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-63.5" y="48.26" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
-</segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="SCLK"/>
 <wire x1="101.6" y1="86.36" x2="99.06" y2="86.36" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <label x="99.06" y="86.36" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
+</segment>
+<segment>
+<pinref part="U9" gate="A" pin="PC10"/>
+<wire x1="-15.24" y1="119.38" x2="-10.16" y2="119.38" width="0.1524" layer="91"/>
+<label x="-10.16" y="119.38" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="DRV_CS" class="0">
@@ -3064,21 +3073,21 @@
 <label x="99.06" y="83.82" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
 </segment>
 <segment>
-<pinref part="U9" gate="A" pin="PB11"/>
-<wire x1="-58.42" y1="53.34" x2="-63.5" y2="53.34" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-63.5" y="53.34" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
+<pinref part="U9" gate="A" pin="PA15"/>
+<wire x1="-58.42" y1="86.36" x2="-63.5" y2="86.36" width="0.1524" layer="91"/>
+<label x="-63.5" y="86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="ENC_CS" class="0">
 <segment>
-<pinref part="U9" gate="A" pin="PC4"/>
-<wire x1="-15.24" y1="124.46" x2="-10.16" y2="124.46" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-10.16" y="124.46" size="1.27" layer="95" xref="yes" grouprefs="UC_STM32G4"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="CS"/>
 <wire x1="185.42" y1="-5.08" x2="182.88" y2="-5.08" width="0.1524" layer="91" grouprefs="MAG_SENSE"/>
 <label x="182.88" y="-5.08" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MAG_SENSE"/>
+</segment>
+<segment>
+<pinref part="U9" gate="A" pin="PA4"/>
+<wire x1="-58.42" y1="114.3" x2="-63.5" y2="114.3" width="0.1524" layer="91"/>
+<label x="-63.5" y="114.3" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="FDCAN1_TX" class="0">
@@ -3570,6 +3579,11 @@
 <pinref part="GND29" gate="G$1" pin="GND"/>
 <wire x1="-58.42" y1="60.96" x2="-73.66" y2="60.96" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
 </segment>
+<segment>
+<pinref part="GND30" gate="G$1" pin="GND"/>
+<pinref part="C15" gate="G$1" pin="2"/>
+<wire x1="-12.7" y1="86.36" x2="-12.7" y2="88.9" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+24V" class="2">
 <segment>
@@ -3743,11 +3757,6 @@
 </net>
 <net name="DRV_ENABLE" class="0">
 <segment>
-<pinref part="U9" gate="A" pin="PC6"/>
-<wire x1="-15.24" y1="121.92" x2="-10.16" y2="121.92" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-10.16" y="121.92" size="1.27" layer="95" xref="yes" grouprefs="UC_STM32G4"/>
-</segment>
-<segment>
 <pinref part="U2" gate="G$1" pin="ENABLE"/>
 <wire x1="101.6" y1="114.3" x2="96.52" y2="114.3" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <label x="96.52" y="114.3" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
@@ -3765,6 +3774,11 @@
 <wire x1="101.6" y1="101.6" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <junction x="99.06" y="101.6" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <label x="96.52" y="96.52" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
+</segment>
+<segment>
+<pinref part="U9" gate="A" pin="PC6"/>
+<wire x1="-15.24" y1="121.92" x2="-10.16" y2="121.92" width="0.1524" layer="91"/>
+<label x="-10.16" y="121.92" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SHA" class="0">
@@ -4098,8 +4112,11 @@
 <net name="NRST" class="0">
 <segment>
 <pinref part="U9" gate="A" pin="PG10-NRST"/>
-<wire x1="-15.24" y1="96.52" x2="-10.16" y2="96.52" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
+<wire x1="-15.24" y1="96.52" x2="-12.7" y2="96.52" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
 <label x="-10.16" y="96.52" size="1.27" layer="95" xref="yes" grouprefs="UC_STM32G4"/>
+<pinref part="C15" gate="G$1" pin="1"/>
+<wire x1="-12.7" y1="96.52" x2="-10.16" y2="96.52" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
+<junction x="-12.7" y="96.52"/>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="P2"/>
