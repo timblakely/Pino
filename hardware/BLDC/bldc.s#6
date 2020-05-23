@@ -2294,7 +2294,6 @@
 <part name="GND7" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="+3V5" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 <part name="GND8" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="GND3" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="PHASE_A" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="WIRE_HOLE" device="_AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2"/>
 <part name="PHASE_B" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="WIRE_HOLE" device="_AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2"/>
 <part name="PHASE_C" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="WIRE_HOLE" device="_AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2"/>
@@ -2388,7 +2387,7 @@
 <part name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="LED" device="_0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060GS75000"/>
 <part name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="LED" device="_0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060RS75000"/>
 <part name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="LED" device="_0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060BS75000"/>
-<part name="R12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="5"/>
+<part name="R12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="22"/>
 <part name="R13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="65"/>
 <part name="R14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="5"/>
 <part name="GND28" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
@@ -2518,9 +2517,6 @@
 </instance>
 <instance part="GND8" gate="G$1" x="-48.26" y="-15.24" smashed="yes" grouprefs="UCPOWER">
 <attribute name="VALUE" x="-50.165" y="-18.415" size="1.778" layer="96"/>
-</instance>
-<instance part="GND3" gate="G$1" x="96.52" y="93.98" smashed="yes" grouprefs="GATE_DRIVER_DRV8323RS">
-<attribute name="VALUE" x="94.615" y="90.805" size="1.778" layer="96"/>
 </instance>
 <instance part="PHASE_A" gate="G$1" x="228.6" y="96.52" smashed="yes" grouprefs="H_BRIDGE">
 <attribute name="NAME" x="223.52" y="99.06" size="1.27" layer="95"/>
@@ -3527,20 +3523,6 @@
 <junction x="-5.08" y="-15.24" grouprefs="UCPOWER"/>
 </segment>
 <segment>
-<pinref part="U2" gate="G$1" pin="INLA"/>
-<wire x1="101.6" y1="106.68" x2="99.06" y2="106.68" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<wire x1="99.06" y1="106.68" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<pinref part="GND3" gate="G$1" pin="GND"/>
-<wire x1="99.06" y1="101.6" x2="99.06" y2="96.52" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<wire x1="99.06" y1="96.52" x2="96.52" y2="96.52" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<pinref part="U2" gate="G$1" pin="INLC"/>
-<wire x1="101.6" y1="96.52" x2="99.06" y2="96.52" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<junction x="99.06" y="96.52" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<pinref part="U2" gate="G$1" pin="INLB"/>
-<wire x1="101.6" y1="101.6" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<junction x="99.06" y="101.6" grouprefs="GATE_DRIVER_DRV8323RS"/>
-</segment>
-<segment>
 <pinref part="GND10" gate="G$1" pin="GND"/>
 <pinref part="U2" gate="G$1" pin="BGND"/>
 <wire x1="101.6" y1="53.34" x2="101.6" y2="55.88" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
@@ -3761,6 +3743,20 @@
 <pinref part="U2" gate="G$1" pin="ENABLE"/>
 <wire x1="101.6" y1="114.3" x2="96.52" y2="114.3" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <label x="96.52" y="114.3" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="INLA"/>
+<wire x1="101.6" y1="106.68" x2="99.06" y2="106.68" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<wire x1="99.06" y1="106.68" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<wire x1="99.06" y1="101.6" x2="99.06" y2="96.52" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<wire x1="99.06" y1="96.52" x2="96.52" y2="96.52" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<pinref part="U2" gate="G$1" pin="INLC"/>
+<wire x1="101.6" y1="96.52" x2="99.06" y2="96.52" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<junction x="99.06" y="96.52" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<pinref part="U2" gate="G$1" pin="INLB"/>
+<wire x1="101.6" y1="101.6" x2="99.06" y2="101.6" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<junction x="99.06" y="101.6" grouprefs="GATE_DRIVER_DRV8323RS"/>
+<label x="96.52" y="96.52" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SHA" class="0">

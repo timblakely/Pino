@@ -3738,10 +3738,7 @@
 <segment>
 <pinref part="U2" gate="G$1" pin="DVDD"/>
 <wire x1="101.6" y1="124.46" x2="91.44" y2="124.46" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<wire x1="91.44" y1="124.46" x2="81.28" y2="124.46" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <pinref part="C34" gate="G$1" pin="1"/>
-<junction x="91.44" y="124.46" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<label x="81.28" y="124.46" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
 </segment>
 </net>
 <net name="DRV_ENABLE" class="0">
@@ -4005,13 +4002,6 @@
 <junction x="157.48" y="109.22" grouprefs="GATE_DRIVER_DRV8323RS"/>
 </segment>
 </net>
-<net name="CAL" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="CAL"/>
-<wire x1="101.6" y1="66.04" x2="99.06" y2="66.04" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
-<label x="99.06" y="66.04" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="GATE_DRIVER_DRV8323RS"/>
-</segment>
-</net>
 <net name="SENSE_A" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="SOA"/>
@@ -4117,7 +4107,7 @@
 <label x="-38.1" y="172.72" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
 </segment>
 </net>
-<net name="VBUS_SENSE" class="0">
+<net name="VBAT_SENSE" class="0">
 <segment>
 <pinref part="U9" gate="A" pin="PB12"/>
 <wire x1="-58.42" y1="50.8" x2="-63.5" y2="50.8" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
