@@ -17,11 +17,11 @@
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
@@ -35,19 +35,19 @@
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="1" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="7" fill="1" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="c43d5bda-0c56-4d97-8d56-ed19879057de" lastsyncedrevisionid="c43d5bda-0c56-4d97-8d56-ed19879057de" lastboardhashguid="10afb35c-0696-2d0b-a131-7e950d3aaa26" lastpushedtime="2020-05-24T00:16:58Z" linktopcb3d="%12"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="b8778e16-5e80-4a16-943b-f9e43a374e6a" lastsyncedrevisionid="b8778e16-5e80-4a16-943b-f9e43a374e6a" lastboardhashguid="ca8bd426-4c1f-427f-4f15-a1e68ce06926" lastpushedtime="2020-05-24T06:28:56Z" linktopcb3d="%12"/>
 <plain>
 <wire x1="39.0836" y1="39.681" x2="38" y2="40" width="0" layer="20" curve="32.8049"/>
 <wire x1="38" y1="40" x2="2" y2="40" width="0" layer="20"/>
@@ -190,6 +190,10 @@ BLDC V1.0</text>
 <wire x1="36.969409375" y1="9.647040625" x2="36.430590625" y2="9.647040625" width="0.15" layer="21" curve="89.999335"/>
 <wire x1="38.31645" y1="8.3" x2="37.77763125" y2="8.83881875" width="0.15" layer="21"/>
 <wire x1="37.50821875" y1="9.10821875" x2="36.969409375" y2="9.647040625" width="0.15" layer="21"/>
+<hole x="2" y="38" drill="2.05"/>
+<hole x="38" y="38" drill="2.05"/>
+<hole x="38" y="2" drill="2.05"/>
+<hole x="2" y="2" drill="2.05"/>
 </plain>
 <libraries>
 <library name="_T_ic" urn="urn:adsk.eagle:library:19571245">
@@ -900,10 +904,6 @@ BLDC V1.0</text>
 </library>
 <library name="_T_conn" urn="urn:adsk.eagle:library:19570503">
 <packages>
-<package name="M2" urn="urn:adsk.eagle:footprint:20293117/3" locally_modified="yes" library_version="15" library_locally_modified="yes">
-<pad name="PAD" x="0" y="0" drill="2.1" diameter="3.8" thermals="no"/>
-<circle x="0" y="0" radius="1.97" width="0.127" layer="21"/>
-</package>
 <package name="AWG_18" urn="urn:adsk.eagle:footprint:20293987/1" library_version="7" library_locally_modified="yes">
 <pad name="PIN1" x="0" y="0" drill="1.28" diameter="2.25"/>
 </package>
@@ -1009,11 +1009,6 @@ BLDC V1.0</text>
 </package>
 </packages>
 <packages3d>
-<package3d name="M2" urn="urn:adsk.eagle:package:20293119/4" type="empty" library_version="15" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="M2"/>
-</packageinstances>
-</package3d>
 <package3d name="AWG_18" urn="urn:adsk.eagle:package:20293989/2" type="empty" library_version="7" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="AWG_18"/>
@@ -1063,7 +1058,7 @@ BLDC V1.0</text>
 &lt;/p&gt;</description>
 <param name="layerSetup" value="(1*2*15*16)"/>
 <param name="mtCopper" value="0.035mm 0.035mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.035mm 0.035mm"/>
-<param name="mtIsolate" value="0.11mm 1.13mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.11mm"/>
+<param name="mtIsolate" value="0.11mm 1.31mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.11mm"/>
 <param name="mdWireWire" value="6mil"/>
 <param name="mdWirePad" value="6mil"/>
 <param name="mdWireVia" value="6mil"/>
@@ -1237,7 +1232,7 @@ BLDC V1.0</text>
 </element>
 <element name="U2" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" package="VQFN-48_7X7" package3d_urn="urn:adsk.eagle:package:19571846/3" value="DRV8323RS" x="12.58" y="22.05" smashed="yes" rot="R45">
 <attribute name="DATASHEET" value="https://www.ti.com/lit/ds/symlink/drv8323r.pdf?ts=1587957100782" x="31.4385375" y="31.92828125" size="1.778" layer="27" rot="R45" display="off"/>
-<attribute name="NAME" x="8.401965625" y="23.56823125" size="0.8" layer="25" rot="R45" align="center"/>
+<attribute name="NAME" x="8.601965625" y="24.26823125" size="0.8" layer="25" rot="R45" align="center"/>
 <attribute name="VALUE" x="14.02956875" y="15.933525" size="1.27" layer="27" rot="R45"/>
 </element>
 <element name="C1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="1uf 10v" x="19.26" y="20.27" smashed="yes" rot="R180">
@@ -1264,10 +1259,6 @@ BLDC V1.0</text>
 <attribute name="NAME" x="32.45" y="3.25" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="36.15" y="8.95" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="H1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="M2" package3d_urn="urn:adsk.eagle:package:20293119/4" value="PCB_MOUNT_HOLE_M2" x="2" y="2" smashed="yes"/>
-<element name="H2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="M2" package3d_urn="urn:adsk.eagle:package:20293119/4" value="PCB_MOUNT_HOLE_M2" x="2" y="38" smashed="yes"/>
-<element name="H3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="M2" package3d_urn="urn:adsk.eagle:package:20293119/4" value="PCB_MOUNT_HOLE_M2" x="38" y="2" smashed="yes"/>
-<element name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="M2" package3d_urn="urn:adsk.eagle:package:20293119/4" value="PCB_MOUNT_HOLE_M2" x="38" y="38" smashed="yes"/>
 <element name="U9" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" package="UFQFPN-48_7X7X0P55MM" package3d_urn="urn:adsk.eagle:package:19324073/6" value="STM32G4_UFQFPN48_T1" x="27.1" y="28.6" smashed="yes">
 <attribute name="BUILT_BY" value="EMA_Jessica" x="27.1" y="28.6" size="1.778" layer="27" display="off"/>
 <attribute name="COPYRIGHT" value="Copyright (C) 2016 Accelerated Designs. All rights reserved" x="27.1" y="28.6" size="1.778" layer="27" display="off"/>
@@ -1327,7 +1318,7 @@ BLDC V1.0</text>
 <attribute name="VALUE" x="7.67" y="18.44" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="100k" x="7.4" y="23.3" smashed="yes" rot="R90">
-<attribute name="NAME" x="6.93" y="22.53" size="0.8" layer="25" rot="R90" align="center"/>
+<attribute name="NAME" x="6.23" y="23.33" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="9.94" y="22.03" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V" x="8.2" y="26" smashed="yes">
@@ -2136,10 +2127,6 @@ BLDC V1.0</text>
 <vertex x="39.1" y="35.3"/>
 <vertex x="-0.6" y="35.3"/>
 </polygon>
-<contactref element="H1" pad="PAD"/>
-<contactref element="H2" pad="PAD"/>
-<contactref element="H3" pad="PAD"/>
-<contactref element="H4" pad="PAD"/>
 <wire x1="4.8" y1="14" x2="4.8" y2="15.2" width="0.85" layer="2"/>
 <polygon width="0.2" layer="1" thermals="no" rank="2">
 <vertex x="2.4" y="12.5"/>
@@ -2430,6 +2417,7 @@ BLDC V1.0</text>
 <via x="29.7" y="19.4" extent="1-16" drill="0.3"/>
 <wire x1="20.7" y1="32.9" x2="18.1" y2="32.9" width="0.2" layer="1"/>
 <wire x1="18.1" y1="32.9" x2="17.7" y2="33.3" width="0.2" layer="1"/>
+<via x="15.5" y="22.1" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="+24V" class="2">
 <contactref element="C12" pad="1"/>
@@ -2469,7 +2457,9 @@ BLDC V1.0</text>
 <vertex x="47.2" y="20"/>
 <vertex x="51.8" y="20"/>
 <vertex x="51.8" y="-0.6"/>
-<vertex x="36.1" y="-0.6"/>
+<vertex x="40.3" y="-0.6"/>
+<vertex x="40.3" y="4"/>
+<vertex x="36.1" y="4.1"/>
 </polygon>
 <polygon width="0.2" layer="1" thermals="no">
 <vertex x="3.2" y="5"/>
@@ -2574,16 +2564,16 @@ BLDC V1.0</text>
 <vertex x="-0.5" y="-0.8"/>
 </polygon>
 <polygon width="0.2" layer="16" thermals="no" rank="2">
-<vertex x="-0.4" y="-0.2"/>
-<vertex x="42.9" y="-0.2"/>
+<vertex x="4.299996875" y="-1.2"/>
+<vertex x="42.9" y="-1.2"/>
 <vertex x="42.9" y="15.7"/>
 <vertex x="36.2" y="15.7"/>
 <vertex x="35.1" y="14.6"/>
 <vertex x="35.1" y="8.1"/>
 <vertex x="34.5" y="7.5"/>
-<vertex x="-0.1" y="7.5"/>
-<vertex x="-0.1" y="0.2"/>
-<vertex x="-0.4" y="-0.1"/>
+<vertex x="-0.4" y="7.5"/>
+<vertex x="-0.4" y="4.2"/>
+<vertex x="4.299996875" y="4.2"/>
 </polygon>
 <wire x1="4.25" y1="18.9" x2="4.35" y2="18.8" width="0.35" layer="1"/>
 <wire x1="4.35" y1="18.8" x2="4.35" y2="16.6" width="0.35" layer="1"/>
