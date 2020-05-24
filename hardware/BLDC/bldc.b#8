@@ -3,7 +3,7 @@
 <eagle version="9.6.1">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="d5f7333f-2db3-43f6-9fd3-1a69dbe006f8" lastsyncedrevisionid="d5f7333f-2db3-43f6-9fd3-1a69dbe006f8" lastboardhashguid="be5f015f-a6fb-864e-e241-2b3bc9e79ce3" lastpushedtime="2020-05-23T22:14:21Z" linktopcb3d="%12"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="c43d5bda-0c56-4d97-8d56-ed19879057de" lastsyncedrevisionid="c43d5bda-0c56-4d97-8d56-ed19879057de" lastboardhashguid="10afb35c-0696-2d0b-a131-7e950d3aaa26" lastpushedtime="2020-05-24T00:16:58Z" linktopcb3d="%12"/>
 <plain>
 <wire x1="39.0836" y1="39.681" x2="38" y2="40" width="0" layer="20" curve="32.8049"/>
 <wire x1="38" y1="40" x2="2" y2="40" width="0" layer="20"/>
@@ -170,6 +170,26 @@
 <wire x1="51" y1="9.0903" x2="51" y2="30.9097" width="0" layer="20"/>
 <wire x1="51" y1="30.9097" x2="50.0836" y2="32.5907" width="0" layer="20" curve="57.1945"/>
 <wire x1="39.0836" y1="39.681" x2="50.0836" y2="32.5907" width="0" layer="20"/>
+<wire x1="25.19605" y1="37.2" x2="23.849009375" y2="38.547040625" width="0.1" layer="21"/>
+<wire x1="24.747040625" y1="37.2" x2="24.38783125" y2="36.840790625" width="0.1" layer="21"/>
+<wire x1="24.38783125" y1="36.840790625" x2="24.61233125" y2="36.61628125" width="0.1" layer="21"/>
+<wire x1="24.61233125" y1="36.61628125" x2="25.19605" y2="37.2" width="0.1" layer="21"/>
+<wire x1="24.07351875" y1="37.87351875" x2="23.4" y2="37.2" width="0.1" layer="21"/>
+<wire x1="23.4" y1="37.2" x2="23.624509375" y2="36.975490625" width="0.1" layer="21"/>
+<wire x1="23.624509375" y1="36.975490625" x2="24.29803125" y2="37.649009375" width="0.1" layer="21"/>
+<wire x1="23.93881875" y1="37.1102" x2="23.714309375" y2="36.885690625" width="0.1" layer="21"/>
+<wire x1="23.714309375" y1="36.885690625" x2="24.747040625" y2="35.852959375" width="0.1" layer="21"/>
+<wire x1="24.747040625" y1="35.852959375" x2="25.645059375" y2="35.852959375" width="0.1" layer="21" curve="90"/>
+<wire x1="25.645059375" y1="35.852959375" x2="25.420559375" y2="36.07746875" width="0.1" layer="21"/>
+<wire x1="25.420559375" y1="36.07746875" x2="24.971540625" y2="36.07746875" width="0.1" layer="21" curve="-90"/>
+<wire x1="24.971540625" y1="36.07746875" x2="23.93881875" y2="37.1102" width="0.1" layer="21"/>
+<wire x1="22.950990625" y1="38.547040625" x2="23.175490625" y2="38.32253125" width="0.1" layer="21"/>
+<wire x1="23.849009375" y1="38.547040625" x2="22.950990625" y2="38.547040625" width="0.1" layer="21" curve="89.999202"/>
+<wire x1="23.624509375" y1="38.32253125" x2="23.175490625" y2="38.32253125" width="0.1" layer="21" curve="90.000798"/>
+<wire x1="24.747040625" y1="37.2" x2="24.29803125" y2="37.649009375" width="0.1" layer="21"/>
+<wire x1="24.07351875" y1="37.87351875" x2="23.624509375" y2="38.32253125" width="0.1" layer="21"/>
+<text x="26.1" y="35.4" size="1.5" layer="21" font="vector">Autoreiv
+BLDC V1.0</text>
 </plain>
 <libraries>
 <library name="_T_ic" urn="urn:adsk.eagle:library:19571245">
@@ -203,11 +223,11 @@
 <wire x1="-1.5" y1="1.1" x2="-1.1" y2="1.5" width="0.127" layer="21"/>
 <circle x="-1.7" y="1.7" radius="0.070709375" width="0.127" layer="21"/>
 </package>
-<package name="VQFN-48_7X7" urn="urn:adsk.eagle:footprint:19571843/2" library_version="5">
-<wire x1="-3.5" y1="3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
-<wire x1="3.5" y1="3.5" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
-<wire x1="3.5" y1="-3.5" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
-<wire x1="-3.5" y1="-3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<package name="VQFN-48_7X7" urn="urn:adsk.eagle:footprint:19571843/2" locally_modified="yes" library_version="9" library_locally_modified="yes">
+<wire x1="-3.5" y1="3.5" x2="3.5" y2="3.5" width="0.127" layer="51"/>
+<wire x1="3.5" y1="3.5" x2="3.5" y2="-3.5" width="0.127" layer="51"/>
+<wire x1="3.5" y1="-3.5" x2="-3.5" y2="-3.5" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="-3.5" x2="-3.5" y2="3.5" width="0.127" layer="51"/>
 <wire x1="-3.5" y1="3.05" x2="-3.05" y2="3.5" width="0.127" layer="27"/>
 <smd name="PAD" x="0" y="0" dx="5.15" dy="5.15" layer="1" cream="no"/>
 <smd name="1" x="-3.4" y="2.75" dx="0.6" dy="0.24" layer="1"/>
@@ -277,6 +297,14 @@
 <rectangle x1="1.35" y1="-2.42" x2="2.41" y2="-1.36" layer="31"/>
 <rectangle x1="1.35" y1="-1.16" x2="2.41" y2="-0.1" layer="31"/>
 <rectangle x1="1.35" y1="0.1" x2="2.41" y2="1.16" layer="31"/>
+<wire x1="-3.5" y1="3" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="-3.1" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.1" y1="3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="3.5" x2="3.5" y2="3.1" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.1" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.5" x2="3.1" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="-3.1" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="-3.5" x2="-3.1" y2="-3.5" width="0.127" layer="21"/>
 </package>
 <package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/2" library_version="9">
 <smd name="1" x="-3.4544" y="2.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
@@ -562,7 +590,7 @@
 <packageinstance name="QFN-16_3X3"/>
 </packageinstances>
 </package3d>
-<package3d name="VQFN-48_7X7" urn="urn:adsk.eagle:package:19571846/3" type="model" library_version="5">
+<package3d name="VQFN-48_7X7" urn="urn:adsk.eagle:package:19571846/3" type="model" library_version="9" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="VQFN-48_7X7"/>
 </packageinstances>
@@ -3250,6 +3278,10 @@
 </board>
 </drawing>
 <compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
 <note version="8.2" severity="warning">
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)

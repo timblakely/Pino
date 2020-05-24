@@ -1827,9 +1827,9 @@
 </library>
 <library name="_T_conn" urn="urn:adsk.eagle:library:19570503">
 <packages>
-<package name="M2" urn="urn:adsk.eagle:footprint:20293117/3" library_version="15">
+<package name="M2" urn="urn:adsk.eagle:footprint:20293117/3" locally_modified="yes" library_version="15" library_locally_modified="yes">
 <pad name="PAD" x="0" y="0" drill="2.1" diameter="3.8" thermals="no"/>
-<circle x="0" y="0" radius="1.9" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="1.97" width="0.127" layer="21"/>
 </package>
 <package name="M3" urn="urn:adsk.eagle:footprint:20293137/2" library_version="7">
 <pad name="PAD" x="0" y="0" drill="3.1" diameter="5.6" thermals="no"/>
@@ -1837,47 +1837,47 @@
 <package name="AWG_18" urn="urn:adsk.eagle:footprint:20293987/1" library_version="7" library_locally_modified="yes">
 <pad name="PIN1" x="0" y="0" drill="1.28" diameter="2.25"/>
 </package>
-<package name="XT30PW-M" urn="urn:adsk.eagle:footprint:16213769/5" library_version="13">
-<wire x1="6.65" y1="-0.4" x2="6.05" y2="-1" width="0.1" layer="21" curve="-90"/>
-<wire x1="6.05" y1="-1" x2="4.95" y2="-1" width="0.1" layer="21"/>
-<wire x1="4.95" y1="-1" x2="4.95" y2="-3" width="0.1" layer="21"/>
-<wire x1="4.95" y1="-3" x2="-4.95" y2="-3" width="0.1" layer="21"/>
-<wire x1="-4.95" y1="-3" x2="-4.95" y2="-1" width="0.1" layer="21"/>
-<wire x1="-4.95" y1="-1" x2="-6.05" y2="-1" width="0.1" layer="21"/>
-<wire x1="-6.05" y1="-1" x2="-6.65" y2="-0.4" width="0.1" layer="21" curve="-90"/>
-<wire x1="-6.65" y1="-0.4" x2="-6.65" y2="0.4" width="0.1" layer="21"/>
-<wire x1="-6.65" y1="0.4" x2="-6.05" y2="1" width="0.1" layer="21" curve="-90"/>
-<wire x1="-6.05" y1="1" x2="-4.95" y2="1" width="0.1" layer="21"/>
-<wire x1="-4.95" y1="1" x2="-4.95" y2="6" width="0.1" layer="21"/>
-<wire x1="-4.95" y1="6" x2="-3.75" y2="6" width="0.1" layer="21"/>
-<wire x1="-1.25" y1="6" x2="1.25" y2="6" width="0.1" layer="21"/>
-<wire x1="3.75" y1="6" x2="4.95" y2="6" width="0.1" layer="21"/>
-<wire x1="4.95" y1="6" x2="4.95" y2="1" width="0.1" layer="21"/>
-<wire x1="4.95" y1="1" x2="6.05" y2="1" width="0.1" layer="21"/>
-<wire x1="6.05" y1="1" x2="6.65" y2="0.4" width="0.1" layer="21" curve="-90"/>
-<wire x1="6.65" y1="0.4" x2="6.65" y2="-0.4" width="0.1" layer="21"/>
-<wire x1="5.2" y1="0.46098125" x2="5.2" y2="-0.46098125" width="0.1" layer="21" curve="-246.11"/>
-<wire x1="5.2" y1="-0.46098125" x2="4.95" y2="0" width="0.1" layer="21" curve="-56.94"/>
-<wire x1="4.95" y1="0" x2="5.2" y2="0.46098125" width="0.1" layer="21" curve="-56.94"/>
-<wire x1="-4.95" y1="0" x2="-5.2" y2="-0.46098125" width="0.1" layer="21" curve="-56.94"/>
-<wire x1="-5.2" y1="-0.46098125" x2="-5.2" y2="0.46098125" width="0.1" layer="21" curve="-246.11"/>
-<wire x1="-5.2" y1="0.46098125" x2="-4.95" y2="0" width="0.1" layer="21" curve="-56.94"/>
-<wire x1="-3.3" y1="10" x2="-1.7" y2="10" width="0.1" layer="21" curve="-180"/>
-<wire x1="-1.7" y1="10" x2="-1.7" y2="8" width="0.1" layer="21"/>
-<wire x1="-1.7" y1="8" x2="-1.25" y2="8" width="0.1" layer="21"/>
-<wire x1="-1.25" y1="8" x2="-1.25" y2="6" width="0.1" layer="21"/>
-<wire x1="-1.25" y1="6" x2="-3.75" y2="6" width="0.1" layer="21"/>
-<wire x1="-3.75" y1="6" x2="-3.75" y2="8" width="0.1" layer="21"/>
-<wire x1="-3.75" y1="8" x2="-3.3" y2="8" width="0.1" layer="21"/>
-<wire x1="-3.3" y1="8" x2="-3.3" y2="10" width="0.1" layer="21"/>
-<wire x1="1.7" y1="10" x2="3.3" y2="10" width="0.1" layer="21" curve="-180"/>
-<wire x1="3.3" y1="10" x2="3.3" y2="8" width="0.1" layer="21"/>
-<wire x1="3.3" y1="8" x2="3.75" y2="8" width="0.1" layer="21"/>
-<wire x1="3.75" y1="8" x2="3.75" y2="6" width="0.1" layer="21"/>
-<wire x1="3.75" y1="6" x2="1.25" y2="6" width="0.1" layer="21"/>
-<wire x1="1.25" y1="6" x2="1.25" y2="8" width="0.1" layer="21"/>
-<wire x1="1.25" y1="8" x2="1.7" y2="8" width="0.1" layer="21"/>
-<wire x1="1.7" y1="8" x2="1.7" y2="10" width="0.1" layer="21"/>
+<package name="XT30PW-M" urn="urn:adsk.eagle:footprint:16213769/5" locally_modified="yes" library_version="15" library_locally_modified="yes">
+<wire x1="6.65" y1="-0.4" x2="6.05" y2="-1" width="0.1" layer="51" curve="-90"/>
+<wire x1="6.05" y1="-1" x2="4.95" y2="-1" width="0.1" layer="51"/>
+<wire x1="4.95" y1="-1" x2="4.95" y2="-3" width="0.1" layer="51"/>
+<wire x1="4.95" y1="-3" x2="-4.95" y2="-3" width="0.1" layer="51"/>
+<wire x1="-4.95" y1="-3" x2="-4.95" y2="-1" width="0.1" layer="51"/>
+<wire x1="-4.95" y1="-1" x2="-6.05" y2="-1" width="0.1" layer="51"/>
+<wire x1="-6.05" y1="-1" x2="-6.65" y2="-0.4" width="0.1" layer="51" curve="-90"/>
+<wire x1="-6.65" y1="-0.4" x2="-6.65" y2="0.4" width="0.1" layer="51"/>
+<wire x1="-6.65" y1="0.4" x2="-6.05" y2="1" width="0.1" layer="51" curve="-90"/>
+<wire x1="-6.05" y1="1" x2="-4.95" y2="1" width="0.1" layer="51"/>
+<wire x1="-4.95" y1="1" x2="-4.95" y2="6" width="0.1" layer="51"/>
+<wire x1="-4.95" y1="6" x2="-3.75" y2="6" width="0.1" layer="51"/>
+<wire x1="-1.25" y1="6" x2="1.25" y2="6" width="0.1" layer="51"/>
+<wire x1="3.75" y1="6" x2="4.95" y2="6" width="0.1" layer="51"/>
+<wire x1="4.95" y1="6" x2="4.95" y2="1" width="0.1" layer="51"/>
+<wire x1="4.95" y1="1" x2="6.05" y2="1" width="0.1" layer="51"/>
+<wire x1="6.05" y1="1" x2="6.65" y2="0.4" width="0.1" layer="51" curve="-90"/>
+<wire x1="6.65" y1="0.4" x2="6.65" y2="-0.4" width="0.1" layer="51"/>
+<wire x1="5.2" y1="0.46098125" x2="5.2" y2="-0.46098125" width="0.1" layer="51" curve="-246.11"/>
+<wire x1="5.2" y1="-0.46098125" x2="4.95" y2="0" width="0.1" layer="51" curve="-56.94"/>
+<wire x1="4.95" y1="0" x2="5.2" y2="0.46098125" width="0.1" layer="51" curve="-56.94"/>
+<wire x1="-4.95" y1="0" x2="-5.2" y2="-0.46098125" width="0.1" layer="51" curve="-56.94"/>
+<wire x1="-5.2" y1="-0.46098125" x2="-5.2" y2="0.46098125" width="0.1" layer="51" curve="-246.11"/>
+<wire x1="-5.2" y1="0.46098125" x2="-4.95" y2="0" width="0.1" layer="51" curve="-56.94"/>
+<wire x1="-3.3" y1="10" x2="-1.7" y2="10" width="0.1" layer="51" curve="-180"/>
+<wire x1="-1.7" y1="10" x2="-1.7" y2="8" width="0.1" layer="51"/>
+<wire x1="-1.7" y1="8" x2="-1.25" y2="8" width="0.1" layer="51"/>
+<wire x1="-1.25" y1="8" x2="-1.25" y2="6" width="0.1" layer="51"/>
+<wire x1="-1.25" y1="6" x2="-3.75" y2="6" width="0.1" layer="51"/>
+<wire x1="-3.75" y1="6" x2="-3.75" y2="8" width="0.1" layer="51"/>
+<wire x1="-3.75" y1="8" x2="-3.3" y2="8" width="0.1" layer="51"/>
+<wire x1="-3.3" y1="8" x2="-3.3" y2="10" width="0.1" layer="51"/>
+<wire x1="1.7" y1="10" x2="3.3" y2="10" width="0.1" layer="51" curve="-180"/>
+<wire x1="3.3" y1="10" x2="3.3" y2="8" width="0.1" layer="51"/>
+<wire x1="3.3" y1="8" x2="3.75" y2="8" width="0.1" layer="51"/>
+<wire x1="3.75" y1="8" x2="3.75" y2="6" width="0.1" layer="51"/>
+<wire x1="3.75" y1="6" x2="1.25" y2="6" width="0.1" layer="51"/>
+<wire x1="1.25" y1="6" x2="1.25" y2="8" width="0.1" layer="51"/>
+<wire x1="1.25" y1="8" x2="1.7" y2="8" width="0.1" layer="51"/>
+<wire x1="1.7" y1="8" x2="1.7" y2="10" width="0.1" layer="51"/>
 <circle x="-5.5" y="0" radius="0.55" width="0.001" layer="21"/>
 <circle x="5.5" y="0" radius="0.55" width="0.001" layer="21"/>
 <pad name="P$4" x="-5.5" y="0" drill="1"/>
@@ -1886,6 +1886,14 @@
 <pad name="P$2" x="2.5" y="10" drill="1.7"/>
 <text x="-3.81" y="2.54" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3.81" y="-1.27" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-4.65" y1="6" x2="-4.95" y2="6" width="0.127" layer="21"/>
+<wire x1="-4.95" y1="6" x2="-4.95" y2="5.6" width="0.127" layer="21"/>
+<wire x1="4.65" y1="6" x2="4.95" y2="6" width="0.127" layer="21"/>
+<wire x1="4.95" y1="6" x2="4.95" y2="5.6" width="0.127" layer="21"/>
+<wire x1="-4.95" y1="-2.75" x2="-4.95" y2="-3" width="0.127" layer="21"/>
+<wire x1="-4.95" y1="-3" x2="-4.75" y2="-3" width="0.127" layer="21"/>
+<wire x1="4.95" y1="-2.75" x2="4.95" y2="-3" width="0.127" layer="21"/>
+<wire x1="4.95" y1="-3" x2="4.7" y2="-3" width="0.127" layer="21"/>
 </package>
 <package name="XT30PW-F" urn="urn:adsk.eagle:footprint:16203165/5" library_version="7" library_locally_modified="yes">
 <pad name="P$1" x="-2.5" y="-5" drill="1.7" thermals="no"/>
@@ -1932,18 +1940,23 @@
 <wire x1="-1.7" y1="-3" x2="-1.7" y2="-5" width="0.1" layer="21"/>
 <text x="-2.54" y="2.54" size="1.27" layer="21">&gt;NAME</text>
 </package>
-<package name="JST_SM03B-SRSS-TB" urn="urn:adsk.eagle:footprint:19570547/1" library_version="13">
+<package name="JST_SM03B-SRSS-TB" urn="urn:adsk.eagle:footprint:19570547/1" locally_modified="yes" library_version="15" library_locally_modified="yes">
 <smd name="2" x="0" y="0.8" dx="0.6" dy="1.55" layer="1"/>
 <smd name="1" x="1" y="0.8" dx="0.6" dy="1.55" layer="1"/>
 <smd name="PAD1" x="2.3" y="-3.1" dx="1.2" dy="1.8" layer="1"/>
 <smd name="PAD2" x="-2.3" y="-3.1" dx="1.2" dy="1.8" layer="1"/>
 <smd name="3" x="-1" y="0.8" dx="0.6" dy="1.55" layer="1"/>
-<wire x1="2.6" y1="-3.8" x2="2.6" y2="0.4" width="0.127" layer="21"/>
-<wire x1="2.6" y1="0.4" x2="-2.6" y2="0.4" width="0.127" layer="21"/>
-<wire x1="-2.6" y1="0.4" x2="-2.6" y2="-3.8" width="0.127" layer="21"/>
-<wire x1="-2.6" y1="-3.8" x2="2.6" y2="-3.8" width="0.127" layer="21"/>
+<wire x1="2.6" y1="-3.8" x2="2.6" y2="0.4" width="0.127" layer="51"/>
+<wire x1="2.6" y1="0.4" x2="-2.6" y2="0.4" width="0.127" layer="51"/>
+<wire x1="-2.6" y1="0.4" x2="-2.6" y2="-3.8" width="0.127" layer="51"/>
+<wire x1="-2.6" y1="-3.8" x2="2.6" y2="-3.8" width="0.127" layer="51"/>
 <text x="0" y="2.3" size="1.27" layer="25" align="center">&gt;NAME</text>
 <text x="0.1" y="-4.8" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="1.5" y1="0.4" x2="2.6" y2="0.4" width="0.127" layer="21"/>
+<wire x1="2.6" y1="0.4" x2="2.6" y2="-2" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="0.4" x2="-2.6" y2="0.4" width="0.127" layer="21"/>
+<wire x1="-2.6" y1="0.4" x2="-2.6" y2="-2" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="-3.8" x2="1.5" y2="-3.8" width="0.127" layer="21"/>
 </package>
 <package name="M80-8430342" urn="urn:adsk.eagle:footprint:16399483/2" library_version="13">
 <pad name="2" x="0" y="0" drill="0.8"/>
@@ -1992,7 +2005,7 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="M2" urn="urn:adsk.eagle:package:20293119/4" type="empty" library_version="15">
+<package3d name="M2" urn="urn:adsk.eagle:package:20293119/4" type="empty" library_version="15" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="M2"/>
 </packageinstances>
@@ -2007,7 +2020,7 @@
 <packageinstance name="AWG_18"/>
 </packageinstances>
 </package3d>
-<package3d name="XT30PW-M" urn="urn:adsk.eagle:package:20295844/3" type="model" library_version="13">
+<package3d name="XT30PW-M" urn="urn:adsk.eagle:package:20295844/3" type="model" library_version="15" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="XT30PW-M"/>
 </packageinstances>
@@ -2017,7 +2030,7 @@
 <packageinstance name="XT30PW-F"/>
 </packageinstances>
 </package3d>
-<package3d name="JST_SM03B-SRSS-TB" urn="urn:adsk.eagle:package:19570551/3" type="model" library_version="14">
+<package3d name="JST_SM03B-SRSS-TB" urn="urn:adsk.eagle:package:19570551/3" type="model" library_version="15" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="JST_SM03B-SRSS-TB"/>
 </packageinstances>
@@ -2090,7 +2103,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/3" prefix="H" library_version="15">
+<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/3" prefix="H" library_version="15" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="PCB_HOLE" x="0" y="0"/>
 </gates>
@@ -2137,7 +2150,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="PWR_2" urn="urn:adsk.eagle:component:20295845/6" prefix="J" library_version="13">
+<deviceset name="PWR_2" urn="urn:adsk.eagle:component:20295845/6" prefix="J" library_version="15" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="PWR_2" x="0" y="0"/>
 </gates>
@@ -2170,7 +2183,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LINEAR_3" urn="urn:adsk.eagle:component:19570620/3" prefix="J" library_version="14">
+<deviceset name="LINEAR_3" urn="urn:adsk.eagle:component:19570620/3" prefix="J" library_version="15" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="3" x="0" y="0"/>
 </gates>

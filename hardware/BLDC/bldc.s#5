@@ -188,11 +188,11 @@
 <wire x1="-1.5" y1="1.1" x2="-1.1" y2="1.5" width="0.127" layer="21"/>
 <circle x="-1.7" y="1.7" radius="0.070709375" width="0.127" layer="21"/>
 </package>
-<package name="VQFN-48_7X7" urn="urn:adsk.eagle:footprint:19571843/2" library_version="5">
-<wire x1="-3.5" y1="3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
-<wire x1="3.5" y1="3.5" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
-<wire x1="3.5" y1="-3.5" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
-<wire x1="-3.5" y1="-3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<package name="VQFN-48_7X7" urn="urn:adsk.eagle:footprint:19571843/2" locally_modified="yes" library_version="9" library_locally_modified="yes">
+<wire x1="-3.5" y1="3.5" x2="3.5" y2="3.5" width="0.127" layer="51"/>
+<wire x1="3.5" y1="3.5" x2="3.5" y2="-3.5" width="0.127" layer="51"/>
+<wire x1="3.5" y1="-3.5" x2="-3.5" y2="-3.5" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="-3.5" x2="-3.5" y2="3.5" width="0.127" layer="51"/>
 <wire x1="-3.5" y1="3.05" x2="-3.05" y2="3.5" width="0.127" layer="27"/>
 <smd name="PAD" x="0" y="0" dx="5.15" dy="5.15" layer="1" cream="no"/>
 <smd name="1" x="-3.4" y="2.75" dx="0.6" dy="0.24" layer="1"/>
@@ -262,6 +262,14 @@
 <rectangle x1="1.35" y1="-2.42" x2="2.41" y2="-1.36" layer="31"/>
 <rectangle x1="1.35" y1="-1.16" x2="2.41" y2="-0.1" layer="31"/>
 <rectangle x1="1.35" y1="0.1" x2="2.41" y2="1.16" layer="31"/>
+<wire x1="-3.5" y1="3" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="-3.1" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.1" y1="3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="3.5" x2="3.5" y2="3.1" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.1" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.5" x2="3.1" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="-3.1" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="-3.5" x2="-3.1" y2="-3.5" width="0.127" layer="21"/>
 </package>
 <package name="UFQFPN-48_7X7X0P55MM" urn="urn:adsk.eagle:footprint:19324070/2" library_version="9">
 <smd name="1" x="-3.4544" y="2.75" dx="0.3048" dy="0.8128" layer="1" rot="R270"/>
@@ -547,7 +555,7 @@
 <packageinstance name="QFN-16_3X3"/>
 </packageinstances>
 </package3d>
-<package3d name="VQFN-48_7X7" urn="urn:adsk.eagle:package:19571846/3" type="model" library_version="5">
+<package3d name="VQFN-48_7X7" urn="urn:adsk.eagle:package:19571846/3" type="model" library_version="9" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="VQFN-48_7X7"/>
 </packageinstances>
@@ -809,7 +817,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="DRV8323RS" urn="urn:adsk.eagle:component:19571916/2" prefix="U" library_version="7">
+<deviceset name="DRV8323RS" urn="urn:adsk.eagle:component:19571916/2" prefix="U" library_version="9" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="DRV8323RS" x="0" y="0"/>
 </gates>

@@ -159,7 +159,7 @@
 <libraries>
 <library name="_T_ic" urn="urn:adsk.eagle:library:19571245">
 <packages>
-<package name="QFN-16_3X3" urn="urn:adsk.eagle:footprint:19571297/2" library_version="5" library_locally_modified="yes">
+<package name="QFN-16_3X3" urn="urn:adsk.eagle:footprint:19571297/2" locally_modified="yes" library_version="9" library_locally_modified="yes">
 <smd name="PAD" x="0" y="0" dx="1.7" dy="1.7" layer="1"/>
 <smd name="1" x="-1.45" y="0.75" dx="0.7" dy="0.25" layer="1"/>
 <smd name="2" x="-1.45" y="0.25" dx="0.7" dy="0.25" layer="1"/>
@@ -179,13 +179,13 @@
 <smd name="16" x="-0.75" y="1.45" dx="0.7" dy="0.25" layer="1" rot="R270"/>
 <text x="-3.15" y="1.99" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3.2" y="-3.15" size="1.27" layer="27">&gt;VALUE</text>
-<wire x1="-1.5" y1="1.5" x2="-1.1" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-1.1" y1="1.5" x2="1.5" y2="1.5" width="0.127" layer="21"/>
-<wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.1" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="1.1" x2="-1.5" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="1.1" x2="-1.1" y2="1.5" width="0.127" layer="21"/>
+<wire x1="-1.5" y1="1.5" x2="-1.1" y2="1.5" width="0.15" layer="21"/>
+<wire x1="-1.1" y1="1.5" x2="1.5" y2="1.5" width="0.127" layer="51"/>
+<wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.1" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="1.1" x2="-1.5" y2="1.5" width="0.15" layer="21"/>
+<wire x1="-1.5" y1="1.1" x2="-1.1" y2="1.5" width="0.15" layer="21"/>
 <circle x="-1.7" y="1.7" radius="0.070709375" width="0.127" layer="21"/>
 </package>
 <package name="VQFN-48_7X7" urn="urn:adsk.eagle:footprint:19571843/2" locally_modified="yes" library_version="9" library_locally_modified="yes">
@@ -550,7 +550,7 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="QFN-16_3X3" urn="urn:adsk.eagle:package:19571298/3" type="model" library_version="5" library_locally_modified="yes">
+<package3d name="QFN-16_3X3" urn="urn:adsk.eagle:package:19571298/3" type="model" library_version="9" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="QFN-16_3X3"/>
 </packageinstances>
@@ -782,7 +782,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MA702" urn="urn:adsk.eagle:component:19571847/2" prefix="U" library_version="7">
+<deviceset name="MA702" urn="urn:adsk.eagle:component:19571847/2" prefix="U" library_version="9" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="MA702" x="0" y="0"/>
 </gates>
@@ -1164,7 +1164,7 @@
 <wire x1="0.775" y1="-0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
 <wire x1="-0.775" y1="-0.425" x2="-0.775" y2="0.425" width="0.05" layer="51"/>
 </package>
-<package name="SDR0302" urn="urn:adsk.eagle:footprint:20294117/4" library_version="13" library_locally_modified="yes">
+<package name="SDR0302" urn="urn:adsk.eagle:footprint:20294117/4" locally_modified="yes" library_version="14" library_locally_modified="yes">
 <smd name="PIN1" x="0" y="1.025" dx="3" dy="1.25" layer="1" thermals="no"/>
 <smd name="PIN2" x="0" y="-1.025" dx="3" dy="1.25" layer="1" rot="R180" thermals="no"/>
 <polygon width="0.3" layer="31">
@@ -1203,14 +1203,14 @@
 <vertex x="1.35" y="0.8"/>
 <vertex x="-1.35" y="0.8"/>
 </polygon>
-<wire x1="-1.475" y1="0.3" x2="1.475" y2="0.3" width="0.127" layer="21" curve="-157.006874"/>
-<wire x1="1.475" y1="-0.3" x2="-1.475" y2="-0.3" width="0.127" layer="21" curve="-157.006874"/>
-<wire x1="-1.25" y1="0.3" x2="-1.25" y2="-0.3" width="0.127" layer="21" curve="-180"/>
-<wire x1="1.25" y1="-0.3" x2="1.25" y2="0.3" width="0.127" layer="21" curve="-180"/>
-<wire x1="-1.275" y1="0.3" x2="-1.475" y2="0.3" width="0.127" layer="21"/>
-<wire x1="-1.25" y1="-0.3" x2="-1.475" y2="-0.3" width="0.127" layer="21"/>
-<wire x1="1.25" y1="-0.3" x2="1.475" y2="-0.3" width="0.127" layer="21"/>
-<wire x1="1.25" y1="0.3" x2="1.475" y2="0.3" width="0.127" layer="21"/>
+<wire x1="-1.475" y1="0.3" x2="1.475" y2="0.3" width="0.127" layer="51" curve="-157.006874"/>
+<wire x1="1.475" y1="-0.3" x2="-1.475" y2="-0.3" width="0.127" layer="51" curve="-157.006874"/>
+<wire x1="-1.25" y1="0.3" x2="-1.25" y2="-0.3" width="0.127" layer="51" curve="-180"/>
+<wire x1="1.25" y1="-0.3" x2="1.25" y2="0.3" width="0.127" layer="51" curve="-180"/>
+<wire x1="-1.275" y1="0.3" x2="-1.475" y2="0.3" width="0.127" layer="51"/>
+<wire x1="-1.25" y1="-0.3" x2="-1.475" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="1.25" y1="-0.3" x2="1.475" y2="-0.3" width="0.127" layer="51"/>
+<wire x1="1.25" y1="0.3" x2="1.475" y2="0.3" width="0.127" layer="51"/>
 <text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
 </package>
@@ -1286,15 +1286,18 @@
 <rectangle x1="0.9144" y1="-1.3081" x2="1.6645" y2="1.2918" layer="51"/>
 <rectangle x1="-0.3" y1="-0.8999" x2="0.3" y2="0.8999" layer="35"/>
 </package>
-<package name="D0603" urn="urn:adsk.eagle:footprint:19545721/2" library_version="13" library_locally_modified="yes">
+<package name="D0603" urn="urn:adsk.eagle:footprint:19545721/2" locally_modified="yes" library_version="14" library_locally_modified="yes">
 <smd name="1" x="-0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
 <smd name="2" x="0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
-<wire x1="-0.8" y1="0.4" x2="0.8" y2="0.4" width="0.085" layer="21"/>
-<wire x1="0.8" y1="0.4" x2="0.8" y2="-0.4" width="0.085" layer="21"/>
-<wire x1="0.8" y1="-0.4" x2="-0.8" y2="-0.4" width="0.085" layer="21"/>
-<wire x1="-0.8" y1="-0.4" x2="-0.8" y2="0.4" width="0.085" layer="21"/>
+<wire x1="-0.8" y1="0.4" x2="0.8" y2="0.4" width="0.085" layer="51"/>
+<wire x1="0.8" y1="0.4" x2="0.8" y2="-0.4" width="0.085" layer="51"/>
+<wire x1="0.8" y1="-0.4" x2="-0.8" y2="-0.4" width="0.085" layer="51"/>
+<wire x1="-0.8" y1="-0.4" x2="-0.8" y2="0.4" width="0.085" layer="51"/>
 <text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-0.2" y1="0.4" x2="-0.2" y2="-0.4" width="0.15" layer="21"/>
+<wire x1="-0.2" y1="-0.4" x2="0.05" y2="-0.4" width="0.15" layer="21"/>
+<wire x1="-0.2" y1="0.4" x2="0.05" y2="0.4" width="0.15" layer="21"/>
 </package>
 </packages>
 <packages3d>
@@ -1332,7 +1335,7 @@
 <packageinstance name="R0603"/>
 </packageinstances>
 </package3d>
-<package3d name="SDR0302" urn="urn:adsk.eagle:package:20294118/5" type="model" library_version="13" library_locally_modified="yes">
+<package3d name="SDR0302" urn="urn:adsk.eagle:package:20294118/5" type="model" library_version="14" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="SDR0302"/>
 </packageinstances>
@@ -1367,7 +1370,7 @@
 <packageinstance name="R1210_KELVINM"/>
 </packageinstances>
 </package3d>
-<package3d name="D0603" urn="urn:adsk.eagle:package:19545722/3" type="model" library_version="13" library_locally_modified="yes">
+<package3d name="D0603" urn="urn:adsk.eagle:package:19545722/3" type="model" library_version="14" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="D0603"/>
 </packageinstances>
@@ -1591,7 +1594,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="L" urn="urn:adsk.eagle:component:20295474/5" prefix="L" uservalue="yes" library_version="13" library_locally_modified="yes">
+<deviceset name="L" urn="urn:adsk.eagle:component:20295474/5" prefix="L" uservalue="yes" library_version="14" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="L" x="0" y="0"/>
 </gates>
@@ -1664,7 +1667,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED" urn="urn:adsk.eagle:component:20346178/1" prefix="D" uservalue="yes" library_version="14">
+<deviceset name="LED" urn="urn:adsk.eagle:component:20346178/1" prefix="D" uservalue="yes" library_version="14" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="LED" x="0" y="0"/>
 </gates>

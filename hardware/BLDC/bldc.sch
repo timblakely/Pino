@@ -1830,13 +1830,6 @@
 </library>
 <library name="_T_conn" urn="urn:adsk.eagle:library:19570503">
 <packages>
-<package name="M2" urn="urn:adsk.eagle:footprint:20293117/3" locally_modified="yes" library_version="15" library_locally_modified="yes">
-<pad name="PAD" x="0" y="0" drill="2.1" diameter="3.8" thermals="no"/>
-<circle x="0" y="0" radius="1.97" width="0.127" layer="21"/>
-</package>
-<package name="M3" urn="urn:adsk.eagle:footprint:20293137/2" library_version="7">
-<pad name="PAD" x="0" y="0" drill="3.1" diameter="5.6" thermals="no"/>
-</package>
 <package name="AWG_18" urn="urn:adsk.eagle:footprint:20293987/1" library_version="7" library_locally_modified="yes">
 <pad name="PIN1" x="0" y="0" drill="1.28" diameter="2.25"/>
 </package>
@@ -2008,16 +2001,6 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="M2" urn="urn:adsk.eagle:package:20293119/4" type="empty" library_version="15" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="M2"/>
-</packageinstances>
-</package3d>
-<package3d name="M3" urn="urn:adsk.eagle:package:20293138/3" type="empty" library_version="7">
-<packageinstances>
-<packageinstance name="M3"/>
-</packageinstances>
-</package3d>
 <package3d name="AWG_18" urn="urn:adsk.eagle:package:20293989/2" type="empty" library_version="7" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="AWG_18"/>
@@ -2051,12 +2034,6 @@
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="PCB_HOLE" urn="urn:adsk.eagle:symbol:20293118/2" library_version="6" library_locally_modified="yes">
-<pin name="P1" x="0" y="0" visible="pad" length="point"/>
-<circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
-<wire x1="-0.254" y1="0.254" x2="0.254" y2="-0.254" width="0.254" layer="94"/>
-<wire x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" width="0.254" layer="94"/>
-</symbol>
 <symbol name="WIRE_HOLE" urn="urn:adsk.eagle:symbol:20293988/2" library_version="10">
 <pin name="P1" x="0" y="0" visible="off" length="point"/>
 <circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
@@ -2106,35 +2083,6 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PCB_MOUNT_HOLE" urn="urn:adsk.eagle:component:20293139/3" prefix="H" library_version="15" library_locally_modified="yes">
-<gates>
-<gate name="G$1" symbol="PCB_HOLE" x="0" y="0"/>
-</gates>
-<devices>
-<device name="_M2" package="M2">
-<connects>
-<connect gate="G$1" pin="P1" pad="PAD"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20293119/4"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="_M3" package="M3">
-<connects>
-<connect gate="G$1" pin="P1" pad="PAD"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:20293138/3"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="WIRE_HOLE" urn="urn:adsk.eagle:component:20293990/2" prefix="H" library_version="10">
 <gates>
 <gate name="G$1" symbol="WIRE_HOLE" x="0" y="0"/>
@@ -2275,7 +2223,6 @@
 <schematic_group name="MAG_SENSE"/>
 <schematic_group name="FDCAN"/>
 <schematic_group name="POWER_CONN"/>
-<schematic_group name="MOUNTING_HOLES"/>
 <schematic_group name="5V_3.3V_REG"/>
 <schematic_group name="LED_INFO"/>
 <schematic_group name="UC_STM32G4"/>
@@ -2293,11 +2240,6 @@
 <part name="U6" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/4"/>
 <part name="U7" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/4"/>
 <part name="U8" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="TPN7R006PL" device="" package3d_urn="urn:adsk.eagle:package:20292156/4"/>
-<part name="H1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
-<part name="H2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
-<part name="H3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
-<part name="H4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PCB_MOUNT_HOLE" device="_M2" package3d_urn="urn:adsk.eagle:package:20293119/4"/>
-<part name="GND2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="U9" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="STM32G4_UFQFPN48_T1" device="" package3d_urn="urn:adsk.eagle:package:19324073/6"/>
 <part name="L1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="DC_CHOKE" device="_FERRITE_BEAD_0603" package3d_urn="urn:adsk.eagle:package:20293176/3" value="600R@100MHz"/>
 <part name="C2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="100nF 10V"/>
@@ -2464,11 +2406,6 @@
 <attribute name="VALUE" x="250.19" y="92.71" size="1.27" layer="96" rot="MR180"/>
 <attribute name="NAME" x="250.19" y="90.17" size="1.27" layer="95" rot="MR180"/>
 </instance>
-<instance part="H1" gate="G$1" x="-83.82" y="175.26" smashed="yes" grouprefs="MOUNTING_HOLES"/>
-<instance part="H2" gate="G$1" x="-78.74" y="175.26" smashed="yes" grouprefs="MOUNTING_HOLES"/>
-<instance part="H3" gate="G$1" x="-73.66" y="175.26" smashed="yes" grouprefs="MOUNTING_HOLES"/>
-<instance part="H4" gate="G$1" x="-68.58" y="175.26" smashed="yes" grouprefs="MOUNTING_HOLES"/>
-<instance part="GND2" gate="G$1" x="-76.2" y="167.64" smashed="yes" grouprefs="MOUNTING_HOLES"/>
 <instance part="U9" gate="A" x="-35.56" y="91.44" smashed="yes" grouprefs="UC_STM32G4">
 <attribute name="NAME" x="-55.5244" y="133.5786" size="1.27" layer="95" ratio="6" rot="SR0"/>
 <attribute name="VALUE" x="-56.1594" y="131.0386" size="1.27" layer="96" ratio="6" rot="SR0"/>
@@ -3442,21 +3379,6 @@
 <pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="-10.16" y1="48.26" x2="-10.16" y2="50.8" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
 <pinref part="GND26" gate="G$1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="H1" gate="G$1" pin="P1"/>
-<pinref part="H2" gate="G$1" pin="P1"/>
-<wire x1="-83.82" y1="175.26" x2="-78.74" y2="175.26" width="0.1524" layer="91" grouprefs="MOUNTING_HOLES"/>
-<pinref part="H3" gate="G$1" pin="P1"/>
-<wire x1="-78.74" y1="175.26" x2="-76.2" y2="175.26" width="0.1524" layer="91" grouprefs="MOUNTING_HOLES"/>
-<junction x="-78.74" y="175.26" grouprefs="MOUNTING_HOLES"/>
-<pinref part="H4" gate="G$1" pin="P1"/>
-<wire x1="-76.2" y1="175.26" x2="-73.66" y2="175.26" width="0.1524" layer="91" grouprefs="MOUNTING_HOLES"/>
-<wire x1="-73.66" y1="175.26" x2="-68.58" y2="175.26" width="0.1524" layer="91" grouprefs="MOUNTING_HOLES"/>
-<junction x="-73.66" y="175.26" grouprefs="MOUNTING_HOLES"/>
-<pinref part="GND2" gate="G$1" pin="GND"/>
-<wire x1="-76.2" y1="170.18" x2="-76.2" y2="175.26" width="0.1524" layer="91" grouprefs="MOUNTING_HOLES"/>
-<junction x="-76.2" y="175.26" grouprefs="MOUNTING_HOLES"/>
 </segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="P3"/>
