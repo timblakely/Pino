@@ -1469,7 +1469,7 @@ BLDC V1.0</text>
 <attribute name="NAME" x="22.26" y="28.07" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="18.66" y="27.16" size="1.27" layer="27"/>
 </element>
-<element name="C37" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="18pF 10V" x="21.2" y="31.6" smashed="yes">
+<element name="C37" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="10pF 10V" x="21.2" y="31.6" smashed="yes">
 <attribute name="NAME" x="19.33" y="31.57" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="19.93" y="29.06" size="1.27" layer="27"/>
 </element>
@@ -1497,7 +1497,7 @@ BLDC V1.0</text>
 <attribute name="NAME" x="34.97" y="27.57" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="33.46" y="28.87" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C42" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="18pF 10V" x="19" y="29.7" smashed="yes" rot="R270">
+<element name="C42" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="10pF 10V" x="19" y="29.7" smashed="yes" rot="R270">
 <attribute name="NAME" x="17.97" y="29.67" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="16.46" y="30.97" size="1.27" layer="27" rot="R270"/>
 </element>
