@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="cccc2e93-2fd3-40de-9739-6985b2d5cef6" lastsyncedrevisionid="cccc2e93-2fd3-40de-9739-6985b2d5cef6" lastboardhashguid="7721e2d3-fc54-e313-3a0b-e8c6d3c06d97" lastpushedtime="2020-05-25T21:01:21Z" linktopcb3d="%12"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="b065c135-2570-4c72-b8fb-4a88e496836b" lastsyncedrevisionid="b065c135-2570-4c72-b8fb-4a88e496836b" lastboardhashguid="7253a629-7ece-c605-07cb-44976593924e" lastpushedtime="2020-05-25T21:28:58Z" linktopcb3d="%12"/>
 <plain>
 <wire x1="39.0836" y1="39.681" x2="38" y2="40" width="0" layer="20" curve="32.8049"/>
 <wire x1="38" y1="40" x2="2" y2="40" width="0" layer="20"/>
@@ -2584,10 +2584,8 @@ BLDC V1.0</text>
 </polygon>
 <wire x1="4.25" y1="18.9" x2="4.35" y2="18.8" width="0.35" layer="1"/>
 <wire x1="4.35" y1="18.8" x2="4.35" y2="16.6" width="0.35" layer="1"/>
-<wire x1="4.35" y1="16.6" x2="1.8" y2="14.05" width="0.35" layer="1"/>
-<wire x1="3.7" y1="8.2" x2="3.7" y2="7.1" width="0.35" layer="1"/>
-<wire x1="3.7" y1="8.2" x2="1.8" y2="10.1" width="0.35" layer="1"/>
-<wire x1="1.8" y1="14.05" x2="1.8" y2="10.1" width="0.35" layer="1"/>
+<wire x1="4.35" y1="16.6" x2="1.6" y2="13.85" width="0.35" layer="1"/>
+<wire x1="1.6" y1="13.85" x2="1.6" y2="10.6" width="0.35" layer="1"/>
 <wire x1="4.35" y1="16.6" x2="5.05" y2="15.9" width="0.35" layer="1"/>
 <wire x1="5.65" y1="15.9" x2="5.05" y2="15.9" width="0.35" layer="1"/>
 <wire x1="5.65" y1="17.1" x2="6.55" y2="18" width="0.35" layer="1"/>
@@ -2607,6 +2605,7 @@ BLDC V1.0</text>
 <wire x1="5.4" y1="23.9" x2="5.4" y2="19.2" width="0.35" layer="1"/>
 <wire x1="5.4" y1="19.2" x2="5.1" y2="18.9" width="0.35" layer="1"/>
 <wire x1="5.1" y1="18.9" x2="4.25" y2="18.9" width="0.35" layer="1"/>
+<via x="1.6" y="10.6" extent="1-16" drill="0.4"/>
 </signal>
 <signal name="N$11">
 <contactref element="U10" pad="7"/>
@@ -2761,10 +2760,10 @@ BLDC V1.0</text>
 <via x="9.5" y="17" extent="1-16" drill="0.35"/>
 <via x="1.7" y="15.6" extent="1-16" drill="0.35"/>
 <wire x1="1.7" y1="15.6" x2="1.7" y2="14.62628125" width="0.2" layer="1"/>
-<wire x1="1.7" y1="14.62628125" x2="1.3218" y2="14.24808125" width="0.2" layer="1"/>
+<wire x1="1.7" y1="14.62628125" x2="0.9218" y2="13.84808125" width="0.2" layer="1"/>
 <wire x1="3.425" y1="4.175" x2="5.125" y2="4.175" width="0.2" layer="1"/>
-<wire x1="1.3218" y1="14.24808125" x2="1.3218" y2="6.2782" width="0.2" layer="1"/>
-<wire x1="1.3218" y1="6.2782" x2="3.425" y2="4.175" width="0.2" layer="1"/>
+<wire x1="0.9218" y1="13.84808125" x2="0.9218" y2="6.6782" width="0.2" layer="1"/>
+<wire x1="0.9218" y1="6.6782" x2="3.425" y2="4.175" width="0.2" layer="1"/>
 <wire x1="9.5" y1="17" x2="3.6" y2="17" width="0.2" layer="16"/>
 <wire x1="2.2" y1="15.6" x2="1.7" y2="15.6" width="0.2" layer="16"/>
 <wire x1="3.6" y1="17" x2="2.2" y2="15.6" width="0.2" layer="16"/>
