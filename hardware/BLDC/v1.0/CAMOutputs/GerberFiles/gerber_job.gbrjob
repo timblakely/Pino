@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2020-05-25T21:35:31Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.6.1"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.67,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "bldc"
+        },
+        "Owner": "Tim Blakely <skyfire360@gmail.com>",
+        "Size": {
+            "X": 51.1,
+            "Y": 40.001106
+        }
+    }
+}
