@@ -1759,7 +1759,6 @@
 <part name="U1" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="LSM9DS1" device="" package3d_urn="urn:adsk.eagle:package:18130566/4"/>
 <part name="C1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.1uF 10V"/>
 <part name="VDD1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="C2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" override_package3d_urn="urn:adsk.eagle:package:19477979/2" override_package_urn="urn:adsk.eagle:footprint:23123/1" override_locally_modified="yes" value="10uF 10v"/>
 <part name="C3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.1uF 10V"/>
 <part name="C4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="10nF 16v"/>
 <part name="VDD2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
@@ -1827,6 +1826,7 @@
 <part name="J1" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="LINEAR_2" device="_5040500291" package3d_urn="urn:adsk.eagle:package:20672635/2"/>
 <part name="U$1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+5V" device=""/>
 <part name="U$2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+5V" device=""/>
+<part name="C2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="10uF 10V"/>
 </parts>
 <sheets>
 <sheet>
@@ -1849,10 +1849,6 @@
 </instance>
 <instance part="VDD1" gate="G$1" x="256.54" y="185.42" smashed="yes" grouprefs="GYRO">
 <attribute name="VALUE" x="254" y="182.88" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="C2" gate="G$1" x="256.54" y="175.26" smashed="yes" grouprefs="GYRO">
-<attribute name="NAME" x="258.953" y="175.514" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="253.619" y="171.704" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="C3" gate="G$1" x="248.92" y="175.26" smashed="yes" grouprefs="GYRO">
 <attribute name="NAME" x="251.333" y="175.514" size="1.778" layer="95" rot="R90"/>
@@ -2091,6 +2087,10 @@
 <instance part="U$2" gate="G$1" x="142.24" y="66.04" smashed="yes">
 <attribute name="VALUE" x="139.7" y="60.96" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="C2" gate="G$1" x="256.54" y="175.26" smashed="yes">
+<attribute name="NAME" x="258.064" y="175.641" size="1.778" layer="95"/>
+<attribute name="VALUE" x="258.064" y="170.561" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2184,7 +2184,6 @@
 <pinref part="GND22" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="254" y1="167.64" x2="256.54" y2="167.64" width="0.1524" layer="91" grouprefs="GYRO"/>
 <wire x1="256.54" y1="167.64" x2="256.54" y2="170.18" width="0.1524" layer="91" grouprefs="GYRO"/>
 <pinref part="C3" gate="G$1" pin="2"/>
@@ -2192,6 +2191,7 @@
 <wire x1="248.92" y1="167.64" x2="248.92" y2="170.18" width="0.1524" layer="91" grouprefs="GYRO"/>
 <junction x="254" y="167.64" grouprefs="GYRO"/>
 <pinref part="GND20" gate="G$1" pin="GND"/>
+<pinref part="C2" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="X1" gate="G$1" pin="GND"/>
@@ -2585,7 +2585,6 @@
 <pinref part="VDD1" gate="G$1" pin="+3V3"/>
 <wire x1="248.92" y1="180.34" x2="256.54" y2="180.34" width="0.1524" layer="91" grouprefs="GYRO"/>
 <wire x1="256.54" y1="180.34" x2="256.54" y2="182.88" width="0.1524" layer="91" grouprefs="GYRO"/>
-<pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="256.54" y1="177.8" x2="256.54" y2="180.34" width="0.1524" layer="91" grouprefs="GYRO"/>
 <junction x="256.54" y="180.34" grouprefs="GYRO"/>
 <pinref part="C3" gate="G$1" pin="1"/>
@@ -2595,6 +2594,7 @@
 <wire x1="226.06" y1="177.8" x2="228.6" y2="177.8" width="0.1524" layer="91" grouprefs="GYRO"/>
 <wire x1="228.6" y1="177.8" x2="228.6" y2="180.34" width="0.1524" layer="91" grouprefs="GYRO"/>
 <junction x="228.6" y="180.34" grouprefs="GYRO"/>
+<pinref part="C2" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="VDD2" gate="G$1" pin="+3V3"/>
@@ -2764,11 +2764,6 @@ packages will not be understood (or retained) with this version.
 <note version="9.5" severity="warning">
 Since Version 9.5, EAGLE supports persistent groups with
 schematics, and board files. Those persistent groups
-will not be understood (or retained) with this version.
-</note>
-<note version="9.4" severity="warning">
-Since Version 9.4, EAGLE supports the overriding of 3D packages
-in schematics and board files. Those overridden 3d packages
 will not be understood (or retained) with this version.
 </note>
 </compatibility>

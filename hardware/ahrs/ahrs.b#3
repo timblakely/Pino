@@ -274,20 +274,20 @@
 <text x="-2.54" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="D0603" urn="urn:adsk.eagle:footprint:19545721/2" locally_modified="yes" library_version="14" library_locally_modified="yes">
+<package name="D0603" urn="urn:adsk.eagle:footprint:19545721/3" library_version="15">
 <smd name="1" x="-0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
 <smd name="2" x="0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
 <wire x1="-0.8" y1="0.4" x2="0.8" y2="0.4" width="0.085" layer="51"/>
 <wire x1="0.8" y1="0.4" x2="0.8" y2="-0.4" width="0.085" layer="51"/>
 <wire x1="0.8" y1="-0.4" x2="-0.8" y2="-0.4" width="0.085" layer="51"/>
 <wire x1="-0.8" y1="-0.4" x2="-0.8" y2="0.4" width="0.085" layer="51"/>
-<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 <wire x1="-0.2" y1="0.4" x2="-0.2" y2="-0.4" width="0.15" layer="21"/>
 <wire x1="-0.2" y1="-0.4" x2="0.05" y2="-0.4" width="0.15" layer="21"/>
 <wire x1="-0.2" y1="0.4" x2="0.05" y2="0.4" width="0.15" layer="21"/>
+<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="R0603" urn="urn:adsk.eagle:footprint:19572002/1" locally_modified="yes" library_version="14" library_locally_modified="yes">
+<package name="R0603" urn="urn:adsk.eagle:footprint:19572002/2" library_version="15">
 <smd name="1" x="0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <smd name="2" x="-0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <wire x1="-0.775" y1="0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
@@ -325,14 +325,12 @@
 <packageinstance name="L0603"/>
 </packageinstances>
 </package3d>
-<package3d name="D0603" urn="urn:adsk.eagle:package:19545722/3" type="model" library_version="14" library_locally_modified="yes">
+<package3d name="D0603" urn="urn:adsk.eagle:package:19545722/4" type="model" library_version="15">
 <packageinstances>
 <packageinstance name="D0603"/>
 </packageinstances>
 </package3d>
-<package3d name="R0603" urn="urn:adsk.eagle:package:19572012/2" type="model" library_version="14" library_locally_modified="yes">
-<description>Chip, 1.55 X 0.85 X 0.45 mm body
-&lt;p&gt;Chip package with body size 1.55 X 0.85 X 0.45 mm&lt;/p&gt;</description>
+<package3d name="R0603" urn="urn:adsk.eagle:package:19572012/3" type="model" library_version="15">
 <packageinstances>
 <packageinstance name="R0603"/>
 </packageinstances>
@@ -989,11 +987,11 @@
 <attribute name="NAME" x="22.3" y="16.6" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="25.475" y="11.36" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/2" value="22" x="24.6" y="7.8" smashed="yes" rot="R180">
+<element name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="22" x="24.6" y="7.8" smashed="yes" rot="R180">
 <attribute name="NAME" x="23" y="7.8" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="25.235" y="9.705" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060BS75000" x="28.2" y="7.8" smashed="yes">
+<element name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060BS75000" x="28.2" y="7.8" smashed="yes">
 <attribute name="NAME" x="26.4" y="7.9" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="26.93" y="5.26" size="1.27" layer="27"/>
 </element>
@@ -1001,19 +999,19 @@
 <attribute name="NAME" x="11.825" y="27.41" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="11.825" y="19.79" size="1.27" layer="27"/>
 </element>
-<element name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060BS75000" x="28.2" y="11.2" smashed="yes">
+<element name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060BS75000" x="28.2" y="11.2" smashed="yes">
 <attribute name="NAME" x="26.4" y="11.2" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="26.93" y="8.66" size="1.27" layer="27"/>
 </element>
-<element name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060BS75000" x="28.2" y="9.5" smashed="yes">
+<element name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060BS75000" x="28.2" y="9.5" smashed="yes">
 <attribute name="NAME" x="26.4" y="9.5" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="26.93" y="6.96" size="1.27" layer="27"/>
 </element>
-<element name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/2" value="22" x="24.6" y="11.2" smashed="yes">
+<element name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="22" x="24.6" y="11.2" smashed="yes">
 <attribute name="NAME" x="23" y="11.2" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="23.965" y="9.295" size="1.27" layer="27"/>
 </element>
-<element name="R3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/2" value="22" x="24.6" y="9.5" smashed="yes">
+<element name="R3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="22" x="24.6" y="9.5" smashed="yes">
 <attribute name="NAME" x="23" y="9.5" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="23.965" y="7.595" size="1.27" layer="27"/>
 </element>
@@ -1029,7 +1027,7 @@
 <attribute name="NAME" x="10.7" y="1.95" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="10.7" y="4.02" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="R4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/2" value="" x="14.9" y="8.2" smashed="yes" rot="R90">
+<element name="R4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="" x="14.9" y="8.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="14.8" y="6.5" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="15.85" y="8.2" size="0.8" layer="27" rot="R90" align="center"/>
 </element>
@@ -1108,7 +1106,6 @@
 <wire x1="18.4" y1="9.1" x2="18.4" y2="7.5" width="0.3" layer="1"/>
 <via x="18.4" y="7.5" extent="1-16" drill="0.29"/>
 <wire x1="10.55" y1="9.8" x2="10.55" y2="8.2" width="0.3" layer="1"/>
-<wire x1="10.55" y1="9.8" x2="10.55" y2="9.75" width="0.3" layer="1"/>
 <wire x1="14.05" y1="10.6" x2="14.8" y2="10.6" width="0.3" layer="1"/>
 <wire x1="14.8" y1="10.6" x2="14.9" y2="10.7" width="0.3" layer="1"/>
 <via x="14.9" y="10.7" extent="1-16" drill="0.29"/>
@@ -1260,7 +1257,7 @@
 <wire x1="4.7" y1="19.5" x2="2.95" y2="19.5" width="0.3" layer="1"/>
 <wire x1="11.25" y1="21.3" x2="11.25" y2="20.4606" width="0.3" layer="1"/>
 <wire x1="11.25" y1="20.4606" x2="11.2" y2="20.4106" width="0.3" layer="1"/>
-<wire x1="2.95" y1="19.5" x2="2.95" y2="21.4" width="0" layer="19" extent="1-1"/>
+<wire x1="2.95" y1="21.4" x2="2.95" y2="19.5" width="0.3" layer="1"/>
 </signal>
 <signal name="N$5">
 <contactref element="C17" pad="1"/>
@@ -1572,8 +1569,12 @@
 <wire x1="5.3" y1="21.15" x2="5.05" y2="21.15" width="0.3" layer="1"/>
 <wire x1="5.05" y1="21.15" x2="4.3" y2="20.4" width="0.3" layer="1"/>
 <via x="4.3" y="20.4" extent="1-16" drill="0.29"/>
-<wire x1="14.25" y1="12.6456" x2="14.9544" y2="13.35" width="0" layer="19" extent="1-1"/>
-<wire x1="2.95" y1="9.2" x2="1.45" y2="11.3" width="0" layer="19" extent="1-1"/>
+<wire x1="16.95" y1="13" x2="16.95" y2="12.95" width="0.3" layer="1"/>
+<wire x1="16.95" y1="12.95" x2="16.2" y2="12.2" width="0.3" layer="1"/>
+<via x="16.2" y="12.2" extent="1-16" drill="0.29"/>
+<wire x1="2.95" y1="9.2" x2="2.95" y2="8.55" width="0.3" layer="1"/>
+<wire x1="2.95" y1="8.55" x2="3.3" y2="8.2" width="0.3" layer="1"/>
+<via x="3.3" y="8.2" extent="1-16" drill="0.29"/>
 </signal>
 <signal name="N$7">
 <contactref element="U2" pad="28"/>
