@@ -1803,6 +1803,8 @@
 <schematic_group name="24V_CONN"/>
 <schematic_group name="BULK_POWER"/>
 <schematic_group name="BATT_TERM"/>
+<schematic_group name="5V_ISO"/>
+<schematic_group name="12V_ISO"/>
 </groups>
 <parts>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="FRAME_A_L" device=""/>
@@ -1863,16 +1865,16 @@
 <attribute name="NAME" x="122.2756" y="87.8586" size="2.0828" layer="95" ratio="6" rot="SR0"/>
 <attribute name="VALUE" x="121.6406" y="67.5386" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
-<instance part="U1" gate="A" x="50.8" y="175.26" smashed="yes">
-<attribute name="NAME" x="40.64" y="183.134" size="1.778" layer="95"/>
-<attribute name="VALUE" x="40.64" y="165.1" size="1.778" layer="96"/>
+<instance part="U1" gate="A" x="60.96" y="180.34" smashed="yes" grouprefs="5V_ISO">
+<attribute name="NAME" x="50.8" y="188.214" size="1.778" layer="95"/>
+<attribute name="VALUE" x="50.8" y="170.18" size="1.778" layer="96"/>
 </instance>
-<instance part="U2" gate="A" x="50.8" y="147.32" smashed="yes">
-<attribute name="NAME" x="40.64" y="155.194" size="1.778" layer="95"/>
-<attribute name="VALUE" x="40.64" y="137.16" size="1.778" layer="96"/>
+<instance part="U2" gate="A" x="68.58" y="139.7" smashed="yes" grouprefs="12V_ISO">
+<attribute name="NAME" x="58.42" y="147.574" size="1.778" layer="95"/>
+<attribute name="VALUE" x="58.42" y="129.54" size="1.778" layer="96"/>
 </instance>
-<instance part="GND2" gate="G$1" x="12.7" y="139.7" smashed="yes">
-<attribute name="VALUE" x="10.795" y="136.525" size="1.778" layer="96"/>
+<instance part="GND2" gate="G$1" x="30.48" y="132.08" smashed="yes" grouprefs="12V_ISO">
+<attribute name="VALUE" x="28.575" y="128.905" size="1.778" layer="96"/>
 </instance>
 <instance part="GND6" gate="G$1" x="114.3" y="68.58" smashed="yes" grouprefs="+24V_POWER">
 <attribute name="VALUE" x="112.395" y="65.405" size="1.778" layer="96"/>
@@ -1982,24 +1984,24 @@
 <attribute name="NAME" x="181.356" y="150.495" size="1.778" layer="95"/>
 <attribute name="VALUE" x="181.356" y="145.669" size="1.778" layer="96"/>
 </instance>
-<instance part="L1" gate="G$1" x="25.4" y="152.4" smashed="yes" rot="R90">
-<attribute name="NAME" x="30.48" y="151.13" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="30.48" y="156.21" size="1.778" layer="96" rot="R180"/>
+<instance part="L1" gate="G$1" x="43.18" y="144.78" smashed="yes" rot="R90" grouprefs="12V_ISO">
+<attribute name="NAME" x="48.26" y="143.51" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="48.26" y="148.59" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C10" gate="G$1" x="12.7" y="149.86" smashed="yes">
-<attribute name="NAME" x="13.716" y="150.495" size="1.778" layer="95"/>
-<attribute name="VALUE" x="13.716" y="145.669" size="1.778" layer="96"/>
+<instance part="C10" gate="G$1" x="30.48" y="142.24" smashed="yes" grouprefs="12V_ISO">
+<attribute name="NAME" x="31.496" y="142.875" size="1.778" layer="95"/>
+<attribute name="VALUE" x="31.496" y="138.049" size="1.778" layer="96"/>
 </instance>
-<instance part="GND3" gate="G$1" x="12.7" y="167.64" smashed="yes">
-<attribute name="VALUE" x="10.795" y="164.465" size="1.778" layer="96"/>
+<instance part="GND3" gate="G$1" x="22.86" y="172.72" smashed="yes" grouprefs="5V_ISO">
+<attribute name="VALUE" x="20.955" y="169.545" size="1.778" layer="96"/>
 </instance>
-<instance part="L2" gate="G$1" x="25.4" y="180.34" smashed="yes" rot="R90">
-<attribute name="NAME" x="30.48" y="179.07" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="30.48" y="184.15" size="1.778" layer="96" rot="R180"/>
+<instance part="L2" gate="G$1" x="35.56" y="185.42" smashed="yes" rot="R90" grouprefs="5V_ISO">
+<attribute name="NAME" x="40.64" y="184.15" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="40.64" y="189.23" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C11" gate="G$1" x="12.7" y="177.8" smashed="yes">
-<attribute name="NAME" x="13.716" y="178.435" size="1.778" layer="95"/>
-<attribute name="VALUE" x="13.716" y="173.609" size="1.778" layer="96"/>
+<instance part="C11" gate="G$1" x="22.86" y="182.88" smashed="yes" grouprefs="5V_ISO">
+<attribute name="NAME" x="23.876" y="183.515" size="1.778" layer="95"/>
+<attribute name="VALUE" x="23.876" y="178.689" size="1.778" layer="96"/>
 </instance>
 <instance part="J6" gate="G$1" x="142.24" y="187.96" smashed="yes" grouprefs="BATT_TERM"/>
 <instance part="J7" gate="G$1" x="142.24" y="182.88" smashed="yes" grouprefs="BATT_TERM"/>
@@ -2247,21 +2249,21 @@
 <segment>
 <pinref part="GND2" gate="G$1" pin="-V_BATT"/>
 <pinref part="C10" gate="G$1" pin="NEG"/>
-<wire x1="12.7" y1="142.24" x2="12.7" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="144.78" x2="27.94" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="144.78" x2="27.94" y2="147.32" width="0.1524" layer="91"/>
-<junction x="12.7" y="144.78"/>
+<wire x1="30.48" y1="134.62" x2="30.48" y2="137.16" width="0.1524" layer="91" grouprefs="12V_ISO"/>
+<wire x1="30.48" y1="137.16" x2="45.72" y2="137.16" width="0.1524" layer="91" grouprefs="12V_ISO"/>
+<wire x1="45.72" y1="137.16" x2="45.72" y2="139.7" width="0.1524" layer="91" grouprefs="12V_ISO"/>
+<junction x="30.48" y="137.16" grouprefs="12V_ISO"/>
 <pinref part="U2" gate="A" pin="-VIN"/>
-<wire x1="27.94" y1="147.32" x2="35.56" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="139.7" x2="53.34" y2="139.7" width="0.1524" layer="91" grouprefs="12V_ISO"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="G$1" pin="-V_BATT"/>
 <pinref part="C11" gate="G$1" pin="NEG"/>
-<wire x1="12.7" y1="170.18" x2="12.7" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="172.72" x2="27.94" y2="172.72" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="172.72" x2="27.94" y2="175.26" width="0.1524" layer="91"/>
-<junction x="12.7" y="172.72"/>
-<wire x1="27.94" y1="175.26" x2="35.56" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="175.26" x2="22.86" y2="177.8" width="0.1524" layer="91" grouprefs="5V_ISO"/>
+<wire x1="22.86" y1="177.8" x2="38.1" y2="177.8" width="0.1524" layer="91" grouprefs="5V_ISO"/>
+<wire x1="38.1" y1="177.8" x2="38.1" y2="180.34" width="0.1524" layer="91" grouprefs="5V_ISO"/>
+<junction x="22.86" y="177.8" grouprefs="5V_ISO"/>
+<wire x1="38.1" y1="180.34" x2="45.72" y2="180.34" width="0.1524" layer="91" grouprefs="5V_ISO"/>
 <pinref part="U1" gate="A" pin="-VIN"/>
 </segment>
 <segment>
@@ -2306,60 +2308,60 @@
 <segment>
 <pinref part="L1" gate="G$1" pin="2"/>
 <pinref part="U2" gate="A" pin="+VIN"/>
-<wire x1="33.02" y1="152.4" x2="35.56" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="144.78" x2="53.34" y2="144.78" width="0.1524" layer="91" grouprefs="12V_ISO"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="L2" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="180.34" x2="35.56" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="185.42" x2="45.72" y2="185.42" width="0.1524" layer="91" grouprefs="5V_ISO"/>
 <pinref part="U1" gate="A" pin="+VIN"/>
 </segment>
 </net>
 <net name="+24V_ISO" class="0">
 <segment>
 <pinref part="C10" gate="G$1" pin="POS"/>
-<wire x1="12.7" y1="160.02" x2="12.7" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="152.4" x2="30.48" y2="144.78" width="0.1524" layer="91" grouprefs="12V_ISO"/>
 <pinref part="L1" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="152.4" x2="17.78" y2="152.4" width="0.1524" layer="91"/>
-<junction x="12.7" y="152.4"/>
-<label x="12.7" y="160.02" size="1.778" layer="95" xref="yes"/>
+<wire x1="30.48" y1="144.78" x2="35.56" y2="144.78" width="0.1524" layer="91" grouprefs="12V_ISO"/>
+<junction x="30.48" y="144.78" grouprefs="12V_ISO"/>
+<label x="30.48" y="152.4" size="1.778" layer="95" xref="yes" grouprefs="12V_ISO"/>
 </segment>
 <segment>
 <pinref part="C11" gate="G$1" pin="POS"/>
-<wire x1="12.7" y1="187.96" x2="12.7" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="193.04" x2="22.86" y2="185.42" width="0.1524" layer="91" grouprefs="5V_ISO"/>
 <pinref part="L2" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="180.34" x2="17.78" y2="180.34" width="0.1524" layer="91"/>
-<junction x="12.7" y="180.34"/>
-<label x="12.7" y="187.96" size="1.778" layer="95" xref="yes"/>
+<wire x1="22.86" y1="185.42" x2="27.94" y2="185.42" width="0.1524" layer="91" grouprefs="5V_ISO"/>
+<junction x="22.86" y="185.42" grouprefs="5V_ISO"/>
+<label x="22.86" y="193.04" size="1.778" layer="95" xref="yes" grouprefs="5V_ISO"/>
 </segment>
 </net>
 <net name="12V_GND" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="12V_GND"/>
-<wire x1="66.04" y1="142.24" x2="68.58" y2="142.24" width="0.1524" layer="91"/>
-<label x="68.58" y="142.24" size="1.778" layer="95" xref="yes"/>
+<wire x1="83.82" y1="134.62" x2="86.36" y2="134.62" width="0.1524" layer="91" grouprefs="12V_ISO"/>
+<label x="86.36" y="134.62" size="1.778" layer="95" xref="yes" grouprefs="12V_ISO"/>
 </segment>
 </net>
 <net name="5V_GND" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="5V_GND"/>
-<wire x1="66.04" y1="170.18" x2="68.58" y2="170.18" width="0.1524" layer="91"/>
-<label x="68.58" y="170.18" size="1.778" layer="95" xref="yes"/>
+<wire x1="76.2" y1="175.26" x2="78.74" y2="175.26" width="0.1524" layer="91" grouprefs="5V_ISO"/>
+<label x="78.74" y="175.26" size="1.778" layer="95" xref="yes" grouprefs="5V_ISO"/>
 </segment>
 </net>
 <net name="+12V" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="+12V_OUT"/>
-<wire x1="66.04" y1="152.4" x2="68.58" y2="152.4" width="0.1524" layer="91"/>
-<label x="68.58" y="152.4" size="1.778" layer="95" xref="yes"/>
+<wire x1="83.82" y1="144.78" x2="86.36" y2="144.78" width="0.1524" layer="91" grouprefs="12V_ISO"/>
+<label x="86.36" y="144.78" size="1.778" layer="95" xref="yes" grouprefs="12V_ISO"/>
 </segment>
 </net>
 <net name="+5V" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="+5V_OUT"/>
-<wire x1="66.04" y1="180.34" x2="68.58" y2="180.34" width="0.1524" layer="91"/>
-<label x="68.58" y="180.34" size="1.778" layer="95" xref="yes"/>
+<wire x1="76.2" y1="185.42" x2="78.74" y2="185.42" width="0.1524" layer="91" grouprefs="5V_ISO"/>
+<label x="78.74" y="185.42" size="1.778" layer="95" xref="yes" grouprefs="5V_ISO"/>
 </segment>
 </net>
 </nets>

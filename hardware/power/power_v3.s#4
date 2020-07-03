@@ -1853,6 +1853,9 @@
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="ISO" width="2" drill="0">
+<clearance class="1" value="0.5"/>
+</class>
 </classes>
 <groups>
 <schematic_group name="+24V_POWER"/>
@@ -2402,7 +2405,7 @@
 <label x="22.86" y="193.04" size="1.778" layer="95" xref="yes" grouprefs="5V_ISO"/>
 </segment>
 </net>
-<net name="12V_GND" class="0">
+<net name="12V_GND" class="1">
 <segment>
 <pinref part="U2" gate="A" pin="12V_GND"/>
 <pinref part="J9" gate="G$1" pin="P1"/>
@@ -2415,7 +2418,7 @@
 <junction x="91.44" y="139.7" grouprefs="12V_ISO"/>
 </segment>
 </net>
-<net name="5V_GND" class="0">
+<net name="5V_GND" class="1">
 <segment>
 <pinref part="U1" gate="A" pin="5V_GND"/>
 <pinref part="J8" gate="G$1" pin="P3"/>
@@ -2428,7 +2431,7 @@
 <junction x="83.82" y="180.34" grouprefs="5V_ISO"/>
 </segment>
 </net>
-<net name="+12V" class="0">
+<net name="+12V" class="1">
 <segment>
 <pinref part="U2" gate="A" pin="+12V_OUT"/>
 <pinref part="J9" gate="G$1" pin="P4"/>
@@ -2441,7 +2444,7 @@
 <junction x="88.9" y="142.24" grouprefs="12V_ISO"/>
 </segment>
 </net>
-<net name="+5V" class="0">
+<net name="+5V" class="1">
 <segment>
 <pinref part="U1" gate="A" pin="+5V_OUT"/>
 <wire x1="76.2" y1="185.42" x2="81.28" y2="185.42" width="0.1524" layer="91" grouprefs="5V_ISO"/>
