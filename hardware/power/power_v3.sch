@@ -420,7 +420,7 @@
 <text x="-1.905" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="-V_BATT" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
-<symbol name="BATT_TERM" library_version="8" library_locally_modified="yes">
+<symbol name="BATT_TERM" urn="urn:adsk.eagle:symbol:21536715/1" library_version="8" library_locally_modified="yes">
 <pin name="PIN1" x="-2.54" y="0" length="short"/>
 <circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
 </symbol>
@@ -484,7 +484,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="FASTON" prefix="J" library_version="8" library_locally_modified="yes">
+<deviceset name="FASTON" urn="urn:adsk.eagle:component:21536716/1" prefix="J" library_version="8" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BATT_TERM" x="0" y="0"/>
 </gates>
@@ -544,7 +544,7 @@
 <rectangle x1="0.9144" y1="-1.3081" x2="1.6645" y2="1.2918" layer="51"/>
 <rectangle x1="-0.3" y1="-0.8999" x2="0.3" y2="0.8999" layer="35"/>
 </package>
-<package name="R2512_KELVIN" urn="urn:adsk.eagle:footprint:21272978/1" locally_modified="yes" library_version="21" library_locally_modified="yes">
+<package name="R2512_KELVIN" urn="urn:adsk.eagle:footprint:21272978/2" library_version="21" library_locally_modified="yes">
 <smd name="1_KELVIN" x="-2.6" y="0" dx="1.8" dy="0.2" layer="1"/>
 <smd name="1A" x="-2.6" y="1" dx="1.8" dy="1.4" layer="1"/>
 <smd name="1B" x="-2.6" y="-1" dx="1.8" dy="1.4" layer="1"/>
@@ -741,7 +741,7 @@
 <packageinstance name="R1210_KELVINM"/>
 </packageinstances>
 </package3d>
-<package3d name="R2512_KELVIN" urn="urn:adsk.eagle:package:21272979/2" type="model" library_version="21" library_locally_modified="yes">
+<package3d name="R2512_KELVIN" urn="urn:adsk.eagle:package:21272979/3" type="model" library_version="21" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="R2512_KELVIN"/>
 </packageinstances>
@@ -908,7 +908,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="R_SENSE" urn="urn:adsk.eagle:component:20303304/4" prefix="R" uservalue="yes" library_version="21" library_locally_modified="yes">
+<deviceset name="R_SENSE" urn="urn:adsk.eagle:component:20303304/5" prefix="R" uservalue="yes" library_version="21" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="R_SENSE" x="0" y="0"/>
 </gates>
@@ -949,7 +949,7 @@
 <connect gate="G$1" pin="K2" pad="2_KELVIN"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:21272979/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:21272979/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -957,7 +957,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="SCHOTTKY" urn="urn:adsk.eagle:component:20295472/2" locally_modified="yes" prefix="D" uservalue="yes" library_version="21" library_locally_modified="yes">
+<deviceset name="SCHOTTKY" urn="urn:adsk.eagle:component:20295472/3" prefix="D" uservalue="yes" library_version="21" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="SCHOTTKY" x="0" y="0"/>
 </gates>
@@ -1074,7 +1074,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="D" urn="urn:adsk.eagle:component:21520921/1" locally_modified="yes" prefix="D" uservalue="yes" library_version="21" library_locally_modified="yes">
+<deviceset name="D" urn="urn:adsk.eagle:component:21520921/2" prefix="D" uservalue="yes" library_version="21" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="D" x="0" y="0"/>
 </gates>
@@ -1871,7 +1871,7 @@
 <part name="U2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="PDQ30-Q24-S12-D" device="" package3d_urn="urn:adsk.eagle:package:21297437/3"/>
 <part name="GND2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
 <part name="GND6" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
-<part name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_2512" package3d_urn="urn:adsk.eagle:package:21272979/2" value=".002"/>
+<part name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_2512" package3d_urn="urn:adsk.eagle:package:21272979/3" value=".002"/>
 <part name="Q1" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="CSD19536KTT" device="" package3d_urn="urn:adsk.eagle:package:21297419/2"/>
 <part name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="5_0SMDJ24A"/>
 <part name="GND7" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
@@ -1911,7 +1911,7 @@
 <part name="J9" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PWR_4" device="" package3d_urn="urn:adsk.eagle:package:16152611/5"/>
 <part name="U4" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="LM5069" device="" package3d_urn="urn:adsk.eagle:package:21297470/2"/>
 <part name="GND4" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
-<part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_2512" package3d_urn="urn:adsk.eagle:package:21272979/2" value=".002"/>
+<part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_2512" package3d_urn="urn:adsk.eagle:package:21272979/3" value=".002"/>
 <part name="Q2" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="CSD19536KTT" device="" package3d_urn="urn:adsk.eagle:package:21297419/2"/>
 <part name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="5_0SMDJ24A"/>
 <part name="GND5" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
