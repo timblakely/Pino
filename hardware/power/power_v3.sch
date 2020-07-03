@@ -1889,7 +1889,7 @@
 <part name="J3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PWR_2" device="_XT30PW-F" package3d_urn="urn:adsk.eagle:package:20295843/2"/>
 <part name="J4" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PWR_2" device="_XT30PW-F" package3d_urn="urn:adsk.eagle:package:20295843/2"/>
 <part name="J5" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="PWR_2" device="_XT30PW-F" package3d_urn="urn:adsk.eagle:package:20295843/2"/>
-<part name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="D" device="" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
+<part name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="D" device="" package3d_urn="urn:adsk.eagle:package:20295471/2" value="1N4148W-7-F"/>
 <part name="R8" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="1k"/>
 <part name="C2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.012uF 50V"/>
 <part name="GND1" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>

@@ -957,7 +957,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="SCHOTTKY" urn="urn:adsk.eagle:component:20295472/2" prefix="D" library_version="18">
+<deviceset name="SCHOTTKY" urn="urn:adsk.eagle:component:20295472/2" locally_modified="yes" prefix="D" uservalue="yes" library_version="21" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="SCHOTTKY" x="0" y="0"/>
 </gates>
@@ -1074,7 +1074,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="D" urn="urn:adsk.eagle:component:21520921/1" prefix="D" library_version="19" library_locally_modified="yes">
+<deviceset name="D" urn="urn:adsk.eagle:component:21520921/1" locally_modified="yes" prefix="D" uservalue="yes" library_version="21" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="D" x="0" y="0"/>
 </gates>
@@ -1873,7 +1873,7 @@
 <part name="GND6" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
 <part name="R1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_2512" package3d_urn="urn:adsk.eagle:package:21272979/2" value=".002"/>
 <part name="Q1" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="CSD19536KTT" device="" package3d_urn="urn:adsk.eagle:package:21297419/2"/>
-<part name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
+<part name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="5_0SMDJ24A"/>
 <part name="GND7" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
 <part name="C1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.068uF 50V"/>
 <part name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="20k"/>
@@ -1913,7 +1913,7 @@
 <part name="GND4" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
 <part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R_SENSE" device="_2512" package3d_urn="urn:adsk.eagle:package:21272979/2" value=".002"/>
 <part name="Q2" library="_T_transistors" library_urn="urn:adsk.eagle:library:19605452" deviceset="CSD19536KTT" device="" package3d_urn="urn:adsk.eagle:package:21297419/2"/>
-<part name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
+<part name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="5_0SMDJ24A"/>
 <part name="GND5" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
 <part name="C12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.068uF 50V"/>
 <part name="R10" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="20k"/>
@@ -1925,10 +1925,12 @@
 <part name="R15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="4.7k 1%"/>
 <part name="GND11" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
 <part name="J10" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" deviceset="LINEAR_2" device="_5040500291" package3d_urn="urn:adsk.eagle:package:20672635/2"/>
-<part name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="D" device="" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
+<part name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="D" device="" package3d_urn="urn:adsk.eagle:package:20295471/2" value="1N4148W-7-F"/>
 <part name="R16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="1k"/>
 <part name="C13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.012uF 50V"/>
 <part name="GND12" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="-V_BATT" device=""/>
+<part name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="0.068uF 50V"/>
+<part name="D5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="SCHOTTKY" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="5_0SMDJ24A"/>
 </parts>
 <sheets>
 <sheet>
@@ -2083,7 +2085,7 @@
 <attribute name="NAME" x="23.876" y="183.515" size="1.778" layer="95"/>
 <attribute name="VALUE" x="23.876" y="178.689" size="1.778" layer="96"/>
 </instance>
-<instance part="J6" gate="G$1" x="142.24" y="187.96" smashed="yes" grouprefs="BATT_TERM"/>
+<instance part="J6" gate="G$1" x="142.24" y="190.5" smashed="yes" grouprefs="BATT_TERM"/>
 <instance part="J7" gate="G$1" x="142.24" y="182.88" smashed="yes" grouprefs="BATT_TERM"/>
 <instance part="J8" gate="G$1" x="91.44" y="182.88" smashed="yes" grouprefs="5V_ISO">
 <attribute name="NAME" x="88.9" y="188.214" size="1.778" layer="95"/>
@@ -2164,6 +2166,13 @@
 </instance>
 <instance part="GND12" gate="G$1" x="119.38" y="-7.62" smashed="yes" grouprefs="+ISO_POWER">
 <attribute name="VALUE" x="117.475" y="-10.795" size="1.778" layer="96"/>
+</instance>
+<instance part="C14" gate="G$1" x="132.08" y="187.96" smashed="yes">
+<attribute name="NAME" x="133.604" y="188.341" size="1.778" layer="95"/>
+<attribute name="VALUE" x="133.604" y="183.261" size="1.778" layer="96"/>
+</instance>
+<instance part="D5" gate="G$1" x="137.16" y="185.42" smashed="yes" rot="R90">
+<attribute name="NAME" x="135.255" y="183.134" size="1.778" layer="95" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -2312,8 +2321,15 @@
 </segment>
 <segment>
 <pinref part="J6" gate="G$1" pin="PIN1"/>
-<wire x1="139.7" y1="187.96" x2="137.16" y2="187.96" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
-<label x="137.16" y="187.96" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BATT_TERM"/>
+<label x="124.46" y="190.5" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BATT_TERM"/>
+<wire x1="139.7" y1="190.5" x2="137.16" y2="190.5" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="190.5" x2="132.08" y2="190.5" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
+<wire x1="132.08" y1="190.5" x2="124.46" y2="190.5" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
+<junction x="132.08" y="190.5"/>
+<pinref part="D5" gate="G$1" pin="C"/>
+<wire x1="137.16" y1="187.96" x2="137.16" y2="190.5" width="0.1524" layer="91"/>
+<junction x="137.16" y="190.5"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
@@ -2442,8 +2458,14 @@
 </segment>
 <segment>
 <pinref part="J7" gate="G$1" pin="PIN1"/>
+<label x="124.46" y="182.88" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BATT_TERM"/>
 <wire x1="139.7" y1="182.88" x2="137.16" y2="182.88" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
-<label x="137.16" y="182.88" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BATT_TERM"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="182.88" x2="132.08" y2="182.88" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
+<wire x1="132.08" y1="182.88" x2="124.46" y2="182.88" width="0.1524" layer="91" grouprefs="BATT_TERM"/>
+<junction x="132.08" y="182.88"/>
+<pinref part="D5" gate="G$1" pin="A"/>
+<junction x="137.16" y="182.88"/>
 </segment>
 <segment>
 <pinref part="C12" gate="G$1" pin="2"/>
