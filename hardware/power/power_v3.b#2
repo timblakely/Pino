@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:NIiH3u5URBCqLPNixwQc4w" pcbguid="" lastpulledtime="2020-07-01T23:36:44Z" lastsyncedchangeguid="" latestrevisionid="139082bc-8da4-45ac-b4e8-9beb6a12b33b" lastsyncedrevisionid="139082bc-8da4-45ac-b4e8-9beb6a12b33b" lastboardhashguid="2a13bf80-225b-326f-a644-5012308f9f45" lastpushedtime="2020-07-03T00:46:42Z" linktopcb3d="true"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:NIiH3u5URBCqLPNixwQc4w" pcbguid="" lastpulledtime="2020-07-01T23:36:44Z" lastsyncedchangeguid="" latestrevisionid="a02dffb8-1203-4a76-a1d6-2f53c010d684" lastsyncedrevisionid="a02dffb8-1203-4a76-a1d6-2f53c010d684" lastboardhashguid="31fae87f-55dd-9496-9b75-db9c020a5965" lastpushedtime="2020-07-03T01:54:28Z" linktopcb3d="true"/>
 <plain>
 <wire x1="3" y1="92" x2="0" y2="89" width="0" layer="20" curve="90" locked="yes"/>
 <wire x1="0" y1="3" x2="0" y2="89" width="0" layer="20" locked="yes"/>
@@ -1568,13 +1568,11 @@
 <contactref element="U4" pad="9"/>
 <contactref element="Q2" pad="3"/>
 <contactref element="D3" pad="C"/>
-<wire x1="1.9" y1="36.5" x2="0.6" y2="37.8" width="0.2" layer="1"/>
-<wire x1="4.55" y1="58.85" x2="9.86" y2="58.85" width="0.2" layer="1"/>
-<wire x1="0.6" y1="37.8" x2="0.6" y2="54.9" width="0.2" layer="1"/>
-<wire x1="0.6" y1="54.9" x2="4.55" y2="58.85" width="0.2" layer="1"/>
-<wire x1="11.5" y1="33.5" x2="13.3971" y2="33.5" width="0.2" layer="1"/>
-<wire x1="1.9" y1="36.5" x2="8.5" y2="36.5" width="0.2" layer="1"/>
-<wire x1="8.5" y1="36.5" x2="11.5" y2="33.5" width="0.2" layer="1"/>
+<wire x1="13.3971" y1="33.5" x2="12.3" y2="33.5" width="0.2" layer="1"/>
+<wire x1="12.3" y1="33.5" x2="12" y2="33.8" width="0.2" layer="1"/>
+<via x="12" y="33.8" extent="1-16" drill="0.29"/>
+<wire x1="12" y1="33.8" x2="12" y2="56.9" width="0.2" layer="16"/>
+<via x="12" y="56.9" extent="1-16" drill="0.29"/>
 </signal>
 <signal name="12V_GND" class="1">
 <contactref element="U2" pad="-VOUT"/>
@@ -1727,22 +1725,21 @@
 <contactref element="R16" pad="2"/>
 <contactref element="Q2" pad="1"/>
 <contactref element="U4" pad="10"/>
-<wire x1="14.94" y1="58.85" x2="14.94" y2="55.44" width="0.2" layer="1"/>
-<wire x1="14.94" y1="55.44" x2="14.2" y2="54.7" width="0.2" layer="1"/>
-<wire x1="1.1524" y1="37.945975" x2="2.0991875" y2="36.9991875" width="0.2" layer="1"/>
-<wire x1="8.6008125" y1="36.9991875" x2="2.0991875" y2="36.9991875" width="0.2" layer="1"/>
-<wire x1="14.2" y1="54.7" x2="1.8" y2="54.7" width="0.2" layer="1"/>
-<wire x1="1.8" y1="54.7" x2="1.1524" y2="54.0524" width="0.2" layer="1"/>
-<wire x1="1.1524" y1="54.0524" x2="1.1524" y2="37.945975" width="0.2" layer="1"/>
 <wire x1="12.65" y1="27.6" x2="15.375" y2="27.6" width="0.2" layer="1"/>
 <wire x1="15.375" y1="27.6" x2="15.6" y2="27.375" width="0.2" layer="1"/>
-<wire x1="13.3971" y1="34" x2="11.6" y2="34" width="0.2" layer="1"/>
-<wire x1="11.6" y1="34" x2="8.6008125" y2="36.9991875" width="0.2" layer="1"/>
 <wire x1="15.6" y1="27.375" x2="15.6" y2="30.3" width="0.2" layer="1"/>
 <wire x1="15.2" y1="30.7" x2="15.2" y2="33.4" width="0.2" layer="1"/>
 <wire x1="15.2" y1="33.4" x2="14.6" y2="34" width="0.2" layer="1"/>
 <wire x1="14.6" y1="34" x2="13.3971" y2="34" width="0.2" layer="1"/>
 <wire x1="15.6" y1="30.3" x2="15.2" y2="30.7" width="0.2" layer="1"/>
+<wire x1="13.3971" y1="34" x2="13.3971" y2="36.6971" width="0.2" layer="1"/>
+<wire x1="13.3971" y1="36.6971" x2="13.4" y2="36.7" width="0.2" layer="1"/>
+<via x="13.4" y="36.7" extent="1-16" drill="0.29"/>
+<wire x1="13.4" y1="36.7" x2="13.4" y2="53.4" width="0.2" layer="16"/>
+<wire x1="13.4" y1="53.4" x2="14.9" y2="54.9" width="0.2" layer="16"/>
+<via x="14.9" y="54.9" extent="1-16" drill="0.29"/>
+<wire x1="14.9" y1="54.9" x2="14.9" y2="58.81" width="0.2" layer="1"/>
+<wire x1="14.9" y1="58.81" x2="14.94" y2="58.85" width="0.2" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
