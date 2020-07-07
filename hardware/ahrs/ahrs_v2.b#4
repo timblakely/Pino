@@ -167,7 +167,7 @@
 <wire x1="3" y1="32" x2="0" y2="29" width="0" layer="20" curve="90"/>
 <wire x1="0" y1="29" x2="0" y2="3" width="0" layer="20"/>
 <hole x="3" y="3" drill="3.4"/>
-<hole x="29" y="3" drill="3.4"/>
+<hole x="2.8" y="-327.6" drill="3.4"/>
 <hole x="29" y="29" drill="3.4"/>
 <hole x="3" y="29" drill="3.4"/>
 </plain>
