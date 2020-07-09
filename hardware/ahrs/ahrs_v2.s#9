@@ -1913,7 +1913,6 @@
 </instance>
 <instance part="J3" gate="G$1" x="259.08" y="132.08" smashed="yes">
 <attribute name="NAME" x="256.54" y="139.954" size="1.778" layer="95"/>
-<attribute name="VALUE" x="256.54" y="116.84" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
