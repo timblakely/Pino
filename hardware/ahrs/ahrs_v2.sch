@@ -1048,6 +1048,22 @@
 <text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="SOD123" urn="urn:adsk.eagle:footprint:16502212/1" library_version="24">
+<description>SOD-123FL CASE 498-01 ISSUE A&lt;br&gt;</description>
+<wire x1="-1.35" y1="0.8" x2="1.35" y2="0.8" width="0.2032" layer="51"/>
+<wire x1="1.35" y1="0.8" x2="1.35" y2="-0.8" width="0.2032" layer="51"/>
+<wire x1="1.35" y1="-0.8" x2="-1.35" y2="-0.8" width="0.2032" layer="51"/>
+<wire x1="-1.35" y1="-0.8" x2="-1.35" y2="0.8" width="0.2032" layer="51"/>
+<wire x1="-0.85" y1="0.8" x2="0.85" y2="0.8" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="-0.8" x2="-0.85" y2="-0.8" width="0.2032" layer="21"/>
+<smd name="A" x="1.575" y="0" dx="0.9" dy="0.95" layer="1"/>
+<smd name="C" x="-1.575" y="0" dx="0.9" dy="0.95" layer="1" rot="R180"/>
+<text x="-2" y="1" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2" y="-2.5" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.8" y1="-0.55" x2="-1.425" y2="0.55" layer="51"/>
+<rectangle x1="1.425" y1="-0.55" x2="1.8" y2="0.55" layer="51" rot="R180"/>
+<rectangle x1="-0.95" y1="-0.775" x2="-0.65" y2="0.8" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="C0402" urn="urn:adsk.eagle:package:19572013/4" type="model" library_version="13" library_locally_modified="yes">
@@ -1097,6 +1113,12 @@
 <package3d name="D0603" urn="urn:adsk.eagle:package:19545722/4" type="model" library_version="23" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="D0603"/>
+</packageinstances>
+</package3d>
+<package3d name="SOD123" urn="urn:adsk.eagle:package:20295471/2" type="model" library_version="24">
+<description>SOD-123FL CASE 498-01 ISSUE A&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="SOD123"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1163,6 +1185,22 @@
 <vertex x="-2.921" y="-2.413"/>
 <vertex x="-2.413" y="-2.921"/>
 </polygon>
+</symbol>
+<symbol name="ZENER_SUPPRESSOR" urn="urn:adsk.eagle:symbol:20295469/1" library_version="24">
+<wire x1="1.27" y1="-1.27" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.905" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<text x="2.794" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.794" y="-0.889" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="0" y="-2.54" visible="off" length="point" direction="pas" rot="R90"/>
+<pin name="C" x="0" y="2.54" visible="off" length="point" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1295,6 +1333,25 @@
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:19545722/4"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TVS" urn="urn:adsk.eagle:component:20295473/2" prefix="D" uservalue="yes" library_version="24">
+<gates>
+<gate name="G$1" symbol="ZENER_SUPPRESSOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_SOD123" package="SOD123">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:20295471/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -1783,6 +1840,7 @@
 <part name="R2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="270"/>
 <part name="R3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0603" package3d_urn="urn:adsk.eagle:package:19572012/3" value="22"/>
 <part name="GND13" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
+<part name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="TVS" device="_SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -1983,12 +2041,12 @@
 <attribute name="NAME" x="71.4756" y="72.6186" size="2.0828" layer="95" ratio="6" rot="SR0"/>
 <attribute name="VALUE" x="70.8406" y="70.0786" size="2.0828" layer="96" ratio="6" rot="SR0"/>
 </instance>
-<instance part="J1" gate="G$1" x="251.46" y="91.44" smashed="yes" grouprefs="POWER">
-<attribute name="NAME" x="248.92" y="94.234" size="1.778" layer="95"/>
+<instance part="J1" gate="G$1" x="248.92" y="88.9" smashed="yes" grouprefs="POWER">
+<attribute name="NAME" x="246.38" y="91.694" size="1.778" layer="95"/>
 </instance>
-<instance part="GND12" gate="G$1" x="243.84" y="86.36" smashed="yes" grouprefs="POWER"/>
-<instance part="+5V2" gate="G$1" x="243.84" y="93.98" smashed="yes" grouprefs="POWER">
-<attribute name="VALUE" x="246.38" y="96.52" size="1.27" layer="96" rot="R180"/>
+<instance part="GND12" gate="G$1" x="236.22" y="81.28" smashed="yes" grouprefs="POWER"/>
+<instance part="+5V2" gate="G$1" x="236.22" y="91.44" smashed="yes" grouprefs="POWER">
+<attribute name="VALUE" x="238.76" y="93.98" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="J3" gate="G$1" x="269.24" y="134.62" smashed="yes" grouprefs="DEBUG">
 <attribute name="NAME" x="266.7" y="142.494" size="1.778" layer="95"/>
@@ -2018,6 +2076,10 @@
 <attribute name="VALUE" x="150.622" y="19.05" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="GND13" gate="G$1" x="154.94" y="10.16" smashed="yes" grouprefs="LED_INFO"/>
+<instance part="D4" gate="G$1" x="236.22" y="86.36" smashed="yes" grouprefs="POWER">
+<attribute name="NAME" x="239.014" y="88.265" size="1.778" layer="95"/>
+<attribute name="VALUE" x="239.014" y="85.471" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2318,7 +2380,10 @@
 <segment>
 <pinref part="J1" gate="G$1" pin="P2"/>
 <pinref part="GND12" gate="G$1" pin="GND"/>
-<wire x1="246.38" y1="88.9" x2="243.84" y2="88.9" width="0.1524" layer="91" grouprefs="POWER"/>
+<pinref part="D4" gate="G$1" pin="A"/>
+<junction x="236.22" y="83.82" grouprefs="POWER"/>
+<wire x1="236.22" y1="83.82" x2="243.84" y2="83.82" width="0.1524" layer="91" grouprefs="POWER"/>
+<wire x1="243.84" y1="83.82" x2="243.84" y2="86.36" width="0.1524" layer="91" grouprefs="POWER"/>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="P8"/>
@@ -2412,7 +2477,9 @@
 <segment>
 <pinref part="J1" gate="G$1" pin="P1"/>
 <pinref part="+5V2" gate="G$1" pin="+5V"/>
-<wire x1="246.38" y1="91.44" x2="243.84" y2="91.44" width="0.1524" layer="91" grouprefs="POWER"/>
+<wire x1="243.84" y1="88.9" x2="236.22" y2="88.9" width="0.1524" layer="91" grouprefs="POWER"/>
+<pinref part="D4" gate="G$1" pin="C"/>
+<junction x="236.22" y="88.9" grouprefs="POWER"/>
 </segment>
 </net>
 <net name="CS_AG" class="0">
