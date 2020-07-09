@@ -2628,9 +2628,9 @@
 <label x="147.32" y="40.64" size="1.27" layer="95" rot="R90" xref="yes" grouprefs="LED_INFO"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PB7"/>
-<wire x1="53.34" y1="119.38" x2="50.8" y2="119.38" width="0.1524" layer="91" grouprefs="MICRO"/>
-<label x="50.8" y="119.38" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
+<pinref part="U1" gate="A" pin="PB15"/>
+<wire x1="53.34" y1="99.06" x2="50.8" y2="99.06" width="0.1524" layer="91"/>
+<label x="50.8" y="99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="LEDR" class="0">
@@ -2640,9 +2640,9 @@
 <label x="154.94" y="40.64" size="1.27" layer="95" rot="R90" xref="yes" grouprefs="LED_INFO"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PB6"/>
-<wire x1="53.34" y1="121.92" x2="50.8" y2="121.92" width="0.1524" layer="91" grouprefs="MICRO"/>
-<label x="50.8" y="121.92" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
+<pinref part="U1" gate="A" pin="PB14"/>
+<wire x1="53.34" y1="101.6" x2="50.8" y2="101.6" width="0.1524" layer="91"/>
+<label x="50.8" y="101.6" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="LEDB" class="0">
@@ -2652,9 +2652,9 @@
 <label x="162.56" y="40.64" size="1.27" layer="95" rot="R90" xref="yes" grouprefs="LED_INFO"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PB9"/>
-<wire x1="53.34" y1="114.3" x2="50.8" y2="114.3" width="0.1524" layer="91" grouprefs="MICRO"/>
-<label x="50.8" y="114.3" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
+<pinref part="U1" gate="A" pin="PC6"/>
+<wire x1="96.52" y1="177.8" x2="99.06" y2="177.8" width="0.1524" layer="91"/>
+<label x="99.06" y="177.8" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

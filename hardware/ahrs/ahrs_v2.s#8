@@ -2554,6 +2554,11 @@
 <wire x1="96.52" y1="175.26" x2="99.06" y2="175.26" width="0.1524" layer="91" grouprefs="MICRO"/>
 <label x="99.06" y="175.26" size="1.27" layer="95" xref="yes" grouprefs="MICRO"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="SCL/SPC"/>
+<wire x1="167.64" y1="137.16" x2="162.56" y2="137.16" width="0.1524" layer="91"/>
+<label x="162.56" y="137.16" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="SPI3_CS" class="0">
 <segment>
