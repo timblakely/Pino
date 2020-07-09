@@ -2521,20 +2521,6 @@
 <label x="261.62" y="132.08" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG"/>
 </segment>
 </net>
-<net name="LPUART_TX" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PA2"/>
-<wire x1="53.34" y1="175.26" x2="50.8" y2="175.26" width="0.1524" layer="91" grouprefs="MICRO"/>
-<label x="50.8" y="175.26" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
-</segment>
-</net>
-<net name="LPUART_RX" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PA3"/>
-<wire x1="53.34" y1="172.72" x2="50.8" y2="172.72" width="0.1524" layer="91" grouprefs="MICRO"/>
-<label x="50.8" y="172.72" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
-</segment>
-</net>
 <net name="SPI3_MISO" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PC11"/>
@@ -2592,12 +2578,22 @@
 <wire x1="264.16" y1="127" x2="261.62" y2="127" width="0.1524" layer="91" grouprefs="DEBUG"/>
 <label x="261.62" y="127" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PA2"/>
+<wire x1="53.34" y1="175.26" x2="50.8" y2="175.26" width="0.1524" layer="91" grouprefs="MICRO"/>
+<label x="50.8" y="175.26" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
+</segment>
 </net>
 <net name="LPUART1_RX" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="P7"/>
 <wire x1="264.16" y1="124.46" x2="261.62" y2="124.46" width="0.1524" layer="91" grouprefs="DEBUG"/>
 <label x="261.62" y="124.46" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PA3"/>
+<wire x1="53.34" y1="172.72" x2="50.8" y2="172.72" width="0.1524" layer="91" grouprefs="MICRO"/>
+<label x="50.8" y="172.72" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="MICRO"/>
 </segment>
 </net>
 <net name="N$6" class="0">
