@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="848c6747-3f4d-4eaa-9d78-3698b7bdd824" lastsyncedrevisionid="848c6747-3f4d-4eaa-9d78-3698b7bdd824" lastboardhashguid="77e990b0-cea2-1a33-f5c1-3a22372c9ebf" lastpushedtime="2020-05-25T21:34:19Z" linktopcb3d="true"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="7d318491-05db-401f-932f-fdee81760050" lastsyncedrevisionid="7d318491-05db-401f-932f-fdee81760050" lastboardhashguid="880a7969-cb7e-7353-4a85-d3f9926e656c" lastpushedtime="2020-07-30T19:49:44Z" linktopcb3d="true"/>
 <plain>
 <wire x1="39.0836" y1="39.681" x2="38" y2="40" width="0" layer="20" curve="32.8049"/>
 <wire x1="38" y1="40" x2="2" y2="40" width="0" layer="20"/>
@@ -2241,8 +2241,8 @@ BLDC V1.1</text>
 <via x="21" y="14" extent="1-16" drill="0.3"/>
 <via x="21" y="13.4" extent="1-16" drill="0.3"/>
 <polygon width="0.2" layer="1" thermals="no">
-<vertex x="30.4" y="11.8"/>
-<vertex x="34.5" y="11.8"/>
+<vertex x="30.4" y="11.5"/>
+<vertex x="34.5" y="11.5"/>
 <vertex x="34.5" y="14.9"/>
 <vertex x="30.4" y="14.9"/>
 </polygon>
@@ -2886,18 +2886,18 @@ BLDC V1.1</text>
 <contactref element="U8" pad="SOURCE@1"/>
 <contactref element="U8" pad="SOURCE@2"/>
 <polygon width="0.2" layer="1" thermals="no">
-<vertex x="30.4" y="10.7"/>
-<vertex x="34.7" y="10.7"/>
-<vertex x="34.7" y="7.1"/>
-<vertex x="32" y="7.1"/>
+<vertex x="30.4" y="10.9"/>
+<vertex x="34.7" y="10.9"/>
+<vertex x="34.7" y="7.2"/>
+<vertex x="32" y="7.2"/>
 <vertex x="32" y="7.8"/>
 <vertex x="30.4" y="7.8"/>
 </polygon>
 <polygon width="0.2" layer="16" thermals="no">
-<vertex x="30.3" y="10.6"/>
-<vertex x="34.7" y="10.6"/>
-<vertex x="34.7" y="7"/>
-<vertex x="30.3" y="7"/>
+<vertex x="30.3" y="10.9"/>
+<vertex x="34.7" y="10.9"/>
+<vertex x="34.7" y="7.2"/>
+<vertex x="30.3" y="7.2"/>
 </polygon>
 <via x="32.2" y="8.4" extent="1-16" drill="0.3"/>
 <via x="31.6" y="8.4" extent="1-16" drill="0.3"/>
