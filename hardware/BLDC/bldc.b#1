@@ -156,7 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="848c6747-3f4d-4eaa-9d78-3698b7bdd824" lastsyncedrevisionid="848c6747-3f4d-4eaa-9d78-3698b7bdd824" lastboardhashguid="77e990b0-cea2-1a33-f5c1-3a22372c9ebf" lastpushedtime="2020-05-25T21:34:19Z" linktopcb3d="true"/>
+<fusionsync huburn="a.YnVzaW5lc3M6Z21haWwyMjE5MTc" projecturn="a.YnVzaW5lc3M6Z21haWwyMjE5MTcjMjAxOTA2MjkyMDE0MTU5NzY" f3durn="urn:adsk.wipprod:dm.lineage:e4urj2y-ReajaBtUk_DaUw" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="e09aa069-2842-4e3f-8997-de950510fa36" lastsyncedrevisionid="e09aa069-2842-4e3f-8997-de950510fa36" lastboardhashguid="880a7969-cb7e-7353-4a85-d3f9926e656c" lastpushedtime="2020-07-30T19:55:50Z" linktopcb3d="true"/>
 <plain>
 <wire x1="39.0836" y1="39.681" x2="38" y2="40" width="0" layer="20" curve="32.8049"/>
 <wire x1="38" y1="40" x2="2" y2="40" width="0" layer="20"/>
@@ -652,15 +652,15 @@ BLDC V1.1</text>
 <text x="-2.54" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="C0603" urn="urn:adsk.eagle:footprint:19572001/2" library_version="13" library_locally_modified="yes">
+<package name="C0603" urn="urn:adsk.eagle:footprint:19572001/3" library_version="25">
 <smd name="1" x="0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <smd name="2" x="-0.75" y="0" dx="0.6" dy="0.9" layer="1"/>
 <wire x1="-0.775" y1="0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
 <wire x1="-0.775" y1="-0.425" x2="0.775" y2="-0.425" width="0.05" layer="51"/>
 <wire x1="0.775" y1="-0.425" x2="0.775" y2="0.425" width="0.05" layer="51"/>
 <wire x1="-0.775" y1="-0.425" x2="-0.775" y2="0.425" width="0.05" layer="51"/>
-<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
+<text x="0" y="1.3" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="-1.3" size="1.27" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="R0402" urn="urn:adsk.eagle:footprint:19572004/2" library_version="13" library_locally_modified="yes">
 <smd name="1" x="0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
@@ -672,7 +672,7 @@ BLDC V1.1</text>
 <text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="SDR0302" urn="urn:adsk.eagle:footprint:20294117/4" locally_modified="yes" library_version="14" library_locally_modified="yes">
+<package name="SDR0302" urn="urn:adsk.eagle:footprint:20294117/5" library_version="25">
 <smd name="PIN1" x="0" y="1.025" dx="3" dy="1.25" layer="1" thermals="no"/>
 <smd name="PIN2" x="0" y="-1.025" dx="3" dy="1.25" layer="1" rot="R180" thermals="no"/>
 <polygon width="0.3" layer="31">
@@ -748,7 +748,7 @@ BLDC V1.1</text>
 <text x="-2.54" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="R1210_KELVIN" urn="urn:adsk.eagle:footprint:16502582/3" library_version="14">
+<package name="R1210_KELVIN" urn="urn:adsk.eagle:footprint:16502582/4" library_version="25">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <wire x1="-0.913" y1="1.219" x2="0.939" y2="1.219" width="0.1524" layer="51"/>
 <wire x1="-0.913" y1="-1.219" x2="0.939" y2="-1.219" width="0.1524" layer="51"/>
@@ -756,30 +756,30 @@ BLDC V1.1</text>
 <wire x1="2.473" y1="1.483" x2="2.473" y2="-1.483" width="0.0508" layer="39"/>
 <wire x1="2.473" y1="-1.483" x2="-2.473" y2="-1.483" width="0.0508" layer="39"/>
 <wire x1="-2.473" y1="-1.483" x2="-2.473" y2="1.483" width="0.0508" layer="39"/>
-<smd name="2_KELVIN" x="1.4" y="0" dx="1.6" dy="0.2" layer="1"/>
-<smd name="1A" x="-1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
-<smd name="1B" x="-1.4" y="-0.825" dx="1.6" dy="1.05" layer="1"/>
-<smd name="2A" x="1.4" y="0.825" dx="1.6" dy="1.05" layer="1"/>
-<smd name="2B" x="1.4" y="-0.825" dx="1.6" dy="1.05" layer="1"/>
-<smd name="1_KELVIN" x="-1.4" y="0" dx="1.6" dy="0.2" layer="1"/>
+<smd name="2_KELVIN" x="1.4" y="0" dx="1.6" dy="0.4" layer="1"/>
+<smd name="1A" x="-1.4" y="0.875" dx="1.6" dy="0.95" layer="1"/>
+<smd name="1B" x="-1.4" y="-0.875" dx="1.6" dy="0.95" layer="1"/>
+<smd name="2A" x="1.4" y="0.875" dx="1.6" dy="0.95" layer="1"/>
+<smd name="2B" x="1.4" y="-0.875" dx="1.6" dy="0.95" layer="1"/>
+<smd name="1_KELVIN" x="-1.4" y="0" dx="1.6" dy="0.4" layer="1"/>
 <text x="-2.54" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-1.651" y1="-1.3081" x2="-0.9009" y2="1.2918" layer="51"/>
 <rectangle x1="0.9144" y1="-1.3081" x2="1.6645" y2="1.2918" layer="51"/>
 <rectangle x1="-0.3" y1="-0.8999" x2="0.3" y2="0.8999" layer="35"/>
 </package>
-<package name="D0603" urn="urn:adsk.eagle:footprint:19545721/2" locally_modified="yes" library_version="14" library_locally_modified="yes">
+<package name="D0603" urn="urn:adsk.eagle:footprint:19545721/3" library_version="25">
 <smd name="1" x="-0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
 <smd name="2" x="0.8" y="0" dx="0.8" dy="0.8" layer="1"/>
 <wire x1="-0.8" y1="0.4" x2="0.8" y2="0.4" width="0.085" layer="51"/>
 <wire x1="0.8" y1="0.4" x2="0.8" y2="-0.4" width="0.085" layer="51"/>
 <wire x1="0.8" y1="-0.4" x2="-0.8" y2="-0.4" width="0.085" layer="51"/>
 <wire x1="-0.8" y1="-0.4" x2="-0.8" y2="0.4" width="0.085" layer="51"/>
-<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 <wire x1="-0.2" y1="0.4" x2="-0.2" y2="-0.4" width="0.15" layer="21"/>
 <wire x1="-0.2" y1="-0.4" x2="0.05" y2="-0.4" width="0.15" layer="21"/>
 <wire x1="-0.2" y1="0.4" x2="0.05" y2="0.4" width="0.15" layer="21"/>
+<text x="-1.27" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <packages3d>
@@ -793,7 +793,7 @@ BLDC V1.1</text>
 <packageinstance name="L0603"/>
 </packageinstances>
 </package3d>
-<package3d name="C0603" urn="urn:adsk.eagle:package:19572011/3" type="model" library_version="13" library_locally_modified="yes">
+<package3d name="C0603" urn="urn:adsk.eagle:package:19572011/4" type="model" library_version="25">
 <packageinstances>
 <packageinstance name="C0603"/>
 </packageinstances>
@@ -803,7 +803,7 @@ BLDC V1.1</text>
 <packageinstance name="R0402"/>
 </packageinstances>
 </package3d>
-<package3d name="SDR0302" urn="urn:adsk.eagle:package:20294118/5" type="model" library_version="14" library_locally_modified="yes">
+<package3d name="SDR0302" urn="urn:adsk.eagle:package:20294118/6" type="model" library_version="25">
 <packageinstances>
 <packageinstance name="SDR0302"/>
 </packageinstances>
@@ -819,13 +819,13 @@ BLDC V1.1</text>
 <packageinstance name="C1206"/>
 </packageinstances>
 </package3d>
-<package3d name="R1210_KELVIN" urn="urn:adsk.eagle:package:16502583/4" type="model" library_version="14">
+<package3d name="R1210_KELVIN" urn="urn:adsk.eagle:package:16502583/5" type="model" library_version="25">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="R1210_KELVIN"/>
 </packageinstances>
 </package3d>
-<package3d name="D0603" urn="urn:adsk.eagle:package:19545722/3" type="model" library_version="14" library_locally_modified="yes">
+<package3d name="D0603" urn="urn:adsk.eagle:package:19545722/4" type="model" library_version="25">
 <packageinstances>
 <packageinstance name="D0603"/>
 </packageinstances>
@@ -1318,7 +1318,7 @@ BLDC V1.1</text>
 <element name="PHASE_A" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2" value="WIRE_HOLE_AWG_18" x="9.8" y="1.6" smashed="yes"/>
 <element name="PHASE_B" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2" value="WIRE_HOLE_AWG_18" x="19.8" y="1.6" smashed="yes"/>
 <element name="PHASE_C" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="AWG_18" package3d_urn="urn:adsk.eagle:package:20293989/2" value="WIRE_HOLE_AWG_18" x="30" y="1.6" smashed="yes"/>
-<element name="C12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="2.2uF 50V" x="6.4" y="15.9" smashed="yes" rot="R180">
+<element name="C12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/4" value="2.2uF 50V" x="6.4" y="15.9" smashed="yes" rot="R180">
 <attribute name="NAME" x="6.37" y="14.83" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="7.67" y="18.44" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -1330,7 +1330,7 @@ BLDC V1.1</text>
 <attribute name="NAME" x="8.23" y="26.97" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="6.93" y="23.46" size="1.27" layer="27"/>
 </element>
-<element name="L2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="SDR0302" package3d_urn="urn:adsk.eagle:package:20294118/5" value="22uH Bourns" x="2.2" y="27" smashed="yes" rot="R180">
+<element name="L2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="SDR0302" package3d_urn="urn:adsk.eagle:package:20294118/6" value="22uH Bourns" x="2.2" y="27" smashed="yes" rot="R180">
 <attribute name="NAME" x="2.14" y="24.56" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="4.74" y="30.81" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -1342,11 +1342,11 @@ BLDC V1.1</text>
 <attribute name="NAME" x="6.67" y="29.13" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="9.24" y="26.43" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="10uF 25V" x="2.8" y="33.5" smashed="yes" rot="R270">
+<element name="C14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/4" value="10uF 25V" x="2.8" y="33.5" smashed="yes" rot="R270">
 <attribute name="NAME" x="1.77" y="33.47" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="0.26" y="34.77" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="SCHOTTKY_SOD123" x="2.7" y="22.2" smashed="yes" rot="R180">
+<element name="D1" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="SOD123" package3d_urn="urn:adsk.eagle:package:20295471/2" value="" x="2.7" y="22.2" smashed="yes" rot="R180">
 <attribute name="NAME" x="2.7" y="23.6" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="4.7" y="24.7" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -1430,11 +1430,11 @@ BLDC V1.1</text>
 <attribute name="NAME" x="41.03" y="26.53" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="39.46" y="27.77" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C31" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uF 50V" x="7.3" y="18" smashed="yes" rot="R180">
+<element name="C31" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/4" value="1uF 50V" x="7.3" y="18" smashed="yes" rot="R180">
 <attribute name="NAME" x="7.27" y="17.03" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="8.57" y="20.54" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="C32" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/3" value="1uF 50V" x="3.6" y="16.6" smashed="yes">
+<element name="C32" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0603" package3d_urn="urn:adsk.eagle:package:19572011/4" value="1uF 50V" x="3.6" y="16.6" smashed="yes">
 <attribute name="NAME" x="3.63" y="15.47" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="2.33" y="14.06" size="1.27" layer="27"/>
 </element>
@@ -1450,15 +1450,15 @@ BLDC V1.1</text>
 <attribute name="NAME" x="21.47" y="24.37" size="0.8" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="17.86" y="25.67" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R1210_KELVIN" package3d_urn="urn:adsk.eagle:package:16502583/4" value="0.001" x="11.3" y="11.2" smashed="yes" rot="R90">
+<element name="R5" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R1210_KELVIN" package3d_urn="urn:adsk.eagle:package:16502583/5" value="0.001" x="11.3" y="11.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="9.195" y="11.76" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="15.775" y="8.56" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R1210_KELVIN" package3d_urn="urn:adsk.eagle:package:16502583/4" value="0.001" x="17.2" y="11.2" smashed="yes" rot="R90">
+<element name="R6" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R1210_KELVIN" package3d_urn="urn:adsk.eagle:package:16502583/5" value="0.001" x="17.2" y="11.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="14.995" y="11.96" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="20.375" y="8.66" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R1210_KELVIN" package3d_urn="urn:adsk.eagle:package:16502583/4" value="0.001" x="32.5" y="11.2" smashed="yes" rot="R90">
+<element name="R7" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R1210_KELVIN" package3d_urn="urn:adsk.eagle:package:16502583/5" value="0.001" x="32.5" y="11.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="34.895" y="12.46" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="35.675" y="8.66" size="1.27" layer="27" rot="R90"/>
 </element>
@@ -1522,15 +1522,15 @@ BLDC V1.1</text>
 <attribute name="NAME" x="13.725" y="33.71" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="10.425" y="29.79" size="1.27" layer="27"/>
 </element>
-<element name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060GS75000" x="47.8" y="24.6" smashed="yes">
+<element name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060GS75000" x="47.8" y="24.6" smashed="yes">
 <attribute name="NAME" x="47.93" y="28.37" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.53" y="22.06" size="1.27" layer="27"/>
 </element>
-<element name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060RS75000" x="47.8" y="25.9" smashed="yes">
+<element name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060RS75000" x="47.8" y="25.9" smashed="yes">
 <attribute name="NAME" x="47.93" y="29.67" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.53" y="23.36" size="1.27" layer="27"/>
 </element>
-<element name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/3" value="150060BS75000" x="47.8" y="27.2" smashed="yes">
+<element name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060BS75000" x="47.8" y="27.2" smashed="yes">
 <attribute name="NAME" x="47.93" y="30.97" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.53" y="24.66" size="1.27" layer="27"/>
 </element>
@@ -2241,8 +2241,8 @@ BLDC V1.1</text>
 <via x="21" y="14" extent="1-16" drill="0.3"/>
 <via x="21" y="13.4" extent="1-16" drill="0.3"/>
 <polygon width="0.2" layer="1" thermals="no">
-<vertex x="30.4" y="11.8"/>
-<vertex x="34.5" y="11.8"/>
+<vertex x="30.4" y="11.5"/>
+<vertex x="34.5" y="11.5"/>
 <vertex x="34.5" y="14.9"/>
 <vertex x="30.4" y="14.9"/>
 </polygon>
@@ -2815,14 +2815,15 @@ BLDC V1.1</text>
 <signal name="GLB">
 <contactref element="U7" pad="GATE"/>
 <contactref element="U2" pad="15"/>
-<wire x1="13.746725" y1="18.4084" x2="15.45513125" y2="16.69999375" width="0.2" layer="1"/>
-<wire x1="15.45513125" y1="16.69999375" x2="15.5" y2="16.7" width="0.2" layer="1"/>
-<via x="15.5" y="16.7" extent="1-16" drill="0.3"/>
-<wire x1="15.5" y1="16.7" x2="15.2" y2="16.4" width="0.2" layer="16"/>
-<wire x1="15.2" y1="16.4" x2="13.5" y2="16.4" width="0.2" layer="16"/>
-<via x="13.5" y="16.4" extent="1-16" drill="0.3"/>
-<wire x1="13.5" y1="16.4" x2="14.3" y2="15.6" width="0.2" layer="1"/>
-<wire x1="14.3" y1="15.6" x2="14.3" y2="7.9" width="0.2" layer="1"/>
+<wire x1="13.746725" y1="18.4084" x2="14.700034375" y2="17.455090625" width="0.2" layer="1"/>
+<wire x1="14.700034375" y1="17.455090625" x2="14.7" y2="17.2" width="0.2" layer="1"/>
+<via x="14.7" y="17.2" extent="1-16" drill="0.3"/>
+<wire x1="14.7" y1="17.2" x2="13.9" y2="16.4" width="0.2" layer="16"/>
+<wire x1="13.9" y1="16.4" x2="13" y2="16.4" width="0.2" layer="16"/>
+<via x="13" y="16.4" extent="1-16" drill="0.3"/>
+<wire x1="13" y1="16.4" x2="13.3" y2="16.4" width="0.2" layer="1"/>
+<wire x1="14.3" y1="15.4" x2="13.3" y2="16.4" width="0.2" layer="1"/>
+<wire x1="14.3" y1="15.4" x2="14.3" y2="7.9" width="0.2" layer="1"/>
 <wire x1="14.3" y1="7.9" x2="14.95" y2="7.25" width="0.2" layer="1"/>
 <wire x1="14.95" y1="7.25" x2="16.225" y2="7.25" width="0.2" layer="1"/>
 </signal>
@@ -2854,10 +2855,10 @@ BLDC V1.1</text>
 <signal name="SPB">
 <contactref element="R6" pad="1_KELVIN"/>
 <contactref element="U2" pad="14"/>
-<wire x1="14.0452" y1="17.27019375" x2="15.27019375" y2="16.0452" width="0.2" layer="1"/>
-<wire x1="15.27019375" y1="16.0452" x2="18.55359375" y2="16.0452" width="0.2" layer="1"/>
+<wire x1="14.0452" y1="16.97019375" x2="14.97019375" y2="16.0452" width="0.2" layer="1"/>
+<wire x1="14.97019375" y1="16.0452" x2="18.55359375" y2="16.0452" width="0.2" layer="1"/>
 <wire x1="13.393171875" y1="18.05484375" x2="14.0452" y2="17.402815625" width="0.2" layer="1"/>
-<wire x1="14.0452" y1="17.402815625" x2="14.0452" y2="17.27019375" width="0.2" layer="1"/>
+<wire x1="14.0452" y1="17.402815625" x2="14.0452" y2="16.97019375" width="0.2" layer="1"/>
 <wire x1="18.55359375" y1="16.0452" x2="19.9476" y2="14.65119375" width="0.2" layer="1"/>
 <wire x1="19.9476" y1="14.65119375" x2="19.9476" y2="11.6476" width="0.2" layer="1"/>
 <wire x1="19.9476" y1="11.6476" x2="19.5" y2="11.2" width="0.2" layer="1"/>
@@ -2886,18 +2887,18 @@ BLDC V1.1</text>
 <contactref element="U8" pad="SOURCE@1"/>
 <contactref element="U8" pad="SOURCE@2"/>
 <polygon width="0.2" layer="1" thermals="no">
-<vertex x="30.4" y="10.7"/>
-<vertex x="34.7" y="10.7"/>
-<vertex x="34.7" y="7.1"/>
-<vertex x="32" y="7.1"/>
+<vertex x="30.4" y="10.9"/>
+<vertex x="34.7" y="10.9"/>
+<vertex x="34.7" y="7.2"/>
+<vertex x="32" y="7.2"/>
 <vertex x="32" y="7.8"/>
 <vertex x="30.4" y="7.8"/>
 </polygon>
 <polygon width="0.2" layer="16" thermals="no">
-<vertex x="30.3" y="10.6"/>
-<vertex x="34.7" y="10.6"/>
-<vertex x="34.7" y="7"/>
-<vertex x="30.3" y="7"/>
+<vertex x="30.3" y="10.9"/>
+<vertex x="34.7" y="10.9"/>
+<vertex x="34.7" y="7.2"/>
+<vertex x="30.3" y="7.2"/>
 </polygon>
 <via x="32.2" y="8.4" extent="1-16" drill="0.3"/>
 <via x="31.6" y="8.4" extent="1-16" drill="0.3"/>
@@ -2963,22 +2964,26 @@ BLDC V1.1</text>
 <signal name="SNA">
 <contactref element="R5" pad="2_KELVIN"/>
 <contactref element="U2" pad="12"/>
-<wire x1="12.120378125" y1="17.701290625" x2="11.8" y2="17.3809125" width="0.2" layer="1"/>
+<wire x1="11.8" y1="17.3809125" x2="12.120378125" y2="17.701290625" width="0.2" layer="1"/>
 <wire x1="11.59305" y1="11.2" x2="11.3" y2="11.49305" width="0.2" layer="1"/>
-<wire x1="11.8" y1="17.3809125" x2="11.8" y2="17.2" width="0.2" layer="1"/>
-<wire x1="11.8" y1="17.2" x2="13.9" y2="15.1" width="0.2" layer="1"/>
 <wire x1="11.3" y1="12.6" x2="11.3" y2="11.49305" width="0.2" layer="1"/>
-<wire x1="13.9" y1="15.1" x2="13.9" y2="11.7" width="0.2" layer="1"/>
-<wire x1="13.9" y1="11.7" x2="13.4" y2="11.2" width="0.2" layer="1"/>
+<wire x1="13.4" y1="11.2" x2="13.9" y2="11.7" width="0.2" layer="1"/>
 <wire x1="13.4" y1="11.2" x2="11.59305" y2="11.2" width="0.2" layer="1"/>
+<wire x1="13.9" y1="15.2" x2="13.6" y2="15.5" width="0.2" layer="1"/>
+<wire x1="13.6" y1="15.5" x2="12.5" y2="15.5" width="0.2" layer="1"/>
+<wire x1="13.9" y1="11.7" x2="13.9" y2="15.2" width="0.2" layer="1"/>
+<wire x1="12.5" y1="15.5" x2="11.8" y2="16.2" width="0.2" layer="1"/>
+<wire x1="11.8" y1="16.2" x2="11.8" y2="17.3809125" width="0.2" layer="1"/>
 </signal>
 <signal name="SNB">
 <contactref element="R6" pad="2_KELVIN"/>
 <contactref element="U2" pad="13"/>
-<wire x1="13.03961875" y1="17.701290625" x2="14.6524" y2="16.088509375" width="0.2" layer="1"/>
+<wire x1="13.03961875" y1="17.701290625" x2="13.63961875" y2="17.101290625" width="0.2" layer="1"/>
+<wire x1="13.63961875" y1="17.101290625" x2="13.63961875" y2="16.701290625" width="0.2" layer="1"/>
+<wire x1="14.6524" y1="15.688509375" x2="13.63961875" y2="16.701290625" width="0.2" layer="1"/>
 <wire x1="17.2" y1="12.6" x2="17.2" y2="11.5" width="0.2" layer="1"/>
 <wire x1="16.9" y1="11.2" x2="17.2" y2="11.5" width="0.2" layer="1"/>
-<wire x1="14.6524" y1="16.088509375" x2="14.6524" y2="11.6476" width="0.2" layer="1"/>
+<wire x1="14.6524" y1="15.688509375" x2="14.6524" y2="11.6476" width="0.2" layer="1"/>
 <wire x1="14.6524" y1="11.6476" x2="15.1" y2="11.2" width="0.2" layer="1"/>
 <wire x1="15.1" y1="11.2" x2="16.9" y2="11.2" width="0.2" layer="1"/>
 </signal>
