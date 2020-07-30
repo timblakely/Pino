@@ -9,8 +9,8 @@
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
-<layer number="15" name="Route15" color="23" fill="1" visible="no" active="yes"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -1308,7 +1308,7 @@
 <contactref element="R9" pad="1B"/>
 <contactref element="J10" pad="P2"/>
 <contactref element="U4" pad="2"/>
-<polygon width="0.1524" layer="2">
+<polygon width="0.1524" layer="2" isolate="0.5">
 <vertex x="-2.3" y="93.5"/>
 <vertex x="93.6" y="93.5"/>
 <vertex x="93.6" y="-0.9"/>
@@ -1415,7 +1415,7 @@
 <contactref element="C7" pad="NEG"/>
 <contactref element="C8" pad="NEG"/>
 <contactref element="C9" pad="NEG"/>
-<polygon width="0.1524" layer="15">
+<polygon width="0.1524" layer="15" isolate="0.5">
 <vertex x="-3" y="95.5"/>
 <vertex x="94" y="95.5"/>
 <vertex x="94" y="-4.5"/>

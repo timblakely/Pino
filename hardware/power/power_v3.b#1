@@ -1558,8 +1558,10 @@
 <signal name="N$12">
 <contactref element="L1" pad="P$2"/>
 <contactref element="U2" pad="+VIN"/>
-<wire x1="18" y1="79.15" x2="18" y2="78.35" width="1.5" layer="1"/>
-<wire x1="26.35" y1="70" x2="18" y2="78.35" width="1.5" layer="1"/>
+<wire x1="29.35" y1="76.6" x2="29.35" y2="73" width="1.5" layer="1"/>
+<wire x1="26.35" y1="70" x2="29.35" y2="73" width="1.5" layer="1"/>
+<wire x1="18" y1="79.15" x2="26.8" y2="79.15" width="1.5" layer="1"/>
+<wire x1="29.35" y1="76.6" x2="26.8" y2="79.15" width="1.5" layer="1"/>
 </signal>
 <signal name="N$13">
 <contactref element="L2" pad="P$2"/>

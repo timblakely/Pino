@@ -9,8 +9,8 @@
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
-<layer number="15" name="Route15" color="23" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -1201,8 +1201,8 @@
 <contactref element="R1" pad="2B"/>
 <contactref element="Q1" pad="2"/>
 <polygon width="0.2" layer="1" isolate="0.3" thermals="no">
-<vertex x="48.7" y="59.6"/>
-<vertex x="29.2" y="59.6"/>
+<vertex x="48.7" y="55.5"/>
+<vertex x="29.2" y="55.5"/>
 <vertex x="29.2" y="9.4"/>
 <vertex x="48.7" y="9.4"/>
 </polygon>
@@ -1447,9 +1447,10 @@
 <wire x1="8.6" y1="64.95" x2="8.6" y2="68.9" width="1.5" layer="1"/>
 <wire x1="8.6" y1="81.8" x2="19.65" y2="81.8" width="1.5" layer="16"/>
 <wire x1="19.65" y1="81.8" x2="26.35" y2="75.1" width="1.5" layer="16"/>
-<wire x1="8.6" y1="68.9" x2="31.8" y2="68.9" width="1.5" layer="16"/>
+<wire x1="8.6" y1="68.9" x2="10.2" y2="67.3" width="1.5" layer="16"/>
+<wire x1="30.2" y1="67.3" x2="10.2" y2="67.3" width="1.5" layer="16"/>
 <wire x1="38" y1="75.1" x2="53.85" y2="75.1" width="1.5" layer="16"/>
-<wire x1="31.8" y1="68.9" x2="38" y2="75.1" width="1.5" layer="16"/>
+<wire x1="30.2" y1="67.3" x2="38" y2="75.1" width="1.5" layer="16"/>
 <wire x1="24.375" y1="57.2" x2="25.7" y2="57.2" width="1" layer="1"/>
 <via x="25.7" y="57.2" extent="1-16" drill="0.5"/>
 <wire x1="4.5" y1="32.95" x2="4.5" y2="33.9" width="0.2" layer="1"/>
