@@ -3102,9 +3102,9 @@
 <label x="-63.5" y="91.44" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="P4"/>
-<wire x1="-35.56" y1="167.64" x2="-38.1" y2="167.64" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
-<label x="-38.1" y="167.64" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
+<pinref part="J3" gate="G$1" pin="P2"/>
+<wire x1="-35.56" y1="172.72" x2="-38.1" y2="172.72" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
+<label x="-38.1" y="172.72" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
 </segment>
 </net>
 <net name="DRV_MOSI" class="0">
@@ -3189,9 +3189,9 @@
 <label x="-63.5" y="88.9" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="P3"/>
-<wire x1="-35.56" y1="170.18" x2="-38.1" y2="170.18" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
-<label x="-38.1" y="170.18" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
+<pinref part="J3" gate="G$1" pin="P4"/>
+<wire x1="-35.56" y1="167.64" x2="-38.1" y2="167.64" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
+<label x="-38.1" y="167.64" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
 </segment>
 </net>
 <net name="SWO" class="0">
@@ -3333,9 +3333,9 @@
 <label x="-63.5" y="119.38" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="P6"/>
-<wire x1="-35.56" y1="162.56" x2="-38.1" y2="162.56" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
-<label x="-38.1" y="162.56" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
+<pinref part="J3" gate="G$1" pin="P8"/>
+<wire x1="-35.56" y1="157.48" x2="-38.1" y2="157.48" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
+<label x="-38.1" y="157.48" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -3548,11 +3548,6 @@
 <pinref part="GND27" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="P8"/>
-<wire x1="-35.56" y1="157.48" x2="-38.1" y2="157.48" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
-<label x="-38.1" y="157.48" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
-</segment>
-<segment>
 <pinref part="GND5" gate="G$1" pin="GND"/>
 <pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="-55.88" y1="2.54" x2="-55.88" y2="5.08" width="0.1524" layer="91" grouprefs="UCPOWER"/>
@@ -3653,6 +3648,11 @@
 <pinref part="GND31" gate="G$1" pin="GND"/>
 <pinref part="C43" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="-17.78" x2="17.78" y2="-15.24" width="0.1524" layer="91" grouprefs="UCPOWER"/>
+</segment>
+<segment>
+<pinref part="J3" gate="G$1" pin="P3"/>
+<wire x1="-35.56" y1="170.18" x2="-38.1" y2="170.18" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
+<label x="-38.1" y="170.18" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
 </segment>
 </net>
 <net name="+24V" class="2">
@@ -4189,9 +4189,9 @@
 <junction x="-12.7" y="96.52" grouprefs="UC_STM32G4"/>
 </segment>
 <segment>
-<pinref part="J3" gate="G$1" pin="P2"/>
-<wire x1="-35.56" y1="172.72" x2="-38.1" y2="172.72" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
-<label x="-38.1" y="172.72" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
+<pinref part="J3" gate="G$1" pin="P6"/>
+<wire x1="-35.56" y1="162.56" x2="-38.1" y2="162.56" width="0.1524" layer="91" grouprefs="DEBUG_HEADER"/>
+<label x="-38.1" y="162.56" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="DEBUG_HEADER"/>
 </segment>
 </net>
 <net name="VBAT_SENSE" class="0">
