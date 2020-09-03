@@ -1459,7 +1459,7 @@ BLDC V1.1</text>
 <attribute name="NAME" x="18.07" y="23.13" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="19.37" y="26.74" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="10k 1%" x="17.6" y="25.6" smashed="yes" rot="R180">
+<element name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="17.6" y="25.6" smashed="yes" rot="R180">
 <attribute name="NAME" x="17.57" y="26.73" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="18.87" y="28.14" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -1550,6 +1550,14 @@ BLDC V1.1</text>
 <element name="C43" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="0.1uF 10V" x="30.6" y="18.5" smashed="yes">
 <attribute name="NAME" x="30.63" y="17.47" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="29.33" y="15.96" size="1.27" layer="27"/>
+</element>
+<element name="R15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="-4.5" y="-4.5" smashed="yes">
+<attribute name="NAME" x="-5.77" y="-3.23" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-5.77" y="-7.04" size="1.27" layer="27"/>
+</element>
+<element name="R16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="-4.5" y="-10.7" smashed="yes">
+<attribute name="NAME" x="-5.77" y="-9.43" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-5.77" y="-13.24" size="1.27" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -1659,6 +1667,20 @@ BLDC V1.1</text>
 <wire x1="17.375" y1="35.5" x2="17.375" y2="33.475" width="0.25" layer="16"/>
 <wire x1="17.375" y1="33.475" x2="16.8" y2="32.9" width="0.25" layer="16"/>
 <via x="16.8" y="32.9" extent="1-16" drill="0.3"/>
+<contactref element="R15" pad="2"/>
+<contactref element="R16" pad="2"/>
+<wire x1="36" y1="27.1" x2="33" y2="32.1" width="0" layer="19" extent="1-1"/>
+<wire x1="32.1" y1="23.7" x2="35.3" y2="26.5" width="0" layer="19" extent="1-1"/>
+<wire x1="33.7" y1="19.95" x2="31.7" y2="22.8" width="0" layer="19" extent="1-1"/>
+<wire x1="26.6" y1="18.3" x2="29.3" y2="17.5" width="0" layer="19" extent="1-1"/>
+<wire x1="24.35" y1="32.0544" x2="30.5544" y2="30.85" width="0" layer="19" extent="1-1"/>
+<wire x1="23.6456" y1="31.35" x2="24.35" y2="32.0544" width="0" layer="19" extent="1-1"/>
+<wire x1="17.375" y1="35.5" x2="22" y2="34.8" width="0" layer="19" extent="1-1"/>
+<wire x1="20.4" y1="23.9" x2="26" y2="21" width="0" layer="19" extent="1-1"/>
+<wire x1="17.61835625" y1="20.3424" x2="16.575153125" y2="22.863171875" width="0" layer="19" extent="1-1"/>
+<wire x1="10.5" y1="31.6" x2="16.8" y2="32.9" width="0" layer="19" extent="1-1"/>
+<wire x1="-5" y1="-4.5" x2="18.55" y2="19.25" width="0" layer="19" extent="1-16"/>
+<wire x1="-5" y1="-10.7" x2="-5" y2="-4.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="C2" pad="1"/>
@@ -1768,6 +1790,8 @@ BLDC V1.1</text>
 <via x="30.5" y="34.21039375" extent="1-16" drill="0.3"/>
 <wire x1="30.30319375" y1="34.4072" x2="30.5" y2="34.21039375" width="0.2" layer="16"/>
 <wire x1="27.12901875" y1="34.4072" x2="30.30319375" y2="34.4072" width="0.2" layer="16"/>
+<contactref element="R15" pad="1"/>
+<wire x1="-4" y1="-4.5" x2="14.45383125" y2="24.984490625" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="ENC_CS">
 <contactref element="U1" pad="5"/>
@@ -1786,6 +1810,8 @@ BLDC V1.1</text>
 <wire x1="23.35" y1="25.85" x2="23.6456" y2="25.85" width="0.2" layer="1"/>
 <wire x1="21.45" y1="20.75" x2="23.5699625" y2="20.75" width="0.2" layer="16"/>
 <wire x1="23.5699625" y1="20.75" x2="24.2199625" y2="21.4" width="0.2" layer="16"/>
+<contactref element="R16" pad="1"/>
+<wire x1="-4" y1="-10.7" x2="21.45" y2="20.75" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="FDCAN1_TX">
 <contactref element="U9" pad="34"/>
