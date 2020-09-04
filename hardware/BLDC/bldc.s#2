@@ -2564,6 +2564,10 @@
 <part name="L3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="DC_CHOKE" device="_FERRITE_BEAD_0603" package3d_urn="urn:adsk.eagle:package:20293176/3" value="600R@100MHz"/>
 <part name="C43" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="0.1uF 10V"/>
 <part name="GND31" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
+<part name="R15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%"/>
+<part name="+3V6" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
+<part name="R16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%"/>
+<part name="+3V7" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3000,6 +3004,20 @@
 <attribute name="VALUE" x="19.304" y="-14.859" size="1.27" layer="96"/>
 </instance>
 <instance part="GND31" gate="G$1" x="17.78" y="-20.32" smashed="yes" grouprefs="UCPOWER"/>
+<instance part="R15" gate="G$1" x="-81.28" y="91.44" smashed="yes" rot="R90">
+<attribute name="NAME" x="-82.7786" y="87.63" size="1.27" layer="95" rot="R90"/>
+<attribute name="VALUE" x="-77.978" y="87.63" size="1.27" layer="96" rot="R90"/>
+</instance>
+<instance part="+3V6" gate="G$1" x="-81.28" y="101.6" smashed="yes">
+<attribute name="VALUE" x="-76.2" y="101.6" size="1.27" layer="96" rot="R180"/>
+</instance>
+<instance part="R16" gate="G$1" x="-81.28" y="119.38" smashed="yes" rot="R90">
+<attribute name="NAME" x="-82.7786" y="115.57" size="1.27" layer="95" rot="R90"/>
+<attribute name="VALUE" x="-77.978" y="115.57" size="1.27" layer="96" rot="R90"/>
+</instance>
+<instance part="+3V7" gate="G$1" x="-81.28" y="129.54" smashed="yes">
+<attribute name="VALUE" x="-76.2" y="129.54" size="1.27" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -3108,6 +3126,16 @@
 <wire x1="17.78" y1="-5.08" x2="17.78" y2="-7.62" width="0.1524" layer="91" grouprefs="UCPOWER"/>
 <junction x="17.78" y="-7.62" grouprefs="UCPOWER"/>
 </segment>
+<segment>
+<wire x1="-81.28" y1="99.06" x2="-81.28" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="+3V6" gate="G$1" pin="+3V3"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<wire x1="-81.28" y1="127" x2="-81.28" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="+3V7" gate="G$1" pin="+3V3"/>
+<pinref part="R16" gate="G$1" pin="2"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -3193,8 +3221,11 @@
 </segment>
 <segment>
 <pinref part="U9" gate="A" pin="PA15"/>
-<wire x1="-58.42" y1="86.36" x2="-63.5" y2="86.36" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-63.5" y="86.36" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
+<wire x1="-58.42" y1="86.36" x2="-81.28" y2="86.36" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
+<label x="-86.36" y="86.36" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
+<pinref part="R15" gate="G$1" pin="1"/>
+<wire x1="-81.28" y1="86.36" x2="-86.36" y2="86.36" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
+<junction x="-81.28" y="86.36"/>
 </segment>
 </net>
 <net name="ENC_CS" class="0">
@@ -3205,8 +3236,11 @@
 </segment>
 <segment>
 <pinref part="U9" gate="A" pin="PA4"/>
-<wire x1="-58.42" y1="114.3" x2="-63.5" y2="114.3" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
-<label x="-63.5" y="114.3" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
+<wire x1="-58.42" y1="114.3" x2="-81.28" y2="114.3" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
+<label x="-86.36" y="114.3" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="UC_STM32G4"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="-81.28" y1="114.3" x2="-86.36" y2="114.3" width="0.1524" layer="91" grouprefs="UC_STM32G4"/>
+<junction x="-81.28" y="114.3"/>
 </segment>
 </net>
 <net name="FDCAN1_TX" class="0">

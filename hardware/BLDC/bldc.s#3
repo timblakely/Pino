@@ -2518,7 +2518,7 @@
 <part name="GND21" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
 <part name="R8" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="10k 1%"/>
 <part name="+3V9" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
-<part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="10k 1%"/>
+<part name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="R" device="0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%"/>
 <part name="+3V10" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+3V3" device=""/>
 <part name="X1" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" deviceset="CRYSTAL" device="_NX2016SA-24MHZ-EXS00A-CS11335" package3d_urn="urn:adsk.eagle:package:19324209/4"/>
 <part name="C37" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="10pF 10V"/>

@@ -4158,6 +4158,11 @@
 <wire x1="157.48" y1="109.22" x2="162.56" y2="109.22" width="0.1524" layer="91" grouprefs="GATE_DRIVER_DRV8323RS"/>
 <junction x="157.48" y="109.22" grouprefs="GATE_DRIVER_DRV8323RS"/>
 </segment>
+<segment>
+<pinref part="U9" gate="A" pin="PB0"/>
+<wire x1="-58.42" y1="81.28" x2="-63.5" y2="81.28" width="0.1524" layer="91"/>
+<label x="-63.5" y="81.28" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="SENSE_A" class="0">
 <segment>

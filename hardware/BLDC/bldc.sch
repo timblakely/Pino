@@ -2483,7 +2483,9 @@
 <part name="+24V2" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="+24V3" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="+24V" device=""/>
 <part name="GND15" library="_T_power" library_urn="urn:adsk.eagle:library:19572085" deviceset="GND" device=""/>
-<part name="C44" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF 50V"/>
+<part name="C44" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF 50V">
+<attribute name="BOM" value="C3216X7R1H106K160AE"/>
+</part>
 <part name="C16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF 50V"/>
 <part name="C17" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF 50V"/>
 <part name="C18" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" deviceset="C" device="1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF 50V"/>
@@ -2745,6 +2747,7 @@
 <instance part="C44" gate="G$1" x="-25.4" y="-43.18" smashed="yes" grouprefs="BULK_CAP">
 <attribute name="NAME" x="-23.876" y="-42.799" size="1.27" layer="95"/>
 <attribute name="VALUE" x="-23.876" y="-47.879" size="1.27" layer="96"/>
+<attribute name="BOM" x="-25.4" y="-43.18" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C16" gate="G$1" x="-20.32" y="-43.18" smashed="yes" grouprefs="BULK_CAP">
 <attribute name="NAME" x="-18.796" y="-42.799" size="1.27" layer="95"/>

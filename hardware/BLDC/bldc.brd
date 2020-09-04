@@ -1352,6 +1352,7 @@ BLDC V1.1</text>
 <attribute name="VALUE" x="49.17" y="18.51" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C44" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C1206" package3d_urn="urn:adsk.eagle:package:20295904/3" value="10uF 50V" x="21.6" y="11" smashed="yes" rot="R270">
+<attribute name="BOM" value="C3216X7R1H106K160AE" x="21.6" y="11" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="20.23" y="10.96" size="0.8" layer="25" rot="R90" align="center"/>
 <attribute name="VALUE" x="19.06" y="13.54" size="1.27" layer="27" rot="R270"/>
 </element>
