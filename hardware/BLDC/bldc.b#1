@@ -9,8 +9,8 @@
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
-<layer number="15" name="Route15" color="23" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -1459,9 +1459,9 @@ BLDC V1.1</text>
 <attribute name="NAME" x="18.07" y="23.13" size="0.8" layer="25" rot="R180" align="center"/>
 <attribute name="VALUE" x="19.37" y="26.74" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="17.6" y="25.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="17.57" y="26.73" size="0.8" layer="25" rot="R180" align="center"/>
-<attribute name="VALUE" x="18.87" y="28.14" size="1.27" layer="27" rot="R180"/>
+<element name="R9" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="17.6" y="25.8" smashed="yes" rot="R180">
+<attribute name="NAME" x="17.57" y="26.93" size="0.8" layer="25" rot="R180" align="center"/>
+<attribute name="VALUE" x="18.87" y="28.34" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="X1" library="_T_ic" library_urn="urn:adsk.eagle:library:19571245" package="NX201SA" package3d_urn="urn:adsk.eagle:package:19324209/4" value="CRYSTAL_NX2016SA-24MHZ-EXS00A-CS11335" x="21.2" y="29.7" smashed="yes">
 <attribute name="NAME" x="22.26" y="28.07" size="0.8" layer="25" align="center"/>
@@ -1516,11 +1516,11 @@ BLDC V1.1</text>
 <attribute name="VALUE" x="9.825" y="31.69" size="1.27" layer="27"/>
 </element>
 <element name="D2" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060GS75000" x="47.8" y="24.6" smashed="yes">
-<attribute name="NAME" x="47.93" y="28.37" size="0.8" layer="25" align="center"/>
+<attribute name="NAME" x="47.93" y="30.07" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.53" y="22.06" size="1.27" layer="27"/>
 </element>
 <element name="D3" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060RS75000" x="47.8" y="26.7" smashed="yes">
-<attribute name="NAME" x="47.93" y="30.47" size="0.8" layer="25" align="center"/>
+<attribute name="NAME" x="47.93" y="31.17" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.53" y="24.16" size="1.27" layer="27"/>
 </element>
 <element name="D4" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="D0603" package3d_urn="urn:adsk.eagle:package:19545722/4" value="150060BS75000" x="47.8" y="28.7" smashed="yes">
@@ -1528,15 +1528,15 @@ BLDC V1.1</text>
 <attribute name="VALUE" x="46.53" y="26.16" size="1.27" layer="27"/>
 </element>
 <element name="R12" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="22" x="45.3" y="24.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="45.63" y="30.97" size="0.8" layer="25" align="center"/>
+<attribute name="NAME" x="45.63" y="32.47" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.57" y="27.14" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="R13" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="270" x="45.3" y="26.7" smashed="yes" rot="R180">
-<attribute name="NAME" x="45.63" y="30.47" size="0.8" layer="25" align="center"/>
+<attribute name="NAME" x="45.63" y="31.17" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.57" y="29.24" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="R14" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="22" x="45.3" y="28.7" smashed="yes" rot="R180">
-<attribute name="NAME" x="45.63" y="29.87" size="0.8" layer="25" align="center"/>
+<attribute name="NAME" x="45.63" y="30.07" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="46.57" y="31.24" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="C0402" package3d_urn="urn:adsk.eagle:package:19572013/4" value="0.1uF 10V" x="20.1" y="27.7" smashed="yes" rot="R90">
@@ -1551,13 +1551,13 @@ BLDC V1.1</text>
 <attribute name="NAME" x="30.63" y="17.47" size="0.8" layer="25" align="center"/>
 <attribute name="VALUE" x="29.33" y="15.96" size="1.27" layer="27"/>
 </element>
-<element name="R15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="-4.5" y="-4.5" smashed="yes">
-<attribute name="NAME" x="-5.77" y="-3.23" size="1.27" layer="25"/>
-<attribute name="VALUE" x="-5.77" y="-7.04" size="1.27" layer="27"/>
+<element name="R15" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="17.1" y="33" smashed="yes">
+<attribute name="NAME" x="15.83" y="34.27" size="1.27" layer="25"/>
+<attribute name="VALUE" x="15.83" y="30.46" size="1.27" layer="27"/>
 </element>
-<element name="R16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="-4.5" y="-10.7" smashed="yes">
-<attribute name="NAME" x="-5.77" y="-9.43" size="1.27" layer="25"/>
-<attribute name="VALUE" x="-5.77" y="-13.24" size="1.27" layer="27"/>
+<element name="R16" library="_T_rcl" library_urn="urn:adsk.eagle:library:19571919" package="R0402" package3d_urn="urn:adsk.eagle:package:19572014/3" value="1k 1%" x="24.1" y="19.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="22.83" y="18.23" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="26.64" y="18.23" size="1.27" layer="27" rot="R90"/>
 </element>
 </elements>
 <signals>
@@ -1638,8 +1638,8 @@ BLDC V1.1</text>
 <wire x1="18.6" y1="24.2" x2="18.9" y2="23.9" width="0.25" layer="1"/>
 <wire x1="18.9" y1="23.9" x2="19.4" y2="23.9" width="0.25" layer="1"/>
 <wire x1="19.4" y1="23.9" x2="20.4" y2="23.9" width="0.25" layer="1"/>
-<wire x1="18.1" y1="25.6" x2="18.6" y2="25.1" width="0.25" layer="1"/>
-<wire x1="18.6" y1="25.1" x2="18.6" y2="24.2" width="0.25" layer="1"/>
+<wire x1="18.1" y1="25.8" x2="18.6" y2="25.3" width="0.25" layer="1"/>
+<wire x1="18.6" y1="25.3" x2="18.6" y2="24.2" width="0.25" layer="1"/>
 <via x="22.589553125" y="30.989553125" extent="1-16" drill="0.3"/>
 <wire x1="24.4" y1="34.8" x2="24.35" y2="34.75" width="0.3" layer="1"/>
 <wire x1="24.35" y1="34.75" x2="24.35" y2="32.0544" width="0.3" layer="1"/>
@@ -1664,23 +1664,15 @@ BLDC V1.1</text>
 <via x="10.5" y="31.6" extent="1-16" drill="0.4"/>
 <wire x1="18.55" y1="19.25" x2="17.946775" y2="19.25" width="0.25" layer="16"/>
 <wire x1="17.946775" y1="19.25" x2="17.61835625" y2="19.57841875" width="0.25" layer="16"/>
-<wire x1="17.375" y1="35.5" x2="17.375" y2="33.475" width="0.25" layer="16"/>
-<wire x1="17.375" y1="33.475" x2="16.8" y2="32.9" width="0.25" layer="16"/>
-<via x="16.8" y="32.9" extent="1-16" drill="0.3"/>
+<wire x1="17.375" y1="35.5" x2="17.375" y2="34.975" width="0.25" layer="16"/>
+<wire x1="17.375" y1="34.975" x2="15.6" y2="33.2" width="0.25" layer="16"/>
+<via x="15.6" y="33.2" extent="1-16" drill="0.3"/>
 <contactref element="R15" pad="2"/>
 <contactref element="R16" pad="2"/>
-<wire x1="36" y1="27.1" x2="33" y2="32.1" width="0" layer="19" extent="1-1"/>
-<wire x1="32.1" y1="23.7" x2="35.3" y2="26.5" width="0" layer="19" extent="1-1"/>
-<wire x1="33.7" y1="19.95" x2="31.7" y2="22.8" width="0" layer="19" extent="1-1"/>
-<wire x1="26.6" y1="18.3" x2="29.3" y2="17.5" width="0" layer="19" extent="1-1"/>
-<wire x1="24.35" y1="32.0544" x2="30.5544" y2="30.85" width="0" layer="19" extent="1-1"/>
-<wire x1="23.6456" y1="31.35" x2="24.35" y2="32.0544" width="0" layer="19" extent="1-1"/>
-<wire x1="17.375" y1="35.5" x2="22" y2="34.8" width="0" layer="19" extent="1-1"/>
-<wire x1="20.4" y1="23.9" x2="26" y2="21" width="0" layer="19" extent="1-1"/>
-<wire x1="17.61835625" y1="20.3424" x2="16.575153125" y2="22.863171875" width="0" layer="19" extent="1-1"/>
-<wire x1="10.5" y1="31.6" x2="16.8" y2="32.9" width="0" layer="19" extent="1-1"/>
-<wire x1="-5" y1="-4.5" x2="18.55" y2="19.25" width="0" layer="19" extent="1-16"/>
-<wire x1="-5" y1="-10.7" x2="-5" y2="-4.5" width="0" layer="19" extent="1-1"/>
+<wire x1="16.6" y1="33" x2="15.8" y2="33" width="0.25" layer="1"/>
+<wire x1="15.8" y1="33" x2="15.6" y2="33.2" width="0.25" layer="1"/>
+<wire x1="24.1" y1="19" x2="23.3" y2="18.2" width="0.25" layer="1"/>
+<via x="23.3" y="18.2" extent="1-16" drill="0.3"/>
 </signal>
 <signal name="N$1">
 <contactref element="C2" pad="1"/>
@@ -1741,14 +1733,14 @@ BLDC V1.1</text>
 <wire x1="16.090659375" y1="24.5" x2="16.6" y2="24.5" width="0.2" layer="1"/>
 <via x="16.6" y="24.5" extent="1-16" drill="0.3"/>
 <wire x1="16.6" y1="24.5" x2="17.1" y2="25" width="0.2" layer="1"/>
-<wire x1="17.1" y1="25" x2="17.1" y2="25.6" width="0.2" layer="1"/>
+<wire x1="17.1" y1="25" x2="17.1" y2="25.8" width="0.2" layer="1"/>
 <wire x1="16.6" y1="24.5" x2="16.7" y2="24.6" width="0.2" layer="16"/>
 <wire x1="16.7" y1="24.6" x2="16.7" y2="26.2" width="0.2" layer="16"/>
 <wire x1="16.7" y1="26.2" x2="16.0048" y2="26.8952" width="0.2" layer="16"/>
 <wire x1="16.0048" y1="28.9048" x2="19.4" y2="32.3" width="0.2" layer="16"/>
 <wire x1="16.0048" y1="26.8952" x2="16.0048" y2="28.9048" width="0.2" layer="16"/>
-<wire x1="27.4" y1="32.3" x2="28.4" y2="33.3" width="0.2" layer="16"/>
 <via x="28.4" y="33.3" extent="1-16" drill="0.3"/>
+<wire x1="27.4" y1="32.3" x2="28.4" y2="33.3" width="0.2" layer="16"/>
 <wire x1="28.4" y1="33.3" x2="28.35" y2="33.25" width="0.2" layer="1"/>
 <wire x1="28.35" y1="33.25" x2="28.35" y2="32.0544" width="0.2" layer="1"/>
 <wire x1="19.4" y1="32.3" x2="27.4" y2="32.3" width="0.2" layer="16"/>
@@ -1780,7 +1772,8 @@ BLDC V1.1</text>
 <wire x1="14.45383125" y1="24.984490625" x2="14.9" y2="25.430659375" width="0.2" layer="1"/>
 <wire x1="14.9" y1="25.430659375" x2="14.9" y2="25.5" width="0.2" layer="1"/>
 <via x="14.9" y="25.5" extent="1-16" drill="0.3"/>
-<wire x1="14.9" y1="29.295125" x2="18.962075" y2="33.3572" width="0.2" layer="16"/>
+<wire x1="14.9" y1="29.295125" x2="18.5524375" y2="32.9475625" width="0.2" layer="16"/>
+<wire x1="18.962075" y1="33.3572" x2="18.5524375" y2="32.9475625" width="0.2" layer="16"/>
 <wire x1="14.9" y1="25.5" x2="14.9" y2="29.295125" width="0.2" layer="16"/>
 <wire x1="26.07901875" y1="33.3572" x2="27.12901875" y2="34.4072" width="0.2" layer="16"/>
 <wire x1="18.962075" y1="33.3572" x2="26.07901875" y2="33.3572" width="0.2" layer="16"/>
@@ -1791,7 +1784,11 @@ BLDC V1.1</text>
 <wire x1="30.30319375" y1="34.4072" x2="30.5" y2="34.21039375" width="0.2" layer="16"/>
 <wire x1="27.12901875" y1="34.4072" x2="30.30319375" y2="34.4072" width="0.2" layer="16"/>
 <contactref element="R15" pad="1"/>
-<wire x1="-4" y1="-4.5" x2="14.45383125" y2="24.984490625" width="0" layer="19" extent="1-1"/>
+<wire x1="17.6" y1="33" x2="17.7072" y2="33" width="0.2" layer="1"/>
+<wire x1="17.7072" y1="33" x2="18.1" y2="33.3928" width="0.2" layer="1"/>
+<via x="18.1" y="33.3928" extent="1-16" drill="0.3"/>
+<wire x1="18.1" y1="33.3928" x2="18.5452375" y2="32.9475625" width="0.2" layer="16"/>
+<wire x1="18.5452375" y1="32.9475625" x2="18.5524375" y2="32.9475625" width="0.2" layer="16"/>
 </signal>
 <signal name="ENC_CS">
 <contactref element="U1" pad="5"/>
@@ -1811,7 +1808,8 @@ BLDC V1.1</text>
 <wire x1="21.45" y1="20.75" x2="23.5699625" y2="20.75" width="0.2" layer="16"/>
 <wire x1="23.5699625" y1="20.75" x2="24.2199625" y2="21.4" width="0.2" layer="16"/>
 <contactref element="R16" pad="1"/>
-<wire x1="-4" y1="-10.7" x2="21.45" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="24.1" y1="20" x2="24.7" y2="20.6" width="0.2" layer="1"/>
+<wire x1="24.7" y1="20.6" x2="24.7" y2="21.4" width="0.2" layer="1"/>
 </signal>
 <signal name="FDCAN1_TX">
 <contactref element="U9" pad="34"/>
@@ -1969,8 +1967,8 @@ BLDC V1.1</text>
 <wire x1="21.31539375" y1="22.1" x2="21.67019375" y2="21.7452" width="0.2" layer="16"/>
 <wire x1="23.0548" y1="21.7452" x2="23.4" y2="21.4" width="0.2" layer="16"/>
 <wire x1="21.67019375" y1="21.7452" x2="23.0548" y2="21.7452" width="0.2" layer="16"/>
-<wire x1="23.4" y1="22.49675" x2="23.4" y2="21.4" width="0.2" layer="1"/>
-<wire x1="25.35" y1="24.44675" x2="23.4" y2="22.49675" width="0.2" layer="1"/>
+<wire x1="23.4" y1="21.4" x2="23.4" y2="22.49675" width="0.2" layer="1"/>
+<wire x1="23.4" y1="22.49675" x2="25.35" y2="24.44675" width="0.2" layer="1"/>
 <wire x1="25.35" y1="24.44675" x2="25.35" y2="25.1456" width="0.2" layer="1"/>
 </signal>
 <signal name="ENC_MISO">
@@ -3032,6 +3030,19 @@ BLDC V1.1</text>
 <wire x1="17.6" y1="24.2" x2="17.3" y2="23.9" width="0.2" layer="1"/>
 <wire x1="17.3" y1="23.9" x2="16.197765625" y2="23.9" width="0.2" layer="1"/>
 <wire x1="16.197765625" y1="23.9" x2="15.86804375" y2="23.570278125" width="0.2" layer="1"/>
+<contactref element="U9" pad="17"/>
+<wire x1="26.35" y1="25.1456" x2="26.35" y2="24.65" width="0.2" layer="1"/>
+<wire x1="26.35" y1="24.65" x2="25.6" y2="23.9" width="0.2" layer="1"/>
+<via x="25.6" y="23.9" extent="1-16" drill="0.3"/>
+<wire x1="25.6" y1="23.9" x2="25.1" y2="23.9" width="0.2" layer="16"/>
+<wire x1="25.1" y1="23.9" x2="23.8" y2="25.2" width="0.2" layer="16"/>
+<wire x1="23.8" y1="25.2" x2="20.8" y2="25.2" width="0.2" layer="16"/>
+<wire x1="20.8" y1="25.2" x2="20.5" y2="24.9" width="0.2" layer="16"/>
+<wire x1="20.5" y1="24.9" x2="17.7698" y2="24.9" width="0.2" layer="16"/>
+<wire x1="17.7698" y1="24.9" x2="17.7" y2="24.9698" width="0.2" layer="16"/>
+<via x="17.7" y="24.9698" extent="1-16" drill="0.3"/>
+<wire x1="17.7" y1="24.9698" x2="17.6" y2="24.8698" width="0.2" layer="1"/>
+<wire x1="17.6" y1="24.8698" x2="17.6" y2="24.2" width="0.2" layer="1"/>
 </signal>
 <signal name="SENSE_A">
 <contactref element="U2" pad="25"/>
@@ -3072,15 +3083,17 @@ BLDC V1.1</text>
 <wire x1="21.9" y1="22.3" x2="22" y2="22.2" width="0.2" layer="16"/>
 <wire x1="26.012" y1="22.2" x2="22" y2="22.2" width="0.2" layer="16"/>
 <via x="26.012" y="22.2" extent="1-16" drill="0.3"/>
-<wire x1="26.012" y1="22.2" x2="26.012" y2="23.712" width="0.2" layer="1"/>
 <wire x1="26.85" y1="24.55" x2="26.85" y2="25.1456" width="0.2" layer="1"/>
-<wire x1="26.012" y1="23.712" x2="26.85" y2="24.55" width="0.2" layer="1"/>
 <wire x1="16.575153125" y1="21.236825" x2="16.864378125" y2="20.9476" width="0.2" layer="1"/>
 <wire x1="16.864378125" y1="20.9476" x2="17.629025" y2="20.9476" width="0.2" layer="1"/>
 <wire x1="18.601425" y1="21.92" x2="21.118375" y2="21.92" width="0.2" layer="1"/>
 <wire x1="21.498375" y1="22.3" x2="21.9" y2="22.3" width="0.2" layer="1"/>
 <wire x1="21.118375" y1="21.92" x2="21.498375" y2="22.3" width="0.2" layer="1"/>
 <wire x1="17.629025" y1="20.9476" x2="18.601425" y2="21.92" width="0.2" layer="1"/>
+<wire x1="26.012" y1="22.2" x2="26.012" y2="23.52739375" width="0.2" layer="1"/>
+<wire x1="26.012" y1="23.52739375" x2="26.1548" y2="23.67019375" width="0.2" layer="1"/>
+<wire x1="26.1548" y1="23.67019375" x2="26.1548" y2="23.8548" width="0.2" layer="1"/>
+<wire x1="26.1548" y1="23.8548" x2="26.85" y2="24.55" width="0.2" layer="1"/>
 </signal>
 <signal name="+5V" class="3">
 <contactref element="L2" pad="PIN2"/>
