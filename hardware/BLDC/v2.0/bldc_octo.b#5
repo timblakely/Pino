@@ -1152,9 +1152,9 @@
 <attribute name="NAME" x="33.15" y="31.99" locked="yes" size="1.27" layer="26" rot="MR0"/>
 <attribute name="VALUE" x="33.2" y="26.85" locked="yes" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="J2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="MOLEX_5023520300" package3d_urn="urn:adsk.eagle:package:24616683/3" value="LINEAR_3_MOLEX_5023520300" x="36.1" y="0.2" smashed="yes" rot="MR0">
-<attribute name="NAME" x="36.1" y="3.54" size="0.8" layer="26" font="vector" rot="MR0" align="center"/>
-<attribute name="VALUE" x="36.1" y="2" size="0.8" layer="28" font="vector" rot="MR0" align="center"/>
+<element name="J2" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="MOLEX_5023520300" package3d_urn="urn:adsk.eagle:package:24616683/3" value="LINEAR_3_MOLEX_5023520300" x="36" y="0.2" smashed="yes" rot="MR0">
+<attribute name="NAME" x="36" y="3.54" size="0.8" layer="26" font="vector" rot="MR0" align="center"/>
+<attribute name="VALUE" x="36" y="2" size="0.8" layer="28" font="vector" rot="MR0" align="center"/>
 </element>
 <element name="J3" library="_T_conn" library_urn="urn:adsk.eagle:library:19570503" package="MR30PW-M" package3d_urn="urn:adsk.eagle:package:24615839/8" value="LINEAR_3_AMASS_MR30PW-M" x="9.1" y="33.15" smashed="yes" rot="MR0">
 <attribute name="NAME" x="12.2" y="36.15" size="1.27" layer="22" rot="MR0"/>
