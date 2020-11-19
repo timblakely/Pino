@@ -1,3 +1,14 @@
+workspace(name = "pino")
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "stm32cubeg4",
+    build_file = "@//third_party/stm32cubeg4:repo.BUILD",
+    sha256 = "c6088f3ca0417e9b411b7769fc76582c0dc7057db44a83109e527462f0b601e6",
+    urls = ["https://github.com/STMicroelectronics/STM32CubeG4/archive/v1.3.0.zip"],
+)
+
 local_repository(
     name = "arm_gcc",
     path = "/home/tim/git/stm32g4/arm_gcc",
