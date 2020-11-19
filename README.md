@@ -1,2 +1,2 @@
-# wobot
-Wobot parts
+# Pino
+Pino the robot.
