@@ -8,13 +8,6 @@ exports_files([
     "startup_stm32g474xx.s",
 ])
 
-# cc_library(
-#     name = "stm32cubeg4",
-#     deps = [
-#         ":startup",
-#     ],
-# )
-
 cc_library(
     name = "stm32g474xx",
     srcs = [
@@ -24,6 +17,7 @@ cc_library(
         "STM32G474xx",  # Requried for CMSIS driver
     ],
     deps = [
-        "@stm32cubeg4//:cmsis_includes",
+        "//third_party/stm32cubeg4/cmsis",
+        "@stm32cubeg4//:cmsis_device_includes",
     ],
 )
