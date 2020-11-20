@@ -13,7 +13,7 @@ cc_library(
 )
 
 cc_library(
-    name = "cmsis_includes_stripped",
+    name = "cmsis_includes_globally_available",
     hdrs = glob([
         "Drivers/CMSIS/Device/ST/STM32G4xx/Include/*.h",
     ]),
