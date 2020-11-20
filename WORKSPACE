@@ -10,6 +10,14 @@ http_archive(
     urls = ["https://github.com/STMicroelectronics/STM32CubeG4/archive/v1.3.0.zip"],
 )
 
+http_archive(
+    name = "cmsis",
+    build_file = "@//third_party/cmsis:repo.BUILD",
+    sha256 = "3150de0ad42b01052bbb8bad562c9c292fef3bc7d4ac1c16acee63d8af696875",
+    strip_prefix = "CMSIS_5-5.7.0",
+    urls = ["https://github.com/ARM-software/CMSIS_5/archive/5.7.0.zip"],
+)
+
 local_repository(
     name = "arm_gcc",
     path = "/home/tim/git/stm32g4/arm_gcc",
