@@ -11,3 +11,12 @@ cc_library(
     includes = ["."],
     strip_include_prefix = "Drivers/CMSIS/Device/ST/STM32G4xx/Include",
 )
+
+cc_library(
+    name = "cmsis_includes_stripped",
+    hdrs = glob([
+        "Drivers/CMSIS/Device/ST/STM32G4xx/Include/*.h",
+    ]),
+    includes = ["."],
+    strip_include_prefix = "Drivers/CMSIS/Device/ST/STM32G4xx/Include",
+)

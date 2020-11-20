@@ -11,6 +11,17 @@ exports_files([
 cc_library(
     name = "stm32cubeg4",
     deps = [
+        ":startup",
         "@stm32cubeg4//:cmsis_includes",
+    ],
+)
+
+cc_library(
+    name = "startup",
+    srcs = [
+        "system_stm32g4xx.c",
+    ],
+    deps = [
+        "@stm32cubeg4//:cmsis_includes_stripped",
     ],
 )
