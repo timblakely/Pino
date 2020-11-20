@@ -6,6 +6,7 @@ http_archive(
     name = "stm32cubeg4",
     build_file = "@//third_party/stm32cubeg4:repo.BUILD",
     sha256 = "c6088f3ca0417e9b411b7769fc76582c0dc7057db44a83109e527462f0b601e6",
+    strip_prefix = "STM32CubeG4-1.3.0",
     urls = ["https://github.com/STMicroelectronics/STM32CubeG4/archive/v1.3.0.zip"],
 )
 
