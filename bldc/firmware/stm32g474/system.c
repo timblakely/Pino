@@ -4,10 +4,6 @@
 
 const uint32_t VECT_TAB_OFFSET = 0x00;
 
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-
 void SystemInit(void) {
   /* FPU settings ------------------------------------------------------------*/
   SCB->CPACR |= ((3UL << (10 * 2)) |
@@ -16,7 +12,3 @@ void SystemInit(void) {
   SCB->VTOR = FLASH_BASE |
               VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 }
-
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
