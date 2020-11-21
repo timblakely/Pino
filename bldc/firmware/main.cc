@@ -1,5 +1,3 @@
-#include <stdint.h>
-
 #include "bldc/firmware/stm32g474/drivers/flash.h"
 #include "bldc/firmware/stm32g474/drivers/fpu.h"
 #include "bldc/firmware/stm32g474/drivers/nvic.h"

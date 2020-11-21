@@ -1,8 +1,6 @@
 #ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
 #define BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
 
-#include <stdint.h>
-
 namespace stm32g474 {
 namespace drivers {
 

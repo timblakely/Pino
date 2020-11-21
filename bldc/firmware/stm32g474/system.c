@@ -1,5 +1,3 @@
-#include <stdint.h>
-
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 
 const uint32_t VECT_TAB_OFFSET = 0x00;
