@@ -21,6 +21,18 @@ cc_library(
 )
 
 cc_library(
+    name = "nvic",
+    srcs = ["nvic.cc"],
+    hdrs = ["nvic.h"],
+    deps = [
+        # TODO(blakely): Figure out a better way to deal with CMSIS defines
+        # globally.
+        "//bldc/firmware/stm32g474:cmsis_config",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)
+
+cc_library(
     name = "rcc",
     srcs = ["rcc.cc"],
     hdrs = ["rcc.h"],
