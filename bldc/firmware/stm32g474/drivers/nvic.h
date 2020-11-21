@@ -7,7 +7,7 @@ namespace drivers {
 class Nvic {
  public:
   static void Init();
-  static void SetSysTickMicros(uint32_t teset);
+  static void SetSysTickMicros(uint32_t microseconds);
 };
 
 }  // namespace drivers

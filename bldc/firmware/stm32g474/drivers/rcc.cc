@@ -69,5 +69,12 @@ void Rcc::SetupClocks() {
   rcc::LL_RCC_SetADCClockSource(LL_RCC_ADC345_CLKSOURCE_SYSCLK);
 }
 
+uint32_t Rcc::GetCoreClockFrequency() {
+  const uint32_t sysclock_freq = __LL_RCC_CALC_PLLCLK_FREQ(
+      kHSEOscillatorSpeed, rcc::LL_RCC_PLL_GetDivider(), rcc::LL_RCC_PLL_GetN(),
+      rcc::LL_RCC_PLL_GetR());
+  return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, LL_RCC_SYSCLK_DIV_1);
+}
+
 }  // namespace drivers
 }  // namespace stm32g474

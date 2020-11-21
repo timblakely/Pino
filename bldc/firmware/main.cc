@@ -17,6 +17,7 @@ int main() {
   Flash::EnablePrefetchBuffer();
 
   Nvic::Init();
+  Nvic::SetSysTickMicros(1000);
   while (true) {
     asm("nop");
   }
