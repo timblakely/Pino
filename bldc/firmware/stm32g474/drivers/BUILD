@@ -10,3 +10,12 @@ cc_library(
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )
+
+cc_library(
+    name = "rcc",
+    srcs = ["rcc.cc"],
+    hdrs = ["rcc.h"],
+    deps = [
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)

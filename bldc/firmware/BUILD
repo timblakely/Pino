@@ -6,5 +6,6 @@ cc_binary(
     deps = [
         "//bldc/firmware/stm32g474:system",
         "//bldc/firmware/stm32g474/drivers:fpu",
+        "//bldc/firmware/stm32g474/drivers:rcc",
     ],
 )
