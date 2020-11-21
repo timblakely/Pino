@@ -52,6 +52,21 @@ void Rcc::SetupClocks() {
     asm("nop");
   }
   rcc::LL_RCC_PLL_EnableDomain_SYS();
+
+  // TODO(blakely): Configure flash latency wait states
+
+  // Setup HCLK (core)
+  rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
+
+  // Configure peripheral clocks
+  rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_SYSCLK_DIV_1);
+  rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_SYSCLK_DIV_1);
+
+  // TODO(blakely): move into their respective drivers
+  // Peripheral clock configuration
+  rcc::LL_RCC_SetLPUARTClockSource(LL_RCC_LPUART1_CLKSOURCE_PCLK1);
+  rcc::LL_RCC_SetADCClockSource(LL_RCC_ADC12_CLKSOURCE_SYSCLK);
+  rcc::LL_RCC_SetADCClockSource(LL_RCC_ADC345_CLKSOURCE_SYSCLK);
 }
 
 }  // namespace drivers
