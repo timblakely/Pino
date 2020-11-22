@@ -15,6 +15,7 @@ cc_binary(
     srcs = ["main.cc"],
     deps = [
         "//bldc/firmware/stm32g474:system",
+        "//bldc/firmware/stm32g474:timer",
         "//bldc/firmware/stm32g474/drivers:flash",
         "//bldc/firmware/stm32g474/drivers:fpu",
         "//bldc/firmware/stm32g474/drivers:nvic",

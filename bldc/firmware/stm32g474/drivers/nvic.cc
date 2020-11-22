@@ -5,12 +5,18 @@
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
 
 namespace cortex {
-// Needed for vendor-specific definitions.
+// Needed for vendor-specific definitions, otherwise we'd include cortex_m4.h
+// directly. :/
 #include "third_party/stm32cubeg4/stm32g4xx.h"
 }  // namespace cortex
 
 namespace stm32g474 {
 namespace drivers {
+
+constexpr cortex::IRQn_Type ToCmsis(uint32_t interrupt) {
+  // The IRQn_Type is indexed at -16.
+  return static_cast<cortex::IRQn_Type>(interrupt - 16);
+}
 
 void Nvic::Init() {
   // Set 8 bits for primary group, 2 bits for sub-priority
@@ -81,16 +87,17 @@ void Nvic::SetInterruptHandler(MaskableInterrupt interrupt, Callback handler) {
 void Nvic::SetInterrupt(uint32_t interrupt, uint32_t priority,
                         uint32_t subpriority, Callback handler) {
   SetInterruptHandler(static_cast<uint32_t>(interrupt), handler);
-  // TODO(blakely): assign priority.
+  const uint32_t prioritygroup = cortex::__NVIC_GetPriorityGrouping();
+  cortex::NVIC_SetPriority(
+      ToCmsis(interrupt),
+      cortex::NVIC_EncodePriority(prioritygroup, priority, subpriority));
 }
 
 void Nvic::SetInterruptHandler(uint32_t interrupt, Callback handler) {
   handlers[interrupt] = handler;
   auto global_isr = isrs[interrupt];
-  // The IRQn_Type is indexed at -16.
-  const cortex::IRQn_Type irqn_type =
-      static_cast<cortex::IRQn_Type>(interrupt - 16);
-  cortex::NVIC_SetVector(irqn_type, reinterpret_cast<uint32_t>(global_isr));
+  cortex::NVIC_SetVector(ToCmsis(interrupt),
+                         reinterpret_cast<uint32_t>(global_isr));
 }
 
 void Nvic::ResetAllWithDefault(Callback handler) {

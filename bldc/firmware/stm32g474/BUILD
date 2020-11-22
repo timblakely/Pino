@@ -36,3 +36,15 @@ cc_library(
     ],
     alwayslink = 1,
 )
+
+cc_library(
+    name = "timer",
+    srcs = ["timer.cc"],
+    hdrs = ["timer.h"],
+    deps = [
+        "//bldc/firmware/stm32g474/drivers:nvic",
+        "//bldc/firmware/stm32g474/drivers:rcc",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+    alwayslink = 1,
+)
