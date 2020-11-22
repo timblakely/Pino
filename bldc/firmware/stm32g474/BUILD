@@ -11,6 +11,20 @@ cc_library(
         "__Vendor_SysTickConfig=0",
         "__FPU_PRESENT=1",
     ],
+    deps = [
+        "//third_party/cmsis",
+    ],
+)
+
+cc_library(
+    name = "interrupt_table",
+    srcs = ["interrupt_table.cc"],
+    hdrs = ["interrupt_table.h"],
+    deps = [
+        "//bldc/firmware:interrupt_table",
+        "//bldc/firmware/stm32g474/drivers:nvic",
+    ],
+    alwayslink = 1,
 )
 
 cc_library(

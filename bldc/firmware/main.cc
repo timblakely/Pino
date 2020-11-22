@@ -10,15 +10,17 @@ using stm32g474::drivers::Rcc;
 
 int main() {
   Fpu::EnableHardwareFPU();
+  Nvic::Init();
+  Nvic::SetSysTickMicros(1000);
+
   Rcc::SetupClocks();
 
   Flash::EnableDataCache();
   Flash::EnableInstructionCache();
   Flash::EnablePrefetchBuffer();
 
-  Nvic::Init();
-  Nvic::SetSysTickMicros(1000);
+  uint32_t i = 0;
   while (true) {
-    asm("nop");
+    ++i;
   }
 }

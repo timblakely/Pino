@@ -28,7 +28,6 @@ cc_library(
         # TODO(blakely): Figure out a better way to deal with CMSIS defines
         # globally.
         ":rcc",
-        "//bldc/firmware/stm32g474:cmsis_config",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )

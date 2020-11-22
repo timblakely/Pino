@@ -55,7 +55,17 @@ void Rcc::SetupClocks() {
 
   // TODO(blakely): Configure flash latency wait states
 
-  // Setup HCLK (core)
+  // Set the system clock source to HSE. However, we can't ramp directly from
+  // the 16MHz HSI directly to 170MHz. Have to enter intermediate state first:
+  // 1) Set AHB prescalar div to 2 (=8Mhz)
+  rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
+  // 2) Set Clock source to PLL (170/2=85Mhz)
+  rcc::LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+  // 3) Wait for sysclksource to change
+  while (rcc::LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL) {
+    asm("nop");
+  }
+  // 4) Set AHB prescalar div to 1 (=170Mhz) (done below)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
 
   // Configure peripheral clocks
@@ -70,10 +80,20 @@ void Rcc::SetupClocks() {
 }
 
 uint32_t Rcc::GetCoreClockFrequency() {
-  const uint32_t sysclock_freq = __LL_RCC_CALC_PLLCLK_FREQ(
-      kHSEOscillatorSpeed, rcc::LL_RCC_PLL_GetDivider(), rcc::LL_RCC_PLL_GetN(),
-      rcc::LL_RCC_PLL_GetR());
-  return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, LL_RCC_SYSCLK_DIV_1);
+  switch (rcc::LL_RCC_GetSysClkSource()) {
+    case LL_RCC_SYS_CLKSOURCE_STATUS_HSI:
+      return HSI_VALUE;
+      break;
+    case LL_RCC_SYS_CLKSOURCE_HSE:
+      // Hardcoded
+      return 24'000'000U;
+      break;
+    case LL_RCC_SYS_CLKSOURCE_PLL:
+      const uint32_t sysclock_freq = __LL_RCC_CALC_PLLCLK_FREQ(
+          kHSEOscillatorSpeed, rcc::LL_RCC_PLL_GetDivider(),
+          rcc::LL_RCC_PLL_GetN(), rcc::LL_RCC_PLL_GetR());
+      return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, LL_RCC_SYSCLK_DIV_1);
+  }
 }
 
 }  // namespace drivers

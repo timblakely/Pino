@@ -7,6 +7,8 @@ namespace drivers {
 class Nvic {
  public:
   static void Init();
+  static void DisableInterrupts();
+  static void EnableInterrupts();
   static void SetSysTickMicros(uint32_t microseconds);
 };
 

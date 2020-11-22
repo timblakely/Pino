@@ -19,7 +19,7 @@ cc_library(
     deps = [
         ":stm32g474_config",
         ":stm32g474retx.ld",
-        "//third_party/cmsis",
+        "//third_party/cmsis:globally_available",
         "@stm32cubeg4//:cmsis_device_includes",
         "@stm32cubeg4//:low_level_drivers",
     ],

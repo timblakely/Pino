@@ -31,3 +31,16 @@ local_repository(
     name = "stm32g4xx_hal",
     path = "/home/tim/git/stm32g4/stm32g4_hal",
 )
+
+load(
+    "@bazel_tools//tools/build_defs/repo:git.bzl",
+    "new_git_repository",
+)
+
+new_git_repository(
+    name = "sg14",
+    build_file = "//third_party/sg14:repo.BUILD",
+    commit = "014fbbb43e63ffde629b155139b85375a04c191f",
+    remote = "https://github.com/WG21-SG14/SG14",
+    shallow_since = "1586132753 +1200",
+)
