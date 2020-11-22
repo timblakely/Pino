@@ -13,7 +13,7 @@ int main() {
   Nvic::Init([]{
     asm("nop");
   });
-  Nvic::SetSysTickMicros(1000);
+  // Nvic::SetSysTickMicros(1000);
 
   Rcc::SetupClocks();
 

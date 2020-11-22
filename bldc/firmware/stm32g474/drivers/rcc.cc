@@ -1,5 +1,6 @@
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
 
+#include "bldc/firmware/stm32g474/timer.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 
 namespace bus {
@@ -61,6 +62,8 @@ void Rcc::SetupClocks() {
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
   // 2) Set Clock source to PLL (170/2=85Mhz)
   rcc::LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+  SysTickTimer::UpdatePeriod();
+  SysTickTimer::BlockingWait(1);
   // 3) Wait for sysclksource to change
   while (rcc::LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL) {
     asm("nop");
@@ -79,21 +82,26 @@ void Rcc::SetupClocks() {
   rcc::LL_RCC_SetADCClockSource(LL_RCC_ADC345_CLKSOURCE_SYSCLK);
 }
 
-uint32_t Rcc::GetCoreClockFrequency() {
+uint32_t Rcc::GetSysClockFrequency() {
   switch (rcc::LL_RCC_GetSysClkSource()) {
     case LL_RCC_SYS_CLKSOURCE_STATUS_HSI:
       return HSI_VALUE;
       break;
-    case LL_RCC_SYS_CLKSOURCE_HSE:
+    case LL_RCC_SYS_CLKSOURCE_STATUS_HSE:
       // Hardcoded
       return 24'000'000U;
       break;
-    case LL_RCC_SYS_CLKSOURCE_PLL:
+    case LL_RCC_SYS_CLKSOURCE_STATUS_PLL:
       const uint32_t sysclock_freq = __LL_RCC_CALC_PLLCLK_FREQ(
           kHSEOscillatorSpeed, rcc::LL_RCC_PLL_GetDivider(),
           rcc::LL_RCC_PLL_GetN(), rcc::LL_RCC_PLL_GetR());
       return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, LL_RCC_SYSCLK_DIV_1);
   }
+}
+
+uint32_t Rcc::GetHClockFrequency() {
+  return __LL_RCC_CALC_HCLK_FREQ(GetSysClockFrequency(),
+                                 rcc::LL_RCC_GetAHBPrescaler());
 }
 
 }  // namespace drivers

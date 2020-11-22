@@ -20,8 +20,8 @@ constexpr cortex::IRQn_Type ToCmsis(uint32_t interrupt) {
 
 void Nvic::Init() {
   // Set 8 bits for primary group, 2 bits for sub-priority
-  cortex::__NVIC_SetPriorityGrouping(0b100);
   RelocateInterruptsToSram();
+  cortex::__NVIC_SetPriorityGrouping(0b100);
 }
 
 void Nvic::Init(Callback default_handler) {
@@ -56,7 +56,7 @@ void Nvic::EnableInterrupts() { cortex::__enable_irq(); }
 void Nvic::SetSysTickMicros(uint32_t microseconds) {
   // Set tick priority as a lower priority than most.
   cortex::__NVIC_SetPriority(cortex::SysTick_IRQn, 4);
-  const uint32_t core_clock_freq = Rcc::GetCoreClockFrequency();
+  const uint32_t core_clock_freq = Rcc::GetSysClockFrequency();
   cortex::SysTick_Config(core_clock_freq * (microseconds / 1e6));
 }
 

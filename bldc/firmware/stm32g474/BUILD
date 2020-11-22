@@ -37,11 +37,17 @@ cc_library(
     alwayslink = 1,
 )
 
+# Need to split these to avoid circular dependencies.
+cc_library(
+    name = "timer_def",
+    hdrs = ["timer.h"],
+)
+
 cc_library(
     name = "timer",
     srcs = ["timer.cc"],
-    hdrs = ["timer.h"],
     deps = [
+        ":timer_def",
         "//bldc/firmware/stm32g474/drivers:nvic",
         "//bldc/firmware/stm32g474/drivers:rcc",
         "//third_party/stm32cubeg4:stm32g474xx",

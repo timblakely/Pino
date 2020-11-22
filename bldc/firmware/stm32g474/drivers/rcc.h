@@ -8,8 +8,8 @@ class Rcc {
  public:
   static void SetupClocks();
 
-  // Note: currently hardcoded SysClock source to PLLCLK
-  static uint32_t GetCoreClockFrequency();
+  static uint32_t GetSysClockFrequency();
+  static uint32_t GetHClockFrequency();
 
  private:
   // Based on board design.
