@@ -10,7 +10,9 @@ using stm32g474::drivers::Rcc;
 
 int main() {
   Fpu::EnableHardwareFPU();
-  Nvic::Init();
+  Nvic::Init([]{
+    asm("nop");
+  });
   Nvic::SetSysTickMicros(1000);
 
   Rcc::SetupClocks();

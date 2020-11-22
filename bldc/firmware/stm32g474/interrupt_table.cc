@@ -5,13 +5,14 @@
 namespace stm32g474 {
 
 template <>
-void Stm32g474reInterruptTable<>::set_interrupt(IRQn_Type interrupt, int P,
-                                                int SP, Callback handler) {
-  handlers[interrupt + 16] = handler;
-  auto isr = isrs[interrupt + 16];
-  NVIC_SetVector(interrupt, reinterpret_cast<uint32_t>(isr));
-  HAL_NVIC_SetPriority(interrupt, P, SP);
-  HAL_NVIC_EnableIRQ(interrupt);
+void Stm32g474reInterruptTable<>::set_interrupt(
+    drivers::InterruptType interrupt, int P, int SP, Callback handler) {
+  auto irq = static_cast<int32_t>(interrupt);
+  handlers[irq + 16] = handler;
+  auto isr = isrs[irq + 16];
+  NVIC_SetVector(irq, reinterpret_cast<uint32_t>(isr));
+  HAL_NVIC_SetPriority(irq, P, SP);
+  HAL_NVIC_EnableIRQ(irq);
 }
 
 template <>

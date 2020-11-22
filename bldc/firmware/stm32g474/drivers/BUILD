@@ -29,6 +29,7 @@ cc_library(
         # globally.
         ":rcc",
         "//third_party/stm32cubeg4:stm32g474xx",
+        "//bldc/firmware:interrupt_table",
     ],
 )
 
