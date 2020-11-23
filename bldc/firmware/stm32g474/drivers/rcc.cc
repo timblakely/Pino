@@ -78,7 +78,7 @@ void Rcc::SetupClocks() {
   // 5) Modify the number of flash wait states according to the new SysClock.
   Flash::UpdateWaitStates(GetSysClockFrequency());
 
-  // 6) Wait a microsecond
+  // 6) Make sure the systick is updated, then wait a microsecond
   SysTickTimer::UpdatePeriod();
   SysTickTimer::BlockingWait(1);
 

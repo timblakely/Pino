@@ -21,6 +21,16 @@ cc_library(
 )
 
 cc_library(
+    name = "gpio",
+    srcs = ["gpio.cc"],
+    hdrs = ["gpio.h"],
+    deps = [
+        ":rcc",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)
+
+cc_library(
     name = "nvic",
     srcs = ["nvic.cc"],
     hdrs = ["nvic.h"],
