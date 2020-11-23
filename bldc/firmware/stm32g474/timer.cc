@@ -24,8 +24,10 @@ void SysTickTimer::SetPeriod(uint32_t micros) {
 
 void SysTickTimer::UpdatePeriod() {
   // TODO(blakely): Determine if we need to disable interrupts here.
+  // Nvic::SetInterrupt(drivers::CortexInterrupt::ISysTick, 2, 0,
+  //                    [] { SysTickHandler(); });
   Nvic::SetInterrupt(drivers::CortexInterrupt::ISysTick, 2, 0,
-                     [] { SysTickHandler(); });
+                     sys_tick_handler_);
   const uint32_t core_clock_freq = Rcc::GetHClockFrequency();
   cortex::SysTick_Config((core_clock_freq * period_micros_) / 1'000'000U);
   ResetCount();

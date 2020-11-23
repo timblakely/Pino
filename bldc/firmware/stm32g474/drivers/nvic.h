@@ -14,6 +14,13 @@ static const uint32_t kTotalNumInterrupts =
     kNumCortexInterrupts + kNumMaskableInterrupts;
 
 enum class CortexInterrupt : int32_t {
+  IReset = 1,
+  INMI = 2,
+  IHard = 3,
+  IMemManage = 4,
+  IBusFault = 5,
+  IUsageFault = 6,
+  IPendSV = 14,
   ISysTick = 15,  // Note: Should be SysTick, but ST #defined SysTick... *sigh*
 };
 

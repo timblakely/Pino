@@ -41,7 +41,10 @@ class InterruptTable {
   constexpr static std::array<ISR, NumInterrupts> make_isrs() {
     return utility::index_upto<NumInterrupts>()(
         [](auto... Is) -> std::array<ISR, NumInterrupts> {
-          return {{[] { handlers[decltype(Is)::value](); }...}};
+          return {{[] {
+            const uint32_t irq_number = decltype(Is)::value;
+            handlers[irq_number]();  //
+          }...}};
         });
   }
 

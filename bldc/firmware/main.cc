@@ -3,6 +3,7 @@
 #include "bldc/firmware/stm32g474/drivers/nvic.h"
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
 
+using stm32g474::drivers::CortexInterrupt;
 using stm32g474::drivers::Flash;
 using stm32g474::drivers::Fpu;
 using stm32g474::drivers::Nvic;
@@ -10,8 +11,10 @@ using stm32g474::drivers::Rcc;
 
 int main() {
   Fpu::EnableHardwareFPU();
-  Nvic::Init([]{
-    asm("nop");
+  Nvic::Init([] {
+    while (true) {
+      asm("nop");  //
+    }
   });
   // Nvic::SetSysTickMicros(1000);
 

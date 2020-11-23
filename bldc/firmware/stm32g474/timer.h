@@ -12,6 +12,7 @@ class SysTickTimer {
 
  private:
   static void SysTickHandler();
+  static constexpr auto sys_tick_handler_ = [] { SysTickHandler(); };
   static uint32_t period_micros_;
   static uint32_t tick_count_;
 };

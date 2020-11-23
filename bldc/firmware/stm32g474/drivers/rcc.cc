@@ -60,20 +60,32 @@ void Rcc::SetupClocks() {
   // the 16MHz HSI directly to 170MHz. Have to enter intermediate state first:
   // 1) Set AHB prescalar div to 2 (=8Mhz)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
-  // 2) Set Clock source to PLL (170/2=85Mhz)
+  // 2) Lower the peripheral clocks all the way down so they don't freak out
+  //    during transition.
+  rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_16);
+  rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_16);
+  // 3) Set Clock source to PLL (170/2=85Mhz)
   rcc::LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+  // 4) Wait a microsecond
   SysTickTimer::UpdatePeriod();
   SysTickTimer::BlockingWait(1);
-  // 3) Wait for sysclksource to change
+  // 5) Wait for sysclksource to change
   while (rcc::LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL) {
     asm("nop");
   }
-  // 4) Set AHB prescalar div to 1 (=170Mhz) (done below)
+  SysTickTimer::UpdatePeriod();
+  SysTickTimer::BlockingWait(1);
+  // 6) Set AHB prescalar div to 1 (=170Mhz) (done below)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
+  SysTickTimer::BlockingWait(1);
+  return;
+  SysTickTimer::UpdatePeriod();
+  SysTickTimer::BlockingWait(1);
+  return;
 
-  // Configure peripheral clocks
-  rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_SYSCLK_DIV_1);
-  rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_SYSCLK_DIV_1);
+  // Configure peripheral clocks back to where they're supposed to be.
+  rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
+  rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
 
   // TODO(blakely): move into their respective drivers
   // Peripheral clock configuration
@@ -92,16 +104,17 @@ uint32_t Rcc::GetSysClockFrequency() {
       return 24'000'000U;
       break;
     case LL_RCC_SYS_CLKSOURCE_STATUS_PLL:
-      const uint32_t sysclock_freq = __LL_RCC_CALC_PLLCLK_FREQ(
+    default:
+      return __LL_RCC_CALC_PLLCLK_FREQ(
           kHSEOscillatorSpeed, rcc::LL_RCC_PLL_GetDivider(),
           rcc::LL_RCC_PLL_GetN(), rcc::LL_RCC_PLL_GetR());
-      return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, LL_RCC_SYSCLK_DIV_1);
   }
 }
 
 uint32_t Rcc::GetHClockFrequency() {
-  return __LL_RCC_CALC_HCLK_FREQ(GetSysClockFrequency(),
-                                 rcc::LL_RCC_GetAHBPrescaler());
+  const auto sysclock_freq = GetSysClockFrequency();
+  const auto ahb_prescalar = rcc::LL_RCC_GetAHBPrescaler();
+  return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, ahb_prescalar);
 }
 
 }  // namespace drivers
