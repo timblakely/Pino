@@ -15,6 +15,10 @@ namespace rcc {
 #include "third_party/stm32cubeg4/stm32g4xx_ll_rcc.h"
 }  // namespace rcc
 
+namespace system {
+#include "third_party/stm32cubeg4/stm32g4xx_ll_system.h"
+}  // namespace system
+
 namespace stm32g474 {
 namespace drivers {
 
@@ -54,34 +58,29 @@ void Rcc::SetupClocks() {
   }
   rcc::LL_RCC_PLL_EnableDomain_SYS();
 
-  // TODO(blakely): Configure flash latency wait states
-
   // Set the system clock source to HSE. However, we can't ramp directly from
   // the 16MHz HSI directly to 170MHz. Have to enter intermediate state first:
   // 1) Set AHB prescalar div to 2 (=8Mhz)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
-  // 2) Lower the peripheral clocks all the way down so they don't freak out
+  // 2) Modify the number of flash wait states 1->4
+  system::LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
+  // 3) Lower the peripheral clocks all the way down so they don't freak out
   //    during transition.
   rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_16);
   rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_16);
-  // 3) Set Clock source to PLL (170/2=85Mhz)
+  // 4) Set Clock source to PLL (170/2=85Mhz)
   rcc::LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
-  // 4) Wait a microsecond
-  SysTickTimer::UpdatePeriod();
-  SysTickTimer::BlockingWait(1);
   // 5) Wait for sysclksource to change
   while (rcc::LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL) {
     asm("nop");
   }
+  // 5) Wait a microsecond
   SysTickTimer::UpdatePeriod();
   SysTickTimer::BlockingWait(1);
   // 6) Set AHB prescalar div to 1 (=170Mhz) (done below)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
-  SysTickTimer::BlockingWait(1);
-  return;
   SysTickTimer::UpdatePeriod();
   SysTickTimer::BlockingWait(1);
-  return;
 
   // Configure peripheral clocks back to where they're supposed to be.
   rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
