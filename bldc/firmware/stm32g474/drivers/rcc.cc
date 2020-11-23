@@ -1,5 +1,6 @@
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
 
+#include "bldc/firmware/stm32g474/drivers/flash.h"
 #include "bldc/firmware/stm32g474/timer.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 
@@ -14,10 +15,6 @@ namespace pwr {
 namespace rcc {
 #include "third_party/stm32cubeg4/stm32g4xx_ll_rcc.h"
 }  // namespace rcc
-
-namespace system {
-#include "third_party/stm32cubeg4/stm32g4xx_ll_system.h"
-}  // namespace system
 
 namespace stm32g474 {
 namespace drivers {
@@ -59,28 +56,34 @@ void Rcc::SetupClocks() {
   rcc::LL_RCC_PLL_EnableDomain_SYS();
 
   // Set the system clock source to HSE. However, we can't ramp directly from
-  // the 16MHz HSI directly to 170MHz. Have to enter intermediate state first:
+  // the 16MHz HSI directly to 170MHz. Have to enter a few intermediate states
+  // first:
+
   // 1) Set AHB prescalar div to 2 (=8Mhz)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
-  // 2) Modify the number of flash wait states 1->4
-  system::LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
-  // 3) Lower the peripheral clocks all the way down so they don't freak out
+
+  // 2) Lower the peripheral clocks all the way down so they don't freak out
   //    during transition.
   rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_16);
   rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_16);
-  // 4) Set Clock source to PLL (170/2=85Mhz)
+
+  // 3) Set Clock source to PLL (170/2=85Mhz)
   rcc::LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
-  // 5) Wait for sysclksource to change
+
+  // 4) Wait for sysclksource to change
   while (rcc::LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL) {
     asm("nop");
   }
-  // 5) Wait a microsecond
+
+  // 5) Modify the number of flash wait states according to the new SysClock.
+  Flash::UpdateWaitStates(GetSysClockFrequency());
+
+  // 6) Wait a microsecond
   SysTickTimer::UpdatePeriod();
   SysTickTimer::BlockingWait(1);
-  // 6) Set AHB prescalar div to 1 (=170Mhz) (done below)
+
+  // 7) Set AHB prescalar div to 1 (=170Mhz) (done below)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
-  SysTickTimer::UpdatePeriod();
-  SysTickTimer::BlockingWait(1);
 
   // Configure peripheral clocks back to where they're supposed to be.
   rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);

@@ -9,6 +9,8 @@ class Flash {
   static void EnableInstructionCache();
   static void EnableDataCache();
   static void EnablePrefetchBuffer();
+
+  static void UpdateWaitStates(uint32_t core_clock_frequency);
 };
 
 }  // namespace drivers

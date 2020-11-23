@@ -38,6 +38,7 @@ cc_library(
     srcs = ["rcc.cc"],
     hdrs = ["rcc.h"],
     deps = [
+        ":flash",
         "//bldc/firmware/stm32g474:timer_def",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
