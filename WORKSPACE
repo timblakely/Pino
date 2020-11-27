@@ -44,3 +44,11 @@ new_git_repository(
     remote = "https://github.com/WG21-SG14/SG14",
     shallow_since = "1586132753 +1200",
 )
+
+new_git_repository(
+    name = "mapbox_eternal",
+    build_file = "//third_party/mapbox/eternal:repo.BUILD",
+    commit = "756ff2e049bd57d75f3bf869240e641095575b80",
+    remote = "https://github.com/mapbox/eternal",
+    shallow_since = "1603709757 +0200",
+)
