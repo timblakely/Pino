@@ -119,5 +119,20 @@ uint32_t Rcc::GetHClockFrequency() {
   return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, ahb_prescalar);
 }
 
+void Rcc::Enable(GpioPort port) {
+  switch (port) {
+    case GpioPort::A:
+      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOA);
+    case GpioPort::B:
+      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOB);
+    case GpioPort::C:
+      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOC);
+    case GpioPort::D:
+      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOD);
+    case GpioPort::E:
+      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOE);
+  }
+}
+
 }  // namespace drivers
 }  // namespace stm32g474

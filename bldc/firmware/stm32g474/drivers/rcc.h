@@ -1,6 +1,8 @@
 #ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
 #define BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
 
+#include "bldc/firmware/stm32g474/drivers/gpio_defines.h"
+
 namespace stm32g474 {
 namespace drivers {
 
@@ -10,6 +12,8 @@ class Rcc {
 
   static uint32_t GetSysClockFrequency();
   static uint32_t GetHClockFrequency();
+
+  static void Enable(GpioPort port);
 
  private:
   // Based on board design.

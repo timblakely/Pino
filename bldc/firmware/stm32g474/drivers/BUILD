@@ -21,10 +21,16 @@ cc_library(
 )
 
 cc_library(
+    name = "gpio_defines",
+    hdrs = ["gpio_defines.h"],
+)
+
+cc_library(
     name = "gpio",
     srcs = ["gpio.cc"],
     hdrs = ["gpio.h"],
     deps = [
+        ":gpio_defines",
         ":rcc",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
@@ -49,6 +55,7 @@ cc_library(
     hdrs = ["rcc.h"],
     deps = [
         ":flash",
+        ":gpio_defines",
         "//bldc/firmware/stm32g474:timer_def",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
