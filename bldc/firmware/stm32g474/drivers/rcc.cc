@@ -2,6 +2,7 @@
 
 #include "bldc/firmware/stm32g474/drivers/flash.h"
 #include "bldc/firmware/stm32g474/timer.h"
+#include "third_party/mapbox/eternal/eternal.hpp"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 
 namespace bus {
@@ -120,18 +121,14 @@ uint32_t Rcc::GetHClockFrequency() {
 }
 
 void Rcc::Enable(GpioPort port) {
-  switch (port) {
-    case GpioPort::A:
-      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOA);
-    case GpioPort::B:
-      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOB);
-    case GpioPort::C:
-      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOC);
-    case GpioPort::D:
-      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOD);
-    case GpioPort::E:
-      return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOE);
-  }
+  static constexpr auto kPortMap = mapbox::eternal::map<GpioPort, uint32_t>({
+      {GpioPort::A, LL_AHB2_GRP1_PERIPH_GPIOA},
+      {GpioPort::B, LL_AHB2_GRP1_PERIPH_GPIOB},
+      {GpioPort::C, LL_AHB2_GRP1_PERIPH_GPIOC},
+      {GpioPort::D, LL_AHB2_GRP1_PERIPH_GPIOD},
+      {GpioPort::E, LL_AHB2_GRP1_PERIPH_GPIOE},
+  });
+  bus::LL_AHB2_GRP1_EnableClock(kPortMap.find(port)->second);
 }
 
 }  // namespace drivers
