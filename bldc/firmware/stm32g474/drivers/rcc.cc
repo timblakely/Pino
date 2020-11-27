@@ -128,7 +128,7 @@ void Rcc::Enable(GpioPort port) {
       {GpioPort::D, LL_AHB2_GRP1_PERIPH_GPIOD},
       {GpioPort::E, LL_AHB2_GRP1_PERIPH_GPIOE},
   });
-  bus::LL_AHB2_GRP1_EnableClock(kPortMap.find(port)->second);
+  bus::LL_AHB2_GRP1_EnableClock(kPortMap.at(port));
 }
 
 }  // namespace drivers
