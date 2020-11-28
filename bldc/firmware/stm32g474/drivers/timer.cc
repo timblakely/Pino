@@ -3,6 +3,7 @@
 #include "bldc/firmware/stm32g474/drivers/nvic.h"
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
+#include "third_party/stm32cubeg4/stm32g4xx_ll_tim.h"
 
 namespace stm32g474 {
 namespace drivers {
@@ -36,6 +37,32 @@ void SysTickTimer::BlockingWait(uint32_t micros) {
     asm("nop");
   }
 }
+
+TIM_TypeDef* AsLL(AdvancedTimer timer) {
+  switch (timer) {
+    case AdvancedTimer::Tim1:
+    default:
+      return TIM1;
+    case AdvancedTimer::Tim8:
+      return TIM8;
+    case AdvancedTimer::Tim20:
+      return TIM20;
+  }
+}
+
+AdvancedTimerImpl::AdvancedTimerImpl(AdvancedTimer timer)
+    : timer_instance_(timer) {
+  Rcc::Enable(timer);
+}
+
+void AdvancedTimerImpl::SetPrescalar(uint32_t prescalar) {
+  LL_TIM_SetPrescaler(AsLL(timer_instance_), prescalar);
+}
+
+// void AdvancedTimerImpl::SetCountMode(CountMode mode) {
+//   auto ll_timer = GetLLTimer(timer_instance_);
+//   LL_TIM_SetPrescaler(ll_timer, prescalar);
+// }
 
 }  // namespace drivers
 }  // namespace stm32g474
