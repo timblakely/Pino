@@ -1,5 +1,9 @@
 #include "bldc/firmware/stm32g474/drivers/timer.h"
 
+#include "bldc/firmware/stm32g474/drivers/nvic.h"
+#include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "third_party/stm32cubeg4/stm32g474xx.h"
+
 namespace stm32g474 {
 namespace drivers {
 
@@ -16,7 +20,7 @@ void SysTickTimer::UpdatePeriod() {
   Nvic::SetInterrupt(drivers::CortexInterrupt::ISysTick, 2, 0,
                      [] { SysTickHandler(); });
   const uint32_t core_clock_freq = Rcc::GetHClockFrequency();
-  cortex::SysTick_Config((core_clock_freq / 1'000'000U) * period_micros_);
+  SysTick_Config((core_clock_freq / 1'000'000U) * period_micros_);
   ResetCount();
 }
 

@@ -2,6 +2,8 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
 
+# TODO(blakely): Figure out a better way to deal with CMSIS defines globally.
+
 cc_library(
     name = "flash",
     srcs = ["flash.cc"],
@@ -21,16 +23,25 @@ cc_library(
 )
 
 cc_library(
-    name = "gpio",
+    name = "gpio_defines",
     hdrs = ["gpio.h"],
 )
 
 cc_library(
-    name = "gpio_impl",
+    name = "gpio",
     srcs = ["gpio.cc"],
     deps = [
-        ":gpio",
-        ":rcc",
+        ":gpio_defines",
+        ":rcc_defines",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)
+
+cc_library(
+    name = "nvic_defines",
+    hdrs = ["nvic.h"],
+    deps = [
+        "//bldc/firmware:interrupt_table",
     ],
 )
 
@@ -39,21 +50,28 @@ cc_library(
     srcs = ["nvic.cc"],
     hdrs = ["nvic.h"],
     deps = [
-        # TODO(blakely): Figure out a better way to deal with CMSIS defines
-        # globally.
         ":rcc",
-        "//third_party/stm32cubeg4:stm32g474xx",
         "//bldc/firmware:interrupt_table",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)
+
+cc_library(
+    name = "rcc_defines",
+    hdrs = ["rcc.h"],
+    deps = [
+        ":gpio_defines",
+        ":timer_defines",
     ],
 )
 
 cc_library(
     name = "rcc",
     srcs = ["rcc.cc"],
-    hdrs = ["rcc.h"],
     deps = [
         ":flash",
         ":gpio",
+        ":rcc_defines",
         ":timer",
         "//third_party/mapbox/eternal",
         "//third_party/stm32cubeg4:stm32g474xx",
@@ -61,15 +79,16 @@ cc_library(
 )
 
 cc_library(
-    name = "timer",
+    name = "timer_defines",
     hdrs = ["timer.h"],
 )
 
 cc_library(
-    name = "timer_impl",
+    name = "timer",
     srcs = ["timer.cc"],
     deps = [
-        ":rcc",
+        ":nvic_defines",
+        ":rcc_defines",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
     alwayslink = 1,

@@ -1,7 +1,6 @@
 #include "bldc/firmware/stm32g474/drivers/gpio.h"
 
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
-#include "third_party/mapbox/eternal/eternal.hpp"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_gpio.h"
 
 namespace stm32g474 {
