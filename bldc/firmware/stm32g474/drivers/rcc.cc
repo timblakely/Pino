@@ -20,6 +20,14 @@ namespace rcc {
 namespace stm32g474 {
 namespace drivers {
 
+static constexpr auto kPortMap = mapbox::eternal::map<GpioPort, uint32_t>({
+    {GpioPort::A, LL_AHB2_GRP1_PERIPH_GPIOA},
+    {GpioPort::B, LL_AHB2_GRP1_PERIPH_GPIOB},
+    {GpioPort::C, LL_AHB2_GRP1_PERIPH_GPIOC},
+    {GpioPort::D, LL_AHB2_GRP1_PERIPH_GPIOD},
+    {GpioPort::E, LL_AHB2_GRP1_PERIPH_GPIOE},
+});
+
 void Rcc::SetupClocks() {
   // TODO(blakely): Make this more general when needed.
 
@@ -121,13 +129,6 @@ uint32_t Rcc::GetHClockFrequency() {
 }
 
 void Rcc::Enable(GpioPort port) {
-  static constexpr auto kPortMap = mapbox::eternal::map<GpioPort, uint32_t>({
-      {GpioPort::A, LL_AHB2_GRP1_PERIPH_GPIOA},
-      {GpioPort::B, LL_AHB2_GRP1_PERIPH_GPIOB},
-      {GpioPort::C, LL_AHB2_GRP1_PERIPH_GPIOC},
-      {GpioPort::D, LL_AHB2_GRP1_PERIPH_GPIOD},
-      {GpioPort::E, LL_AHB2_GRP1_PERIPH_GPIOE},
-  });
   bus::LL_AHB2_GRP1_EnableClock(kPortMap.at(port));
 }
 

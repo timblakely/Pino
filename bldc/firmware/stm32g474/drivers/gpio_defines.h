@@ -12,20 +12,27 @@ enum class GpioPort {
   E,
 };
 
-enum class GpioMode {
-  Input,
-  OutputPushPull,
-  OutputOpenDrain,
-  AlternateFunctionPushPull,
-  AlternateFunctionOpenDrain,
-  Analog,
-  InterruptRising,
-  InterruptFalling,
-  InterruptRisingFalling,
-  // TODO(blakely): Event, or external?
-  EventRising,
-  EventFalling,
-  EventRisingFalling,
+// enum class GpioMode {
+//   Input,
+//   Output,
+//   Alternate,
+//   OutputPushPull,
+//   OutputOpenDrain,
+//   AlternateFunctionPushPull,
+//   AlternateFunctionOpenDrain,
+//   Analog,
+//   // InterruptRising,
+//   // InterruptFalling,
+//   // InterruptRisingFalling,
+//   // // TODO(blakely): Event, or external?
+//   // EventRising,
+//   // EventFalling,
+//   // EventRisingFalling,
+// };
+
+enum class GpioOutputMode {
+  PushPull,
+  OpenDrain,
 };
 
 enum class GpioPullup {

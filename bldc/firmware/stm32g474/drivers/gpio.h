@@ -8,7 +8,7 @@ namespace drivers {
 
 class Gpio {
  public:
-  static void ConfigurePin(GpioPort port, uint8_t pin, GpioMode mode,
+  static void ConfigurePin(GpioPort port, uint32_t pin, GpioMode mode,
                            GpioPullup pullup);
   static void ConfigurePinAlternateFunction(
       GpioPort port, uint8_t pin, GpioMode mode, GpioPullup pullup,
