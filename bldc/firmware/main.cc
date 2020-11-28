@@ -3,9 +3,8 @@
 #include "bldc/firmware/stm32g474/drivers/gpio.h"
 #include "bldc/firmware/stm32g474/drivers/nvic.h"
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
-#include "bldc/firmware/stm32g474/timer.h"
+#include "bldc/firmware/stm32g474/drivers/timer.h"
 
-using stm32g474::SysTickTimer;
 using stm32g474::drivers::CortexInterrupt;
 using stm32g474::drivers::Flash;
 using stm32g474::drivers::Fpu;
@@ -15,6 +14,7 @@ using stm32g474::drivers::GpioPort;
 using stm32g474::drivers::GpioPullup;
 using stm32g474::drivers::Nvic;
 using stm32g474::drivers::Rcc;
+using stm32g474::drivers::SysTickTimer;
 
 int main() {
   Fpu::EnableHardwareFPU();

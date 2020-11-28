@@ -21,18 +21,15 @@ cc_library(
 )
 
 cc_library(
-    name = "gpio_defines",
-    hdrs = ["gpio_defines.h"],
+    name = "gpio",
+    hdrs = ["gpio.h"],
 )
 
 cc_library(
-    name = "gpio",
+    name = "gpio_impl",
     srcs = ["gpio.cc"],
-    hdrs = [
-        "gpio.h",
-    ],
     deps = [
-        ":gpio_defines",
+        ":gpio",
         ":rcc",
     ],
 )
@@ -56,9 +53,24 @@ cc_library(
     hdrs = ["rcc.h"],
     deps = [
         ":flash",
-        ":gpio_defines",
-        "//bldc/firmware/stm32g474:timer_def",
+        ":gpio",
+        ":timer",
         "//third_party/mapbox/eternal",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
+)
+
+cc_library(
+    name = "timer",
+    hdrs = ["timer.h"],
+)
+
+cc_library(
+    name = "timer_impl",
+    srcs = ["timer.cc"],
+    deps = [
+        ":rcc",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+    alwayslink = 1,
 )

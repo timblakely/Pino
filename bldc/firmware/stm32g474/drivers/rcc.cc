@@ -1,7 +1,7 @@
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
 
 #include "bldc/firmware/stm32g474/drivers/flash.h"
-#include "bldc/firmware/stm32g474/timer.h"
+#include "bldc/firmware/stm32g474/drivers/timer.h"
 #include "third_party/mapbox/eternal/eternal.hpp"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 
@@ -132,6 +132,17 @@ void Rcc::Enable(GpioPort port) {
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOD);
     case GpioPort::E:
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOE);
+  }
+}
+
+void Rcc::Enable(AdvancedTimer timer) {
+  switch (timer) {
+    case AdvancedTimer::Tim1:
+      return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1);
+    case AdvancedTimer::Tim8:
+      return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM8);
+    case AdvancedTimer::Tim20:
+      return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM20);
   }
 }
 
