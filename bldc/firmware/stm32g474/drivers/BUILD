@@ -26,18 +26,6 @@ cc_library(
 )
 
 cc_library(
-    name = "gpio_ll",
-    hdrs = [
-        "gpio_ll.h",
-    ],
-    deps = [
-        ":gpio_defines",
-        "//third_party/mapbox/eternal",
-        "//third_party/stm32cubeg4:stm32g474xx",
-    ],
-)
-
-cc_library(
     name = "gpio",
     srcs = ["gpio.cc"],
     hdrs = [
@@ -45,7 +33,6 @@ cc_library(
     ],
     deps = [
         ":gpio_defines",
-        ":gpio_ll",
         ":rcc",
     ],
 )
