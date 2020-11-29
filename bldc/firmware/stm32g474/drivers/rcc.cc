@@ -86,6 +86,9 @@ void Rcc::SetupClocks() {
   // 7) Set AHB prescalar div to 1 (=170Mhz) (done below)
   rcc::LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
 
+  // Reset system clock again to match new divider.
+  SysTickTimer::UpdatePeriod();
+
   // Configure peripheral clocks back to where they're supposed to be.
   rcc::LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
   rcc::LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);

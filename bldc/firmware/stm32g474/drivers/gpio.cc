@@ -56,5 +56,9 @@ void Gpio::SetOutputPin(GpioPort port, uint32_t pin) {
   LL_GPIO_SetOutputPin(GetLLPort(port), 0b1 << pin);
 }
 
+void Gpio::ClearOutputPin(GpioPort port, uint32_t pin) {
+  LL_GPIO_ResetOutputPin(GetLLPort(port), 0b1 << pin);
+}
+
 }  // namespace drivers
 }  // namespace stm32g474

@@ -51,6 +51,7 @@ class Gpio {
   static void ConfigureOutputPin(GpioPort port, uint32_t pin, GpioPullup pullup,
                                  GpioOutputMode mode);
   static void SetOutputPin(GpioPort port, uint32_t pin);
+  static void ClearOutputPin(GpioPort port, uint32_t pin);
   static void ConfigurePeripheralPin(GpioPort port, uint8_t pin,
                                      GpioPullup pullup,
                                      GpioAlternateFunction alternate_function);

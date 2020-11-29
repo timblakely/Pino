@@ -28,6 +28,16 @@ cc_library(
 )
 
 cc_library(
+    name = "led",
+    srcs = ["led.cc"],
+    hdrs = ["led.h"],
+    deps = [
+        "//bldc/firmware/stm32g474/drivers:gpio",
+    ],
+    alwayslink = 1,
+)
+
+cc_library(
     name = "system",
     srcs = ["system.c"],
     hdrs = ["system.h"],
