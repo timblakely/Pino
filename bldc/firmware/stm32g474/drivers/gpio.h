@@ -4,31 +4,13 @@
 namespace stm32g474 {
 namespace drivers {
 
-// enum class GpioMode {
-//   Input,
-//   Output,
-//   Alternate,
-//   OutputPushPull,
-//   OutputOpenDrain,
-//   AlternateFunctionPushPull,
-//   AlternateFunctionOpenDrain,
-//   Analog,
-//   // InterruptRising,
-//   // InterruptFalling,
-//   // InterruptRisingFalling,
-//   // // TODO(blakely): Event, or external?
-//   // EventRising,
-//   // EventFalling,
-//   // EventRisingFalling,
-// };
-
 class Gpio {
  public:
   enum class Port { A, B, C, D, E };
   enum class OutputMode { PushPull, OpenDrain };
   enum class Pullup { None, PullUp, PullDown };
   enum class AlternateFunction { None };
-  
+
   static void ConfigureInputPin(Port port, uint32_t pin, Pullup pullup);
   static void ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
                                  OutputMode mode);
