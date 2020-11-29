@@ -14,7 +14,7 @@ class Rcc {
   static uint32_t GetSysClockFrequency();
   static uint32_t GetHClockFrequency();
 
-  static void Enable(GpioPort port);
+  static void Enable(Gpio::Port port);
   static void Enable(AdvancedTimer timer);
 
  private:

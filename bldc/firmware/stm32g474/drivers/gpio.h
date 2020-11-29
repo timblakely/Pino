@@ -4,14 +4,6 @@
 namespace stm32g474 {
 namespace drivers {
 
-enum class GpioPort {
-  A,
-  B,
-  C,
-  D,
-  E,
-};
-
 // enum class GpioMode {
 //   Input,
 //   Output,
@@ -30,31 +22,20 @@ enum class GpioPort {
 //   // EventRisingFalling,
 // };
 
-enum class GpioOutputMode {
-  PushPull,
-  OpenDrain,
-};
-
-enum class GpioPullup {
-  None,
-  PullUp,
-  PullDown,
-};
-
-enum class GpioAlternateFunction {
-  None,
-};
-
 class Gpio {
  public:
-  static void ConfigureInputPin(GpioPort port, uint32_t pin, GpioPullup pullup);
-  static void ConfigureOutputPin(GpioPort port, uint32_t pin, GpioPullup pullup,
-                                 GpioOutputMode mode);
-  static void SetOutputPin(GpioPort port, uint32_t pin);
-  static void ClearOutputPin(GpioPort port, uint32_t pin);
-  static void ConfigurePeripheralPin(GpioPort port, uint8_t pin,
-                                     GpioPullup pullup,
-                                     GpioAlternateFunction alternate_function);
+  enum class Port { A, B, C, D, E };
+  enum class OutputMode { PushPull, OpenDrain };
+  enum class Pullup { None, PullUp, PullDown };
+  enum class AlternateFunction { None };
+  
+  static void ConfigureInputPin(Port port, uint32_t pin, Pullup pullup);
+  static void ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
+                                 OutputMode mode);
+  static void SetOutputPin(Port port, uint32_t pin);
+  static void ClearOutputPin(Port port, uint32_t pin);
+  static void ConfigurePeripheralPin(Port port, uint8_t pin, Pullup pullup,
+                                     AlternateFunction alternate_function);
 };
 
 }  // namespace drivers

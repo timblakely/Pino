@@ -123,17 +123,17 @@ uint32_t Rcc::GetHClockFrequency() {
   return __LL_RCC_CALC_HCLK_FREQ(sysclock_freq, ahb_prescalar);
 }
 
-void Rcc::Enable(GpioPort port) {
+void Rcc::Enable(Gpio::Port port) {
   switch (port) {
-    case GpioPort::A:
+    case Gpio::Port::A:
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOA);
-    case GpioPort::B:
+    case Gpio::Port::B:
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOB);
-    case GpioPort::C:
+    case Gpio::Port::C:
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOC);
-    case GpioPort::D:
+    case Gpio::Port::D:
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOD);
-    case GpioPort::E:
+    case Gpio::Port::E:
       return bus::LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOE);
   }
 }

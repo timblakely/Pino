@@ -6,15 +6,12 @@
 using stm32g474::Led;
 
 using stm32g474::drivers::Gpio;
-using stm32g474::drivers::GpioOutputMode;
-using stm32g474::drivers::GpioPort;
-using stm32g474::drivers::GpioPullup;
 
 using stm32g474::drivers::SysTickTimer;
 
-Led kRedLED(GpioPort::B, 6);
-Led kGreenLED(GpioPort::B, 9);
-Led kBlueLED(GpioPort::B, 7);
+Led kRedLED(Gpio::Port::B, 6);
+Led kGreenLED(Gpio::Port::B, 9);
+Led kBlueLED(Gpio::Port::B, 7);
 
 int main() {
   stm32g474::Startup();

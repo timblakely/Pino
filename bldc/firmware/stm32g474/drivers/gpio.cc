@@ -9,24 +9,24 @@
 namespace stm32g474 {
 namespace drivers {
 
-GPIO_TypeDef* GetLLPort(GpioPort port) {
+GPIO_TypeDef* GetLLPort(Gpio::Port port) {
   switch (port) {
-    case GpioPort::A:
+    case Gpio::Port::A:
     default:
       return GPIOA;
-    case GpioPort::B:
+    case Gpio::Port::B:
       return GPIOB;
-    case GpioPort::C:
+    case Gpio::Port::C:
       return GPIOC;
-    case GpioPort::D:
+    case Gpio::Port::D:
       return GPIOD;
-    case GpioPort::E:
+    case Gpio::Port::E:
       return GPIOE;
   }
 }
 
-void Gpio::ConfigureOutputPin(GpioPort port, uint32_t pin, GpioPullup pullup,
-                              GpioOutputMode mode) {
+void Gpio::ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
+                              OutputMode mode) {
   Rcc::Enable(port);
 
   auto ll_port = GetLLPort(port);
@@ -35,28 +35,28 @@ void Gpio::ConfigureOutputPin(GpioPort port, uint32_t pin, GpioPullup pullup,
   const uint32_t ll_pin = 0b1 << pin;
   LL_GPIO_SetPinMode(ll_port, ll_pin, LL_GPIO_MODE_OUTPUT);
   switch (pullup) {
-    case GpioPullup::PullUp:
+    case Pullup::PullUp:
       LL_GPIO_SetPinPull(ll_port, ll_pin, LL_GPIO_PULL_UP);
       break;
-    case GpioPullup::PullDown:
+    case Pullup::PullDown:
       LL_GPIO_SetPinPull(ll_port, ll_pin, LL_GPIO_PULL_DOWN);
       break;
-    case GpioPullup::None:
+    case Pullup::None:
       LL_GPIO_SetPinPull(ll_port, ll_pin, LL_GPIO_PULL_NO);
       break;
   }
-  if (mode == GpioOutputMode::PushPull) {
+  if (mode == OutputMode::PushPull) {
     LL_GPIO_SetPinOutputType(ll_port, ll_pin, LL_GPIO_OUTPUT_PUSHPULL);
   } else {
     LL_GPIO_SetPinOutputType(ll_port, ll_pin, LL_GPIO_OUTPUT_OPENDRAIN);
   }
 }
 
-void Gpio::SetOutputPin(GpioPort port, uint32_t pin) {
+void Gpio::SetOutputPin(Port port, uint32_t pin) {
   LL_GPIO_SetOutputPin(GetLLPort(port), 0b1 << pin);
 }
 
-void Gpio::ClearOutputPin(GpioPort port, uint32_t pin) {
+void Gpio::ClearOutputPin(Port port, uint32_t pin) {
   LL_GPIO_ResetOutputPin(GetLLPort(port), 0b1 << pin);
 }
 

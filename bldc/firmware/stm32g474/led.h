@@ -12,13 +12,13 @@ class Led {
   //   Blinking,
   // };
 
-  Led(drivers::GpioPort port, uint32_t pin);
+  Led(drivers::Gpio::Port port, uint32_t pin);
   void On();
   void Off();
 
  private:
   void ConfigurePin();
-  drivers::GpioPort port_;
+  drivers::Gpio::Port port_;
   uint32_t pin_;
   // Mode mode_;
 };
