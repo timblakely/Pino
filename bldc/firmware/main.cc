@@ -1,7 +1,7 @@
 #include "bldc/firmware/stm32g474/drivers/gpio.h"
 #include "bldc/firmware/stm32g474/drivers/timer.h"
-#include "bldc/firmware/stm32g474/init.h"
 #include "bldc/firmware/stm32g474/led.h"
+#include "bldc/firmware/stm32g474/system.h"
 
 using stm32g474::Led;
 
@@ -15,7 +15,6 @@ Led kBlueLED(Gpio::Port::B, 7);
 
 int main() {
   stm32g474::Startup();
-  kRedLED.On();
 
   uint32_t i = 0;
   while (true) {

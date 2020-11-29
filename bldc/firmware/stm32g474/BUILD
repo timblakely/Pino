@@ -17,10 +17,11 @@ cc_library(
 )
 
 cc_library(
-    name = "init",
-    srcs = ["init.cc"],
-    hdrs = ["init.h"],
+    name = "system",
+    srcs = ["system.cc"],
+    hdrs = ["system.h"],
     deps = [
+        "//bldc/firmware/stm32g474:interrupt_table",
         "//bldc/firmware/stm32g474/drivers:flash",
         "//bldc/firmware/stm32g474/drivers:fpu",
         "//bldc/firmware/stm32g474/drivers:nvic",
