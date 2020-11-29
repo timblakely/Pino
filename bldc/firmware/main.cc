@@ -18,7 +18,9 @@ using stm32g474::drivers::Nvic;
 using stm32g474::drivers::Rcc;
 using stm32g474::drivers::SysTickTimer;
 
+Led kRedLED(GpioPort::B, 6);
 Led kGreenLED(GpioPort::B, 9);
+Led kBlueLED(GpioPort::B, 7);
 
 int main() {
   Fpu::EnableHardwareFPU();
@@ -35,12 +37,14 @@ int main() {
   Flash::EnableInstructionCache();
   Flash::EnablePrefetchBuffer();
 
+  kRedLED.On();
+
   uint32_t i = 0;
   while (true) {
     ++i;
-    kGreenLED.On();
+    kBlueLED.On();
     SysTickTimer::BlockingWait(1000000 * 1);
-    kGreenLED.Off();
+    kBlueLED.Off();
     SysTickTimer::BlockingWait(1000000 * 1);
   }
 }
