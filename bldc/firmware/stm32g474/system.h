@@ -1,8 +1,6 @@
 #ifndef BLDC_FIRMWARE_STM32G474_MCU_CONFIG_H_
 #define BLDC_FIRMWARE_STM32G474_MCU_CONFIG_H_
 
-#include "bldc/firmware/stm32g474/interrupt_table.h"
-
 namespace stm32g474 {
 void Startup();
 

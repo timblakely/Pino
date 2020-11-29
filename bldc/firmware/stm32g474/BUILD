@@ -21,22 +21,10 @@ cc_library(
     srcs = ["system.cc"],
     hdrs = ["system.h"],
     deps = [
-        "//bldc/firmware/stm32g474:interrupt_table",
         "//bldc/firmware/stm32g474/drivers:flash",
         "//bldc/firmware/stm32g474/drivers:fpu",
         "//bldc/firmware/stm32g474/drivers:nvic",
         "//bldc/firmware/stm32g474/drivers:rcc",
-    ],
-    alwayslink = 1,
-)
-
-cc_library(
-    name = "interrupt_table",
-    srcs = ["interrupt_table.cc"],
-    hdrs = ["interrupt_table.h"],
-    deps = [
-        "//bldc/firmware:interrupt_table",
-        "//bldc/firmware/stm32g474/drivers:nvic",
     ],
     alwayslink = 1,
 )
