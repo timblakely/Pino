@@ -44,6 +44,10 @@ enum class AdvancedTimer {
   Tim20,
 };
 
+enum class GenericTimer {
+
+};
+
 class AdvancedTimerImpl {
  public:
   enum class CountMode {
@@ -56,6 +60,13 @@ class AdvancedTimerImpl {
 
  private:
   AdvancedTimer timer_instance_;
+};
+
+class Tim3 {
+ public:
+  Tim3();
+  void Enable();
+  void EnableOutputChannel(uint32_t channel);
 };
 
 }  // namespace drivers

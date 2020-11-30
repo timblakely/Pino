@@ -2,6 +2,7 @@
 
 #include "bldc/firmware/stm32g474/drivers/nvic.h"
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "bldc/firmware/stm32g474/system.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_tim.h"
 
@@ -63,6 +64,17 @@ void AdvancedTimerImpl::SetPrescalar(uint32_t prescalar) {
 //   auto ll_timer = GetLLTimer(timer_instance_);
 //   LL_TIM_SetPrescaler(ll_timer, prescalar);
 // }
+
+void Tim3::Enable() { Rcc::EnableTim3(); }
+
+void Tim3::EnableOutputChannel(uint32_t channel) {
+  Enable();
+  // switch (channel) {
+  //   case 4:
+  //     return Gpio::ConfigurePeripheralPin(Gpio::Port::B, 7,
+  //     Gpio::Pullup::None, );
+  // };
+}
 
 }  // namespace drivers
 }  // namespace stm32g474

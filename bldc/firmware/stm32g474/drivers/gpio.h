@@ -9,11 +9,20 @@ class Gpio {
   enum class Port { A, B, C, D, E };
   enum class OutputMode { PushPull, OpenDrain };
   enum class Pullup { None, PullUp, PullDown };
-  enum class AlternateFunction { None };
+  enum class AlternateFunction {
+    None,
+    AF10 = 10,
+  };
+
+  // struct Pin {
+  //   Pin(Port port, Pin pin);
+
+  // };
 
   static void ConfigureInputPin(Port port, uint32_t pin, Pullup pullup);
   static void ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
                                  OutputMode mode);
+  static void SetPullup(Port port, uint32_t pin, Pullup pullup);
   static void SetOutputPin(Port port, uint32_t pin);
   static void ClearOutputPin(Port port, uint32_t pin);
   static void ConfigurePeripheralPin(Port port, uint8_t pin, Pullup pullup,

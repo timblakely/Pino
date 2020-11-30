@@ -21,7 +21,6 @@ int main() {
       asm("nop");
     }
   });
-  kGreenLED.Off();
 
   uint32_t i = 0;
   while (true) {
