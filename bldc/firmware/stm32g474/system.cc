@@ -4,6 +4,7 @@
 #include "bldc/firmware/stm32g474/drivers/fpu.h"
 #include "bldc/firmware/stm32g474/drivers/nvic.h"
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "third_party/stm32cubeg4/stm32g4xx.h"
 
 using stm32g474::drivers::Flash;
 using stm32g474::drivers::Fpu;
@@ -16,6 +17,8 @@ void SystemInit(void) {}
 }
 
 namespace stm32g474 {
+
+using drivers::InterruptCallback;
 
 void Startup() {
   Fpu::EnableHardwareFPU();
@@ -32,4 +35,14 @@ void Startup() {
   Rcc::SetupClocks();
 }
 
+void OnFatal(InterruptCallback &&callback) {
+  Nvic::SetInterruptHandler(drivers::Interrupt::HardFault, callback);
+}
+
+void Fatal() {
+  // Intentionally read the beef!
+  volatile auto deadbeef = *(volatile uint32_t *)0xdeadbeef;
+  // Get rid of compiler warning.
+  (void)deadbeef;
+}
 }  // namespace stm32g474

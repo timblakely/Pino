@@ -15,13 +15,30 @@ Led kBlueLED(Gpio::Port::B, 7);
 
 int main() {
   stm32g474::Startup();
+  stm32g474::OnFatal([] {
+    kRedLED.On();
+    while (true) {
+      asm("nop");
+    }
+  });
+  kGreenLED.Off();
 
   uint32_t i = 0;
   while (true) {
     ++i;
+    kGreenLED.On();
     kBlueLED.On();
     SysTickTimer::BlockingWait(1000000 * 1);
     kBlueLED.Off();
     SysTickTimer::BlockingWait(1000000 * 1);
+    kBlueLED.On();
+    SysTickTimer::BlockingWait(1000000 * 1);
+    kBlueLED.Off();
+    SysTickTimer::BlockingWait(1000000 * 1);
+    kBlueLED.On();
+    SysTickTimer::BlockingWait(1000000 * 1);
+    kBlueLED.Off();
+    kGreenLED.Off();
+    stm32g474::Fatal();
   }
 }

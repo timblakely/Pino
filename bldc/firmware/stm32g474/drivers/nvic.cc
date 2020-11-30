@@ -13,9 +13,12 @@ namespace cortex {
 namespace stm32g474 {
 namespace drivers {
 
-constexpr cortex::IRQn_Type ToCmsis(uint32_t interrupt) {
-  // The IRQn_Type is indexed at -16.
-  return static_cast<cortex::IRQn_Type>(interrupt - 16);
+constexpr cortex::IRQn_Type ToCmsis(Interrupt interrupt) {
+  return static_cast<cortex::IRQn_Type>(interrupt);
+}
+
+constexpr uint32_t ToIdx(Interrupt interrupt) {
+  return static_cast<int32_t>(interrupt) + 16;
 }
 
 void Nvic::Init() {
@@ -24,7 +27,7 @@ void Nvic::Init() {
   cortex::__NVIC_SetPriorityGrouping(0b100);
 }
 
-void Nvic::Init(Callback default_handler) {
+void Nvic::Init(InterruptCallback default_handler) {
   Init();
   ResetAllWithDefault(default_handler);
 }
@@ -60,49 +63,37 @@ void Nvic::SetSysTickMicros(uint32_t microseconds) {
   cortex::SysTick_Config(core_clock_freq * (microseconds / 1e6));
 }
 
-template <>
-void Nvic::SetInterrupt(CortexInterrupt interrupt, uint32_t priority,
-                        uint32_t subpriority, Callback handler) {
-  SetInterrupt(static_cast<uint32_t>(interrupt), priority, subpriority,
-               handler);
-}
-
-template <>
-void Nvic::SetInterrupt(MaskableInterrupt interrupt, uint32_t priority,
-                        uint32_t subpriority, Callback handler) {
-  SetInterrupt(static_cast<uint32_t>(interrupt) + 16, priority, subpriority,
-               handler);
-}
-
-template <>
-void Nvic::SetInterruptHandler(CortexInterrupt interrupt, Callback handler) {
-  SetInterruptHandler(static_cast<uint32_t>(interrupt), handler);
-}
-
-template <>
-void Nvic::SetInterruptHandler(MaskableInterrupt interrupt, Callback handler) {
-  SetInterruptHandler(static_cast<uint32_t>(interrupt) + 16, handler);
-}
-
-void Nvic::SetInterrupt(uint32_t interrupt, uint32_t priority,
-                        uint32_t subpriority, Callback handler) {
-  SetInterruptHandler(static_cast<uint32_t>(interrupt), handler);
+void Nvic::SetInterrupt(Interrupt interrupt, uint32_t priority,
+                        uint32_t subpriority, InterruptCallback handler) {
+  SetInterruptHandler(interrupt, handler);
   const uint32_t prioritygroup = cortex::__NVIC_GetPriorityGrouping();
   cortex::NVIC_SetPriority(
       ToCmsis(interrupt),
       cortex::NVIC_EncodePriority(prioritygroup, priority, subpriority));
 }
 
-void Nvic::SetInterruptHandler(uint32_t interrupt, Callback handler) {
-  handlers[interrupt] = handler;
-  auto global_isr = isrs[interrupt];
+void Nvic::SetInterruptHandler(Interrupt interrupt, InterruptCallback handler) {
+  const auto irqn = ToIdx(interrupt);
+  handlers[irqn] = handler;
+  auto global_isr = isrs[irqn];
   cortex::NVIC_SetVector(ToCmsis(interrupt),
                          reinterpret_cast<uint32_t>(global_isr));
 }
 
-void Nvic::ResetAllWithDefault(Callback handler) {
+void Nvic::ResetAllWithDefault(InterruptCallback handler) {
   for (uint32_t irqn = 0; irqn < kTotalNumInterrupts; ++irqn) {
-    SetInterruptHandler(irqn, handler);
+    SetInterruptHandler(static_cast<Interrupt>(static_cast<int32_t>(irqn) - 16),
+                        handler);
+  }
+}
+
+void Nvic::ResetAllExceptSysTickWithDefault(InterruptCallback handler) {
+  for (uint32_t irqn = 0; irqn < kTotalNumInterrupts; ++irqn) {
+    if (irqn == 15) {
+      continue;
+    }
+    SetInterruptHandler(static_cast<Interrupt>(static_cast<int32_t>(irqn) - 16),
+                        handler);
   }
 }
 

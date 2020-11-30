@@ -13,39 +13,40 @@ static const uint32_t kInplaceFunctionStorageSize = 10;
 static const uint32_t kTotalNumInterrupts =
     kNumCortexInterrupts + kNumMaskableInterrupts;
 
-enum class CortexInterrupt : int32_t {
-  IReset = 1,
-  INMI = 2,
-  IHard = 3,
-  IMemManage = 4,
-  IBusFault = 5,
-  IUsageFault = 6,
-  IPendSV = 14,
-  ISysTick = 15,  // Note: Should be SysTick, but ST #defined SysTick... *sigh*
+enum class Interrupt : int32_t {
+  // Index at -16 so that MaskableInterrupts can match the "position" field in
+  // the NVIC documentation.
+  IReset = -15,
+  INMI = -14,
+  HardFault = -13,
+  IMemManage = -12,
+  IBusFault = -11,
+  IUsageFault = -10,
+  IPendSV = -2,
+  ISysTick = -1,  // Note: Should be SysTick, but ST #defined SysTick... *sigh*
+
+  WWDG = 0,
+  Comp7 = 66,
 };
 
-enum class MaskableInterrupt : int32_t {
-  WWDG = 0,
-};
+using InterruptCallback =
+    common::InterruptTable<kTotalNumInterrupts,
+                           kInplaceFunctionStorageSize>::Callback;
 
 class Nvic : public common::InterruptTable<kTotalNumInterrupts,
                                            kInplaceFunctionStorageSize> {
  public:
-  using Callback =
-      common::InterruptTable<kTotalNumInterrupts,
-                             kInplaceFunctionStorageSize>::Callback;
-
   static void Init();
-  static void Init(Callback default_handler);
+  static void Init(InterruptCallback default_handler);
 
   static void RelocateInterruptsToSram();
-  static void ResetAllWithDefault(Callback handler);
+  static void ResetAllWithDefault(InterruptCallback handler);
+  static void ResetAllExceptSysTickWithDefault(InterruptCallback handler);
 
-  template <typename InterruptType>
-  static void SetInterrupt(InterruptType interrupt, uint32_t priority,
-                           uint32_t subpriority, Callback handler);
-  template <typename InterruptType>
-  static void SetInterruptHandler(InterruptType interrupt, Callback handler);
+  static void SetInterrupt(Interrupt interrupt, uint32_t priority,
+                           uint32_t subpriority, InterruptCallback handler);
+  static void SetInterruptHandler(Interrupt interrupt,
+                                  InterruptCallback handler);
 
   // TODO(blakely): SetPriority
 
@@ -54,11 +55,6 @@ class Nvic : public common::InterruptTable<kTotalNumInterrupts,
   static void EnableInterrupts();
 
   static void SetSysTickMicros(uint32_t microseconds);
-
- private:
-  static void SetInterruptHandler(uint32_t interrupt, Callback handler);
-  static void SetInterrupt(uint32_t interrupt, uint32_t priority,
-                           uint32_t subpriority, Callback handler);
 };
 
 }  // namespace drivers
