@@ -65,7 +65,28 @@ void AdvancedTimerImpl::SetPrescalar(uint32_t prescalar) {
 //   LL_TIM_SetPrescaler(ll_timer, prescalar);
 // }
 
+Tim3::Tim3() {}
+
 void Tim3::Enable() { Rcc::EnableTim3(); }
+
+void Tim3::Configure() {
+  Enable();
+  // Timer-wide settings
+  LL_TIM_SetClockDivision(TIM3, LL_TIM_CLOCKDIVISION_DIV1);
+  LL_TIM_SetPrescaler(TIM3, 17000);
+  LL_TIM_SetAutoReload(TIM3, 10000);
+  LL_TIM_SetRepetitionCounter(TIM3, 0);
+
+  // CH4 settings.
+  LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH4);
+  LL_TIM_OC_SetCompareCH4(TIM3, 5000);
+  LL_TIM_OC_ConfigOutput(TIM3, LL_TIM_CHANNEL_CH4,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  // LL_TIM_OC_SetPolarity(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCMODE_PWM2);
+}
+
+void Tim3::Start() { LL_TIM_EnableCounter(TIM3); }
 
 }  // namespace drivers
 }  // namespace stm32g474

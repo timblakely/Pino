@@ -4,6 +4,7 @@
 #include "bldc/firmware/stm32g474/system.h"
 
 using stm32g474::Led;
+using stm32g474::drivers::Tim3;
 
 using stm32g474::drivers::Gpio;
 
@@ -17,11 +18,12 @@ Led kRedLED(&PB6);
 Led kGreenLED(&PB9);
 Led kBlueLED(&PB7);
 
+Tim3 tim3;
+
 void ConfigureGpioPins() {
   PB6.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
   // PB7.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
   PB9.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-
   PB7.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
                 Gpio::AlternateFunction::AF10);
 }
@@ -37,22 +39,24 @@ int main() {
 
   ConfigureGpioPins();
 
+  tim3.Enable();
+  tim3.Configure();
+  tim3.Start();
+
   uint32_t i = 0;
   while (true) {
     ++i;
-    kGreenLED.On();
-    kBlueLED.On();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kBlueLED.Off();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kBlueLED.On();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kBlueLED.Off();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kBlueLED.On();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kBlueLED.Off();
-    kGreenLED.Off();
-    stm32g474::Fatal();
+    // kGreenLED.On();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreenLED.Off();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreenLED.On();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreenLED.Off();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreenLED.On();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreenLED.Off();
+    // stm32g474::Fatal();
   }
 }

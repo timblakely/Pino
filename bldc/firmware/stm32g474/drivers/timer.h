@@ -66,6 +66,8 @@ class Tim3 {
  public:
   Tim3();
   void Enable();
+  void Configure();
+  void Start();
   // void EnableOutputChannel(uint32_t channel);
 };
 
