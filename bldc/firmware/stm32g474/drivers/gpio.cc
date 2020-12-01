@@ -5,6 +5,7 @@
 // clang-format on
 
 #include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "pstd/constexpr_map.h"
 
 namespace stm32g474 {
 namespace drivers {
@@ -14,23 +15,15 @@ struct Gpio::Pin::GPIO_TypeDefI : GPIO_TypeDef {};
 
 Gpio::Pin::Pin(Port port, uint32_t pin)
     : port_(port), pin_(pin), ll_pin_(1U << pin) {
-  switch (port) {
-    case Gpio::Port::A:
-      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOA);
-      break;
-    case Gpio::Port::B:
-      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOB);
-      break;
-    case Gpio::Port::C:
-      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOC);
-      break;
-    case Gpio::Port::D:
-      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOD);
-      break;
-    case Gpio::Port::E:
-      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOE);
-      break;
-  }
+  constexpr static const auto port_map =
+      pstd::ConstexprMap<Port, std::intptr_t>({
+          {Port::A, GPIOA_BASE},
+          {Port::B, GPIOB_BASE},
+          {Port::C, GPIOC_BASE},
+          {Port::D, GPIOD_BASE},
+          {Port::E, GPIOE_BASE},
+      });
+  ll_port_ = reinterpret_cast<GPIO_TypeDefI*>(port_map.at(port));
 }
 
 void Gpio::Pin::Configure(OutputMode mode, Pullup pullup, Speed speed) {

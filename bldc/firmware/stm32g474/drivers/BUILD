@@ -33,6 +33,7 @@ cc_library(
     deps = [
         ":gpio_defines",
         ":rcc_defines",
+        "//pstd:constexpr_map",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )
