@@ -9,81 +9,68 @@
 namespace stm32g474 {
 namespace drivers {
 
-GPIO_TypeDef* GetLLPort(Gpio::Port port) {
+// Getting around the anonymous struct issue.
+struct Gpio::Pin::GPIO_TypeDefI : GPIO_TypeDef {};
+
+Gpio::Pin::Pin(Port port, uint32_t pin)
+    : port_(port), pin_(pin), ll_pin_(1U << pin) {
   switch (port) {
     case Gpio::Port::A:
-    default:
-      return GPIOA;
+      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOA);
+      break;
     case Gpio::Port::B:
-      return GPIOB;
+      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOB);
+      break;
     case Gpio::Port::C:
-      return GPIOC;
+      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOC);
+      break;
     case Gpio::Port::D:
-      return GPIOD;
+      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOD);
+      break;
     case Gpio::Port::E:
-      return GPIOE;
+      ll_port_ = static_cast<GPIO_TypeDefI*>(GPIOE);
+      break;
   }
 }
 
-constexpr uint32_t GetLLAlternateFunction(Gpio::AlternateFunction af) {
-  return static_cast<uint32_t>(af);
+void Gpio::Pin::Configure(OutputMode mode, Pullup pullup, Speed speed) {
+  Rcc::Enable(port_);
+  SetPullup(pullup);
+  SetSpeed(speed);
+  LL_GPIO_SetPinMode(ll_port_, ll_pin_, LL_GPIO_MODE_OUTPUT);
 }
 
-void Gpio::ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
-                              OutputMode mode) {
-  Rcc::Enable(port);
-
-  auto ll_port = GetLLPort(port);
-  // This is somewhat of a hack; LL_GPIO_PIN_n is simply LL_GPIO_BSRR, which in
-  // turn is just 0b1 left shifted by n
-  const uint32_t ll_pin = 0b1 << pin;
-  LL_GPIO_SetPinMode(ll_port, ll_pin, LL_GPIO_MODE_OUTPUT);
-  SetPullup(port, pin, pullup);
-  if (mode == OutputMode::PushPull) {
-    LL_GPIO_SetPinOutputType(ll_port, ll_pin, LL_GPIO_OUTPUT_PUSHPULL);
-  } else {
-    LL_GPIO_SetPinOutputType(ll_port, ll_pin, LL_GPIO_OUTPUT_OPENDRAIN);
-  }
-}
-
-void Gpio::SetPullup(Port port, uint32_t pin, Pullup pullup) {
-  Rcc::Enable(port);
-  auto ll_port = GetLLPort(port);
-  const uint32_t ll_pin = 0b1 << pin;
+void Gpio::Pin::SetPullup(Pullup pullup) {
   switch (pullup) {
     case Pullup::PullUp:
-      LL_GPIO_SetPinPull(ll_port, ll_pin, LL_GPIO_PULL_UP);
+      LL_GPIO_SetPinPull(ll_port_, ll_pin_, LL_GPIO_PULL_UP);
       break;
     case Pullup::PullDown:
-      LL_GPIO_SetPinPull(ll_port, ll_pin, LL_GPIO_PULL_DOWN);
+      LL_GPIO_SetPinPull(ll_port_, ll_pin_, LL_GPIO_PULL_DOWN);
       break;
     case Pullup::None:
-      LL_GPIO_SetPinPull(ll_port, ll_pin, LL_GPIO_PULL_NO);
+      LL_GPIO_SetPinPull(ll_port_, ll_pin_, LL_GPIO_PULL_NO);
       break;
   }
 }
 
-void Gpio::SetOutputPin(Port port, uint32_t pin) {
-  LL_GPIO_SetOutputPin(GetLLPort(port), 0b1 << pin);
-}
-
-void Gpio::ClearOutputPin(Port port, uint32_t pin) {
-  LL_GPIO_ResetOutputPin(GetLLPort(port), 0b1 << pin);
-}
-
-void Gpio::ConfigurePeripheralPin(Port port, uint8_t pin, Pullup pullup,
-                                  AlternateFunction alternate_function) {
-  auto ll_port = GetLLPort(port);
-  const uint32_t ll_pin = 0b1 << pin;
-  SetPullup(port, pin, pullup);
-  LL_GPIO_SetPinMode(ll_port, ll_pin, LL_GPIO_MODE_ALTERNATE);
-  auto ll_af = GetLLAlternateFunction(alternate_function);
-  if (pin < 8) {
-    LL_GPIO_SetAFPin_0_7(ll_port, ll_pin, ll_af);
-  } else {
-    LL_GPIO_SetAFPin_8_15(ll_port, ll_pin, ll_af);
+void Gpio::Pin::SetSpeed(Speed speed) {
+  switch (speed) {
+    case Speed::Low:
+      return LL_GPIO_SetPinSpeed(ll_port_, ll_pin_, LL_GPIO_SPEED_FREQ_LOW);
+    case Speed::Medium:
+      return LL_GPIO_SetPinSpeed(ll_port_, ll_pin_, LL_GPIO_SPEED_FREQ_MEDIUM);
+    case Speed::High:
+      return LL_GPIO_SetPinSpeed(ll_port_, ll_pin_, LL_GPIO_SPEED_FREQ_HIGH);
+    case Speed::VeryHigh:
+      return LL_GPIO_SetPinSpeed(ll_port_, ll_pin_,
+                                 LL_GPIO_SPEED_FREQ_VERY_HIGH);
   }
 }
+
+void Gpio::Pin::High() { LL_GPIO_SetOutputPin(ll_port_, ll_pin_); }
+
+void Gpio::Pin::Low() { LL_GPIO_ResetOutputPin(ll_port_, ll_pin_); }
 
 }  // namespace drivers
 }  // namespace stm32g474

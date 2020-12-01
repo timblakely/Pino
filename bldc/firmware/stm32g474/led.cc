@@ -4,17 +4,10 @@ namespace stm32g474 {
 
 using drivers::Gpio;
 
-Led::Led(Gpio::Port port, uint32_t pin) : port_(port), pin_(pin) {
-  ConfigurePin();
-}
+Led::Led(Gpio::Pin* pin) : pin_(pin) {}
 
-void Led::On() { Gpio::SetOutputPin(port_, pin_); }
+void Led::On() { pin_->High(); }
 
-void Led::Off() { Gpio::ClearOutputPin(port_, pin_); }
-
-void Led::ConfigurePin() {
-  Gpio::ConfigureOutputPin(port_, pin_, Gpio::Pullup::None,
-                           Gpio::OutputMode::PushPull);
-}
+void Led::Off() { pin_->Low(); }
 
 }  // namespace stm32g474

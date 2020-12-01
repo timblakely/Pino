@@ -9,24 +9,44 @@ class Gpio {
   enum class Port { A, B, C, D, E };
   enum class OutputMode { PushPull, OpenDrain };
   enum class Pullup { None, PullUp, PullDown };
+  enum class Speed { Low, Medium, High, VeryHigh };
   enum class AlternateFunction {
     None,
     AF10 = 10,
   };
 
-  // struct Pin {
-  //   Pin(Port port, Pin pin);
+  class Pin {
+   public:
+    Pin(Port port, uint32_t pin);
 
-  // };
+    void Configure(OutputMode mode, Pullup pullup, Speed speed = Speed::Low);
+    void Configure(OutputMode mode, Pullup pullup, AlternateFunction af,
+                   Speed speed = Speed::Low);
 
-  static void ConfigureInputPin(Port port, uint32_t pin, Pullup pullup);
-  static void ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
-                                 OutputMode mode);
-  static void SetPullup(Port port, uint32_t pin, Pullup pullup);
-  static void SetOutputPin(Port port, uint32_t pin);
-  static void ClearOutputPin(Port port, uint32_t pin);
-  static void ConfigurePeripheralPin(Port port, uint8_t pin, Pullup pullup,
-                                     AlternateFunction alternate_function);
+    void High();
+    void Low();
+
+    void SetPullup(Pullup pullup);
+    void SetSpeed(Speed speed);
+
+   private:
+    Port port_;
+    uint32_t pin_;
+    uint32_t ll_pin_;
+
+    // Workaround for the STM libraries using typedef'd anonymous structs.
+    struct GPIO_TypeDefI;
+    GPIO_TypeDefI* ll_port_;
+  };
+
+  //   static void ConfigureInputPin(Port port, uint32_t pin, Pullup pullup);
+  //   static void ConfigureOutputPin(Port port, uint32_t pin, Pullup pullup,
+  //                                  OutputMode mode);
+  //   static void SetPullup(Port port, uint32_t pin, Pullup pullup);
+  //   static void SetOutputPin(Port port, uint32_t pin);
+  //   static void ClearOutputPin(Port port, uint32_t pin);
+  //   static void ConfigurePeripheralPin(Port port, uint8_t pin, Pullup pullup,
+  //                                      AlternateFunction alternate_function);
 };
 
 }  // namespace drivers

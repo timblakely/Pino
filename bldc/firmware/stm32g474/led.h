@@ -12,14 +12,13 @@ class Led {
   //   Blinking,
   // };
 
-  Led(drivers::Gpio::Port port, uint32_t pin);
+  Led(drivers::Gpio::Pin* pin);
+
   void On();
   void Off();
 
  private:
-  void ConfigurePin();
-  drivers::Gpio::Port port_;
-  uint32_t pin_;
+  drivers::Gpio::Pin* pin_;
   // Mode mode_;
 };
 }  // namespace stm32g474

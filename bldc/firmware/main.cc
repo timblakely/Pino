@@ -7,11 +7,21 @@ using stm32g474::Led;
 
 using stm32g474::drivers::Gpio;
 
+Gpio::Pin PB6{Gpio::Port::B, 6};
+Gpio::Pin PB7{Gpio::Port::B, 7};
+Gpio::Pin PB9{Gpio::Port::B, 9};
+
 using stm32g474::drivers::SysTickTimer;
 
-Led kRedLED(Gpio::Port::B, 6);
-Led kGreenLED(Gpio::Port::B, 9);
-Led kBlueLED(Gpio::Port::B, 7);
+Led kRedLED(&PB6);
+Led kGreenLED(&PB9);
+Led kBlueLED(&PB7);
+
+void ConfigureGpioPins() {
+  PB6.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+  PB7.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+  PB9.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+}
 
 int main() {
   stm32g474::Startup();
@@ -21,6 +31,8 @@ int main() {
       asm("nop");
     }
   });
+
+  ConfigureGpioPins();
 
   uint32_t i = 0;
   while (true) {
