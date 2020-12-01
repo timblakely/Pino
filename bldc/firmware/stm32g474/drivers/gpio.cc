@@ -35,9 +35,35 @@ Gpio::Pin::Pin(Port port, uint32_t pin)
 
 void Gpio::Pin::Configure(OutputMode mode, Pullup pullup, Speed speed) {
   Rcc::Enable(port_);
+  SetMode(mode);
   SetPullup(pullup);
   SetSpeed(speed);
   LL_GPIO_SetPinMode(ll_port_, ll_pin_, LL_GPIO_MODE_OUTPUT);
+}
+
+void Gpio::Pin::Configure(OutputMode mode, Pullup pullup, AlternateFunction af,
+                          Speed speed) {
+  Rcc::Enable(port_);
+  SetMode(mode);
+  SetPullup(pullup);
+  SetSpeed(speed);
+  LL_GPIO_SetPinMode(ll_port_, ll_pin_, LL_GPIO_MODE_ALTERNATE);
+  if (pin_ < 8) {
+    LL_GPIO_SetAFPin_0_7(ll_port_, ll_pin_, static_cast<uint32_t>(af));
+  } else {
+    LL_GPIO_SetAFPin_8_15(ll_port_, ll_pin_, static_cast<uint32_t>(af));
+  }
+}
+
+void Gpio::Pin::SetMode(OutputMode mode) {
+  switch (mode) {
+    case OutputMode::OpenDrain:
+      return LL_GPIO_SetPinOutputType(ll_port_, ll_pin_,
+                                      LL_GPIO_OUTPUT_OPENDRAIN);
+    case OutputMode::PushPull:
+      return LL_GPIO_SetPinOutputType(ll_port_, ll_pin_,
+                                      LL_GPIO_OUTPUT_PUSHPULL);
+  }
 }
 
 void Gpio::Pin::SetPullup(Pullup pullup) {

@@ -66,7 +66,7 @@ class Tim3 {
  public:
   Tim3();
   void Enable();
-  void EnableOutputChannel(uint32_t channel);
+  // void EnableOutputChannel(uint32_t channel);
 };
 
 }  // namespace drivers

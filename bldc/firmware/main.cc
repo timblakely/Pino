@@ -19,8 +19,11 @@ Led kBlueLED(&PB7);
 
 void ConfigureGpioPins() {
   PB6.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-  PB7.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+  // PB7.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
   PB9.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+
+  PB7.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                Gpio::AlternateFunction::AF10);
 }
 
 int main() {

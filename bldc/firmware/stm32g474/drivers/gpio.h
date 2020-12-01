@@ -18,6 +18,12 @@ class Gpio {
   class Pin {
    public:
     Pin(Port port, uint32_t pin);
+    explicit Pin(Pin&& other) {
+      port_ = other.port_;
+      ll_port_ = other.ll_port_;
+      pin_ = other.pin_;
+      ll_pin_ = other.ll_pin_;
+    }
 
     void Configure(OutputMode mode, Pullup pullup, Speed speed = Speed::Low);
     void Configure(OutputMode mode, Pullup pullup, AlternateFunction af,
@@ -26,6 +32,7 @@ class Gpio {
     void High();
     void Low();
 
+    void SetMode(OutputMode mode);
     void SetPullup(Pullup pullup);
     void SetSpeed(Speed speed);
 

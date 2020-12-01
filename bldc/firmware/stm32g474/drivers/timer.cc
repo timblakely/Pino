@@ -67,14 +67,5 @@ void AdvancedTimerImpl::SetPrescalar(uint32_t prescalar) {
 
 void Tim3::Enable() { Rcc::EnableTim3(); }
 
-void Tim3::EnableOutputChannel(uint32_t channel) {
-  Enable();
-  // switch (channel) {
-  //   case 4:
-  //     return Gpio::ConfigurePeripheralPin(Gpio::Port::B, 7,
-  //     Gpio::Pullup::None, );
-  // };
-}
-
 }  // namespace drivers
 }  // namespace stm32g474
