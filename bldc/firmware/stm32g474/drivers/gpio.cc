@@ -27,6 +27,14 @@ Gpio::Pin::Pin(Port port, uint32_t pin)
   ll_port_ = reinterpret_cast<GPIO_TypeDefI*>(port_map.at(port));
 }
 
+Gpio::Pin::Pin(Pin& other) : Pin(other.port_, other.pin_) {}
+Gpio::Pin::Pin(Pin&& other) {
+  port_ = other.port_;
+  ll_port_ = other.ll_port_;
+  pin_ = other.pin_;
+  ll_pin_ = other.ll_pin_;
+}
+
 void Gpio::Pin::Configure(OutputMode mode, Pullup pullup, Speed speed) {
   Rcc::Enable(port_);
   SetMode(mode);

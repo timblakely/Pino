@@ -7,20 +7,29 @@ namespace stm32g474 {
 
 class Led {
  public:
-  // enum class Mode {
-  //   OnOff,
-  //   Blinking,
-  // };
+  enum class Mode {
+    Uninitalized,
+    OnOff,
+    Blink,
+  };
 
-  Led(drivers::Gpio::Pin* pin);
+  Led(drivers::Gpio::Pin& pin, Mode mode = Mode::Uninitalized);
+  Led(drivers::Gpio::Pin&& pin, Mode mode = Mode::Uninitalized);
+
+  void SetMode(Mode mode);
+
+  drivers::Gpio::Pin& Pin() { return pin_; }
 
   void On();
   void Off();
 
  private:
-  drivers::Gpio::Pin* pin_;
-  // Mode mode_;
+  void ConfigureBlink();
+  void ConfigureOnOff();
+  drivers::Gpio::Pin pin_;
+  Mode mode_;
 };
+
 }  // namespace stm32g474
 
 #endif  // BLDC_FIRMWARE_STM32G474_LED_H_
