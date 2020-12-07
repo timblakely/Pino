@@ -1,4 +1,5 @@
 #include "bldc/firmware/platform/system.h"
+
 #include "bldc/firmware/stm32g474/drivers/flash.h"
 #include "bldc/firmware/stm32g474/drivers/fpu.h"
 #include "bldc/firmware/stm32g474/drivers/gpio.h"
@@ -17,10 +18,10 @@ using stm32g474::drivers::Interrupt;
 
 namespace platform {
 
-Led kRed({Gpio::Port::B, 6});
-Led kGreen({Gpio::Port::B, 9});
+// Led kRed({Gpio::Port::B, 6});
+// Led kGreen({Gpio::Port::B, 9});
 
-void Platform::Startup() {
+void G4Platform::Setup() {
   Fpu::EnableHardwareFPU();
   Nvic::Init(/* Default interrupt handler */ [] {
     while (true) {
@@ -32,20 +33,13 @@ void Platform::Startup() {
   Flash::EnableInstructionCache();
   Flash::EnablePrefetchBuffer();
 
+  // TODO(blakely): Move this to platform-specific code.
   Rcc::SetupClocks();
-
-  Nvic::SetInterruptHandler(Interrupt::HardFault, [] {
-    kRed.On();
-    while (true) {
-      asm("nop");
-    }
-  });
-  kGreen.On();
 }
 
-void Platform::Fatal() {
+void G4Platform::Fatal() {
   // Intentionally read the beef!
-  volatile auto deadbeef = *(volatile uint32_t *)0xdeadbeef;
+  volatile auto deadbeef = *(volatile uint32_t*)0xdeadbeef;
   // Get rid of compiler warning.
   (void)deadbeef;
 }

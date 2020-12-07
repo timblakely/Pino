@@ -21,7 +21,7 @@ constraint_value(
 constraint_setting(name = "board")
 
 constraint_value(
-    name = "bldc",
+    name = "devboard",
     constraint_setting = ":board",
 )
 
@@ -30,27 +30,31 @@ constraint_value(
     constraint_setting = ":board",
 )
 
+# Aliases
+
+platform(
+    name = "devboard_v1",
+    parents = ["//bldc/firmware/platform/stm32g4/devboard:v1"],
+)
+
 cc_library(
-    name = "system",
+    name = "bldc_platform",
     srcs = [
-        "system.cc",
+        "bldc_platform.cc",
     ],
-    hdrs = ["system.h"],
+    hdrs = ["bldc_platform.h"],
 )
 
 cc_library(
     name = "platform",
     deps = [
-        ":system",
+        ":bldc_platform",
     ] + select({
-        ":bldc": ["//bldc/firmware/platform/bldc"],
-        ":nucleo": ["//bldc/firmware/platform/nucleo"],
+        ":devboard": ["//bldc/firmware/platform/stm32g4/devboard"],
+        ":nucleo": ["//bldc/firmware/platform/stm32g4/nucleo"],
     }),
     alwayslink = 1,
 )
-# srcs = [
-#         "system.cc",
-#     ],
 
 cc_binary(
     name = "platform_test",
