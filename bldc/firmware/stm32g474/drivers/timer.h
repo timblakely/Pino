@@ -65,10 +65,17 @@ class AdvancedTimerImpl {
 class Tim3 {
  public:
   Tim3();
+
+  enum class Channel {
+    CH1,
+    CH2,
+    CH3,
+    CH4,
+  };
   void Enable();
   void Configure();
   void Start();
-  // void EnableOutputChannel(uint32_t channel);
+  void EnableOutputChannel(Channel channel);
 };
 
 }  // namespace drivers

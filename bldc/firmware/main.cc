@@ -13,6 +13,9 @@ using stm32g474::drivers::SysTickTimer;
 Led kRed({Gpio::Port::B, 6});
 Led kGreen({Gpio::Port::B, 9});
 Led kBlue({Gpio::Port::B, 7});
+
+Tim3 tim3;
+
 int main() {
   stm32g474::Startup();
   stm32g474::OnFatal([] {
@@ -22,6 +25,8 @@ int main() {
     }
   });
 
+  kBlue.Blink(&tim3, 1000000, 1000000);
+
   // tim3.Enable();
   // tim3.Configure();
   // tim3.Start();
@@ -30,17 +35,17 @@ int main() {
   while (true) {
     ++i;
     asm("nop");
-    kGreen.On();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kGreen.Off();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kGreen.On();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kGreen.Off();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kGreen.On();
-    SysTickTimer::BlockingWait(1000000 * 1);
-    kGreen.Off();
-    stm32g474::Fatal();
+    // kGreen.On();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreen.Off();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreen.On();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreen.Off();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreen.On();
+    // SysTickTimer::BlockingWait(1000000 * 1);
+    // kGreen.Off();
+    // stm32g474::Fatal();
   }
 }

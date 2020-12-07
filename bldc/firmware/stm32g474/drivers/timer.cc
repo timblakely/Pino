@@ -77,17 +77,20 @@ void Tim3::Configure() {
   const uint32_t period = 10000;
   LL_TIM_SetAutoReload(TIM3, period);
   LL_TIM_SetRepetitionCounter(TIM3, 0);
+  LL_TIM_OC_SetCompareCH4(TIM3, period * .5);
+}
 
+void Tim3::Start() { LL_TIM_EnableCounter(TIM3); }
+
+void Tim3::EnableOutputChannel(Channel channel) {
+  // TODO(blakely): support more than just ch4.
   // CH4 settings.
   LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH4);
-  LL_TIM_OC_SetCompareCH4(TIM3, period * .5);
   LL_TIM_OC_ConfigOutput(TIM3, LL_TIM_CHANNEL_CH4,
                          LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
   // LL_TIM_OC_SetPolarity(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCPOLARITY_HIGH);
   LL_TIM_OC_SetMode(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCMODE_PWM2);
 }
-
-void Tim3::Start() { LL_TIM_EnableCounter(TIM3); }
 
 }  // namespace drivers
 }  // namespace stm32g474
