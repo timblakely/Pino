@@ -27,10 +27,10 @@ cc_library(
     srcs = ["system.cc"],
     deps = [
         ":system_defines",
-        "//bldc/firmware/stm32g474/drivers:flash",
-        "//bldc/firmware/stm32g474/drivers:fpu",
-        "//bldc/firmware/stm32g474/drivers:nvic",
-        "//bldc/firmware/stm32g474/drivers:rcc",
+        "//bldc/firmware/platform/stm32g4/peripherals:flash",
+        "//bldc/firmware/platform/stm32g4/peripherals:fpu",
+        "//bldc/firmware/platform/stm32g4/peripherals:nvic",
+        "//bldc/firmware/platform/stm32g4/peripherals:rcc",
     ],
     alwayslink = 1,
 )
@@ -40,7 +40,7 @@ cc_library(
     srcs = ["led.cc"],
     hdrs = ["led.h"],
     deps = [
-        "//bldc/firmware/stm32g474/drivers:gpio",
+        "//bldc/firmware/platform/stm32g4/peripherals:gpio",
     ],
     alwayslink = 1,
 )

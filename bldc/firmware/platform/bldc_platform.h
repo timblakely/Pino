@@ -5,7 +5,7 @@ namespace platform {
 
 class BldcPlatform {
  public:
-  static BldcPlatform* Create();
+  static BldcPlatform* Instance();
 
   // Virtual is okay here since we're okay eating the single instruction
   // indirection; these aren't called in any types of loops.

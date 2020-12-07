@@ -43,6 +43,7 @@ cc_library(
         "bldc_platform.cc",
     ],
     hdrs = ["bldc_platform.h"],
+    alwayslink = 1,
 )
 
 cc_library(
@@ -53,7 +54,6 @@ cc_library(
         ":devboard": ["//bldc/firmware/platform/stm32g4/devboard"],
         ":nucleo": ["//bldc/firmware/platform/stm32g4/nucleo"],
     }),
-    alwayslink = 1,
 )
 
 cc_binary(

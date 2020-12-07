@@ -8,10 +8,10 @@ cc_library(
     hdrs = ["g4_platform.h"],
     deps = [
         "//bldc/firmware/platform:bldc_platform",
+        "//bldc/firmware/platform/stm32g4/peripherals:flash",
+        "//bldc/firmware/platform/stm32g4/peripherals:fpu",
+        "//bldc/firmware/platform/stm32g4/peripherals:nvic",
+        "//bldc/firmware/platform/stm32g4/peripherals:rcc",
         "//bldc/firmware/stm32g474:led",
-        "//bldc/firmware/stm32g474/drivers:flash",
-        "//bldc/firmware/stm32g474/drivers:fpu",
-        "//bldc/firmware/stm32g474/drivers:nvic",
-        "//bldc/firmware/stm32g474/drivers:rcc",
     ],
 )

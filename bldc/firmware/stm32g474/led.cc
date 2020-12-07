@@ -2,7 +2,7 @@
 
 #include <utility>
 
-#include "bldc/firmware/stm32g474/drivers/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
 namespace stm32g474 {
 

@@ -1,13 +1,13 @@
-#include "bldc/firmware/platform/system.h"
-#include "bldc/firmware/stm32g474/drivers/gpio.h"
-#include "bldc/firmware/stm32g474/drivers/timer.h"
+#include "bldc/firmware/platform/bldc_platform.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 
 // using stm32g474::Led;
 // using stm32g474::drivers::Tim3;
 
 // using stm32g474::drivers::Gpio;
 
-using platform::Platform;
+using platform::BldcPlatform;
 
 using stm32g474::drivers::SysTickTimer;
 
@@ -18,7 +18,8 @@ using stm32g474::drivers::SysTickTimer;
 // Tim3 tim3;
 
 int main() {
-  Platform::Startup();
+  auto* platform = BldcPlatform::Instance();
+  platform->Startup();
   // stm32g474::Startup();
   // stm32g474::OnFatal([] {
   //   kRed.On();
@@ -48,6 +49,6 @@ int main() {
     //   // kGreen.On();
     //   // SysTickTimer::BlockingWait(1000000 * 1);
     //   // kGreen.Off();
-    Platform::Fatal();
+    platform->Fatal();
   }
 }

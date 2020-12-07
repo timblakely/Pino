@@ -1,8 +1,8 @@
-#include "bldc/firmware/stm32g474/drivers/nvic.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 
 #include <cstring>
 
-#include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 
 namespace cortex {
 // Needed for vendor-specific definitions, otherwise we'd include cortex_m4.h

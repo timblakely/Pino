@@ -1,9 +1,9 @@
+#include "bldc/firmware/platform/stm32g4/peripherals/flash.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/fpu.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "bldc/firmware/platform/system.h"
-#include "bldc/firmware/stm32g474/drivers/flash.h"
-#include "bldc/firmware/stm32g474/drivers/fpu.h"
-#include "bldc/firmware/stm32g474/drivers/gpio.h"
-#include "bldc/firmware/stm32g474/drivers/nvic.h"
-#include "bldc/firmware/stm32g474/drivers/rcc.h"
 #include "bldc/firmware/stm32g474/led.h"
 
 using stm32g474::Led;

@@ -1,8 +1,8 @@
 #ifndef BLDC_FIRMWARE_STM32G474_LED_H_
 #define BLDC_FIRMWARE_STM32G474_LED_H_
 
-#include "bldc/firmware/stm32g474/drivers/gpio.h"
-#include "bldc/firmware/stm32g474/drivers/timer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 
 namespace stm32g474 {
 

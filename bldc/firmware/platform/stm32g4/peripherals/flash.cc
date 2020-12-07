@@ -1,4 +1,4 @@
-#include "bldc/firmware/stm32g474/drivers/flash.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/flash.h"
 
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 

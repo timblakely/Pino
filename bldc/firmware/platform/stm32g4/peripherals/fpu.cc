@@ -1,4 +1,4 @@
-#include "bldc/firmware/stm32g474/drivers/fpu.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/fpu.h"
 
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 

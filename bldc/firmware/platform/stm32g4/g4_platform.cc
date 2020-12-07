@@ -1,10 +1,10 @@
-#include "bldc/firmware/platform/system.h"
+#include "bldc/firmware/platform/stm32g4/g4_platform.h"
 
-#include "bldc/firmware/stm32g474/drivers/flash.h"
-#include "bldc/firmware/stm32g474/drivers/fpu.h"
-#include "bldc/firmware/stm32g474/drivers/gpio.h"
-#include "bldc/firmware/stm32g474/drivers/nvic.h"
-#include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/flash.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/fpu.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "bldc/firmware/stm32g474/led.h"
 
 using stm32g474::Led;
@@ -17,13 +17,16 @@ using stm32g474::drivers::Rcc;
 using stm32g474::drivers::Interrupt;
 
 namespace platform {
+namespace stm32g4 {
 
-// Led kRed({Gpio::Port::B, 6});
-// Led kGreen({Gpio::Port::B, 9});
+Led kRed({Gpio::Port::B, 6});
+Led kGreen({Gpio::Port::B, 9});
+Led kBlue({Gpio::Port::B, 7});
 
-void G4Platform::Setup() {
+void G4Platform::Startup() {
   Fpu::EnableHardwareFPU();
   Nvic::Init(/* Default interrupt handler */ [] {
+    kRed.On();
     while (true) {
       asm("nop");  //
     }
@@ -35,6 +38,8 @@ void G4Platform::Setup() {
 
   // TODO(blakely): Move this to platform-specific code.
   Rcc::SetupClocks();
+
+  kBlue.On();
 }
 
 void G4Platform::Fatal() {
@@ -44,4 +49,5 @@ void G4Platform::Fatal() {
   (void)deadbeef;
 }
 
+}  // namespace stm32g4
 }  // namespace platform

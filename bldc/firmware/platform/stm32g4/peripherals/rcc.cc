@@ -1,7 +1,7 @@
-#include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 
-#include "bldc/firmware/stm32g474/drivers/flash.h"
-#include "bldc/firmware/stm32g474/drivers/timer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/flash.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 #include "third_party/mapbox/eternal/eternal.hpp"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 

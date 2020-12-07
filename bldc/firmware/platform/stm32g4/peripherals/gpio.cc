@@ -1,10 +1,10 @@
 // Needed for forward declaration of typedef.
 // clang-format off
 #include "third_party/stm32cubeg4/stm32g4xx_ll_gpio.h"
-#include "bldc/firmware/stm32g474/drivers/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 // clang-format on
 
-#include "bldc/firmware/stm32g474/drivers/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "pstd/constexpr_map.h"
 
 namespace stm32g474 {

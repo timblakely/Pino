@@ -6,9 +6,10 @@
 namespace platform {
 namespace stm32g4 {
 
-class CustomV1Platform : G4Platform {
+class Devboard : public G4Platform {
  public:
-  CustomV1Platform();
+  Devboard();
+  void SetupClocks() override;
 };
 
 }  // namespace stm32g4

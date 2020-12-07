@@ -5,13 +5,12 @@
 namespace platform {
 namespace stm32g4 {
 
-class G4Platform : BldcPlatform {
+class G4Platform : public BldcPlatform {
  public:
   void Startup() override;
   void Fatal() override;
 
  protected:
-  virtual BldcPlatform* CreateInstance();
   virtual void SetupClocks() = 0;
 };
 
