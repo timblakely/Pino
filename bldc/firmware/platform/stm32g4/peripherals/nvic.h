@@ -1,11 +1,11 @@
-#ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_NVIC_H_
-#define BLDC_FIRMWARE_STM32G474_DRIVERS_NVIC_H_
+#ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_NVIC_H_
+#define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_NVIC_H_
 
 #include "bldc/firmware/interrupt_table.hpp"
 #include "third_party/sg14/inplace_function.h"
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 static const uint32_t kNumCortexInterrupts = 16;
 static const uint32_t kNumMaskableInterrupts = 102;
@@ -57,7 +57,7 @@ class Nvic : public common::InterruptTable<kTotalNumInterrupts,
   static void SetSysTickMicros(uint32_t microseconds);
 };
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform
 
-#endif  // BLDC_FIRMWARE_STM32G474_DRIVERS_NVIC_H_
+#endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_NVIC_H_

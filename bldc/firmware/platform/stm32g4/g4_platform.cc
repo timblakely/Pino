@@ -7,15 +7,6 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "bldc/firmware/stm32g474/led.h"
 
-using stm32g474::Led;
-using stm32g474::drivers::Flash;
-using stm32g474::drivers::Fpu;
-using stm32g474::drivers::Gpio;
-using stm32g474::drivers::Nvic;
-using stm32g474::drivers::Rcc;
-
-using stm32g474::drivers::Interrupt;
-
 namespace platform {
 namespace stm32g4 {
 

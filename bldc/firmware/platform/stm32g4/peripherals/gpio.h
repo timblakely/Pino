@@ -1,8 +1,8 @@
 #ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_GPIO_H_
 #define BLDC_FIRMWARE_STM32G474_DRIVERS_GPIO_H_
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 class Gpio {
  public:
@@ -53,7 +53,7 @@ class Gpio {
   //                                      AlternateFunction alternate_function);
 };
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform
 
 #endif  // BLDC_FIRMWARE_STM32G474_DRIVERS_GPIO_H_

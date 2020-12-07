@@ -4,7 +4,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 
-namespace stm32g474 {
+namespace platform {
 
 class Led {
  public:
@@ -14,23 +14,23 @@ class Led {
     Blink,
   };
 
-  Led(drivers::Gpio::Pin& pin, Mode mode = Mode::Uninitalized);
-  Led(drivers::Gpio::Pin&& pin, Mode mode = Mode::Uninitalized);
+  Led(stm32g4::Gpio::Pin& pin, Mode mode = Mode::Uninitalized);
+  Led(stm32g4::Gpio::Pin&& pin, Mode mode = Mode::Uninitalized);
 
-  drivers::Gpio::Pin& Pin() { return pin_; }
+  stm32g4::Gpio::Pin& Pin() { return pin_; }
 
   void On();
   void Off();
-  void Blink(drivers::Tim3* tim, uint32_t off_us, uint32_t on_us);
+  void Blink(stm32g4::Tim3* tim, uint32_t off_us, uint32_t on_us);
 
  private:
   void SetMode(Mode mode);
   void ConfigureBlink();
   void ConfigureOnOff();
-  drivers::Gpio::Pin pin_;
+  stm32g4::Gpio::Pin pin_;
   Mode mode_;
 };
 
-}  // namespace stm32g474
+}  // namespace platform
 
 #endif  // BLDC_FIRMWARE_STM32G474_LED_H_

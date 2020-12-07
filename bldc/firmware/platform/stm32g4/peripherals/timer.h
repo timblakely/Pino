@@ -1,8 +1,8 @@
 #ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_TIMER_H_
 #define BLDC_FIRMWARE_STM32G474_DRIVERS_TIMER_H_
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 enum class GeneralTimer {
   // 16 or 32 bit
@@ -78,6 +78,6 @@ class Tim3 {
   void EnableOutputChannel(Channel channel);
 };
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform
 #endif  // BLDC_FIRMWARE_STM32G474_DRIVERS_TIMER_H_

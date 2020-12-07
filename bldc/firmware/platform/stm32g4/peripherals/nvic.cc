@@ -10,8 +10,8 @@ namespace cortex {
 #include "third_party/stm32cubeg4/stm32g4xx.h"
 }  // namespace cortex
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 constexpr cortex::IRQn_Type ToCmsis(Interrupt interrupt) {
   return static_cast<cortex::IRQn_Type>(interrupt);
@@ -97,5 +97,5 @@ void Nvic::ResetAllExceptSysTickWithDefault(InterruptCallback handler) {
   }
 }
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform

@@ -7,13 +7,13 @@
 #include "bldc/firmware/stm32g474/led.h"
 
 using stm32g474::Led;
-using stm32g474::drivers::Flash;
-using stm32g474::drivers::Fpu;
-using stm32g474::drivers::Gpio;
-using stm32g474::drivers::Nvic;
-using stm32g474::drivers::Rcc;
+using stm32g474::stm32g4Flash;
+using stm32g474::stm32g4Fpu;
+using stm32g474::stm32g4Gpio;
+using stm32g474::stm32g4Nvic;
+using stm32g474::stm32g4Rcc;
 
-using stm32g474::drivers::Interrupt;
+using stm32g474::stm32g4Interrupt;
 
 namespace platform {
 

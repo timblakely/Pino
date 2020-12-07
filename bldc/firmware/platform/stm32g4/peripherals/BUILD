@@ -90,7 +90,7 @@ cc_library(
     deps = [
         ":nvic_defines",
         ":rcc_defines",
-        "//bldc/firmware/stm32g474:system_defines",
+        # "//bldc/firmware/stm32g474:system_defines",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
     alwayslink = 1,

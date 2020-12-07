@@ -6,8 +6,8 @@ namespace system {
 #include "third_party/stm32cubeg4/stm32g4xx_ll_system.h"
 }
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 void Flash::EnableInstructionCache() { system::LL_FLASH_EnableInstCache(); }
 
@@ -31,5 +31,5 @@ void Flash::UpdateWaitStates(uint32_t core_clock_frequency) {
   }
 }
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform

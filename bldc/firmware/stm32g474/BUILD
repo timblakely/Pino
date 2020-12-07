@@ -17,25 +17,6 @@ cc_library(
 )
 
 cc_library(
-    name = "system_defines",
-    hdrs = ["system.h"],
-    alwayslink = 1,
-)
-
-cc_library(
-    name = "system",
-    srcs = ["system.cc"],
-    deps = [
-        ":system_defines",
-        "//bldc/firmware/platform/stm32g4/peripherals:flash",
-        "//bldc/firmware/platform/stm32g4/peripherals:fpu",
-        "//bldc/firmware/platform/stm32g4/peripherals:nvic",
-        "//bldc/firmware/platform/stm32g4/peripherals:rcc",
-    ],
-    alwayslink = 1,
-)
-
-cc_library(
     name = "led",
     srcs = ["led.cc"],
     hdrs = ["led.h"],

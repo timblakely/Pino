@@ -7,8 +7,8 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "pstd/constexpr_map.h"
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 // Getting around the anonymous struct issue.
 struct Gpio::Pin::GPIO_TypeDefI : GPIO_TypeDef {};
@@ -88,5 +88,5 @@ void Gpio::Pin::High() { LL_GPIO_SetOutputPin(ll_port_, ll_pin_); }
 
 void Gpio::Pin::Low() { LL_GPIO_ResetOutputPin(ll_port_, ll_pin_); }
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform

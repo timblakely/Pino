@@ -2,12 +2,12 @@
 
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
-#include "bldc/firmware/stm32g474/system.h"
+// #include "bldc/firmware/stm32g474/system.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_tim.h"
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 uint32_t SysTickTimer::period_micros_ = 1000;
 uint32_t SysTickTimer::tick_count_ = 0;
@@ -19,7 +19,7 @@ void SysTickTimer::SetPeriod(uint32_t micros) {
 
 void SysTickTimer::UpdatePeriod() {
   // TODO(blakely): Determine if we need to disable interrupts here.
-  Nvic::SetInterrupt(drivers::Interrupt::ISysTick, 2, 0,
+  Nvic::SetInterrupt(stm32g4::Interrupt::ISysTick, 2, 0,
                      [] { SysTickHandler(); });
   const uint32_t core_clock_freq = Rcc::GetHClockFrequency();
   SysTick_Config((core_clock_freq / 1'000'000U) * period_micros_);
@@ -92,5 +92,5 @@ void Tim3::EnableOutputChannel(Channel channel) {
   LL_TIM_OC_SetMode(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCMODE_PWM2);
 }
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform

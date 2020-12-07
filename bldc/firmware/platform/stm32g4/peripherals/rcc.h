@@ -1,11 +1,11 @@
-#ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
-#define BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
+#ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_H_
+#define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_H_
 
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 class Rcc {
  public:
@@ -27,7 +27,7 @@ class Rcc {
   static constexpr uint8_t APBPrescTable[8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U};
 };
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform
 
-#endif  // BLDC_FIRMWARE_STM32G474_DRIVERS_RCC_H_
+#endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_H_

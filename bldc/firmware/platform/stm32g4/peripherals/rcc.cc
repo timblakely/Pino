@@ -17,8 +17,8 @@ namespace rcc {
 #include "third_party/stm32cubeg4/stm32g4xx_ll_rcc.h"
 }  // namespace rcc
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 void Rcc::SetupClocks() {
   // TODO(blakely): Make this more general when needed.
@@ -153,5 +153,5 @@ void Rcc::EnableTim3() {
   bus::LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 }
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform

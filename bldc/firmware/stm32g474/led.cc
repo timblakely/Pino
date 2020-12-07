@@ -4,10 +4,10 @@
 
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
-namespace stm32g474 {
+namespace platform {
 
-using drivers::Gpio;
-using drivers::Tim3;
+using stm32g4::Gpio;
+using stm32g4::Tim3;
 
 Led::Led(Gpio::Pin& pin, Mode mode) : pin_(pin), mode_(mode) {}
 Led::Led(Gpio::Pin&& pin, Mode mode) : pin_(std::move(pin)), mode_(mode) {}
@@ -57,4 +57,4 @@ void Led::Blink(Tim3* tim, uint32_t off_us, uint32_t on_us) {
   tim->Start();
 }
 
-}  // namespace stm32g474
+}  // namespace platform

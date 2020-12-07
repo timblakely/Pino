@@ -3,13 +3,13 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 
 // using stm32g474::Led;
-// using stm32g474::drivers::Tim3;
+// using stm32g474::stm32g4Tim3;
 
-// using stm32g474::drivers::Gpio;
+// using stm32g474::stm32g4Gpio;
 
 using platform::BldcPlatform;
 
-using stm32g474::drivers::SysTickTimer;
+using platform::stm32g4::SysTickTimer;
 
 // Led kRed({Gpio::Port::B, 6});
 // Led kGreen({Gpio::Port::B, 9});

@@ -1,8 +1,8 @@
 #ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_FLASH_H_
 #define BLDC_FIRMWARE_STM32G474_DRIVERS_FLASH_H_
 
-namespace stm32g474 {
-namespace drivers {
+namespace platform {
+namespace stm32g4 {
 
 class Flash {
  public:
@@ -13,7 +13,7 @@ class Flash {
   static void UpdateWaitStates(uint32_t core_clock_frequency);
 };
 
-}  // namespace drivers
-}  // namespace stm32g474
+}  // namespace stm32g4
+}  // namespace platform
 
 #endif  // BLDC_FIRMWARE_STM32G474_DRIVERS_FLASH_H_
