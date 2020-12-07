@@ -4,7 +4,14 @@
 namespace bldc {
 namespace firmware {
 namespace platform {
-void Setup();
+
+class Platform {
+  public:
+   void Startup();
+};
+
+
+
 }  // namespace platform
 }  // namespace firmware
 }  // namespace bldc

@@ -5,7 +5,7 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "bldc",
     srcs = select({
-        ":swap_green_blue_led": ["setup_errata.cc"],
+        ":swap_green_blue_led": ["setup_dev.cc"],
         "//conditions:default": ["setup.cc"],
     }),
 )
@@ -28,7 +28,7 @@ platform(
 )
 
 platform(
-    name = "v1_badled",
+    name = "v1_dev",
     constraint_values = [
         ":swap_green_blue_led",
     ],

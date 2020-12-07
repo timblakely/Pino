@@ -4,11 +4,11 @@ package(default_visibility = ["//visibility:public"])
 
 platform(
     name = "common",
-    # constraint_values = ["@platforms//cpu:armv7"],
-    constraint_values = [
-        "@platforms//cpu:x86_64",
-        "@platforms//os:linux",
-    ],
+    constraint_values = ["@platforms//cpu:armv7"],
+    # constraint_values = [
+    #     "@platforms//cpu:x86_64",
+    #     "@platforms//os:linux",
+    # ],
 )
 
 constraint_setting(name = "micro")
@@ -31,13 +31,23 @@ constraint_value(
 )
 
 cc_library(
+    name = "system",
+    hdrs = ["system.h"],
+)
+
+cc_library(
     name = "platform",
-    hdrs = ["setup.h"],
-    deps = select({
+    deps = [
+        ":system",
+    ] + select({
         ":bldc": ["//bldc/firmware/platform/bldc"],
         ":nucleo": ["//bldc/firmware/platform/nucleo"],
     }),
+    alwayslink = 1,
 )
+# srcs = [
+#         "system.cc",
+#     ],
 
 cc_binary(
     name = "platform_test",
