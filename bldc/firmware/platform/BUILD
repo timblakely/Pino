@@ -32,6 +32,9 @@ constraint_value(
 
 cc_library(
     name = "system",
+    srcs = [
+        "system.cc",
+    ],
     hdrs = ["system.h"],
 )
 
