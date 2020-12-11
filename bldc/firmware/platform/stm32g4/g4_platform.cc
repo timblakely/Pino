@@ -21,9 +21,11 @@ G4Platform::G4Platform() {
   Flash::EnableDataCache();
   Flash::EnableInstructionCache();
   Flash::EnablePrefetchBuffer();
+}
 
-  // TODO(blakely): Move this to platform-specific code.
-  Rcc::SetupClocks();
+void G4Platform::Startup() {
+  SetupClocks();
+  Init();
 }
 
 void G4Platform::Fatal() {

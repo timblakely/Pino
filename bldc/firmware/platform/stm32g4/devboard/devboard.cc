@@ -3,6 +3,7 @@
 #include "bldc/firmware/platform/bldc_platform.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 
 namespace platform {
 
@@ -22,10 +23,12 @@ Devboard::Devboard() {
 }
 
 void Devboard::Init() {
-  Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { kRed->On(); });
+  Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
 }
 
-void Devboard::SetupClocks() {}
+void Devboard::SetupClocks() { Rcc::SetupClocks(); }
+
+void Devboard::OnFatal() { kRed->On(); }
 
 }  // namespace stm32g4
 }  // namespace platform

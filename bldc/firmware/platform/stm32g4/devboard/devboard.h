@@ -10,10 +10,13 @@ namespace stm32g4 {
 class Devboard : public G4Platform {
  public:
   Devboard();
-  void Init() override;
-  void SetupClocks() override;
+  virtual void Init() override;
+
+ protected:
+  virtual void SetupClocks() override;
 
  private:
+  void OnFatal();
   Led* kRed;
   Led* kGreen;
   Led* kBlue;

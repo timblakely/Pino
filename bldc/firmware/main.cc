@@ -19,7 +19,7 @@ using platform::stm32g4::SysTickTimer;
 
 int main() {
   auto* platform = BldcPlatform::Instance();
-  platform->Init();
+  platform->Startup();
   // stm32g474::Startup();
   // stm32g474::OnFatal([] {
   //   kRed.On();
