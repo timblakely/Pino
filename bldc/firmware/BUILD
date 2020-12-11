@@ -17,11 +17,3 @@ cc_binary(
         "//bldc/firmware/platform",
     ],
 )
-
-cc_binary(
-    name = "test",
-    srcs = select({
-        ":bldc_a": ["a_test.cc"],
-        ":bldc_b": ["b_test.cc"],
-    }),
-)

@@ -12,6 +12,10 @@ class BldcPlatform {
   virtual void Startup() = 0;
   virtual void Fatal() = 0;
 
+  // TODO(blakely): move to template metaprogramming eventually for
+  // time-sensitive functions.
+  virtual void BlockingWait(uint32_t micros) = 0;
+
  private:
 };
 

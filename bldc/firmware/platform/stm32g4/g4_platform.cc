@@ -35,5 +35,9 @@ void G4Platform::Fatal() {
   (void)deadbeef;
 }
 
+void G4Platform::BlockingWait(uint32_t micros) {
+  SysTickTimer::BlockingWait(micros);
+}
+
 }  // namespace stm32g4
 }  // namespace platform

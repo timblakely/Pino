@@ -14,21 +14,24 @@ BldcPlatform* BldcPlatform::Instance() {
 
 namespace stm32g4 {
 
-Devboard::Devboard() {
+Devboard::Devboard() {}
+
+void Devboard::Init() {
+  Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
+
   kRed = new Led({Gpio::Port::B, 6});
   kGreen = new Led({Gpio::Port::B, 9});
   kBlue = new Led({Gpio::Port::B, 7});
 
-  kBlue->On();
-}
-
-void Devboard::Init() {
-  Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
+  kGreen->On();
 }
 
 void Devboard::SetupClocks() { Rcc::SetupClocks(); }
 
-void Devboard::OnFatal() { kRed->On(); }
+void Devboard::OnFatal() {
+  kGreen->Off();
+  kRed->On();
+}
 
 }  // namespace stm32g4
 }  // namespace platform

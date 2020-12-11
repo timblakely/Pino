@@ -11,6 +11,7 @@ class G4Platform : public BldcPlatform {
   void Startup() override;
   void Fatal() override;
   virtual void Init() = 0;
+  void BlockingWait(uint32_t micros) override;
 
  protected:
   virtual void SetupClocks() = 0;
