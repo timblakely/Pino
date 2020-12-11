@@ -7,7 +7,7 @@ namespace stm32g4 {
 
 class G4Platform : public BldcPlatform {
  public:
-  void Startup() override;
+  G4Platform();
   void Fatal() override;
 
  protected:

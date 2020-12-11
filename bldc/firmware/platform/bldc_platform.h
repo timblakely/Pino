@@ -9,7 +9,7 @@ class BldcPlatform {
 
   // Virtual is okay here since we're okay eating the single instruction
   // indirection; these aren't called in any types of loops.
-  virtual void Startup() = 0;
+  virtual void Init() = 0;
   virtual void Fatal() = 0;
 
  private:

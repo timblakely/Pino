@@ -10,14 +10,9 @@
 namespace platform {
 namespace stm32g4 {
 
-Led kRed({Gpio::Port::B, 6});
-Led kGreen({Gpio::Port::B, 9});
-Led kBlue({Gpio::Port::B, 7});
-
-void G4Platform::Startup() {
+G4Platform::G4Platform() {
   Fpu::EnableHardwareFPU();
   Nvic::Init(/* Default interrupt handler */ [] {
-    kRed.On();
     while (true) {
       asm("nop");  //
     }
@@ -29,8 +24,6 @@ void G4Platform::Startup() {
 
   // TODO(blakely): Move this to platform-specific code.
   Rcc::SetupClocks();
-
-  kBlue.On();
 }
 
 void G4Platform::Fatal() {
