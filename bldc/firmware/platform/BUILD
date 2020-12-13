@@ -37,6 +37,11 @@ platform(
     parents = ["//bldc/firmware/platform/stm32g4/devboard:v1"],
 )
 
+platform(
+    name = "nucleo_g474re",
+    parents = ["//bldc/firmware/platform/stm32g4/nucleo:g474re"],
+)
+
 cc_library(
     name = "bldc_platform",
     srcs = [

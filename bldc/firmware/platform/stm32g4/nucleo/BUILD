@@ -4,14 +4,10 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "nucleo",
-    srcs = ["setup.cc"],
+    srcs = ["nucleo.cc"],
+    hdrs = ["nucleo.h"],
     deps = [
-        "//bldc/firmware/platform:system",
-        "//bldc/firmware/platform/stm32g4/peripherals:flash",
-        "//bldc/firmware/platform/stm32g4/peripherals:fpu",
-        "//bldc/firmware/platform/stm32g4/peripherals:nvic",
-        "//bldc/firmware/platform/stm32g4/peripherals:rcc",
-        "//bldc/firmware/stm32g474:led",
+        "//bldc/firmware/platform/stm32g4:g4_platform",
     ],
 )
 
