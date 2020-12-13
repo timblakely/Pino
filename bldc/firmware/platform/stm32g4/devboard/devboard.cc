@@ -19,18 +19,18 @@ Devboard::Devboard() {}
 void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
 
-  kRed = new Led({Gpio::Port::B, 6});
-  kGreen = new Led({Gpio::Port::B, 9});
-  kBlue = new Led({Gpio::Port::B, 7});
+  red_ = new Led({Gpio::Port::B, 6});
+  green_ = new Led({Gpio::Port::B, 9});
+  blue_ = new Led({Gpio::Port::B, 7});
 
-  kGreen->On();
+  green_->On();
 }
 
 void Devboard::SetupClocks() { Rcc::SetupClocks(); }
 
 void Devboard::OnFatal() {
-  kGreen->Off();
-  kRed->On();
+  green_->Off();
+  red_->On();
 }
 
 }  // namespace stm32g4

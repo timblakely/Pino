@@ -17,9 +17,9 @@ class Devboard : public G4Platform {
 
  private:
   void OnFatal();
-  Led* kRed;
-  Led* kGreen;
-  Led* kBlue;
+  Led* red_;
+  Led* green_;
+  Led* blue_;
 };
 
 }  // namespace stm32g4
