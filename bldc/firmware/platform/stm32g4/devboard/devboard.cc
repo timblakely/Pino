@@ -34,8 +34,8 @@ void Devboard::OnFatal() {
   tim3.Configure();
   tim3.EnableOutputChannel();
   tim3.Start();
-  red_->Blink();
-  blue_->On();
+  blue_->Blink();
+  // blue_->On();
   while (true) asm("nop");
 }
 
