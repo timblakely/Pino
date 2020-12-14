@@ -28,6 +28,7 @@ void Nucleo::OnFatal() {
   Tim2 tim2;
   tim2.Enable();
   tim2.Configure();
+  tim2.EnableOutputChannel();
   tim2.Start();
   user_led_->Blink();
   while (true) asm("nop");

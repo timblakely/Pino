@@ -82,7 +82,7 @@ void Tim3::Configure() {
 
 void Tim3::Start() { LL_TIM_EnableCounter(TIM3); }
 
-void Tim3::EnableOutputChannel(Channel channel) {
+void Tim3::EnableOutputChannel() {
   // TODO(blakely): support more than just ch4.
   // CH4 settings.
   LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH4);

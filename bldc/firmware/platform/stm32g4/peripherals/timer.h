@@ -83,7 +83,7 @@ class Tim3 {
   void Enable();
   void Configure();
   void Start();
-  void EnableOutputChannel(Channel channel);
+  void EnableOutputChannel();
 };
 
 }  // namespace stm32g4

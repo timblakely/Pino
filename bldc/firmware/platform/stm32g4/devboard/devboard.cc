@@ -30,7 +30,13 @@ void Devboard::SetupClocks() { Rcc::SetupClocks(); }
 
 void Devboard::OnFatal() {
   green_->Off();
-  red_->On();
+  Tim3 tim3;
+  tim3.Configure();
+  tim3.EnableOutputChannel();
+  tim3.Start();
+  red_->Blink();
+  blue_->On();
+  while (true) asm("nop");
 }
 
 }  // namespace stm32g4
