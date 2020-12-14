@@ -12,6 +12,7 @@ class Gpio {
   enum class Speed { Low, Medium, High, VeryHigh };
   enum class AlternateFunction {
     None,
+    AF1 = 1,
     AF10 = 10,
   };
 

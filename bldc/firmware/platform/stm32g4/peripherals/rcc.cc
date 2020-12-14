@@ -153,5 +153,9 @@ void Rcc::EnableTim3() {
   bus::LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 }
 
+void Rcc::EnableTim2() {
+  bus::LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
+}
+
 }  // namespace stm32g4
 }  // namespace platform

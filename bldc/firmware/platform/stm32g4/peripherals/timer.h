@@ -62,6 +62,14 @@ class AdvancedTimerImpl {
   AdvancedTimer timer_instance_;
 };
 
+class Tim2 {
+ public:
+  void Enable();
+  void Configure();
+  void Start();
+  void EnableOutputChannel();
+};
+
 class Tim3 {
  public:
   Tim3();

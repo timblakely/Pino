@@ -24,7 +24,14 @@ void Nucleo::Init() {
 
 void Nucleo::SetupClocks() { Rcc::SetupClocks(); }
 
-void Nucleo::OnFatal() { user_led_->On(); }
+void Nucleo::OnFatal() {
+  Tim2 tim2;
+  tim2.Enable();
+  tim2.Configure();
+  tim2.Start();
+  user_led_->Blink();
+  while (true) asm("nop");
+}
 
 }  // namespace stm32g4
 }  // namespace platform

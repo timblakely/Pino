@@ -17,6 +17,7 @@ class Rcc {
   static void Enable(Gpio::Port port);
   static void Enable(AdvancedTimer timer);
   static void EnableTim3();
+  static void EnableTim2();
 
  private:
   // Based on board design.

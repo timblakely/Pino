@@ -21,7 +21,7 @@ class Led {
 
   void On();
   void Off();
-  void Blink(stm32g4::Tim3* tim, uint32_t off_us, uint32_t on_us);
+  void Blink();
 
  private:
   void SetMode(Mode mode);

@@ -92,5 +92,28 @@ void Tim3::EnableOutputChannel(Channel channel) {
   LL_TIM_OC_SetMode(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCMODE_PWM2);
 }
 
+void Tim2::Enable() { Rcc::EnableTim2(); }
+
+void Tim2::Configure() {
+  Enable();
+  // Timer-wide settings
+  LL_TIM_SetClockDivision(TIM2, LL_TIM_CLOCKDIVISION_DIV1);
+  LL_TIM_SetPrescaler(TIM2, 17000);
+  const uint32_t period = 10000;
+  LL_TIM_SetAutoReload(TIM2, period);
+  LL_TIM_SetRepetitionCounter(TIM2, 0);
+  LL_TIM_OC_SetCompareCH2(TIM2, period * .5);
+}
+
+void Tim2::Start() { LL_TIM_EnableCounter(TIM2); }
+
+void Tim2::EnableOutputChannel() {
+  // TODO(blakely): support more than just ch1.
+  LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH1);
+  LL_TIM_OC_ConfigOutput(TIM2, LL_TIM_CHANNEL_CH1,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_OCMODE_PWM2);
+}
+
 }  // namespace stm32g4
 }  // namespace platform

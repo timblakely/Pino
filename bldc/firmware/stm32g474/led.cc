@@ -41,20 +41,16 @@ void Led::SetMode(Mode mode) {
 
 void Led::ConfigureBlink() {
   // TODO(blakely): Pull AF from GPIO somewhere... maybe pin?
+  // pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+  //                Gpio::AlternateFunction::AF10);
   pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
-                 Gpio::AlternateFunction::AF10);
+                 Gpio::AlternateFunction::AF1);
 }
 
 void Led::ConfigureOnOff() {
   pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
 }
 
-void Led::Blink(Tim3* tim, uint32_t off_us, uint32_t on_us) {
-  SetMode(Mode::Blink);
-  tim->Enable();
-  tim->Configure();
-  tim->EnableOutputChannel(Tim3::Channel::CH4);
-  tim->Start();
-}
+void Led::Blink() { SetMode(Mode::Blink); }
 
 }  // namespace platform
