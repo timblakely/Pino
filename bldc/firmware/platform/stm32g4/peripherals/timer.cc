@@ -4,6 +4,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 // #include "bldc/firmware/stm32g474/system.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
+#include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_tim.h"
 
 namespace platform {
@@ -113,6 +114,56 @@ void Tim2::EnableOutputChannel() {
   LL_TIM_OC_ConfigOutput(TIM2, LL_TIM_CHANNEL_CH1,
                          LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
   LL_TIM_OC_SetMode(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_OCMODE_PWM2);
+}
+
+// Getting around the anonymous struct issue.
+struct Timer::TIM_TypeDefI : TIM_TypeDef {};
+
+Timer::Timer(TimerInstance instance)
+    : instance_(instance), prescalar_(17000), period_(10000) {
+  switch (instance) {
+    case TimerInstance::Tim2:
+      timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM2);
+      break;
+    case TimerInstance::Tim3:
+      timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM3);
+      break;
+    case TimerInstance::Tim4:
+      timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM4);
+      break;
+  }
+}
+
+void Timer::Enable() {
+  switch (instance_) {
+    case TimerInstance::Tim2:
+      return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
+    case TimerInstance::Tim3:
+      return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
+    case TimerInstance::Tim4:
+      return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
+  }
+}
+
+void Timer::Configure() {
+  Enable();
+  // Timer-wide settings
+  LL_TIM_SetClockDivision(timer_, LL_TIM_CLOCKDIVISION_DIV1);
+  LL_TIM_SetPrescaler(timer_, prescalar_);
+  LL_TIM_SetAutoReload(timer_, period_);
+  LL_TIM_SetRepetitionCounter(timer_, 0);
+}
+
+void Timer::Start() { LL_TIM_EnableCounter(timer_); }
+
+void Timer::EnableOutput() {
+  // TODO(blakely): support more than just ch4.
+  const uint32_t channel = LL_TIM_CHANNEL_CH4;
+  LL_TIM_OC_SetCompareCH4(timer_, period_ * .5);
+  LL_TIM_CC_EnableChannel(timer_, channel);
+  LL_TIM_OC_ConfigOutput(timer_, channel,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(timer_, channel, LL_TIM_OCMODE_PWM2);
 }
 
 }  // namespace stm32g4

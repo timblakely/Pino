@@ -86,6 +86,30 @@ class Tim3 {
   void EnableOutputChannel();
 };
 
+//
+enum class TimerInstance {
+  Tim2,
+  Tim3,
+  Tim4,
+};
+
+class Timer {
+ public:
+  Timer(TimerInstance instance);
+  void Enable();
+  void Configure();
+  void Start();
+  void EnableOutput();
+
+ private:
+  TimerInstance instance_;
+  // Workaround for the STM libraries using typedef'd anonymous structs.
+  struct TIM_TypeDefI;
+  TIM_TypeDefI* timer_;
+  uint32_t prescalar_;
+  uint32_t period_;
+};
+
 }  // namespace stm32g4
 }  // namespace platform
 #endif  // BLDC_FIRMWARE_STM32G474_DRIVERS_TIMER_H_
