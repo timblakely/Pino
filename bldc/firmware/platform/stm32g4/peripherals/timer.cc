@@ -58,6 +58,14 @@ void Timer::ConfigureClock() {
   LL_TIM_SetRepetitionCounter(timer_, repetition_counter_);
 }
 
+void Timer::ConfigureChannel(uint32_t channel) {
+  LL_TIM_CC_EnableChannel(timer_, channel);
+  LL_TIM_OC_ConfigOutput(timer_, channel,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  // LL_TIM_OC_SetPolarity(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(timer_, channel, LL_TIM_OCMODE_PWM2);
+}
+
 Tim3::Tim3() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM3)) {}
 
 void Tim3::Enable() { Rcc::EnableTim3(); }
@@ -66,7 +74,7 @@ void Tim3::Configure() {
   Enable();
   division_ = ClockDivision::DIV1;
   prescalar_ = 17000;
-  arr_period_ = 10000;
+  arr_period_ = 5000;
   repetition_counter_ = 0;
   ConfigureClock();
 }
@@ -76,14 +84,10 @@ void Tim3::EnableOutput(Channel channel) {
   switch (channel) {
     case Channel::Ch4:
       ll_chan = LL_TIM_CHANNEL_CH4;
-      LL_TIM_OC_SetCompareCH4(timer_, arr_period_ * .5);
+      LL_TIM_OC_SetCompareCH4(timer_, arr_period_ * .75);
       break;
   };
-  LL_TIM_CC_EnableChannel(timer_, ll_chan);
-  LL_TIM_OC_ConfigOutput(timer_, ll_chan,
-                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
-  // LL_TIM_OC_SetPolarity(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCPOLARITY_HIGH);
-  LL_TIM_OC_SetMode(timer_, ll_chan, LL_TIM_OCMODE_PWM2);
+  ConfigureChannel(ll_chan);
 }
 
 // void Tim2::Enable() { Rcc::EnableTim2(); }

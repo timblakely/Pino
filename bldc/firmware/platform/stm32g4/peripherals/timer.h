@@ -30,15 +30,16 @@ class Timer {
  protected:
   // Workaround for the STM libraries using typedef'd anonymous structs.
   struct TIM_TypeDefI;
-  TIM_TypeDefI* timer_;
 
   Timer(TIM_TypeDefI* timer);
 
   enum class ClockDivision : uint32_t {
-    DIV1 = 0, // Consistent with LL_TIM_CLOCKDIVISION_DIV1
+    DIV1 = 0,  // Consistent with LL_TIM_CLOCKDIVISION_DIV1
   };
 
   void ConfigureClock();
+  void ConfigureChannel(uint32_t channel);
+  TIM_TypeDefI* timer_;
   ClockDivision division_;
   uint32_t prescalar_;
   uint32_t arr_period_;
