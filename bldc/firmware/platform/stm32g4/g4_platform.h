@@ -14,7 +14,7 @@ class G4Platform : public BldcPlatform {
   void BlockingWait(uint32_t micros) override;
 
  protected:
-  virtual void SetupClocks() = 0;
+  virtual void SetupClocks();
 };
 
 }  // namespace stm32g4

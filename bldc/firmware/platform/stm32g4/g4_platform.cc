@@ -5,7 +5,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
-#include "bldc/firmware/stm32g474/led.h"
+// #include "bldc/firmware/stm32g474/led.h"
 
 namespace platform {
 namespace stm32g4 {
@@ -38,6 +38,8 @@ void G4Platform::Fatal() {
 void G4Platform::BlockingWait(uint32_t micros) {
   SysTickTimer::BlockingWait(micros);
 }
+
+void G4Platform::SetupClocks() { Rcc::SetupClocks(); }
 
 }  // namespace stm32g4
 }  // namespace platform

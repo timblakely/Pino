@@ -20,17 +20,19 @@ void Nucleo::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
 
   user_led_ = new Led({Gpio::Port::A, 5});
+  user_led_->On();
 }
 
-void Nucleo::SetupClocks() { Rcc::SetupClocks(); }
+// void Nucleo::SetupClocks() { Rcc::SetupClocks(); }
 
 void Nucleo::OnFatal() {
-  Tim2 tim2;
-  tim2.Enable();
-  tim2.Configure();
-  tim2.EnableOutputChannel();
-  tim2.Start();
-  user_led_->Blink();
+  Tim2 timer;
+  timer.Configure();
+  timer.EnableOutput(Tim2::Channel::Ch1);
+  timer.Start();
+  user_led_->Pin().Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                             Gpio::AlternateFunction::AF1);
+  // user_led_->Blink();
   while (true) asm("nop");
 }
 

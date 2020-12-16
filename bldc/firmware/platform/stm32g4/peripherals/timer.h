@@ -26,6 +26,7 @@ class Timer {
   virtual void Enable() = 0;
   virtual void Configure() = 0;
   void Start();
+  void Stop();
 
  protected:
   // Workaround for the STM libraries using typedef'd anonymous structs.
@@ -51,6 +52,17 @@ class Tim3 : public Timer {
   Tim3();
   enum class Channel {
     Ch4,
+  };
+  virtual void Enable() override;
+  virtual void Configure() override;
+  void EnableOutput(Channel channel);
+};
+
+class Tim2 : public Timer {
+ public:
+  Tim2();
+  enum class Channel {
+    Ch1,
   };
   virtual void Enable() override;
   virtual void Configure() override;

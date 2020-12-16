@@ -13,8 +13,6 @@ class Devboard : public G4Platform {
   virtual void Init() override;
 
  protected:
-  virtual void SetupClocks() override;
-
  private:
   void OnFatal();
   Led* red_;

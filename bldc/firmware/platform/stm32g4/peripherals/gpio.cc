@@ -28,6 +28,7 @@ Gpio::Pin::Pin(Port port, uint32_t pin)
 }
 
 Gpio::Pin::Pin(Pin& other) : Pin(other.port_, other.pin_) {}
+
 Gpio::Pin::Pin(Pin&& other) {
   port_ = other.port_;
   ll_port_ = other.ll_port_;

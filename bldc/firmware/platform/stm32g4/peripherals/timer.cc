@@ -51,6 +51,8 @@ Timer::Timer(TIM_TypeDefI* timer)
 
 void Timer::Start() { LL_TIM_EnableCounter(timer_); }
 
+void Timer::Stop() { LL_TIM_DisableCounter(timer_); }
+
 void Timer::ConfigureClock() {
   LL_TIM_SetClockDivision(timer_, static_cast<uint32_t>(division_));
   LL_TIM_SetPrescaler(timer_, prescalar_);
@@ -84,7 +86,31 @@ void Tim3::EnableOutput(Channel channel) {
   switch (channel) {
     case Channel::Ch4:
       ll_chan = LL_TIM_CHANNEL_CH4;
-      LL_TIM_OC_SetCompareCH4(timer_, arr_period_ * .75);
+      LL_TIM_OC_SetCompareCH4(timer_, arr_period_ * .95);
+      break;
+  };
+  ConfigureChannel(ll_chan);
+}
+
+Tim2::Tim2() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM2)) {}
+
+void Tim2::Enable() { Rcc::EnableTim2(); }
+
+void Tim2::Configure() {
+  Enable();
+  division_ = ClockDivision::DIV1;
+  prescalar_ = 17000;
+  arr_period_ = 2000;
+  repetition_counter_ = 0;
+  ConfigureClock();
+}
+
+void Tim2::EnableOutput(Channel channel) {
+  uint32_t ll_chan = 0;
+  switch (channel) {
+    case Channel::Ch1:
+      ll_chan = LL_TIM_CHANNEL_CH1;
+      LL_TIM_OC_SetCompareCH1(timer_, arr_period_ * .5);
       break;
   };
   ConfigureChannel(ll_chan);

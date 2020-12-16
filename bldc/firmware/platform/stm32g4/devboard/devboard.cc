@@ -26,8 +26,6 @@ void Devboard::Init() {
   green_->On();
 }
 
-void Devboard::SetupClocks() { Rcc::SetupClocks(); }
-
 void Devboard::OnFatal() {
   green_->Off();
   Tim3 timer;

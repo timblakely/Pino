@@ -12,9 +12,6 @@ class Nucleo : public G4Platform {
   Nucleo();
   virtual void Init() override;
 
- protected:
-  virtual void SetupClocks() override;
-
  private:
   void OnFatal();
   Led* user_led_;
