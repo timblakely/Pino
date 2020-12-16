@@ -1,22 +1,10 @@
 #ifndef BLDC_FIRMWARE_STM32G474_DRIVERS_TIMER_H_
 #define BLDC_FIRMWARE_STM32G474_DRIVERS_TIMER_H_
 
+#include <functional>
+
 namespace platform {
 namespace stm32g4 {
-
-enum class GeneralTimer {
-  // 16 or 32 bit
-  Tim2,
-  Tim3,
-  Tim4,
-  Tim5,
-
-  // 16 bit, but with center-aligned pwm
-  Tim15,
-  Tim16,
-  Tim17,
-};
-
 class SysTickTimer {
  public:
   static void SetPeriod(uint32_t micros);
@@ -31,83 +19,41 @@ class SysTickTimer {
   static uint32_t tick_count_;
 };
 
-enum class CountMode {
-  Up,
-  Down,
-  Centered,
-};
-
-// Capable of interacting with digital hall effect sensors on CH1-3.
-enum class AdvancedTimer {
-  Tim1,
-  Tim8,
-  Tim20,
-};
-
-enum class GenericTimer {
-
-};
-
-class AdvancedTimerImpl {
- public:
-  enum class CountMode {
-    Up,
-  };
-  AdvancedTimerImpl(AdvancedTimer timer);
-
-  void SetPrescalar(uint32_t prescalar);
-  void SetCountMode(CountMode mode);
-
- private:
-  AdvancedTimer timer_instance_;
-};
-
-class Tim2 {
- public:
-  void Enable();
-  void Configure();
-  void Start();
-  void EnableOutputChannel();
-};
-
-class Tim3 {
- public:
-  Tim3();
-
-  enum class Channel {
-    CH1,
-    CH2,
-    CH3,
-    CH4,
-  };
-  void Enable();
-  void Configure();
-  void Start();
-  void EnableOutputChannel();
-};
-
-//
-enum class TimerInstance {
-  Tim2,
-  Tim3,
-  Tim4,
-};
+////
 
 class Timer {
  public:
-  Timer(TimerInstance instance);
-  void Enable();
-  void Configure();
+  virtual void Enable() = 0;
+  virtual void Configure() = 0;
   void Start();
-  void EnableOutput();
 
- private:
-  TimerInstance instance_;
+ protected:
   // Workaround for the STM libraries using typedef'd anonymous structs.
   struct TIM_TypeDefI;
   TIM_TypeDefI* timer_;
+
+  Timer(TIM_TypeDefI* timer);
+
+  enum class ClockDivision : uint32_t {
+    DIV1 = 0, // Consistent with LL_TIM_CLOCKDIVISION_DIV1
+  };
+
+  void ConfigureClock();
+  ClockDivision division_;
   uint32_t prescalar_;
-  uint32_t period_;
+  uint32_t arr_period_;
+  uint32_t repetition_counter_;
+};
+
+class Tim3 : public Timer {
+ public:
+  Tim3();
+  enum class Channel {
+    Ch4,
+  };
+  virtual void Enable() override;
+  virtual void Configure() override;
+  void EnableOutput(Channel channel);
 };
 
 }  // namespace stm32g4

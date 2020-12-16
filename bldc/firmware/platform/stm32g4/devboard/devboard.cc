@@ -30,9 +30,9 @@ void Devboard::SetupClocks() { Rcc::SetupClocks(); }
 
 void Devboard::OnFatal() {
   green_->Off();
-  auto timer = Timer(TimerInstance::Tim3);
+  Tim3 timer;
   timer.Configure();
-  timer.EnableOutput();
+  timer.EnableOutput(Tim3::Channel::Ch4);
   timer.Start();
   blue_->Blink();
   // blue_->On();

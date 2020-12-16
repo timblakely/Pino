@@ -138,16 +138,16 @@ void Rcc::Enable(Gpio::Port port) {
   }
 }
 
-void Rcc::Enable(AdvancedTimer timer) {
-  switch (timer) {
-    case AdvancedTimer::Tim1:
-      return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1);
-    case AdvancedTimer::Tim8:
-      return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM8);
-    case AdvancedTimer::Tim20:
-      return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM20);
-  }
-}
+// void Rcc::Enable(AdvancedTimer timer) {
+//   switch (timer) {
+//     case AdvancedTimer::Tim1:
+//       return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1);
+//     case AdvancedTimer::Tim8:
+//       return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM8);
+//     case AdvancedTimer::Tim20:
+//       return bus::LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM20);
+//   }
+// }
 
 void Rcc::EnableTim3() {
   bus::LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);

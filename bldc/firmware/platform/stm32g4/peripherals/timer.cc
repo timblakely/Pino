@@ -40,131 +40,124 @@ void SysTickTimer::BlockingWait(uint32_t micros) {
   }
 }
 
-TIM_TypeDef* AsLL(AdvancedTimer timer) {
-  switch (timer) {
-    case AdvancedTimer::Tim1:
-    default:
-      return TIM1;
-    case AdvancedTimer::Tim8:
-      return TIM8;
-    case AdvancedTimer::Tim20:
-      return TIM20;
-  }
+struct Timer::TIM_TypeDefI : public TIM_TypeDef {};
+
+Timer::Timer(TIM_TypeDefI* timer)
+    : timer_(timer),
+      division_(ClockDivision::DIV1),
+      prescalar_(0),
+      arr_period_(0),
+      repetition_counter_(0) {}
+
+void Timer::Start() { LL_TIM_EnableCounter(timer_); }
+
+void Timer::ConfigureClock() {
+  LL_TIM_SetClockDivision(timer_, static_cast<uint32_t>(division_));
+  LL_TIM_SetPrescaler(timer_, prescalar_);
+  LL_TIM_SetAutoReload(timer_, arr_period_);
+  LL_TIM_SetRepetitionCounter(timer_, repetition_counter_);
 }
 
-AdvancedTimerImpl::AdvancedTimerImpl(AdvancedTimer timer)
-    : timer_instance_(timer) {
-  Rcc::Enable(timer);
-}
-
-void AdvancedTimerImpl::SetPrescalar(uint32_t prescalar) {
-  LL_TIM_SetPrescaler(AsLL(timer_instance_), prescalar);
-}
-
-// void AdvancedTimerImpl::SetCountMode(CountMode mode) {
-//   auto ll_timer = GetLLTimer(timer_instance_);
-//   LL_TIM_SetPrescaler(ll_timer, prescalar);
-// }
-
-Tim3::Tim3() {}
+Tim3::Tim3() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM3)) {}
 
 void Tim3::Enable() { Rcc::EnableTim3(); }
 
 void Tim3::Configure() {
   Enable();
-  // Timer-wide settings
-  LL_TIM_SetClockDivision(TIM3, LL_TIM_CLOCKDIVISION_DIV1);
-  LL_TIM_SetPrescaler(TIM3, 17000);
-  const uint32_t period = 10000;
-  LL_TIM_SetAutoReload(TIM3, period);
-  LL_TIM_SetRepetitionCounter(TIM3, 0);
-  LL_TIM_OC_SetCompareCH4(TIM3, period * .5);
+  division_ = ClockDivision::DIV1;
+  prescalar_ = 17000;
+  arr_period_ = 10000;
+  repetition_counter_ = 0;
+  ConfigureClock();
 }
 
-void Tim3::Start() { LL_TIM_EnableCounter(TIM3); }
-
-void Tim3::EnableOutputChannel() {
-  // TODO(blakely): support more than just ch4.
-  // CH4 settings.
-  LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH4);
-  LL_TIM_OC_ConfigOutput(TIM3, LL_TIM_CHANNEL_CH4,
+void Tim3::EnableOutput(Channel channel) {
+  uint32_t ll_chan = 0;
+  switch (channel) {
+    case Channel::Ch4:
+      ll_chan = LL_TIM_CHANNEL_CH4;
+      LL_TIM_OC_SetCompareCH4(timer_, arr_period_ * .5);
+      break;
+  };
+  LL_TIM_CC_EnableChannel(timer_, ll_chan);
+  LL_TIM_OC_ConfigOutput(timer_, ll_chan,
                          LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
   // LL_TIM_OC_SetPolarity(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCPOLARITY_HIGH);
-  LL_TIM_OC_SetMode(TIM3, LL_TIM_CHANNEL_CH4, LL_TIM_OCMODE_PWM2);
+  LL_TIM_OC_SetMode(timer_, ll_chan, LL_TIM_OCMODE_PWM2);
 }
 
-void Tim2::Enable() { Rcc::EnableTim2(); }
+// void Tim2::Enable() { Rcc::EnableTim2(); }
 
-void Tim2::Configure() {
-  Enable();
-  // Timer-wide settings
-  LL_TIM_SetClockDivision(TIM2, LL_TIM_CLOCKDIVISION_DIV1);
-  LL_TIM_SetPrescaler(TIM2, 17000);
-  const uint32_t period = 10000;
-  LL_TIM_SetAutoReload(TIM2, period);
-  LL_TIM_SetRepetitionCounter(TIM2, 0);
-  LL_TIM_OC_SetCompareCH2(TIM2, period * .5);
-}
+// void Tim2::Configure() {
+//   Enable();
+//   // Timer-wide settings
+//   LL_TIM_SetClockDivision(TIM2, LL_TIM_CLOCKDIVISION_DIV1);
+//   LL_TIM_SetPrescaler(TIM2, 17000);
+//   const uint32_t period = 10000;
+//   LL_TIM_SetAutoReload(TIM2, period);
+//   LL_TIM_SetRepetitionCounter(TIM2, 0);
+//   LL_TIM_OC_SetCompareCH2(TIM2, period * .5);
+// }
 
-void Tim2::Start() { LL_TIM_EnableCounter(TIM2); }
+// void Tim2::Start() { LL_TIM_EnableCounter(TIM2); }
 
-void Tim2::EnableOutputChannel() {
-  // TODO(blakely): support more than just ch1.
-  LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH1);
-  LL_TIM_OC_ConfigOutput(TIM2, LL_TIM_CHANNEL_CH1,
-                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
-  LL_TIM_OC_SetMode(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_OCMODE_PWM2);
-}
+// void Tim2::EnableOutputChannel() {
+//   // TODO(blakely): support more than just ch1.
+//   LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH1);
+//   LL_TIM_OC_ConfigOutput(TIM2, LL_TIM_CHANNEL_CH1,
+//                          LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+//   LL_TIM_OC_SetMode(TIM2, LL_TIM_CHANNEL_CH1, LL_TIM_OCMODE_PWM2);
+// }
 
-// Getting around the anonymous struct issue.
-struct Timer::TIM_TypeDefI : TIM_TypeDef {};
+// // Getting around the anonymous struct issue.
+// struct Timer::TIM_TypeDefI : TIM_TypeDef {};
 
-Timer::Timer(TimerInstance instance)
-    : instance_(instance), prescalar_(17000), period_(10000) {
-  switch (instance) {
-    case TimerInstance::Tim2:
-      timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM2);
-      break;
-    case TimerInstance::Tim3:
-      timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM3);
-      break;
-    case TimerInstance::Tim4:
-      timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM4);
-      break;
-  }
-}
+// Timer::Timer(TimerInstance instance)
+//     : instance_(instance), prescalar_(17000), period_(10000) {
+//   switch (instance) {
+//     case TimerInstance::Tim2:
+//       timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM2);
+//       break;
+//     case TimerInstance::Tim3:
+//       timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM3);
+//       break;
+//     case TimerInstance::Tim4:
+//       timer_ = reinterpret_cast<TIM_TypeDefI*>(TIM4);
+//       break;
+//   }
+// }
 
-void Timer::Enable() {
-  switch (instance_) {
-    case TimerInstance::Tim2:
-      return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
-    case TimerInstance::Tim3:
-      return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
-    case TimerInstance::Tim4:
-      return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
-  }
-}
+// void Timer::Enable() {
+//   switch (instance_) {
+//     case TimerInstance::Tim2:
+//       return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
+//     case TimerInstance::Tim3:
+//       return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
+//     case TimerInstance::Tim4:
+//       return LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
+//   }
+// }
 
-void Timer::Configure() {
-  Enable();
-  // Timer-wide settings
-  LL_TIM_SetClockDivision(timer_, LL_TIM_CLOCKDIVISION_DIV1);
-  LL_TIM_SetPrescaler(timer_, prescalar_);
-  LL_TIM_SetAutoReload(timer_, period_);
-  LL_TIM_SetRepetitionCounter(timer_, 0);
-}
+// void Timer::Configure() {
+//   Enable();
+//   // Timer-wide settings
+//   LL_TIM_SetClockDivision(timer_, LL_TIM_CLOCKDIVISION_DIV1);
+//   LL_TIM_SetPrescaler(timer_, prescalar_);
+//   LL_TIM_SetAutoReload(timer_, period_);
+//   LL_TIM_SetRepetitionCounter(timer_, 0);
+// }
 
-void Timer::Start() { LL_TIM_EnableCounter(timer_); }
+// void Timer::Start() { LL_TIM_EnableCounter(timer_); }
 
-void Timer::EnableOutput() {
-  // TODO(blakely): support more than just ch4.
-  const uint32_t channel = LL_TIM_CHANNEL_CH4;
-  LL_TIM_OC_SetCompareCH4(timer_, period_ * .5);
-  LL_TIM_CC_EnableChannel(timer_, channel);
-  LL_TIM_OC_ConfigOutput(timer_, channel,
-                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
-  LL_TIM_OC_SetMode(timer_, channel, LL_TIM_OCMODE_PWM2);
-}
+// void Timer::EnableOutput() {
+//   // TODO(blakely): support more than just ch4.
+//   const uint32_t channel = LL_TIM_CHANNEL_CH4;
+//   LL_TIM_OC_SetCompareCH4(timer_, period_ * .5);
+//   LL_TIM_CC_EnableChannel(timer_, channel);
+//   LL_TIM_OC_ConfigOutput(timer_, channel,
+//                          LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+//   LL_TIM_OC_SetMode(timer_, channel, LL_TIM_OCMODE_PWM2);
+// }
 
 }  // namespace stm32g4
 }  // namespace platform
