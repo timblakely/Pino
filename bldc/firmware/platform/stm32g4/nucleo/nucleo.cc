@@ -21,6 +21,17 @@ void Nucleo::Init() {
 
   user_led_ = new Led({Gpio::Port::A, 5});
   user_led_->On();
+
+  pwm_output_ = new Gpio::Pin({Gpio::Port::C, 0});
+  // pwm_output_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+  // pwm_output_->High();
+  pwm_output_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                         Gpio::AlternateFunction::AF2);
+
+  Tim1 timer;
+  timer.Configure();
+  timer.EnableOutput(Tim1::Channel::Ch1);
+  timer.Start();
 }
 
 // void Nucleo::SetupClocks() { Rcc::SetupClocks(); }

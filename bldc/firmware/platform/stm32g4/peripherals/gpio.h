@@ -10,9 +10,10 @@ class Gpio {
   enum class OutputMode { PushPull, OpenDrain };
   enum class Pullup { None, PullUp, PullDown };
   enum class Speed { Low, Medium, High, VeryHigh };
-  enum class AlternateFunction {
+  enum class AlternateFunction : uint32_t {
     None,
     AF1 = 1,
+    AF2 = 2,
     AF10 = 10,
   };
 

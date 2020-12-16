@@ -10,7 +10,7 @@ int main() {
   while (true) {
     ++i;
     asm("nop");
-    platform->BlockingWait(1e6);
-    platform->Fatal();
+    // platform->BlockingWait(1e6);
+    // platform->Fatal();
   }
 }

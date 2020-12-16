@@ -39,7 +39,7 @@ class Timer {
   };
 
   void ConfigureClock();
-  void ConfigureChannel(uint32_t channel);
+  virtual void ConfigureChannel(uint32_t channel);
   TIM_TypeDefI* timer_;
   ClockDivision division_;
   uint32_t prescalar_;
@@ -61,6 +61,17 @@ class Tim3 : public Timer {
 class Tim2 : public Timer {
  public:
   Tim2();
+  enum class Channel {
+    Ch1,
+  };
+  virtual void Enable() override;
+  virtual void Configure() override;
+  void EnableOutput(Channel channel);
+};
+
+class Tim1 : public Timer {
+ public:
+  Tim1();
   enum class Channel {
     Ch1,
   };
