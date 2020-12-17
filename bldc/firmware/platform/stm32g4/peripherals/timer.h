@@ -76,13 +76,16 @@ class Tim1 : public Timer {
     Ch1,
     Ch2,
     Ch3,
+    Ch5,
   };
   virtual void Enable() override;
   virtual void Configure() override;
   void EnableOutput(Channel channel);
 
   virtual void ConfigureChannel(uint32_t channel) override;
-  void SetPwmDuty(Channel channel, float cycle);
+  void SetPwmDuty(Channel channel, float duty);
+
+  void EnableDeadtimeInsertion(float duty);
 };
 
 }  // namespace stm32g4

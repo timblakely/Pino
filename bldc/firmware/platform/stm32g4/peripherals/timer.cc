@@ -148,6 +148,9 @@ void Tim1::EnableOutput(Channel channel) {
     case Channel::Ch3:
       ll_chan = LL_TIM_CHANNEL_CH3;
       break;
+    case Channel::Ch5:
+      ll_chan = LL_TIM_CHANNEL_CH5;
+      break;
   };
   SetPwmDuty(channel, 0.5);
   ConfigureChannel(ll_chan);
@@ -162,6 +165,13 @@ void Tim1::SetPwmDuty(Channel channel, float duty) {
       return LL_TIM_OC_SetCompareCH2(timer_, arr_period_ * duty);
     case Channel::Ch3:
       return LL_TIM_OC_SetCompareCH3(timer_, arr_period_ * duty);
+    case Channel::Ch5:
+      // This is actually broken. The ST headers have TIM_CCR5_CCR5_Msk set to
+      // 0xFFFFFFFF, when it should only be 0xFFFFF. That effectively wipes out
+      // the GC5Cx bits when it's set.
+      timer_->CCR5 = (timer_->CCR5 & ~(0xFFFFF)) |
+                     static_cast<uint32_t>(arr_period_ * duty);
+      // return LL_TIM_OC_SetCompareCH5(timer_, arr_period_ * duty);
   };
 }
 
@@ -170,6 +180,17 @@ void Tim1::ConfigureChannel(uint32_t channel) {
   LL_TIM_OC_ConfigOutput(timer_, channel,
                          LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
   LL_TIM_OC_SetMode(timer_, channel, LL_TIM_OCMODE_PWM1);
+}
+
+void Tim1::EnableDeadtimeInsertion(float max_duty) {
+  LL_TIM_CC_EnableChannel(timer_, LL_TIM_CHANNEL_CH5);
+  LL_TIM_OC_ConfigOutput(timer_, LL_TIM_CHANNEL_CH5,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(timer_, LL_TIM_CHANNEL_CH5, LL_TIM_OCMODE_PWM1);
+  LL_TIM_SetCH5CombinedChannels(timer_, LL_TIM_GROUPCH5_OC1REFC |
+                                            LL_TIM_GROUPCH5_OC2REFC |
+                                            LL_TIM_GROUPCH5_OC3REFC);
+  SetPwmDuty(Channel::Ch5, max_duty);
 }
 
 }  // namespace stm32g4

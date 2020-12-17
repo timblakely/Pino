@@ -39,7 +39,8 @@ void Nucleo::Init() {
   timer.EnableOutput(Tim1::Channel::Ch2);
   timer.SetPwmDuty(Tim1::Channel::Ch2, 0.5);
   timer.EnableOutput(Tim1::Channel::Ch3);
-  timer.SetPwmDuty(Tim1::Channel::Ch3, 0.75);
+  timer.SetPwmDuty(Tim1::Channel::Ch3, 1);
+  timer.EnableDeadtimeInsertion(0.95);
   timer.Start();
 }
 
