@@ -74,10 +74,15 @@ class Tim1 : public Timer {
   Tim1();
   enum class Channel {
     Ch1,
+    Ch2,
+    Ch3,
   };
   virtual void Enable() override;
   virtual void Configure() override;
   void EnableOutput(Channel channel);
+
+  virtual void ConfigureChannel(uint32_t channel) override;
+  void SetPwmDuty(Channel channel, float cycle);
 };
 
 }  // namespace stm32g4

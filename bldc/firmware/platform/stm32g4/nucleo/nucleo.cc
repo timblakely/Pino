@@ -22,15 +22,24 @@ void Nucleo::Init() {
   user_led_ = new Led({Gpio::Port::A, 5});
   user_led_->On();
 
-  pwm_output_ = new Gpio::Pin({Gpio::Port::C, 0});
-  // pwm_output_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-  // pwm_output_->High();
-  pwm_output_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
-                         Gpio::AlternateFunction::AF2);
+  pwm_a_ = new Gpio::Pin({Gpio::Port::C, 0});
+  pwm_a_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                    Gpio::AlternateFunction::AF2);
+  pwm_b_ = new Gpio::Pin({Gpio::Port::C, 1});
+  pwm_b_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                    Gpio::AlternateFunction::AF2);
+  pwm_c_ = new Gpio::Pin({Gpio::Port::C, 2});
+  pwm_c_->Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                    Gpio::AlternateFunction::AF2);
 
   Tim1 timer;
   timer.Configure();
   timer.EnableOutput(Tim1::Channel::Ch1);
+  timer.SetPwmDuty(Tim1::Channel::Ch1, 0.25);
+  timer.EnableOutput(Tim1::Channel::Ch2);
+  timer.SetPwmDuty(Tim1::Channel::Ch2, 0.5);
+  timer.EnableOutput(Tim1::Channel::Ch3);
+  timer.SetPwmDuty(Tim1::Channel::Ch3, 0.75);
   timer.Start();
 }
 

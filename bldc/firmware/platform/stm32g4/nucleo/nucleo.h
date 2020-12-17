@@ -15,7 +15,9 @@ class Nucleo : public G4Platform {
  private:
   void OnFatal();
   Led* user_led_;
-  Gpio::Pin* pwm_output_;
+  Gpio::Pin* pwm_a_;
+  Gpio::Pin* pwm_b_;
+  Gpio::Pin* pwm_c_;
 };
 
 }  // namespace stm32g4

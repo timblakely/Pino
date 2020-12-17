@@ -128,12 +128,12 @@ void Tim1::Enable() {
 void Tim1::Configure() {
   Enable();
   division_ = ClockDivision::DIV1;
-  prescalar_ = 1;
-  arr_period_ = 4250;
-  // prescalar_ = 17000;
-  // arr_period_ = 2000;
+  prescalar_ = 0;
+  // arr_period_ = 4250;  // 40kHz
+  arr_period_ = 2125;  // 80kHz
   repetition_counter_ = 0;
   ConfigureClock();
+  LL_TIM_SetCounterMode(timer_, LL_TIM_COUNTERMODE_CENTER_UP_DOWN);
 }
 
 void Tim1::EnableOutput(Channel channel) {
@@ -141,10 +141,35 @@ void Tim1::EnableOutput(Channel channel) {
   switch (channel) {
     case Channel::Ch1:
       ll_chan = LL_TIM_CHANNEL_CH1;
-      LL_TIM_OC_SetCompareCH1(timer_, arr_period_ * .5);
+      break;
+    case Channel::Ch2:
+      ll_chan = LL_TIM_CHANNEL_CH2;
+      break;
+    case Channel::Ch3:
+      ll_chan = LL_TIM_CHANNEL_CH3;
       break;
   };
+  SetPwmDuty(channel, 0.5);
   ConfigureChannel(ll_chan);
+}
+
+void Tim1::SetPwmDuty(Channel channel, float duty) {
+  // duty = 1 - duty;
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_OC_SetCompareCH1(timer_, arr_period_ * duty);
+    case Channel::Ch2:
+      return LL_TIM_OC_SetCompareCH2(timer_, arr_period_ * duty);
+    case Channel::Ch3:
+      return LL_TIM_OC_SetCompareCH3(timer_, arr_period_ * duty);
+  };
+}
+
+void Tim1::ConfigureChannel(uint32_t channel) {
+  LL_TIM_CC_EnableChannel(timer_, channel);
+  LL_TIM_OC_ConfigOutput(timer_, channel,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(timer_, channel, LL_TIM_OCMODE_PWM1);
 }
 
 }  // namespace stm32g4
