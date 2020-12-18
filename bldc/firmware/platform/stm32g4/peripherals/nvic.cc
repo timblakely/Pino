@@ -97,5 +97,13 @@ void Nvic::ResetAllExceptSysTickWithDefault(InterruptCallback handler) {
   }
 }
 
+void Nvic::EnableInterrupt(Interrupt interrupt) {
+  NVIC_EnableIRQ(ToCmsis(interrupt));
+}
+
+void Nvic::DisableInterrupt(Interrupt interrupt) {
+  NVIC_DisableIRQ(ToCmsis(interrupt));
+}
+
 }  // namespace stm32g4
 }  // namespace platform

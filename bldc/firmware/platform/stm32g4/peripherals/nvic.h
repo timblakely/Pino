@@ -26,6 +26,7 @@ enum class Interrupt : int32_t {
   ISysTick = -1,  // Note: Should be SysTick, but ST #defined SysTick... *sigh*
 
   WWDG = 0,
+  Tim1_CaptureCompare = 27,
   Comp7 = 66,
 };
 
@@ -53,6 +54,8 @@ class Nvic : public common::InterruptTable<kTotalNumInterrupts,
   static void DisableInterrupts();
 
   static void EnableInterrupts();
+  static void EnableInterrupt(Interrupt interrupt);
+  static void DisableInterrupt(Interrupt interrupt);
 
   static void SetSysTickMicros(uint32_t microseconds);
 };

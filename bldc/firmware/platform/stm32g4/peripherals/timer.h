@@ -28,6 +28,9 @@ class Timer {
   void Start();
   void Stop();
 
+  uint32_t Prescalar() { return prescalar_; }
+  uint32_t Period() { return arr_period_; }
+
  protected:
   // Workaround for the STM libraries using typedef'd anonymous structs.
   struct TIM_TypeDefI;
@@ -76,16 +79,23 @@ class Tim1 : public Timer {
     Ch1,
     Ch2,
     Ch3,
+    Ch4,
+
+    // Output compare only, no external.
     Ch5,
   };
+
   virtual void Enable() override;
   virtual void Configure() override;
   void EnableOutput(Channel channel);
 
   virtual void ConfigureChannel(uint32_t channel) override;
   void SetPwmDuty(Channel channel, float duty);
+  void SetCaptureCompare(Channel channel, uint32_t value);
 
   void EnableDeadtimeInsertion(float duty);
+  void EnableCCInterrupt(Channel channel);
+  void ClearCCInterrupt(Channel channel);
 };
 
 }  // namespace stm32g4

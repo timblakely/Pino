@@ -18,6 +18,8 @@ class Nucleo : public G4Platform {
   Gpio::Pin* pwm_a_;
   Gpio::Pin* pwm_b_;
   Gpio::Pin* pwm_c_;
+  Gpio::Pin* blip_;
+  Tim1 timer_;
 };
 
 }  // namespace stm32g4

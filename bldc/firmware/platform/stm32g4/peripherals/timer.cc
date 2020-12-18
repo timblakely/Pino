@@ -133,7 +133,7 @@ void Tim1::Configure() {
   arr_period_ = 2125;  // 80kHz
   repetition_counter_ = 0;
   ConfigureClock();
-  LL_TIM_SetCounterMode(timer_, LL_TIM_COUNTERMODE_CENTER_UP_DOWN);
+  LL_TIM_SetCounterMode(timer_, LL_TIM_COUNTERMODE_CENTER_DOWN);
 }
 
 void Tim1::EnableOutput(Channel channel) {
@@ -148,6 +148,9 @@ void Tim1::EnableOutput(Channel channel) {
     case Channel::Ch3:
       ll_chan = LL_TIM_CHANNEL_CH3;
       break;
+    case Channel::Ch4:
+      ll_chan = LL_TIM_CHANNEL_CH4;
+      break;
     case Channel::Ch5:
       ll_chan = LL_TIM_CHANNEL_CH5;
       break;
@@ -157,21 +160,25 @@ void Tim1::EnableOutput(Channel channel) {
 }
 
 void Tim1::SetPwmDuty(Channel channel, float duty) {
-  // duty = 1 - duty;
+  return SetCaptureCompare(channel, arr_period_ * duty);
+}
+
+void Tim1::SetCaptureCompare(Channel channel, uint32_t value) {
   switch (channel) {
     case Channel::Ch1:
-      return LL_TIM_OC_SetCompareCH1(timer_, arr_period_ * duty);
+      return LL_TIM_OC_SetCompareCH1(timer_, value);
     case Channel::Ch2:
-      return LL_TIM_OC_SetCompareCH2(timer_, arr_period_ * duty);
+      return LL_TIM_OC_SetCompareCH2(timer_, value);
     case Channel::Ch3:
-      return LL_TIM_OC_SetCompareCH3(timer_, arr_period_ * duty);
+      return LL_TIM_OC_SetCompareCH3(timer_, value);
+    case Channel::Ch4:
+      return LL_TIM_OC_SetCompareCH4(timer_, value);
     case Channel::Ch5:
       // This is actually broken. The ST headers have TIM_CCR5_CCR5_Msk set to
       // 0xFFFFFFFF, when it should only be 0xFFFFF. That effectively wipes out
       // the GC5Cx bits when it's set.
-      timer_->CCR5 = (timer_->CCR5 & ~(0xFFFFF)) |
-                     static_cast<uint32_t>(arr_period_ * duty);
-      // return LL_TIM_OC_SetCompareCH5(timer_, arr_period_ * duty);
+      timer_->CCR5 = (timer_->CCR5 & ~(0xFFFFF)) | static_cast<uint32_t>(value);
+      return;
   };
 }
 
@@ -191,6 +198,37 @@ void Tim1::EnableDeadtimeInsertion(float max_duty) {
                                             LL_TIM_GROUPCH5_OC2REFC |
                                             LL_TIM_GROUPCH5_OC3REFC);
   SetPwmDuty(Channel::Ch5, max_duty);
+}
+
+void Tim1::EnableCCInterrupt(Channel channel) {
+  Nvic::EnableInterrupt(Interrupt::Tim1_CaptureCompare);
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_EnableIT_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_EnableIT_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_EnableIT_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_EnableIT_CC4(timer_);
+    case Channel::Ch5:
+      break;
+  };
+}
+
+void Tim1::ClearCCInterrupt(Channel channel) {
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_ClearFlag_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_ClearFlag_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_ClearFlag_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_ClearFlag_CC4(timer_);
+    case Channel::Ch5:
+      break;
+  };
 }
 
 }  // namespace stm32g4
