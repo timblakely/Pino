@@ -24,7 +24,8 @@ void Nvic::Init() {
   // RelocateInterruptsToCCMRAM();
   // kITableLocation =  ORIGIN(CCMRAM) + LENGTH(CCMRAM) - 0x200;
   DisableInterrupts();
-  SCB->VTOR = reinterpret_cast<uint32_t>(0x10007E00UL);
+  SCB->VTOR = reinterpret_cast<uint32_t>(&kITableLocation);
+  // SCB->VTOR = reinterpret_cast<uint32_t>(0x10007E00UL);
   // SCB->VTOR = reinterpret_cast<uint32_t>(0x2001FE00UL);
   EnableInterrupts();
   __NVIC_SetPriorityGrouping(0b100);
