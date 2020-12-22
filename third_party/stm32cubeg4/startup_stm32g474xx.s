@@ -51,7 +51,8 @@ defined in linker script */
 /* First word is stack location (0x0), second word is jump location for first
 boot (0x4)*/
 .section	.coldboot,"a",%progbits
-  .word stack_location
+	.word stack_location
+  @ .word kStackLocation
 	.word Reset_Handler
 
 .section	.text.Reset_Handler

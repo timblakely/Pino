@@ -57,10 +57,18 @@ ENTRY(Reset_Handler)
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
 _Min_Stack_Size = 0x400; /* required amount of stack */
 
-/* RAM */
+/* Note: We reserve 0x1D8 (118*24) bytes at the end of either section for the 
+interrupt table to be copied. */
+itable_size = 0x1D8; /* 118 * 4 */
+
+kITableLocation =  ORIGIN(CCMRAM) + LENGTH(CCMRAM) - 0x200;
+
 stack_location =  ORIGIN(RAM) + LENGTH(RAM);
-/* CCMM */
-/* stack_location =  ORIGIN(CCMRAM) + LENGTH(CCMRAM); */
+
+/* RAM */
+kStackLocation =  ORIGIN(RAM) + LENGTH(RAM)-1;
+/* CCM - ITable is located at the end of CCMRAM */
+/* kStackLocation =  kITableLocation;  */
 
 /* Specify the memory areas */
 MEMORY
@@ -80,12 +88,6 @@ SECTIONS
     KEEP(*(.coldboot)) /* Startup code */
     . = ALIGN(4);
   } AT>FLASH
-
-  .isr_reservation :
-  {
-    . = ALIGN(4);
-    . = . + 0x1D8; /* 118 * 4 */
-  } >RAM
 
   /* The program code and other data goes into FLASH */
   .text :
@@ -185,7 +187,13 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
 
-  
+  /* Ensure we have enough room to store the interrupt table at the end of
+  CCMRAM */
+  .itable :
+  {
+    . = ALIGN(4);
+    . = . + 0x200;
+  } >CCMRAM 
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

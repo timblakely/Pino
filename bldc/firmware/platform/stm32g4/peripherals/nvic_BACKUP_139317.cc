@@ -20,7 +20,12 @@ constexpr uint32_t ToIdx(Interrupt interrupt) {
 }
 
 void Nvic::Init() {
+  DisableInterrupts();
+  ((cortex::SCB_Type*)SCB_BASE)->VTOR =
+      reinterpret_cast<uint32_t>(&kITableLocation) | 0x00UL;
+  EnableInterrupts();
   // Set 8 bits for primary group, 2 bits for sub-priority
+<<<<<<< Updated upstream
   // RelocateInterruptsToCCMRAM();
   // kITableLocation =  ORIGIN(CCMRAM) + LENGTH(CCMRAM) - 0x200;
   DisableInterrupts();
@@ -28,6 +33,9 @@ void Nvic::Init() {
   // SCB->VTOR = reinterpret_cast<uint32_t>(0x2001FE00UL);
   EnableInterrupts();
   __NVIC_SetPriorityGrouping(0b100);
+=======
+  cortex::__NVIC_SetPriorityGrouping(0b100);
+>>>>>>> Stashed changes
 }
 
 void Nvic::Init(InterruptCallback default_handler) {
@@ -35,7 +43,30 @@ void Nvic::Init(InterruptCallback default_handler) {
   ResetAllWithDefault(default_handler);
 }
 
+<<<<<<< Updated upstream
+int i = 0;
+
+extern "C" {
+void SysTick_Handler() {
+  asm("nop");  //
+  ++i;
+}
+}
+
+void Nvic::RelocateInterruptsToSRAM() { RelocateInterrupts(SRAM1_BASE); }
+
+void Nvic::RelocateInterruptsToCCMRAM() { RelocateInterrupts(CCMSRAM_BASE); }
+
+void Nvic::RelocateInterrupts(uint32_t address) {
+  DisableInterrupts();
+  ((SCB_Type*)SCB_BASE)->VTOR = address | 0x00UL;
+  EnableInterrupts();
+}
+
 void Nvic::DisableInterrupts() { __disable_irq(); }
+=======
+void Nvic::DisableInterrupts() { cortex::__disable_irq(); }
+>>>>>>> Stashed changes
 
 void Nvic::EnableInterrupts() { __enable_irq(); }
 

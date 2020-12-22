@@ -5,9 +5,6 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "third_party/stm32cubeg4/stm32g4xx.h"
 
-// Retrieved from linker script.
-extern uint32_t kITableLocation;
-
 namespace platform {
 namespace stm32g4 {
 
@@ -33,6 +30,25 @@ void Nvic::Init() {
 void Nvic::Init(InterruptCallback default_handler) {
   Init();
   ResetAllWithDefault(default_handler);
+}
+
+int i = 0;
+
+extern "C" {
+void SysTick_Handler() {
+  asm("nop");  //
+  ++i;
+}
+}
+
+void Nvic::RelocateInterruptsToSRAM() { RelocateInterrupts(SRAM1_BASE); }
+
+void Nvic::RelocateInterruptsToCCMRAM() { RelocateInterrupts(CCMSRAM_BASE); }
+
+void Nvic::RelocateInterrupts(uint32_t address) {
+  DisableInterrupts();
+  ((SCB_Type*)SCB_BASE)->VTOR = address | 0x00UL;
+  EnableInterrupts();
 }
 
 void Nvic::DisableInterrupts() { __disable_irq(); }
