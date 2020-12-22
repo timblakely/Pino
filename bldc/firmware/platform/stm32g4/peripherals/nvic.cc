@@ -23,7 +23,7 @@ constexpr uint32_t ToIdx(Interrupt interrupt) {
 
 void Nvic::Init() {
   // Set 8 bits for primary group, 2 bits for sub-priority
-  RelocateInterruptsToSram();
+  RelocateInterruptsToCCMRAM();
   cortex::__NVIC_SetPriorityGrouping(0b100);
 }
 
@@ -41,19 +41,15 @@ void SysTick_Handler() {
 }
 }
 
-void Nvic::RelocateInterruptsToSram() {
+void Nvic::RelocateInterruptsToSRAM() { RelocateInterrupts(SRAM1_BASE); }
+
+void Nvic::RelocateInterruptsToCCMRAM() { RelocateInterrupts(CCMSRAM_BASE); }
+
+void Nvic::RelocateInterrupts(uint32_t address) {
   DisableInterrupts();
-  // memcpy(reinterpret_cast<void*>(SRAM1_BASE),
-  //        reinterpret_cast<void*>(FLASH_BASE), 0x1D8 /* 118 * 4 */);
-  // // We need this explicit declaration here instead of just referencing SCB
-  // // directly because of ST's terribly polluted namespace :(
-  // ((cortex::SCB_Type*)SCB_BASE)->VTOR =
-  //     SRAM1_BASE | 0x00UL;  // Must be multiple of 0x200
-  memcpy(reinterpret_cast<void*>(CCMSRAM_BASE),
-         reinterpret_cast<void*>(FLASH_BASE), 0x1D8 /* 118 * 4 */);
-  // We need this explicit declaration here instead of just referencing SCB
-  // directly because of ST's terribly polluted namespace :(
-  ((cortex::SCB_Type*)SCB_BASE)->VTOR = CCMSRAM_BASE | 0x00UL;  // Mu
+  memcpy(reinterpret_cast<void*>(address), reinterpret_cast<void*>(FLASH_BASE),
+         0x1D8 /* 118 * 4 */);
+  ((cortex::SCB_Type*)SCB_BASE)->VTOR = address | 0x00UL;
   EnableInterrupts();
 }
 

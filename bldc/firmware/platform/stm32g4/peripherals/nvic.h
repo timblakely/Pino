@@ -40,7 +40,8 @@ class Nvic : public common::InterruptTable<kTotalNumInterrupts,
   static void Init();
   static void Init(InterruptCallback default_handler);
 
-  static void RelocateInterruptsToSram();
+  static void RelocateInterruptsToSRAM();
+  static void RelocateInterruptsToCCMRAM();
   static void ResetAllWithDefault(InterruptCallback handler);
   static void ResetAllExceptSysTickWithDefault(InterruptCallback handler);
 
@@ -58,6 +59,9 @@ class Nvic : public common::InterruptTable<kTotalNumInterrupts,
   static void DisableInterrupt(Interrupt interrupt);
 
   static void SetSysTickMicros(uint32_t microseconds);
+
+ private:
+  static void RelocateInterrupts(uint32_t address);
 };
 
 }  // namespace stm32g4
