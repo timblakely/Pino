@@ -17,31 +17,8 @@ namespace stm32g4 {
 
 Nucleo::Nucleo() {}
 
-void tim1_irh() {
-  GPIOC->BSRR = 1U << 3;
-
-  asm("nop");
-  asm("nop");
-  asm("nop");
-  asm("nop");
-  asm("nop");
-  GPIOC->BSRR = 1U << (16 + 3);
-  // blip_->High();
-  // blip_->Low();
-  TIM1->SR &= ~(1U << 4);
-  // timer_.ClearCCInterrupt(Tim1::Channel::Ch4);
-  // ClearCC
-};
-
 void Nucleo::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
-  // Nvic::SetInterrupt(Interrupt::Tim1_CaptureCompare, 0, 0, [this] {
-  //   GPIOC->BSRR = 1U << 3;
-  //   // blip_->High();
-  //   // blip_->Low();
-  //   timer_.ClearCCInterrupt(Tim1::Channel::Ch4);
-  //   // ClearCC
-  // });
   Nvic::SetInterrupt(Interrupt::Tim1_CaptureCompare, 0, 0, [] {
     GPIOC->BSRR = 1U << 3;
     TIM1->SR &= ~(1U << 4);
