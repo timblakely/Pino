@@ -47,8 +47,6 @@ void Nvic::RelocateInterruptsToCCMRAM() { RelocateInterrupts(CCMSRAM_BASE); }
 
 void Nvic::RelocateInterrupts(uint32_t address) {
   DisableInterrupts();
-  memcpy(reinterpret_cast<void*>(address), reinterpret_cast<void*>(FLASH_BASE),
-         0x1D8 /* 118 * 4 */);
   ((cortex::SCB_Type*)SCB_BASE)->VTOR = address | 0x00UL;
   EnableInterrupts();
 }
