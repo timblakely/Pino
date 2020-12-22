@@ -3,18 +3,13 @@
 #include <cstring>
 
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
-
-namespace cortex {
-// Needed for vendor-specific definitions, otherwise we'd include cortex_m4.h
-// directly. :/
 #include "third_party/stm32cubeg4/stm32g4xx.h"
-}  // namespace cortex
 
 namespace platform {
 namespace stm32g4 {
 
-constexpr cortex::IRQn_Type ToCmsis(Interrupt interrupt) {
-  return static_cast<cortex::IRQn_Type>(interrupt);
+constexpr IRQn_Type ToCmsis(Interrupt interrupt) {
+  return static_cast<IRQn_Type>(interrupt);
 }
 
 constexpr uint32_t ToIdx(Interrupt interrupt) {
@@ -23,8 +18,13 @@ constexpr uint32_t ToIdx(Interrupt interrupt) {
 
 void Nvic::Init() {
   // Set 8 bits for primary group, 2 bits for sub-priority
-  RelocateInterruptsToCCMRAM();
-  cortex::__NVIC_SetPriorityGrouping(0b100);
+  // RelocateInterruptsToCCMRAM();
+  // kITableLocation =  ORIGIN(CCMRAM) + LENGTH(CCMRAM) - 0x200;
+  DisableInterrupts();
+  SCB->VTOR = reinterpret_cast<uint32_t>(0x10007E00UL);
+  // SCB->VTOR = reinterpret_cast<uint32_t>(0x2001FE00UL);
+  EnableInterrupts();
+  __NVIC_SetPriorityGrouping(0b100);
 }
 
 void Nvic::Init(InterruptCallback default_handler) {
@@ -47,36 +47,34 @@ void Nvic::RelocateInterruptsToCCMRAM() { RelocateInterrupts(CCMSRAM_BASE); }
 
 void Nvic::RelocateInterrupts(uint32_t address) {
   DisableInterrupts();
-  ((cortex::SCB_Type*)SCB_BASE)->VTOR = address | 0x00UL;
+  ((SCB_Type*)SCB_BASE)->VTOR = address | 0x00UL;
   EnableInterrupts();
 }
 
-void Nvic::DisableInterrupts() { cortex::__disable_irq(); }
+void Nvic::DisableInterrupts() { __disable_irq(); }
 
-void Nvic::EnableInterrupts() { cortex::__enable_irq(); }
+void Nvic::EnableInterrupts() { __enable_irq(); }
 
 void Nvic::SetSysTickMicros(uint32_t microseconds) {
   // Set tick priority as a lower priority than most.
-  cortex::__NVIC_SetPriority(cortex::SysTick_IRQn, 4);
+  __NVIC_SetPriority(SysTick_IRQn, 4);
   const uint32_t core_clock_freq = Rcc::GetSysClockFrequency();
-  cortex::SysTick_Config(core_clock_freq * (microseconds / 1e6));
+  SysTick_Config(core_clock_freq * (microseconds / 1e6));
 }
 
 void Nvic::SetInterrupt(Interrupt interrupt, uint32_t priority,
                         uint32_t subpriority, InterruptCallback handler) {
   SetInterruptHandler(interrupt, handler);
-  const uint32_t prioritygroup = cortex::__NVIC_GetPriorityGrouping();
-  cortex::NVIC_SetPriority(
-      ToCmsis(interrupt),
-      cortex::NVIC_EncodePriority(prioritygroup, priority, subpriority));
+  const uint32_t prioritygroup = __NVIC_GetPriorityGrouping();
+  NVIC_SetPriority(ToCmsis(interrupt),
+                   NVIC_EncodePriority(prioritygroup, priority, subpriority));
 }
 
 void Nvic::SetInterruptHandler(Interrupt interrupt, InterruptCallback handler) {
   const auto irqn = ToIdx(interrupt);
   handlers[irqn] = handler;
   auto global_isr = isrs[irqn];
-  cortex::NVIC_SetVector(ToCmsis(interrupt),
-                         reinterpret_cast<uint32_t>(global_isr));
+  NVIC_SetVector(ToCmsis(interrupt), reinterpret_cast<uint32_t>(global_isr));
 }
 
 void Nvic::ResetAllWithDefault(InterruptCallback handler) {
