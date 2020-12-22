@@ -63,12 +63,10 @@ itable_size = 0x1D8; /* 118 * 4 */
 
 kITableLocation =  ORIGIN(CCMRAM) + LENGTH(CCMRAM) - 0x200;
 
-stack_location =  ORIGIN(RAM) + LENGTH(RAM);
-
 /* RAM */
-kStackLocation =  ORIGIN(RAM) + LENGTH(RAM)-1;
+kStackLocation =  ORIGIN(RAM) + LENGTH(RAM);
 /* CCM - ITable is located at the end of CCMRAM */
-/* kStackLocation =  kITableLocation;  */
+/* kStackLocation =  kITableLocation - 1;  */
 
 /* Specify the memory areas */
 MEMORY
@@ -187,6 +185,18 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM
+
+  _siccmdata = LOADADDR(.ccmdata);
+  .ccmdata : 
+  {
+    . = ALIGN(4);
+    _sccmdata = .;        /* create a global symbol at data start */
+    *(.ccmdata)           /* .data sections */
+    *(.ccmdata*)          /* .data* sections */
+
+    . = ALIGN(4);
+    _eccmdata = .;        /* define a global symbol at data end */
+  } >CCMRAM AT> FLASH
 
   /* Ensure we have enough room to store the interrupt table at the end of
   CCMRAM */

@@ -51,8 +51,8 @@ defined in linker script */
 /* First word is stack location (0x0), second word is jump location for first
 boot (0x4)*/
 .section	.coldboot,"a",%progbits
-	.word stack_location
-  @ .word kStackLocation
+	@ .word stack_location
+  .word kStackLocation
 	.word Reset_Handler
 
 .section	.text.Reset_Handler
@@ -86,6 +86,13 @@ OnReset:
   ldr r0, =_sdata
   ldr r1, =_edata
   ldr r2, =_sidata
+  movs r3, #0
+  bl	LoopCopyInit	
+
+/* Copy the CCM data segment initializers from flash to CCMRAM */
+  ldr r0, =_sccmdata
+  ldr r1, =_eccmdata
+  ldr r2, =_siccmdata
   movs r3, #0
   bl	LoopCopyInit	
 

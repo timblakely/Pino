@@ -29,14 +29,7 @@ void Nucleo::Init() {
     asm("nop");
     asm("nop");
     GPIOC->BSRR = 1U << (16 + 3);
-    // blip_->High();
-    // blip_->Low();
-
-    // timer_.ClearCCInterrupt(Tim1::Channel::Ch4);
-    // ClearCC
   });
-  // NVIC_SetVector(IRQn_Type::TIM1_CC_IRQn,
-  //                reinterpret_cast<uint32_t>(&tim1_irh));
 
   user_led_ = new Led({Gpio::Port::A, 5});
   user_led_->On();
