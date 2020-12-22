@@ -57,9 +57,10 @@ ENTRY(Reset_Handler)
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
 _Min_Stack_Size = 0x400; /* required amount of stack */
 
-/* Note: This is now using the end of the CCMRAM section for speed.
-*/
-stack_location =  ORIGIN(CCMRAM) + LENGTH(CCMRAM);
+/* RAM */
+stack_location =  ORIGIN(RAM) + LENGTH(RAM);
+/* CCMM */
+/* stack_location =  ORIGIN(CCMRAM) + LENGTH(CCMRAM); */
 
 /* Specify the memory areas */
 MEMORY
@@ -79,6 +80,12 @@ SECTIONS
     KEEP(*(.coldboot)) /* Startup code */
     . = ALIGN(4);
   } AT>FLASH
+
+  .isr_reservation :
+  {
+    . = ALIGN(4);
+    . = . + 0x1D8; /* 118 * 4 */
+  } >RAM
 
   /* The program code and other data goes into FLASH */
   .text :
