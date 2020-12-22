@@ -43,12 +43,17 @@ void SysTick_Handler() {
 
 void Nvic::RelocateInterruptsToSram() {
   DisableInterrupts();
-  memcpy(reinterpret_cast<void*>(SRAM1_BASE),
+  // memcpy(reinterpret_cast<void*>(SRAM1_BASE),
+  //        reinterpret_cast<void*>(FLASH_BASE), 0x1D8 /* 118 * 4 */);
+  // // We need this explicit declaration here instead of just referencing SCB
+  // // directly because of ST's terribly polluted namespace :(
+  // ((cortex::SCB_Type*)SCB_BASE)->VTOR =
+  //     SRAM1_BASE | 0x00UL;  // Must be multiple of 0x200
+  memcpy(reinterpret_cast<void*>(CCMSRAM_BASE),
          reinterpret_cast<void*>(FLASH_BASE), 0x1D8 /* 118 * 4 */);
   // We need this explicit declaration here instead of just referencing SCB
   // directly because of ST's terribly polluted namespace :(
-  ((cortex::SCB_Type*)SCB_BASE)->VTOR =
-      SRAM1_BASE | 0x00UL;  // Must be multiple of 0x200
+  ((cortex::SCB_Type*)SCB_BASE)->VTOR = CCMSRAM_BASE | 0x00UL;  // Mu
   EnableInterrupts();
 }
 

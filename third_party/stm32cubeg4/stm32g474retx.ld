@@ -52,16 +52,20 @@
 /* Entry Point */
 ENTRY(Reset_Handler)
 
-/* Highest address of the user mode stack */
-_estack = 0x20020000;    /* end of RAM */
+
 /* Generate a link error if heap and stack don't fit into RAM */
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
 _Min_Stack_Size = 0x400; /* required amount of stack */
 
+/* Note: This is now using the end of the CCMRAM section for speed.
+*/
+stack_location =  ORIGIN(CCMRAM) + LENGTH(CCMRAM);
+
 /* Specify the memory areas */
 MEMORY
 {
-RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 128K
+RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 96K
+CCMRAM (xrw)    : ORIGIN = 0x20018000, LENGTH = 32K 
 FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 512K
 }
 
@@ -69,12 +73,12 @@ FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 512K
 SECTIONS
 {
   /* The startup code goes first into FLASH, but will be copied into RAM */
-  .isr_vector :
+  .coldboot :
   {
     . = ALIGN(4);
-    KEEP(*(.isr_vector)) /* Startup code */
+    KEEP(*(.coldboot)) /* Startup code */
     . = ALIGN(4);
-  } >RAM AT>FLASH
+  } AT>FLASH
 
   /* The program code and other data goes into FLASH */
   .text :

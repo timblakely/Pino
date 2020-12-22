@@ -47,52 +47,52 @@ defined in linker script */
 .word	_ebss
 
 .equ  BootRAM,        0xF1E0F85F
-/**
- * @brief  This is the code that gets called when the processor first
- *          starts execution following a reset event. Only the absolutely
- *          necessary set is performed, after which the application
- *          supplied main() routine is called.
- * @param  None
- * @retval : None
-*/
 
-    .section	.text.Reset_Handler
+/* First word is stack location (0x0), second word is jump location for first
+boot (0x4)*/
+.section	.coldboot,"a",%progbits
+  .word stack_location
+	.word Reset_Handler
+
+.section	.text.Reset_Handler
 	.weak	Reset_Handler
 	.type	Reset_Handler, %function
 Reset_Handler:
-  ldr   r0, =_estack
-  mov   sp, r0          /* set stack pointer */
+  b OnReset
 
+CopyInit:
+  ldr r4, [r2, r3]
+  str r4, [r0, r3]
+  adds r3, r3, #4
+
+LoopCopyInit:
+  adds r4, r0, r3
+  cmp r4, r1
+  bcc CopyInit
+	bx lr
+
+FillZero:
+  str  r3, [r2]
+  adds r2, r2, #4
+
+LoopFillZero:
+  cmp r2, r4
+  bcc FillZero
+	bx lr
+
+OnReset:
 /* Copy the data segment initializers from flash to SRAM */
   ldr r0, =_sdata
   ldr r1, =_edata
   ldr r2, =_sidata
   movs r3, #0
-  b	LoopCopyDataInit
+  bl	LoopCopyInit	
 
-CopyDataInit:
-  ldr r4, [r2, r3]
-  str r4, [r0, r3]
-  adds r3, r3, #4
-
-LoopCopyDataInit:
-  adds r4, r0, r3
-  cmp r4, r1
-  bcc CopyDataInit
-  
 /* Zero fill the bss segment. */
   ldr r2, =_sbss
   ldr r4, =_ebss
   movs r3, #0
-  b LoopFillZerobss
-
-FillZerobss:
-  str  r3, [r2]
-  adds r2, r2, #4
-
-LoopFillZerobss:
-  cmp r2, r4
-  bcc FillZerobss
+  bl LoopFillZero
 
 /* Call the clock system initialization function.*/
     bl  SystemInit

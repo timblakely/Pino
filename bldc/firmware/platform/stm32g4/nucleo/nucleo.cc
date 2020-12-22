@@ -42,23 +42,24 @@ void Nucleo::Init() {
   //   timer_.ClearCCInterrupt(Tim1::Channel::Ch4);
   //   // ClearCC
   // });
-  // Nvic::SetInterrupt(Interrupt::Tim1_CaptureCompare, 0, 0, [] {
-  //   GPIOC->BSRR = 1U << 3;
+  Nvic::SetInterrupt(Interrupt::Tim1_CaptureCompare, 0, 0, [] {
+    GPIOC->BSRR = 1U << 3;
+    TIM1->SR &= ~(1U << 4);
 
-  //   asm("nop");
-  //   asm("nop");
-  //   asm("nop");
-  //   asm("nop");
-  //   asm("nop");
-  //   GPIOC->BSRR = 1U << (16 + 3);
-  //   // blip_->High();
-  //   // blip_->Low();
-  //   TIM1->SR &= ~(1U << 4);
-  //   // timer_.ClearCCInterrupt(Tim1::Channel::Ch4);
-  //   // ClearCC
-  // });
-  NVIC_SetVector(IRQn_Type::TIM1_CC_IRQn,
-                 reinterpret_cast<uint32_t>(&tim1_irh));
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    GPIOC->BSRR = 1U << (16 + 3);
+    // blip_->High();
+    // blip_->Low();
+
+    // timer_.ClearCCInterrupt(Tim1::Channel::Ch4);
+    // ClearCC
+  });
+  // NVIC_SetVector(IRQn_Type::TIM1_CC_IRQn,
+  //                reinterpret_cast<uint32_t>(&tim1_irh));
 
   user_led_ = new Led({Gpio::Port::A, 5});
   user_led_->On();
