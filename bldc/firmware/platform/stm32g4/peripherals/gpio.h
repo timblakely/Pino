@@ -14,6 +14,8 @@ class Gpio {
     None,
     AF1 = 1,
     AF2 = 2,
+    AF5 = 5,
+    AF6 = 6,
     AF10 = 10,
   };
 

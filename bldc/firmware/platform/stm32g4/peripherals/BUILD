@@ -80,6 +80,21 @@ cc_library(
 )
 
 cc_library(
+    name = "spi_defines",
+    hdrs = ["spi.h"],
+)
+
+cc_library(
+    name = "spi",
+    srcs = ["spi.cc"],
+    deps = [
+        ":gpio",
+        ":spi_defines",
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)
+
+cc_library(
     name = "timer_defines",
     hdrs = ["timer.h"],
 )

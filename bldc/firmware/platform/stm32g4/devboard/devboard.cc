@@ -14,7 +14,9 @@ BldcPlatform* BldcPlatform::Instance() {
 
 namespace stm32g4 {
 
-Devboard::Devboard() {}
+Devboard::Devboard()
+    : drv_spi_({Gpio::Port::A, 15}, {Gpio::Port::C, 10}, {Gpio::Port::B, 5},
+               {Gpio::Port::C, 11}) {}
 
 void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
@@ -22,6 +24,8 @@ void Devboard::Init() {
   red_ = new Led({Gpio::Port::B, 6});
   green_ = new Led({Gpio::Port::B, 9});
   blue_ = new Led({Gpio::Port::B, 7});
+
+  drv_spi_.Init(Spi::Instance::Spi3);
 
   green_->On();
 }

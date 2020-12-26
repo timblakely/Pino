@@ -12,6 +12,7 @@ cc_library(
         "//bldc/firmware/platform/stm32g4/peripherals:fpu",
         "//bldc/firmware/platform/stm32g4/peripherals:nvic",
         "//bldc/firmware/platform/stm32g4/peripherals:rcc",
+        "//bldc/firmware/platform/stm32g4/peripherals:spi",
         "//bldc/firmware/stm32g474:led",
     ],
 )
