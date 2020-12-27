@@ -12,17 +12,33 @@ class Spi {
     Spi3,
   };
 
+  enum class Register : uint8_t {
+    FaultStatus1 = 0,
+    FaultStatus2 = 1,
+    DriverControl = 2,
+    GateDriveHigh = 3,
+    GateDriveLow = 4,
+    OverCurrentControl = 5,
+    CurrentSenseAmpControl = 6,
+  };
+
   Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso);
 
   void Init(Port port);
 
+  uint16_t BlockingReadRegister(Register reg);
+
  private:
+  void BlockingTransfer(uint16_t write, uint16_t* read);
+
   struct SPI_TypeDefI;
   SPI_TypeDefI* ll_port_;
   Gpio::Pin cs_;
   Gpio::Pin clk_;
   Gpio::Pin mosi_;
   Gpio::Pin miso_;
+  constexpr static uint16_t kReadMask = (1U << 15);
+  constexpr static uint16_t kWriteMask = (0U << 15);
 };
 
 }  // namespace stm32g4

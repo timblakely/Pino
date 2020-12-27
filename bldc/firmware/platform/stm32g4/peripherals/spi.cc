@@ -24,6 +24,8 @@ void Spi::Init(Port port) {
   cs_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::PullUp, af);
   clk_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None, af);
   mosi_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None, af);
+  // TODO(blakely): Should this be OD instead? Can't really set it as Hi-Z in AF
+  // mode.
   miso_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None, af);
 
   // Configure DRV_EN as general purpose GPIO, then set it to high.
@@ -38,7 +40,8 @@ void Spi::Init(Port port) {
   // Configuration according to 39.5.7 of reference manual
   // Default is full duplex.
   // CR1 config
-  // TODO(blakely): Support 5MBit (32 prescalar)
+  // TODO(blakely): Support 5MBit (32 prescalar). Requires stronger pullup on
+  // DRV MISO line.
   LL_SPI_SetBaudRatePrescaler(ll_port_, LL_SPI_BAUDRATEPRESCALER_DIV128);
   // Need CPHA=1 for capture on second edge, and CPOL=0 for capture on fall
   // starting low.
@@ -51,25 +54,26 @@ void Spi::Init(Port port) {
   LL_SPI_SetDataWidth(ll_port_, LL_SPI_DATAWIDTH_16BIT);
   LL_SPI_SetStandard(ll_port_, LL_SPI_PROTOCOL_MOTOROLA);
   LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_HARD_OUTPUT);
+}
 
-  uint32_t txlevel = 0;
-  uint32_t data = (1U << 15 /* Read */) | (0x0U << 11 /* Fault Status */);
-  // uint32_t data = (1U << 15 /* Read */) | (0x3U << 11 /* Fault Status */);
-  LL_SPI_TransmitData16(ll_port_, data);
+uint16_t Spi::BlockingReadRegister(Register reg) {
+  uint16_t value = 0;
+  uint16_t data = kReadMask | (static_cast<uint16_t>(reg) << 11);
+  BlockingTransfer(data, &value);
+  return value;
+}
+
+void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
+  LL_SPI_TransmitData16(ll_port_, write);
   LL_SPI_Enable(ll_port_);
   while (LL_SPI_GetTxFIFOLevel(ll_port_) > 0) {
   }
   while (LL_SPI_IsActiveFlag_BSY(ll_port_) > 0) {
   }
   LL_SPI_Disable(ll_port_);
-  uint32_t rx_data = 0;
-  uint32_t frames = 0;
-  ;
   do {
-    rx_data = LL_SPI_ReceiveData16(ll_port_);
-    ++frames;
+    *read = LL_SPI_ReceiveData16(ll_port_);
   } while (LL_SPI_GetRxFIFOLevel(ll_port_) > 0);
-  frames = 0;
 }
 
 }  // namespace stm32g4

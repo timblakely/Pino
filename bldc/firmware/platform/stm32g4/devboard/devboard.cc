@@ -4,6 +4,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
 
 namespace platform {
 
@@ -22,10 +23,15 @@ void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
 
   red_ = new Led({Gpio::Port::B, 6});
-  green_ = new Led({Gpio::Port::B, 9});
-  blue_ = new Led({Gpio::Port::B, 7});
+  // green_ = new Led({Gpio::Port::B, 9}); // Correct for v0 board
+  // blue_ = new Led({Gpio::Port::B, 7});
+  green_ = new Led({Gpio::Port::B, 7});
+  blue_ = new Led({Gpio::Port::B, 9});
 
   drv_spi_.Init(Spi::Port::Spi3);
+  SysTickTimer::BlockingWait(1000);
+  uint16_t value = 0;
+  value = drv_spi_.BlockingReadRegister(Spi::Register::GateDriveHigh);
 
   green_->On();
 }

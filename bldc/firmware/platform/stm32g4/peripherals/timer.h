@@ -5,6 +5,7 @@
 
 namespace platform {
 namespace stm32g4 {
+
 class SysTickTimer {
  public:
   static void SetPeriod(uint32_t micros);
