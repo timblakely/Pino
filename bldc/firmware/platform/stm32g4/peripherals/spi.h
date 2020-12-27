@@ -8,16 +8,17 @@ namespace stm32g4 {
 
 class Spi {
  public:
-  enum class Instance {
+  enum class Port {
     Spi3,
   };
 
-  Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi,
-      Gpio::Pin miso);
+  Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso);
 
-  void Init(Instance instance);
+  void Init(Port port);
 
  private:
+  struct SPI_TypeDefI;
+  SPI_TypeDefI* ll_port_;
   Gpio::Pin cs_;
   Gpio::Pin clk_;
   Gpio::Pin mosi_;

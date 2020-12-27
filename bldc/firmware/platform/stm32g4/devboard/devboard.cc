@@ -25,7 +25,7 @@ void Devboard::Init() {
   green_ = new Led({Gpio::Port::B, 9});
   blue_ = new Led({Gpio::Port::B, 7});
 
-  drv_spi_.Init(Spi::Instance::Spi3);
+  drv_spi_.Init(Spi::Port::Spi3);
 
   green_->On();
 }
