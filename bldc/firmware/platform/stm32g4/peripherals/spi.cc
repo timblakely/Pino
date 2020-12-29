@@ -1,5 +1,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/spi.h"
 
+#include <utility>
+
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_spi.h"
 
@@ -27,12 +29,6 @@ void Spi::Init(Port port) {
   // TODO(blakely): Should this be OD instead? Can't really set it as Hi-Z in AF
   // mode.
   miso_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None, af);
-
-  // Configure DRV_EN as general purpose GPIO, then set it to high.
-
-  auto drv_en = Gpio::Pin({Gpio::Port::C, 6});
-  drv_en.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-  drv_en.High();
 
   // Start the clock.
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_SPI3);
@@ -69,7 +65,17 @@ void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
   } while (LL_SPI_GetRxFIFOLevel(ll_port_) > 0);
 }
 
-Drv::Drv(Spi* spi) : spi_(spi) {}
+Drv::Drv(Gpio::Pin enable, Spi* spi) : enable_(std::move(enable)), spi_(spi) {}
+
+void Drv::Init() {
+  // Configure DRV_EN as general purpose GPIO.
+  enable_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+  // TODO(blakely): Register configuration.
+}
+
+void Drv::Enable() { enable_.High(); }
+
+void Drv::Disable() { enable_.Low(); }
 
 uint16_t Drv::BlockingReadRegister(Register reg) {
   uint16_t value = 0;
