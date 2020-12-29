@@ -16,6 +16,10 @@ class Spi {
 
   void Init(Port port);
 
+  // Attempts to set the closest prescalar value to the kiven kbps baud rate.
+  // Returns the actual baud rate set.
+  uint32_t SetBaud(uint32_t kbps);
+
   void BlockingTransfer(uint16_t write, uint16_t* read);
 
  private:
