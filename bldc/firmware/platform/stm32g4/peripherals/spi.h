@@ -12,6 +12,23 @@ class Spi {
     Spi3,
   };
 
+  Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso);
+
+  void Init(Port port);
+
+  void BlockingTransfer(uint16_t write, uint16_t* read);
+
+ private:
+  struct SPI_TypeDefI;
+  SPI_TypeDefI* ll_port_;
+  Gpio::Pin cs_;
+  Gpio::Pin clk_;
+  Gpio::Pin mosi_;
+  Gpio::Pin miso_;
+};
+
+class Drv {
+ public:
   enum class Register : uint8_t {
     FaultStatus1 = 0,
     FaultStatus2 = 1,
@@ -22,21 +39,11 @@ class Spi {
     CurrentSenseAmpControl = 6,
   };
 
-  Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso);
-
-  void Init(Port port);
-
+  explicit Drv(Spi* spi);
   uint16_t BlockingReadRegister(Register reg);
 
  private:
-  void BlockingTransfer(uint16_t write, uint16_t* read);
-
-  struct SPI_TypeDefI;
-  SPI_TypeDefI* ll_port_;
-  Gpio::Pin cs_;
-  Gpio::Pin clk_;
-  Gpio::Pin mosi_;
-  Gpio::Pin miso_;
+  Spi* spi_;
   constexpr static uint16_t kReadMask = (1U << 15);
   constexpr static uint16_t kWriteMask = (0U << 15);
 };

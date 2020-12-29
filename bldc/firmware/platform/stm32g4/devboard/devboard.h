@@ -20,7 +20,8 @@ class Devboard : public G4Platform {
   Led* green_;
   Led* blue_;
 
-  Spi drv_spi_;  // On SPI3
+  Spi spi3_;
+  Drv drv_;
 };
 
 }  // namespace stm32g4

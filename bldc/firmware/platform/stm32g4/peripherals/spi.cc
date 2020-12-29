@@ -56,13 +56,6 @@ void Spi::Init(Port port) {
   LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_HARD_OUTPUT);
 }
 
-uint16_t Spi::BlockingReadRegister(Register reg) {
-  uint16_t value = 0;
-  uint16_t data = kReadMask | (static_cast<uint16_t>(reg) << 11);
-  BlockingTransfer(data, &value);
-  return value;
-}
-
 void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
   LL_SPI_TransmitData16(ll_port_, write);
   LL_SPI_Enable(ll_port_);
@@ -74,6 +67,15 @@ void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
   do {
     *read = LL_SPI_ReceiveData16(ll_port_);
   } while (LL_SPI_GetRxFIFOLevel(ll_port_) > 0);
+}
+
+Drv::Drv(Spi* spi) : spi_(spi) {}
+
+uint16_t Drv::BlockingReadRegister(Register reg) {
+  uint16_t value = 0;
+  uint16_t data = kReadMask | (static_cast<uint16_t>(reg) << 11);
+  spi_->BlockingTransfer(data, &value);
+  return value;
 }
 
 }  // namespace stm32g4
