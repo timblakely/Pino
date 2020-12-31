@@ -25,25 +25,33 @@ class SysTickTimer {
 class Timer {
  public:
   virtual void Enable() = 0;
-  virtual void Configure() = 0;
+  virtual void Configure(){};
   void Start();
   void Stop();
 
   uint32_t Prescalar() { return prescalar_; }
   uint32_t Period() { return arr_period_; }
 
+  enum class ClockDivision : uint32_t {
+    DIV1,  // Consistent with LL_TIM_CLOCKDIVISION_DIV1
+    DIV2,
+    DIV4,
+  };
+
+  void ConfigureClock(ClockDivision division, uint32_t prescalar,
+                      uint32_t period, uint32_t repetition);
+
+  inline void SetDivision(ClockDivision division);
+  inline void SetPrescalar(uint32_t prescalar);
+  inline void SetPeriod(uint32_t period);
+  inline void SetRepetition(uint32_t repetition);
+  virtual void ConfigureChannel(uint32_t channel);
+
  protected:
   // Workaround for the STM libraries using typedef'd anonymous structs.
   struct TIM_TypeDefI;
 
   Timer(TIM_TypeDefI* timer);
-
-  enum class ClockDivision : uint32_t {
-    DIV1 = 0,  // Consistent with LL_TIM_CLOCKDIVISION_DIV1
-  };
-
-  void ConfigureClock();
-  virtual void ConfigureChannel(uint32_t channel);
   TIM_TypeDefI* timer_;
   ClockDivision division_;
   uint32_t prescalar_;
@@ -97,6 +105,26 @@ class Tim1 : public Timer {
   void EnableDeadtimeInsertion(float duty);
   void EnableCCInterrupt(Channel channel);
   void ClearCCInterrupt(Channel channel);
+};
+
+// 32-bit timer.
+class Tim5 : public Timer {
+ public:
+  Tim5();
+  enum class Channel {
+    Ch1,
+    Ch2,
+    Ch3,
+    Ch4,
+  };
+  virtual void Enable() override;
+  void EnableChannel(Channel channel, uint32_t compare_value);
+  void EnableChannel(Channel channel, float duty_cycle);
+  void EnableChannelIRQ(Channel channel);
+  void DisableChannelIRQ(Channel channel);
+  void ClearChannelIRQ(Channel channel);
+  void EnableChannelDMA(Channel channel);
+  void DisableChannelDMA(Channel channel);
 };
 
 }  // namespace stm32g4

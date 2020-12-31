@@ -24,7 +24,7 @@ void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
 
   red_ = new Led({Gpio::Port::B, 6});
-  // green_ = new Led({Gpio::Port::B, 9}); // Correct for v0 board
+  // green_ = new Led({Gpio::Port::B, 9});  // Correct for v0 board
   // blue_ = new Led({Gpio::Port::B, 7});
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
@@ -35,18 +35,33 @@ void Devboard::Init() {
   drv_.Enable();
   SysTickTimer::BlockingWait(1000);
   uint16_t value = 0;
+
   value = drv_.BlockingReadRegister(Drv::Register::GateDriveHigh);
 
-  green_->On();
+  Tim5 tim5;
+  tim5.Enable();
+  // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
+
+  tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 340000000, 0);
+  tim5.EnableChannel(Tim5::Channel::Ch1, 170000000UL);
+  tim5.EnableChannelIRQ(Tim5::Channel::Ch1);
+  Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
+    while (true) {
+      asm("nop");
+    }
+  });
+  tim5.Start();
+
+  blue_->On();
 }
 
 void Devboard::OnFatal() {
-  green_->Off();
+  blue_->Off();
   Tim3 timer;
   timer.Configure();
   timer.EnableOutput(Tim3::Channel::Ch4);
   timer.Start();
-  blue_->Blink();
+  green_->Blink();
   // blue_->On();
   while (true) asm("nop");
 }

@@ -55,10 +55,41 @@ void Timer::Start() {
 
 void Timer::Stop() { LL_TIM_DisableCounter(timer_); }
 
-void Timer::ConfigureClock() {
-  LL_TIM_SetClockDivision(timer_, static_cast<uint32_t>(division_));
+void Timer::ConfigureClock(ClockDivision division, uint32_t prescalar,
+                           uint32_t period, uint32_t repetition) {
+  SetDivision(division);
+  SetPrescalar(prescalar);
+  SetPeriod(period);
+  SetRepetition(repetition);
+}
+
+void Timer::SetDivision(ClockDivision division) {
+  division_ = division;
+  switch (division_) {
+    case ClockDivision::DIV1:
+      LL_TIM_SetClockDivision(timer_, LL_TIM_CLOCKDIVISION_DIV1);
+      break;
+    case ClockDivision::DIV2:
+      LL_TIM_SetClockDivision(timer_, LL_TIM_CLOCKDIVISION_DIV2);
+      break;
+    case ClockDivision::DIV4:
+      LL_TIM_SetClockDivision(timer_, LL_TIM_CLOCKDIVISION_DIV4);
+      break;
+  }
+}
+
+void Timer::SetPrescalar(uint32_t prescalar) {
+  prescalar_ = prescalar;
   LL_TIM_SetPrescaler(timer_, prescalar_);
+}
+
+void Timer::SetPeriod(uint32_t period) {
+  arr_period_ = period;
   LL_TIM_SetAutoReload(timer_, arr_period_);
+}
+
+void Timer::SetRepetition(uint32_t repetition) {
+  repetition_counter_ = repetition;
   LL_TIM_SetRepetitionCounter(timer_, repetition_counter_);
 }
 
@@ -72,15 +103,11 @@ void Timer::ConfigureChannel(uint32_t channel) {
 
 Tim3::Tim3() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM3)) {}
 
-void Tim3::Enable() { Rcc::EnableTim3(); }
+void Tim3::Enable() { LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3); }
 
 void Tim3::Configure() {
   Enable();
-  division_ = ClockDivision::DIV1;
-  prescalar_ = 17000;
-  arr_period_ = 5000;
-  repetition_counter_ = 0;
-  ConfigureClock();
+  ConfigureClock(ClockDivision::DIV1, 17000, 5000, 0);
 }
 
 void Tim3::EnableOutput(Channel channel) {
@@ -96,15 +123,11 @@ void Tim3::EnableOutput(Channel channel) {
 
 Tim2::Tim2() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM2)) {}
 
-void Tim2::Enable() { Rcc::EnableTim2(); }
+void Tim2::Enable() { LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2); }
 
 void Tim2::Configure() {
   Enable();
-  division_ = ClockDivision::DIV1;
-  prescalar_ = 17000;
-  arr_period_ = 2000;
-  repetition_counter_ = 0;
-  ConfigureClock();
+  ConfigureClock(ClockDivision::DIV1, 17000, 2000, 0);
 }
 
 void Tim2::EnableOutput(Channel channel) {
@@ -121,18 +144,13 @@ void Tim2::EnableOutput(Channel channel) {
 Tim1::Tim1() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM1)) {}
 
 void Tim1::Enable() {
-  Rcc::EnableTim1();
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1);
   LL_TIM_EnableAllOutputs(timer_);
 }
 
 void Tim1::Configure() {
   Enable();
-  division_ = ClockDivision::DIV1;
-  prescalar_ = 0;
-  // arr_period_ = 4250;  // 40kHz
-  arr_period_ = 2125;  // 80kHz
-  repetition_counter_ = 0;
-  ConfigureClock();
+  ConfigureClock(ClockDivision::DIV1, 0, 2125, 0);
   LL_TIM_SetCounterMode(timer_, LL_TIM_COUNTERMODE_CENTER_DOWN);
 }
 
@@ -229,6 +247,108 @@ void Tim1::ClearCCInterrupt(Channel channel) {
     case Channel::Ch5:
       break;
   };
+}
+
+Tim5::Tim5() : Timer(reinterpret_cast<TIM_TypeDefI*>(TIM5)) {}
+
+void Tim5::Enable() { LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM5); }
+
+void Tim5::EnableChannel(Channel channel, uint32_t compare_value) {
+  uint32_t ll_chan = 0;
+  switch (channel) {
+    case Channel::Ch1:
+      ll_chan = LL_TIM_CHANNEL_CH1;
+      LL_TIM_OC_SetCompareCH1(timer_, compare_value);
+      break;
+    case Channel::Ch2:
+      ll_chan = LL_TIM_CHANNEL_CH2;
+      LL_TIM_OC_SetCompareCH2(timer_, compare_value);
+      break;
+    case Channel::Ch3:
+      ll_chan = LL_TIM_CHANNEL_CH3;
+      LL_TIM_OC_SetCompareCH3(timer_, compare_value);
+      break;
+    case Channel::Ch4:
+      ll_chan = LL_TIM_CHANNEL_CH4;
+      LL_TIM_OC_SetCompareCH4(timer_, compare_value);
+      break;
+  }
+
+  LL_TIM_CC_EnableChannel(timer_, ll_chan);
+  // TODO(blakely): Make this configurable.
+  LL_TIM_OC_ConfigOutput(timer_, ll_chan,
+                         LL_TIM_OCIDLESTATE_LOW | LL_TIM_OCPOLARITY_HIGH);
+  LL_TIM_OC_SetMode(timer_, ll_chan, LL_TIM_OCMODE_PWM2);
+}
+
+void Tim5::EnableChannel(Channel channel, float duty_cycle) {
+  EnableChannel(channel, arr_period_ * duty_cycle);
+}
+
+void Tim5::EnableChannelIRQ(Channel channel) {
+  Nvic::EnableInterrupt(Interrupt::Tim5);
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_EnableIT_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_EnableIT_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_EnableIT_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_EnableIT_CC4(timer_);
+  }
+}
+
+void Tim5::DisableChannelIRQ(Channel channel) {
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_DisableIT_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_DisableIT_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_DisableIT_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_DisableIT_CC4(timer_);
+  }
+}
+
+void Tim5::ClearChannelIRQ(Channel channel) {
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_ClearFlag_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_ClearFlag_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_ClearFlag_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_ClearFlag_CC4(timer_);
+  }
+}
+
+void Tim5::EnableChannelDMA(Channel channel) {
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_EnableDMAReq_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_EnableDMAReq_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_EnableDMAReq_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_EnableDMAReq_CC4(timer_);
+  }
+}
+
+void Tim5::DisableChannelDMA(Channel channel) {
+  switch (channel) {
+    case Channel::Ch1:
+      return LL_TIM_DisableDMAReq_CC1(timer_);
+    case Channel::Ch2:
+      return LL_TIM_DisableDMAReq_CC2(timer_);
+    case Channel::Ch3:
+      return LL_TIM_DisableDMAReq_CC3(timer_);
+    case Channel::Ch4:
+      return LL_TIM_DisableDMAReq_CC4(timer_);
+  }
 }
 
 }  // namespace stm32g4

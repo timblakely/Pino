@@ -140,11 +140,5 @@ void Rcc::Enable(Gpio::Port port) {
 //   }
 // }
 
-void Rcc::EnableTim3() { LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3); }
-
-void Rcc::EnableTim2() { LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2); }
-
-void Rcc::EnableTim1() { LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1); }
-
 }  // namespace stm32g4
 }  // namespace platform

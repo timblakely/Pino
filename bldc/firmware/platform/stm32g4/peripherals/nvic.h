@@ -27,6 +27,9 @@ enum class Interrupt : int32_t {
 
   WWDG = 0,
   Tim1_CaptureCompare = 27,
+
+  Tim5 = 50,
+
   Comp7 = 66,
 };
 

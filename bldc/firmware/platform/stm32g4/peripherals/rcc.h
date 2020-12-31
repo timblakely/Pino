@@ -15,9 +15,6 @@ class Rcc {
   static uint32_t GetHClockFrequency();
 
   static void Enable(Gpio::Port port);
-  static void EnableTim3();
-  static void EnableTim2();
-  static void EnableTim1();
 
  private:
   // Based on board design.
