@@ -41,11 +41,14 @@ void Devboard::Init() {
   Tim5 tim5;
   tim5.Enable();
   // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
-
-  tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 340000000, 0);
-  tim5.EnableChannel(Tim5::Channel::Ch1, 170000000UL);
+  tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
+  tim5.EnableChannel(Tim5::Channel::Ch1, 1UL);
+  tim5.EnableChannel(Tim5::Channel::Ch4, 2048UL);
+  // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 340000000, 0);
+  // tim5.EnableChannel(Tim5::Channel::Ch1, 170000000UL);
   // tim5.EnableChannelIRQ(Tim5::Channel::Ch1);
   tim5.EnableChannelDMA(Tim5::Channel::Ch1);
+  tim5.EnableChannelDMA(Tim5::Channel::Ch4);
   Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
     while (true) {
       asm("nop");

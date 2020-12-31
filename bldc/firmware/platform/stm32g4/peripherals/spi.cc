@@ -107,39 +107,50 @@ void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
 }
 
 // Setup for SPI3 for DRV chip.
-const uint32_t kSpiEnable = 0x135 | SPI_CR1_SPE;
+const uint32_t kSpiDisable = 0x135;
+const uint32_t kSpiEnable = kSpiDisable | SPI_CR1_SPE;
 
-void Spi::AutoPoll() {
+void SetupDMA(uint32_t dma_chan, uint32_t dmamux_signal) {
   // TODO(blakely): Move into DMA configuration object.
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMAMUX1);
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
 
-  LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_1, LL_DMAMUX_REQ_TIM5_CH1);
+  LL_DMA_SetPeriphRequest(DMA1, dma_chan, dmamux_signal);
 
-  LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_1,
+  LL_DMA_SetDataTransferDirection(DMA1, dma_chan,
                                   LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
 
-  LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PRIORITY_HIGH);
+  LL_DMA_SetChannelPriorityLevel(DMA1, dma_chan, LL_DMA_PRIORITY_HIGH);
 
-  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MODE_CIRCULAR);
+  LL_DMA_SetMode(DMA1, dma_chan, LL_DMA_MODE_CIRCULAR);
 
-  LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PERIPH_NOINCREMENT);
+  LL_DMA_SetPeriphIncMode(DMA1, dma_chan, LL_DMA_PERIPH_NOINCREMENT);
 
-  LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MEMORY_NOINCREMENT);
+  LL_DMA_SetPeriphIncMode(DMA1, dma_chan, LL_DMA_MEMORY_NOINCREMENT);
 
-  LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PDATAALIGN_WORD);
+  LL_DMA_SetPeriphSize(DMA1, dma_chan, LL_DMA_PDATAALIGN_WORD);
 
-  LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MDATAALIGN_WORD);
+  LL_DMA_SetMemorySize(DMA1, dma_chan, LL_DMA_MDATAALIGN_WORD);
+}
 
+void Spi::AutoPoll() {
+  SetupDMA(LL_DMA_CHANNEL_1, LL_DMAMUX_REQ_TIM5_CH1);
   // TODO(blakely): This should be done at the peripheral/device level.
   LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_1,
                          reinterpret_cast<uint32_t>(&kSpiEnable),
                          reinterpret_cast<uint32_t>(&(ll_port_->CR1)),
                          LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-
   LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, 1);
-
   LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
+
+  SetupDMA(LL_DMA_CHANNEL_4, LL_DMAMUX_REQ_TIM5_CH4);
+  // TODO(blakely): This should be done at the peripheral/device level.
+  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_4,
+                         reinterpret_cast<uint32_t>(&kSpiDisable),
+                         reinterpret_cast<uint32_t>(&(ll_port_->CR1)),
+                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_4, 1);
+  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_4);
 }
 
 Drv::Drv(Gpio::Pin enable, Spi* spi) : enable_(std::move(enable)), spi_(spi) {}
