@@ -106,10 +106,6 @@ void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
   } while (LL_SPI_GetRxFIFOLevel(ll_port_) > 0);
 }
 
-// Setup for SPI3 for DRV chip.
-const uint32_t kSpiDisable = 0x135;
-const uint32_t kSpiEnable = kSpiDisable | SPI_CR1_SPE;
-
 void SetupDMA(uint32_t dma_chan, uint32_t dmamux_signal) {
   // TODO(blakely): Move into DMA configuration object.
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMAMUX1);
@@ -133,18 +129,47 @@ void SetupDMA(uint32_t dma_chan, uint32_t dmamux_signal) {
   LL_DMA_SetMemorySize(DMA1, dma_chan, LL_DMA_MDATAALIGN_WORD);
 }
 
+// Setup for SPI3 for DRV chip.
+const uint32_t kSpiTransmit = (1U << 15) | (0x3U << 11);
+extern "C" {
+uint32_t kSpiReceive = 0;
+}
+const uint32_t kSpiDisable = 0x135;
+const uint32_t kSpiEnable = kSpiDisable | SPI_CR1_SPE;
+
 void Spi::AutoPoll() {
-  SetupDMA(LL_DMA_CHANNEL_1, LL_DMAMUX_REQ_TIM5_CH1);
   // TODO(blakely): This should be done at the peripheral/device level.
+
+  // Load SPI transmit FIFO.
+  SetupDMA(LL_DMA_CHANNEL_1, LL_DMAMUX_REQ_TIM5_CH1);
   LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_1,
-                         reinterpret_cast<uint32_t>(&kSpiEnable),
-                         reinterpret_cast<uint32_t>(&(ll_port_->CR1)),
+                         reinterpret_cast<uint32_t>(&kSpiTransmit),
+                         reinterpret_cast<uint32_t>(&(ll_port_->DR)),
                          LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
   LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, 1);
   LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
 
+  // Enable SPI
+  SetupDMA(LL_DMA_CHANNEL_2, LL_DMAMUX_REQ_TIM5_CH1);
+  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_2,
+                         reinterpret_cast<uint32_t>(&kSpiEnable),
+                         reinterpret_cast<uint32_t>(&(ll_port_->CR1)),
+                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, 1);
+  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
+
+  // Read from SPI Receive FIFO.
+  // SetupDMA(LL_DMA_CHANNEL_3, LL_DMAMUX_REQ_SPI3_RX);
+  SetupDMA(LL_DMA_CHANNEL_3, LL_DMAMUX_REQ_TIM5_CH4);
+  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_3,
+                         reinterpret_cast<uint32_t>(&(ll_port_->DR)),
+                         reinterpret_cast<uint32_t>(&(kSpiReceive)),
+                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_3, 1);
+  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_3);
+
+  // Disable SPI
   SetupDMA(LL_DMA_CHANNEL_4, LL_DMAMUX_REQ_TIM5_CH4);
-  // TODO(blakely): This should be done at the peripheral/device level.
   LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_4,
                          reinterpret_cast<uint32_t>(&kSpiDisable),
                          reinterpret_cast<uint32_t>(&(ll_port_->CR1)),

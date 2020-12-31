@@ -32,10 +32,10 @@ void Devboard::Init() {
   spi3_.Init(Spi::Port::Spi3);
 
   spi3_.AutoPoll();
-  // drv_.Init();
-  // drv_.Enable();
-  // SysTickTimer::BlockingWait(1000);
-  // uint16_t value = 0;
+  drv_.Init();
+  drv_.Enable();
+  SysTickTimer::BlockingWait(1000);
+  uint16_t value = 0;
   // value = drv_.BlockingReadRegister(Drv::Register::GateDriveHigh);
 
   Tim5 tim5;
@@ -43,7 +43,7 @@ void Devboard::Init() {
   // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
   tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
   tim5.EnableChannel(Tim5::Channel::Ch1, 1UL);
-  tim5.EnableChannel(Tim5::Channel::Ch4, 2048UL);
+  tim5.EnableChannel(Tim5::Channel::Ch4, 2048UL + 128 * 1);
   // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 340000000, 0);
   // tim5.EnableChannel(Tim5::Channel::Ch1, 170000000UL);
   // tim5.EnableChannelIRQ(Tim5::Channel::Ch1);
