@@ -22,6 +22,8 @@ class Spi {
 
   void BlockingTransfer(uint16_t write, uint16_t* read);
 
+  void AutoPoll();
+
  private:
   struct SPI_TypeDefI;
   SPI_TypeDefI* ll_port_;
