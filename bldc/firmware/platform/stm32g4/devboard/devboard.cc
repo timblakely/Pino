@@ -16,7 +16,9 @@ BldcPlatform* BldcPlatform::Instance() {
 namespace stm32g4 {
 
 Devboard::Devboard()
-    : spi3_({Gpio::Port::A, 15}, {Gpio::Port::C, 10}, {Gpio::Port::B, 5},
+    : spi1_({Gpio::Port::A, 4}, {Gpio::Port::A, 5}, {Gpio::Port::A, 7},
+            {Gpio::Port::A, 6}),
+      spi3_({Gpio::Port::A, 15}, {Gpio::Port::C, 10}, {Gpio::Port::B, 5},
             {Gpio::Port::C, 11}),
       drv_({Gpio::Port::C, 6}, &spi3_) {}
 

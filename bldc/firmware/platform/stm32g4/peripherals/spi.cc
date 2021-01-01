@@ -14,7 +14,11 @@ namespace stm32g4 {
 struct Spi::SPI_TypeDefI : public SPI_TypeDef {};
 
 Spi::Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso)
-    : cs_(chip_select), clk_(clock), mosi_(mosi), miso_(miso) {}
+    : cs_(chip_select),
+      clk_(clock),
+      mosi_(mosi),
+      miso_(miso),
+      nss_mode_(NssMode::Soft) {}
 
 void Spi::Init(Port port) {
   Gpio::AlternateFunction af;
@@ -40,15 +44,55 @@ void Spi::Init(Port port) {
   LL_SPI_SetBaudRatePrescaler(ll_port_, LL_SPI_BAUDRATEPRESCALER_DIV256);
   // Need CPHA=1 for capture on second edge, and CPOL=0 for capture on fall
   // starting low.
-  LL_SPI_SetClockPhase(ll_port_, LL_SPI_PHASE_2EDGE);
-  LL_SPI_SetClockPolarity(ll_port_, LL_SPI_POLARITY_LOW);
+  // LL_SPI_SetClockPhase(ll_port_, LL_SPI_PHASE_2EDGE);
+  // LL_SPI_SetClockPolarity(ll_port_, LL_SPI_POLARITY_LOW);
   LL_SPI_DisableCRC(ll_port_);
   LL_SPI_SetMode(ll_port_, LL_SPI_MODE_MASTER);
 
   // CR2 config
-  LL_SPI_SetDataWidth(ll_port_, LL_SPI_DATAWIDTH_16BIT);
+  // LL_SPI_SetDataWidth(ll_port_, LL_SPI_DATAWIDTH_16BIT);
   LL_SPI_SetStandard(ll_port_, LL_SPI_PROTOCOL_MOTOROLA);
-  LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_HARD_OUTPUT);
+  // LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_HARD_OUTPUT);
+}
+
+void Spi::Configure(ClockPhase data_capture, IdleState clock_idle_state,
+                    FrameSize frame_size) {
+  switch (data_capture) {
+    case ClockPhase::RisingEdge:
+      LL_SPI_SetClockPhase(ll_port_, LL_SPI_PHASE_1EDGE);
+      break;
+    case ClockPhase::FallingEdge:
+      LL_SPI_SetClockPhase(ll_port_, LL_SPI_PHASE_2EDGE);
+      break;
+  }
+  switch (clock_idle_state) {
+    case IdleState::Low:
+      LL_SPI_SetClockPolarity(ll_port_, LL_SPI_POLARITY_LOW);
+      break;
+    case IdleState::High:
+      LL_SPI_SetClockPolarity(ll_port_, LL_SPI_POLARITY_HIGH);
+      break;
+  }
+  switch (frame_size) {
+    case FrameSize::EightBit:
+      LL_SPI_SetDataWidth(ll_port_, LL_SPI_DATAWIDTH_8BIT);
+      break;
+    case FrameSize::SixteenBit:
+      LL_SPI_SetDataWidth(ll_port_, LL_SPI_DATAWIDTH_16BIT);
+      break;
+  }
+}
+
+void Spi::SetNssMode(NssMode mode) {
+  nss_mode_ = mode;
+  switch (mode) {
+    case NssMode::Hard:
+      LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_HARD_OUTPUT);
+      break;
+    case NssMode::Soft:
+      LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_SOFT);
+      break;
+  }
 }
 
 uint32_t Spi::SetBaud(uint32_t kbps) {
@@ -187,6 +231,9 @@ void Drv::Init() {
   // TODO(blakely): Support 5MBit (32 prescalar). Requires stronger pullup on
   // DRV MISO line.
   spi_->SetBaud(1000);
+  spi_->Configure(Spi::ClockPhase::FallingEdge, Spi::IdleState::Low,
+                  Spi::FrameSize::SixteenBit);
+  spi_->SetNssMode(Spi::NssMode::Hard);
 }
 
 void Drv::Enable() { enable_.High(); }

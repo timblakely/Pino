@@ -12,6 +12,26 @@ class Spi {
     Spi3,
   };
 
+  enum class ClockPhase {
+    RisingEdge,
+    FallingEdge,
+  };
+
+  enum class IdleState {
+    Low,
+    High,
+  };
+
+  enum class FrameSize {
+    EightBit,
+    SixteenBit,
+  };
+
+  enum class NssMode {
+    Soft,
+    Hard,
+  };
+
   Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso);
 
   void Init(Port port);
@@ -19,6 +39,10 @@ class Spi {
   // Attempts to set the closest prescalar value to the kiven kbps baud rate.
   // Returns the actual baud rate set.
   uint32_t SetBaud(uint32_t kbps);
+
+  void Configure(ClockPhase data_capture, IdleState clock_idle_state,
+                 FrameSize frame_size);
+  void SetNssMode(NssMode mode);
 
   void BlockingTransfer(uint16_t write, uint16_t* read);
 
@@ -31,6 +55,7 @@ class Spi {
   Gpio::Pin clk_;
   Gpio::Pin mosi_;
   Gpio::Pin miso_;
+  NssMode nss_mode_;
 };
 
 class Drv {
@@ -61,26 +86,24 @@ class Drv {
   constexpr static uint16_t kWriteMask = (0U << 15);
 };
 
-// class Ma702 {
-//  public:
-//   enum class Register : uint8_t {
-//     FaultStatus1 = 0,
-//     FaultStatus2 = 1,
-//     DriverControl = 2,
-//     GateDriveHigh = 3,
-//     GateDriveLow = 4,
-//     OverCurrentControl = 5,
-//     CurrentSenseAmpControl = 6,
-//   };
+class Ma702 {
+ public:
+  enum class Register : uint8_t {};
 
-//   explicit Ma702(Spi* spi);
-//   uint16_t BlockingReadRegister(Register reg);
+  explicit Ma702(Spi* spi);
 
-//  private:
-//   Spi* spi_;
-//   constexpr static uint16_t kReadMask = (1U << 15);
-//   constexpr static uint16_t kWriteMask = (0U << 15);
-// };
+  void Init();
+
+  uint16_t BlockingReadRegister(Register reg);
+
+  void Enable();
+  void Disable();
+
+ private:
+  Spi* spi_;
+  constexpr static uint16_t kReadMask = (1U << 15);
+  constexpr static uint16_t kWriteMask = (0U << 15);
+};
 
 }  // namespace stm32g4
 }  // namespace platform
