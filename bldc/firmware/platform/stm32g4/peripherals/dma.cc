@@ -141,8 +141,9 @@ void Dma::PeripheralRequest(Channel channel, Request request,
 }
 
 void Dma::Configure(Channel channel, Mode mode, Increment inc_src,
-                    Increment inc_dest, Size transfer_size, uint32_t* source,
-                    uint32_t* dest, uint32_t size) {
+                    Increment inc_dest, Size transfer_size,
+                    const uint32_t* source, const uint32_t* dest,
+                    uint32_t size) {
   const auto ll_chan = LLChannel(channel);
   LL_DMA_SetMode(ll_dma_, ll_chan, LLMode(mode));
   LL_DMA_SetPeriphIncMode(ll_dma_, ll_chan, LLPIncrement(inc_src));

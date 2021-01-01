@@ -57,8 +57,8 @@ class Dma {
                          Priority priority = Priority::High);
   // TODO(blakely): Support multiple transfer sizes.
   void Configure(Channel channel, Mode mode, Increment inc_src,
-                 Increment inc_dest, Size transfer_size, uint32_t* source,
-                 uint32_t* dest, uint32_t size);
+                 Increment inc_dest, Size transfer_size, const uint32_t* source,
+                 const uint32_t* dest, uint32_t size);
 
  private:
   Instance instance_;

@@ -2,6 +2,7 @@
 
 #include <utility>
 
+#include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_dma.h"
@@ -196,42 +197,31 @@ const uint32_t kSpiEnable = kSpiDisable | SPI_CR1_SPE;
 void Spi::AutoPoll() {
   // TODO(blakely): This should be done at the peripheral/device level.
 
+  Dma dma1(Dma::Instance::Dma1);
+  dma1.Init();
   // Load SPI transmit FIFO.
-  SetupDMA(LL_DMA_CHANNEL_1, LL_DMAMUX_REQ_TIM5_CH1);
-  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_1,
-                         reinterpret_cast<uint32_t>(&kSpiTransmit),
-                         reinterpret_cast<uint32_t>(&(ll_port_->DR)),
-                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, 1);
-  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
+  dma1.PeripheralRequest(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
+  dma1.Configure(Dma::Channel::Ch1, Dma::Mode::Circular, Dma::Increment::No,
+                 Dma::Increment::No, Dma::Size::Word, &kSpiTransmit,
+                 (const uint32_t*)(&(ll_port_->DR)), 1);
 
   // Enable SPI
-  SetupDMA(LL_DMA_CHANNEL_2, LL_DMAMUX_REQ_TIM5_CH1);
-  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_2,
-                         reinterpret_cast<uint32_t>(&kSpiEnable),
-                         reinterpret_cast<uint32_t>(&(ll_port_->CR1)),
-                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, 1);
-  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
+  dma1.PeripheralRequest(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);
+  dma1.Configure(Dma::Channel::Ch2, Dma::Mode::Circular, Dma::Increment::No,
+                 Dma::Increment::No, Dma::Size::Word, &kSpiEnable,
+                 (const uint32_t*)(&(ll_port_->CR1)), 1);
 
   // Read from SPI Receive FIFO.
-  // SetupDMA(LL_DMA_CHANNEL_3, LL_DMAMUX_REQ_SPI3_RX);
-  SetupDMA(LL_DMA_CHANNEL_3, LL_DMAMUX_REQ_TIM5_CH4);
-  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_3,
-                         reinterpret_cast<uint32_t>(&(ll_port_->DR)),
-                         reinterpret_cast<uint32_t>(&(kSpiReceive)),
-                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_3, 1);
-  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_3);
+  dma1.PeripheralRequest(Dma::Channel::Ch3, Dma::Request::Tim5Ch4);
+  dma1.Configure(Dma::Channel::Ch3, Dma::Mode::Circular, Dma::Increment::No,
+                 Dma::Increment::No, Dma::Size::Word,
+                 (const uint32_t*)(&(ll_port_->DR)), &kSpiReceive, 1);
 
   // Disable SPI
-  SetupDMA(LL_DMA_CHANNEL_4, LL_DMAMUX_REQ_TIM5_CH4);
-  LL_DMA_ConfigAddresses(DMA1, LL_DMA_CHANNEL_4,
-                         reinterpret_cast<uint32_t>(&kSpiDisable),
-                         reinterpret_cast<uint32_t>(&(ll_port_->CR1)),
-                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_4, 1);
-  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_4);
+  dma1.PeripheralRequest(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
+  dma1.Configure(Dma::Channel::Ch4, Dma::Mode::Circular, Dma::Increment::No,
+                 Dma::Increment::No, Dma::Size::Word, &kSpiDisable,
+                 (const uint32_t*)(&(ll_port_->CR1)), 1);
 }
 
 Drv::Drv(Gpio::Pin enable, Spi* spi) : enable_(std::move(enable)), spi_(spi) {}
