@@ -5,6 +5,15 @@ package(default_visibility = ["//visibility:public"])
 # TODO(blakely): Figure out a better way to deal with CMSIS defines globally.
 
 cc_library(
+    name = "dma",
+    srcs = ["dma.cc"],
+    hdrs = ["dma.h"],
+    deps = [
+        "//third_party/stm32cubeg4:stm32g474xx",
+    ],
+)
+
+cc_library(
     name = "flash",
     srcs = ["flash.cc"],
     hdrs = ["flash.h"],
@@ -88,6 +97,7 @@ cc_library(
     name = "spi",
     srcs = ["spi.cc"],
     deps = [
+        ":dma",
         ":gpio",
         ":spi_defines",
         "//third_party/stm32cubeg4:stm32g474xx",

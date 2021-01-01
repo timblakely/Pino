@@ -292,6 +292,7 @@ uint16_t Ma702::BlockingReadRegister(Register reg) {
   outbound = 0;
   spi_->BlockingTransfer(outbound, &value);
   value = value >> 8U;
+
   return value;
 }
 
