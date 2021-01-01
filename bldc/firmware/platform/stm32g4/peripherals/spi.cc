@@ -22,9 +22,15 @@ Spi::Spi(Gpio::Pin chip_select, Gpio::Pin clock, Gpio::Pin mosi, Gpio::Pin miso)
 
 void Spi::Init(Port port) {
   Gpio::AlternateFunction af;
-  // TODO(blakely): This doesn't map directly, since SPI2/3 are also on AF5 :(
   switch (port) {
+    case Port::Spi1:
+      af = Gpio::AlternateFunction::AF5;
+      ll_port_ = static_cast<SPI_TypeDefI*>(SPI1);
+      LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SPI1);
+      break;
     case Port::Spi3:
+      // TODO(blakely): This doesn't map directly, since SPI2/3 are also on AF5
+      // :(
       af = Gpio::AlternateFunction::AF6;
       ll_port_ = static_cast<SPI_TypeDefI*>(SPI3);
       LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_SPI3);
@@ -58,10 +64,10 @@ void Spi::Init(Port port) {
 void Spi::Configure(ClockPhase data_capture, IdleState clock_idle_state,
                     FrameSize frame_size) {
   switch (data_capture) {
-    case ClockPhase::RisingEdge:
+    case ClockPhase::FirstEdge:
       LL_SPI_SetClockPhase(ll_port_, LL_SPI_PHASE_1EDGE);
       break;
-    case ClockPhase::FallingEdge:
+    case ClockPhase::SecondEdge:
       LL_SPI_SetClockPhase(ll_port_, LL_SPI_PHASE_2EDGE);
       break;
   }
@@ -90,6 +96,8 @@ void Spi::SetNssMode(NssMode mode) {
       LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_HARD_OUTPUT);
       break;
     case NssMode::Soft:
+      cs_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
+      cs_.High();
       LL_SPI_SetNSSMode(ll_port_, LL_SPI_NSS_SOFT);
       break;
   }
@@ -139,6 +147,9 @@ uint32_t Spi::SetBaud(uint32_t kbps) {
 
 void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
   LL_SPI_TransmitData16(ll_port_, write);
+  if (nss_mode_ == NssMode::Soft) {
+    cs_.Low();
+  }
   LL_SPI_Enable(ll_port_);
   while (LL_SPI_GetTxFIFOLevel(ll_port_) > 0) {
   }
@@ -148,6 +159,7 @@ void Spi::BlockingTransfer(uint16_t write, uint16_t* read) {
   do {
     *read = LL_SPI_ReceiveData16(ll_port_);
   } while (LL_SPI_GetRxFIFOLevel(ll_port_) > 0);
+  cs_.High();
 }
 
 void SetupDMA(uint32_t dma_chan, uint32_t dmamux_signal) {
@@ -231,7 +243,7 @@ void Drv::Init() {
   // TODO(blakely): Support 5MBit (32 prescalar). Requires stronger pullup on
   // DRV MISO line.
   spi_->SetBaud(1000);
-  spi_->Configure(Spi::ClockPhase::FallingEdge, Spi::IdleState::Low,
+  spi_->Configure(Spi::ClockPhase::SecondEdge, Spi::IdleState::Low,
                   Spi::FrameSize::SixteenBit);
   spi_->SetNssMode(Spi::NssMode::Hard);
 }
@@ -244,6 +256,42 @@ uint16_t Drv::BlockingReadRegister(Register reg) {
   uint16_t value = 0;
   uint16_t data = kReadMask | (static_cast<uint16_t>(reg) << 11);
   spi_->BlockingTransfer(data, &value);
+  return value;
+}
+
+Ma702::Ma702(Spi* spi) : spi_(spi) {}
+
+void Ma702::Init() {
+  spi_->SetBaud(1000);
+  spi_->Configure(Spi::ClockPhase::SecondEdge, Spi::IdleState::High,
+                  Spi::FrameSize::SixteenBit);
+  // TODO(blakely): support Hard NSS.
+  spi_->SetNssMode(Spi::NssMode::Hard);
+  // spi_->SetNssMode(Spi::NssMode::Soft);
+
+  // Register values hardcoded for now.
+  uint16_t status = 0;
+  status = BlockingReadRegister(Register::ZLow);
+  status = BlockingReadRegister(Register::ZHigh);
+  status = BlockingReadRegister(Register::BiasCurrentTrimming);
+  status = BlockingReadRegister(Register::EnableTrimming);
+  status = BlockingReadRegister(Register::AbzConfig1);
+  status = BlockingReadRegister(Register::AbzConfig2);
+  status = BlockingReadRegister(Register::MagFieldThreshold);
+  status = BlockingReadRegister(Register::RotationDirection);
+  status = BlockingReadRegister(Register::MagFieldStatus);
+  status = 0;
+}
+
+uint16_t Ma702::BlockingReadRegister(Register reg) {
+  uint16_t value = 0;
+  uint16_t outbound = kReadRegister | (static_cast<uint16_t>(reg) << 8);
+  // First read's resposne is the angle...
+  spi_->BlockingTransfer(outbound, &value);
+  // Second read's resposne is the resulting register value.
+  outbound = 0;
+  spi_->BlockingTransfer(outbound, &value);
+  value = value >> 8U;
   return value;
 }
 

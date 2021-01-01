@@ -9,12 +9,13 @@ namespace stm32g4 {
 class Spi {
  public:
   enum class Port {
+    Spi1,
     Spi3,
   };
 
   enum class ClockPhase {
-    RisingEdge,
-    FallingEdge,
+    FirstEdge,
+    SecondEdge,
   };
 
   enum class IdleState {
@@ -88,7 +89,17 @@ class Drv {
 
 class Ma702 {
  public:
-  enum class Register : uint8_t {};
+  enum class Register : uint8_t {
+    ZLow = 0x0,
+    ZHigh = 0x1,
+    BiasCurrentTrimming = 0x2,
+    EnableTrimming = 0x3,
+    AbzConfig1 = 0x4,
+    AbzConfig2 = 0x5,
+    MagFieldThreshold = 0x6,
+    RotationDirection = 0x9,
+    MagFieldStatus = 0x1B,
+  };
 
   explicit Ma702(Spi* spi);
 
@@ -96,13 +107,11 @@ class Ma702 {
 
   uint16_t BlockingReadRegister(Register reg);
 
-  void Enable();
-  void Disable();
-
  private:
   Spi* spi_;
-  constexpr static uint16_t kReadMask = (1U << 15);
-  constexpr static uint16_t kWriteMask = (0U << 15);
+  constexpr static uint16_t kReadAngle = (0b000 << 13);
+  constexpr static uint16_t kReadRegister = (0b010 << 13);
+  constexpr static uint16_t kWriteRegister = (0b100 << 13);
 };
 
 }  // namespace stm32g4

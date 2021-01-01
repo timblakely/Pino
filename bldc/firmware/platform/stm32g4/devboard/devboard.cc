@@ -18,6 +18,7 @@ namespace stm32g4 {
 Devboard::Devboard()
     : spi1_({Gpio::Port::A, 4}, {Gpio::Port::A, 5}, {Gpio::Port::A, 7},
             {Gpio::Port::A, 6}),
+      ma702_(&spi1_),
       spi3_({Gpio::Port::A, 15}, {Gpio::Port::C, 10}, {Gpio::Port::B, 5},
             {Gpio::Port::C, 11}),
       drv_({Gpio::Port::C, 6}, &spi3_) {}
@@ -31,9 +32,12 @@ void Devboard::Init() {
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
 
-  spi3_.Init(Spi::Port::Spi3);
+  spi1_.Init(Spi::Port::Spi1);
+  ma702_.Init();
 
+  spi3_.Init(Spi::Port::Spi3);
   spi3_.AutoPoll();
+
   drv_.Init();
   drv_.Enable();
   SysTickTimer::BlockingWait(1000);

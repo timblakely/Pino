@@ -21,6 +21,7 @@ class Devboard : public G4Platform {
   Led* blue_;
 
   Spi spi1_;
+  Ma702 ma702_;
   Spi spi3_;
   Drv drv_;
 };
