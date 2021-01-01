@@ -62,6 +62,7 @@ void Devboard::Init() {
 }
 
 void Devboard::OnFatal() {
+  drv_.Disable();
   blue_->Off();
   Tim3 timer;
   timer.Configure();
