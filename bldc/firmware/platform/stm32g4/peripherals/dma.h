@@ -55,7 +55,7 @@ class Dma {
     Word,
   };
 
-  class DmaStream {
+  class Stream {
    public:
     void Configure(Mode mode, Increment inc_src, Increment inc_dest,
                    TransferSize transfer_size);
@@ -63,7 +63,7 @@ class Dma {
     void Start(const uint32_t* source, const uint32_t* dest, uint32_t size);
 
    private:
-    DmaStream(DMA_TypeDefI* dma, uint32_t channel);
+    Stream(DMA_TypeDefI* dma, uint32_t channel);
 
     uint32_t src_address_;
     uint32_t dest_address_;
@@ -81,8 +81,8 @@ class Dma {
   explicit Dma(Instance instance);
   void Init();
 
-  DmaStream CreateStream(Channel channel, Request request,
-                         Priority priority = Priority::High);
+  Stream CreateStream(Channel channel, Request request,
+                      Priority priority = Priority::High);
 
   void PeripheralRequest(Channel channel, Request request,
                          Priority priority = Priority::High);

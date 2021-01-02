@@ -131,11 +131,11 @@ uint32_t Dma::LLMIncrement(Increment increment) {
   }
 }
 
-Dma::DmaStream::DmaStream(DMA_TypeDefI* dma, uint32_t channel)
+Dma::Stream::Stream(DMA_TypeDefI* dma, uint32_t channel)
     : dma_(dma), chan_(channel) {}
 
-void Dma::DmaStream::Configure(Mode mode, Increment inc_src, Increment inc_dest,
-                               TransferSize transfer_size) {
+void Dma::Stream::Configure(Mode mode, Increment inc_src, Increment inc_dest,
+                            TransferSize transfer_size) {
   mode_ = LLMode(mode);
   src_increment_ = LLPIncrement(inc_src);
   dest_increment_ = LLMIncrement(inc_dest);
@@ -144,7 +144,7 @@ void Dma::DmaStream::Configure(Mode mode, Increment inc_src, Increment inc_dest,
   Reconfigure();
 }
 
-void Dma::DmaStream::Reconfigure() {
+void Dma::Stream::Reconfigure() {
   LL_DMA_SetMode(dma_, chan_, mode_);
   LL_DMA_SetPeriphIncMode(dma_, chan_, src_increment_);
   LL_DMA_SetPeriphIncMode(dma_, chan_, dest_increment_);
@@ -152,8 +152,8 @@ void Dma::DmaStream::Reconfigure() {
   LL_DMA_SetMemorySize(dma_, chan_, dest_transfer_size_);
 }
 
-void Dma::DmaStream::Start(const uint32_t* source, const uint32_t* dest,
-                           uint32_t size) {
+void Dma::Stream::Start(const uint32_t* source, const uint32_t* dest,
+                        uint32_t size) {
   LL_DMA_ConfigAddresses(dma_, chan_, reinterpret_cast<uint32_t>(source),
                          reinterpret_cast<uint32_t>(dest),
                          LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
@@ -161,8 +161,8 @@ void Dma::DmaStream::Start(const uint32_t* source, const uint32_t* dest,
   LL_DMA_EnableChannel(dma_, chan_);
 }
 
-Dma::DmaStream Dma::CreateStream(Channel channel, Request request,
-                                 Priority priority) {
+Dma::Stream Dma::CreateStream(Channel channel, Request request,
+                              Priority priority) {
   const auto chan = LLChannel(channel);
   LL_DMA_SetPeriphRequest(dma_, chan, LLRequest(request));
   LL_DMA_SetDataTransferDirection(dma_, chan,
