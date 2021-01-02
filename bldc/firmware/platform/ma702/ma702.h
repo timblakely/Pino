@@ -25,12 +25,15 @@ class Ma702 {
   void Init();
 
   uint16_t BlockingReadRegister(Register reg);
+  uint16_t Update();
+  uint16_t Angle() { return angle_; }
 
  private:
   stm32g4::Spi* spi_;
   constexpr static uint16_t kReadAngle = (0b000 << 13);
   constexpr static uint16_t kReadRegister = (0b010 << 13);
   constexpr static uint16_t kWriteRegister = (0b100 << 13);
+  uint16_t angle_ = 0;
 };
 
 }  // namespace ma702

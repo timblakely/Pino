@@ -41,5 +41,11 @@ uint16_t Ma702::BlockingReadRegister(Register reg) {
   return value;
 }
 
+uint16_t Ma702::Update() {
+  constexpr static uint16_t command = 0;
+  spi_->BlockingTransfer(command, &angle_);
+  return angle_;
+}
+
 }  // namespace ma702
 }  // namespace platform
