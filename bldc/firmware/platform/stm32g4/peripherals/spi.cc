@@ -1,7 +1,5 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/spi.h"
 
-#include <utility>
-
 #include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
@@ -226,30 +224,6 @@ void Spi::AutoPoll() {
   stream.Start(&kSpiDisable, (const uint32_t*)(&(ll_port_->CR1)), 1);
 }
 
-Drv::Drv(Gpio::Pin enable, Spi* spi) : enable_(std::move(enable)), spi_(spi) {}
-
-void Drv::Init() {
-  // Configure DRV_EN as general purpose GPIO.
-  enable_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-  // TODO(blakely): Register configuration.
-  // TODO(blakely): Support 5MBit (32 prescalar). Requires stronger pullup on
-  // DRV MISO line.
-  spi_->SetBaud(1000);
-  spi_->Configure(Spi::ClockPhase::SecondEdge, Spi::IdleState::Low,
-                  Spi::FrameSize::SixteenBit);
-  spi_->SetNssMode(Spi::NssMode::Hard);
-}
-
-void Drv::Enable() { enable_.High(); }
-
-void Drv::Disable() { enable_.Low(); }
-
-uint16_t Drv::BlockingReadRegister(Register reg) {
-  uint16_t value = 0;
-  uint16_t data = kReadMask | (static_cast<uint16_t>(reg) << 11);
-  spi_->BlockingTransfer(data, &value);
-  return value;
-}
 
 Ma702::Ma702(Spi* spi) : spi_(spi) {}
 
