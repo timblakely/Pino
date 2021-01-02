@@ -1,10 +1,13 @@
 #include "bldc/firmware/platform/stm32g4/devboard/devboard.h"
 
 #include "bldc/firmware/platform/bldc_platform.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
+
+using platform::stm32g4::Dma;
 
 namespace platform {
 
@@ -32,11 +35,18 @@ void Devboard::Init() {
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
 
+  Dma dma1(Dma::Instance::Dma1);
+  dma1.Init();
+
   spi1_.Init(Spi::Port::Spi1);
+  auto spi1_stream_start =
+      dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
+  auto spi1_stream_end = dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
+  spi1_.EnableStreaming(spi1_stream_start, spi1_stream_end);
   ma702_.Init();
 
   spi3_.Init(Spi::Port::Spi3);
-  spi3_.AutoPoll();
+  // spi3_.AutoPoll();
 
   drv_.Init();
   drv_.Enable();

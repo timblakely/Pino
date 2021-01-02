@@ -9,6 +9,7 @@ cc_library(
     srcs = ["ma702.cc"],
     hdrs = ["ma702.h"],
     deps = [
+        "//bldc/firmware/platform/stm32g4/peripherals:dma",
         "//bldc/firmware/platform/stm32g4/peripherals:spi",
     ],
 )

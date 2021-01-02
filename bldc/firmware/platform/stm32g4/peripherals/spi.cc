@@ -185,12 +185,27 @@ void SetupDMA(uint32_t dma_chan, uint32_t dmamux_signal) {
 }
 
 // Setup for SPI3 for DRV chip.
-const uint32_t kSpiTransmit = (1U << 15) | (0x3U << 11);
+
 extern "C" {
 uint32_t kSpiReceive = 0;
 }
 const uint32_t kSpiDisable = 0x135;
 const uint32_t kSpiEnable = kSpiDisable | SPI_CR1_SPE;
+
+void Spi::EnableStreaming(Dma::Stream& spi_enable, Dma::Stream& spi_disable) {
+  spi_enable.Configure(Dma::Mode::Circular, Dma::Increment::No,
+                       Dma::Increment::No, Dma::TransferSize::Word);
+  spi_enable.Start(&kSpiEnable, (const uint32_t*)(&(ll_port_->CR1)), 1);
+
+  spi_disable.Configure(Dma::Mode::Circular, Dma::Increment::No,
+                        Dma::Increment::No, Dma::TransferSize::Word);
+  spi_disable.Start(&kSpiDisable, (const uint32_t*)(&(ll_port_->CR1)), 1);
+}
+
+void Spi::StreamingTransfer(Dma::Stream& command_stream,
+                            Dma::Stream& response_stream,
+                            const uint16_t* command_source, const uint16_t* response_dest,
+                            uint32_t transfer_size) {}
 
 void Spi::AutoPoll() {
   // TODO(blakely): This should be done at the peripheral/device level.
@@ -203,7 +218,7 @@ void Spi::AutoPoll() {
   // TODO(blakely): Configure stream in particular peripheral.
   stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
                    Dma::TransferSize::Word);
-  stream.Start(&kSpiTransmit, (const uint32_t*)(&(ll_port_->DR)), 1);
+  // stream.Start(&kSpiTransmit, (const uint32_t*)(&(ll_port_->DR)), 1);
 
   // Enable SPI
   stream = dma1.CreateStream(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);

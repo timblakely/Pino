@@ -1,6 +1,7 @@
 
 #include "bldc/firmware/platform/ma702/ma702.h"
 
+using platform::stm32g4::Dma;
 using platform::stm32g4::Spi;
 
 namespace platform {
@@ -45,6 +46,16 @@ uint16_t Ma702::Update() {
   constexpr static uint16_t command = 0;
   spi_->BlockingTransfer(command, &angle_);
   return angle_;
+}
+
+void Ma702::AutoPoll(Dma::Stream& command_stream, Dma::Stream& angle_stream) {
+  command_stream.Configure(Dma::Mode::Circular, Dma::Increment::No,
+                           Dma::Increment::No, Dma::TransferSize::Word);
+  angle_stream.Configure(Dma::Mode::Circular, Dma::Increment::No,
+                         Dma::Increment::No, Dma::TransferSize::Word);
+
+  spi_->StreamingTransfer(command_stream, angle_stream, &kReadAngle, &angle_,
+                          1);
 }
 
 }  // namespace ma702

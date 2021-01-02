@@ -1,6 +1,7 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_SPI_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_SPI_H_
 
+#include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
 namespace platform {
@@ -47,9 +48,16 @@ class Spi {
 
   void BlockingTransfer(uint16_t write, uint16_t* read);
 
-  void AutoPoll();
+  void EnableStreaming(Dma::Stream& spi_enable, Dma::Stream& spi_disable);
+
+  void StreamingTransfer(Dma::Stream& command_stream,
+                         Dma::Stream& response_stream,
+                         const uint16_t* command_source,
+                         const uint16_t* response_dest,
+                         const uint32_t transfer_size);
 
  private:
+  void AutoPoll();
   struct SPI_TypeDefI;
   SPI_TypeDefI* ll_port_;
   Gpio::Pin cs_;
@@ -57,6 +65,10 @@ class Spi {
   Gpio::Pin mosi_;
   Gpio::Pin miso_;
   NssMode nss_mode_;
+
+  constexpr static uint32_t kSpiDisable = 0x135;
+  constexpr static uint32_t kSpiEnable =
+      kSpiDisable | (0x1UL << 6) /* SPI_CR1_SPE */;
 };
 
 }  // namespace stm32g4

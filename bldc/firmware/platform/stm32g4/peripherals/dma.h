@@ -60,6 +60,7 @@ class Dma {
     void Configure(Mode mode, Increment inc_src, Increment inc_dest,
                    TransferSize transfer_size);
     void Reconfigure();
+    // TODO(blakely): Consider having source/dest as member variables.
     void Start(const uint32_t* source, const uint32_t* dest, uint32_t size);
 
    private:

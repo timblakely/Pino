@@ -1,6 +1,7 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_MA702_MA702_H_
 #define BLDC_FIRMWARE_PLATFORM_MA702_MA702_H_
 
+#include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/spi.h"
 
 namespace platform {
@@ -27,6 +28,9 @@ class Ma702 {
   uint16_t BlockingReadRegister(Register reg);
   uint16_t Update();
   uint16_t Angle() { return angle_; }
+
+  void AutoPoll(stm32g4::Dma::Stream& command_stream,
+                stm32g4::Dma::Stream& angle_stream);
 
  private:
   stm32g4::Spi* spi_;
