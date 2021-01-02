@@ -208,22 +208,22 @@ void Spi::AutoPoll() {
   stream.Start(&kSpiTransmit, (const uint32_t*)(&(ll_port_->DR)), 1);
 
   // Enable SPI
-  dma1.PeripheralRequest(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);
-  dma1.Configure(Dma::Channel::Ch2, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::TransferSize::Word, &kSpiEnable,
-                 (const uint32_t*)(&(ll_port_->CR1)), 1);
+  stream = dma1.CreateStream(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);
+  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
+                   Dma::TransferSize::Word);
+  stream.Start(&kSpiEnable, (const uint32_t*)(&(ll_port_->CR1)), 1);
 
   // Read from SPI Receive FIFO.
-  dma1.PeripheralRequest(Dma::Channel::Ch3, Dma::Request::Tim5Ch4);
-  dma1.Configure(Dma::Channel::Ch3, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::TransferSize::Word,
-                 (const uint32_t*)(&(ll_port_->DR)), &kSpiReceive, 1);
+  stream = dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
+  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
+                   Dma::TransferSize::Word);
+  stream.Start((const uint32_t*)(&(ll_port_->DR)), &kSpiReceive, 1);
 
   // Disable SPI
-  dma1.PeripheralRequest(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
-  dma1.Configure(Dma::Channel::Ch4, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::TransferSize::Word, &kSpiDisable,
-                 (const uint32_t*)(&(ll_port_->CR1)), 1);
+  stream = dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
+  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
+                   Dma::TransferSize::Word);
+  stream.Start(&kSpiDisable, (const uint32_t*)(&(ll_port_->CR1)), 1);
 }
 
 Drv::Drv(Gpio::Pin enable, Spi* spi) : enable_(std::move(enable)), spi_(spi) {}
