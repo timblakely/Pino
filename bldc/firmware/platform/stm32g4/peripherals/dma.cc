@@ -11,10 +11,10 @@ struct Dma::DMA_TypeDefI : public DMA_TypeDef {};
 Dma::Dma(Instance instance) : instance_(instance) {
   switch (instance) {
     case Instance::Dma1:
-      ll_dma_ = reinterpret_cast<DMA_TypeDefI*>(DMA1);
+      dma_ = reinterpret_cast<DMA_TypeDefI*>(DMA1);
       break;
     case Instance::Dma2:
-      ll_dma_ = reinterpret_cast<DMA_TypeDefI*>(DMA2);
+      dma_ = reinterpret_cast<DMA_TypeDefI*>(DMA2);
       break;
   }
 }
@@ -87,26 +87,26 @@ uint32_t Dma::LLMode(Mode mode) {
   }
 }
 
-uint32_t Dma::LLPSize(Size size) {
+uint32_t Dma::LLPSize(TransferSize size) {
   switch (size) {
     default:
-    case Size::Byte:
+    case TransferSize::Byte:
       return LL_DMA_PDATAALIGN_BYTE;
-    case Size::HalfWord:
+    case TransferSize::HalfWord:
       return LL_DMA_PDATAALIGN_HALFWORD;
-    case Size::Word:
+    case TransferSize::Word:
       return LL_DMA_PDATAALIGN_WORD;
   }
 }
 
-uint32_t Dma::LLMSize(Size size) {
+uint32_t Dma::LLMSize(TransferSize size) {
   switch (size) {
     default:
-    case Size::Byte:
+    case TransferSize::Byte:
       return LL_DMA_MDATAALIGN_BYTE;
-    case Size::HalfWord:
+    case TransferSize::HalfWord:
       return LL_DMA_MDATAALIGN_HALFWORD;
-    case Size::Word:
+    case TransferSize::Word:
       return LL_DMA_MDATAALIGN_WORD;
   }
 }
@@ -131,32 +131,68 @@ uint32_t Dma::LLMIncrement(Increment increment) {
   }
 }
 
+Dma::DmaStream::DmaStream(DMA_TypeDefI* dma, uint32_t channel)
+    : dma_(dma), chan_(channel) {}
+
+void Dma::DmaStream::Configure(Mode mode, Increment inc_src, Increment inc_dest,
+                               TransferSize transfer_size) {
+  mode_ = LLMode(mode);
+  src_increment_ = LLPIncrement(inc_src);
+  dest_increment_ = LLMIncrement(inc_dest);
+  src_transfer_size_ = LLPSize(transfer_size);
+  dest_transfer_size_ = LLMSize(transfer_size);
+
+  LL_DMA_SetMode(dma_, chan_, LLMode(mode));
+  LL_DMA_SetPeriphIncMode(dma_, chan_, LLPIncrement(inc_src));
+  LL_DMA_SetPeriphIncMode(dma_, chan_, LLMIncrement(inc_dest));
+  LL_DMA_SetPeriphSize(dma_, chan_, LLPSize(transfer_size));
+  LL_DMA_SetMemorySize(dma_, chan_, LLMSize(transfer_size));
+}
+
+void Dma::DmaStream::Start(const uint32_t* source, const uint32_t* dest, uint32_t size) {
+  LL_DMA_ConfigAddresses(dma_, chan_, reinterpret_cast<uint32_t>(source),
+                         reinterpret_cast<uint32_t>(dest),
+                         LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+  LL_DMA_SetDataLength(dma_, chan_, size);
+  LL_DMA_EnableChannel(dma_, chan_);
+}
+
+Dma::DmaStream Dma::CreateStream(Channel channel, Request request,
+                                 Priority priority) {
+  const auto chan = LLChannel(channel);
+  LL_DMA_SetPeriphRequest(dma_, chan, LLRequest(request));
+  LL_DMA_SetDataTransferDirection(dma_, chan,
+                                  LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+  LL_DMA_SetChannelPriorityLevel(dma_, chan, LLPriority(priority));
+  return {dma_, chan};
+}
+
 void Dma::PeripheralRequest(Channel channel, Request request,
                             Priority priority) {
   const auto ll_chan = LLChannel(channel);
-  LL_DMA_SetPeriphRequest(ll_dma_, ll_chan, LLRequest(request));
-  LL_DMA_SetDataTransferDirection(ll_dma_, ll_chan,
+  LL_DMA_SetPeriphRequest(dma_, ll_chan, LLRequest(request));
+  LL_DMA_SetDataTransferDirection(dma_, ll_chan,
                                   LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-  LL_DMA_SetChannelPriorityLevel(ll_dma_, ll_chan, LLPriority(priority));
+  LL_DMA_SetChannelPriorityLevel(dma_, ll_chan, LLPriority(priority));
 }
 
 void Dma::Configure(Channel channel, Mode mode, Increment inc_src,
-                    Increment inc_dest, Size transfer_size,
+                    Increment inc_dest, TransferSize transfer_size,
                     const uint32_t* source, const uint32_t* dest,
                     uint32_t size) {
   const auto ll_chan = LLChannel(channel);
-  LL_DMA_SetMode(ll_dma_, ll_chan, LLMode(mode));
-  LL_DMA_SetPeriphIncMode(ll_dma_, ll_chan, LLPIncrement(inc_src));
-  LL_DMA_SetPeriphIncMode(ll_dma_, ll_chan, LLMIncrement(inc_dest));
-  LL_DMA_SetPeriphSize(ll_dma_, ll_chan, LLPSize(transfer_size));
-  LL_DMA_SetMemorySize(ll_dma_, ll_chan, LLMSize(transfer_size));
+  LL_DMA_SetMode(dma_, ll_chan, LLMode(mode));
+  LL_DMA_SetPeriphIncMode(dma_, ll_chan, LLPIncrement(inc_src));
+  LL_DMA_SetPeriphIncMode(dma_, ll_chan, LLMIncrement(inc_dest));
+  LL_DMA_SetPeriphSize(dma_, ll_chan, LLPSize(transfer_size));
+  LL_DMA_SetMemorySize(dma_, ll_chan, LLMSize(transfer_size));
 
   // TODO(blakely): Does this direction really matter?
-  LL_DMA_ConfigAddresses(ll_dma_, ll_chan, reinterpret_cast<uint32_t>(source),
+  LL_DMA_ConfigAddresses(dma_, ll_chan, reinterpret_cast<uint32_t>(source),
                          reinterpret_cast<uint32_t>(dest),
                          LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
-  LL_DMA_SetDataLength(ll_dma_, ll_chan, size);
-  LL_DMA_EnableChannel(ll_dma_, ll_chan);
+  LL_DMA_SetDataLength(dma_, ll_chan, size);
+  LL_DMA_EnableChannel(dma_, ll_chan);
 }
 
 }  // namespace stm32g4

@@ -199,28 +199,36 @@ void Spi::AutoPoll() {
 
   Dma dma1(Dma::Instance::Dma1);
   dma1.Init();
+
   // Load SPI transmit FIFO.
-  dma1.PeripheralRequest(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
-  dma1.Configure(Dma::Channel::Ch1, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::Size::Word, &kSpiTransmit,
-                 (const uint32_t*)(&(ll_port_->DR)), 1);
+  auto enable = dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
+  // TODO(blakely): Configure stream in particular peripheral.
+  enable.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
+                   Dma::TransferSize::Word);
+  enable.Start(&kSpiEnable, (const uint32_t*)(&(ll_port_->CR1)), 1);
+
+  // dma1.PeripheralRequest(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
+  // dma1.Configure(Dma::Channel::Ch1, Dma::Mode::Circular,
+  // Dma::Increment::No,
+  //                Dma::Increment::No, Dma::Size::Word, &kSpiTransmit,
+  //                (const uint32_t*)(&(ll_port_->DR)), 1);
 
   // Enable SPI
   dma1.PeripheralRequest(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);
   dma1.Configure(Dma::Channel::Ch2, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::Size::Word, &kSpiEnable,
+                 Dma::Increment::No, Dma::TransferSize::Word, &kSpiEnable,
                  (const uint32_t*)(&(ll_port_->CR1)), 1);
 
   // Read from SPI Receive FIFO.
   dma1.PeripheralRequest(Dma::Channel::Ch3, Dma::Request::Tim5Ch4);
   dma1.Configure(Dma::Channel::Ch3, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::Size::Word,
+                 Dma::Increment::No, Dma::TransferSize::Word,
                  (const uint32_t*)(&(ll_port_->DR)), &kSpiReceive, 1);
 
   // Disable SPI
   dma1.PeripheralRequest(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
   dma1.Configure(Dma::Channel::Ch4, Dma::Mode::Circular, Dma::Increment::No,
-                 Dma::Increment::No, Dma::Size::Word, &kSpiDisable,
+                 Dma::Increment::No, Dma::TransferSize::Word, &kSpiDisable,
                  (const uint32_t*)(&(ll_port_->CR1)), 1);
 }
 
