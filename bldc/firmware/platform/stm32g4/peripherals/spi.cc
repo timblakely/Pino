@@ -201,17 +201,11 @@ void Spi::AutoPoll() {
   dma1.Init();
 
   // Load SPI transmit FIFO.
-  auto enable = dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
+  auto stream = dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
   // TODO(blakely): Configure stream in particular peripheral.
-  enable.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
+  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
                    Dma::TransferSize::Word);
-  enable.Start(&kSpiEnable, (const uint32_t*)(&(ll_port_->CR1)), 1);
-
-  // dma1.PeripheralRequest(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
-  // dma1.Configure(Dma::Channel::Ch1, Dma::Mode::Circular,
-  // Dma::Increment::No,
-  //                Dma::Increment::No, Dma::Size::Word, &kSpiTransmit,
-  //                (const uint32_t*)(&(ll_port_->DR)), 1);
+  stream.Start(&kSpiEnable, (const uint32_t*)(&(ll_port_->CR1)), 1);
 
   // Enable SPI
   dma1.PeripheralRequest(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);

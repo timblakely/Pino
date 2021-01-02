@@ -141,15 +141,19 @@ void Dma::DmaStream::Configure(Mode mode, Increment inc_src, Increment inc_dest,
   dest_increment_ = LLMIncrement(inc_dest);
   src_transfer_size_ = LLPSize(transfer_size);
   dest_transfer_size_ = LLMSize(transfer_size);
-
-  LL_DMA_SetMode(dma_, chan_, LLMode(mode));
-  LL_DMA_SetPeriphIncMode(dma_, chan_, LLPIncrement(inc_src));
-  LL_DMA_SetPeriphIncMode(dma_, chan_, LLMIncrement(inc_dest));
-  LL_DMA_SetPeriphSize(dma_, chan_, LLPSize(transfer_size));
-  LL_DMA_SetMemorySize(dma_, chan_, LLMSize(transfer_size));
+  Reconfigure();
 }
 
-void Dma::DmaStream::Start(const uint32_t* source, const uint32_t* dest, uint32_t size) {
+void Dma::DmaStream::Reconfigure() {
+  LL_DMA_SetMode(dma_, chan_, mode_);
+  LL_DMA_SetPeriphIncMode(dma_, chan_, src_increment_);
+  LL_DMA_SetPeriphIncMode(dma_, chan_, dest_increment_);
+  LL_DMA_SetPeriphSize(dma_, chan_, src_transfer_size_);
+  LL_DMA_SetMemorySize(dma_, chan_, dest_transfer_size_);
+}
+
+void Dma::DmaStream::Start(const uint32_t* source, const uint32_t* dest,
+                           uint32_t size) {
   LL_DMA_ConfigAddresses(dma_, chan_, reinterpret_cast<uint32_t>(source),
                          reinterpret_cast<uint32_t>(dest),
                          LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
