@@ -224,43 +224,5 @@ void Spi::AutoPoll() {
   stream.Start(&kSpiDisable, (const uint32_t*)(&(ll_port_->CR1)), 1);
 }
 
-
-Ma702::Ma702(Spi* spi) : spi_(spi) {}
-
-void Ma702::Init() {
-  spi_->SetBaud(1000);
-  spi_->Configure(Spi::ClockPhase::SecondEdge, Spi::IdleState::High,
-                  Spi::FrameSize::SixteenBit);
-  // TODO(blakely): support Hard NSS.
-  spi_->SetNssMode(Spi::NssMode::Hard);
-  // spi_->SetNssMode(Spi::NssMode::Soft);
-
-  // Register values hardcoded for now.
-  uint16_t status = 0;
-  status = BlockingReadRegister(Register::ZLow);
-  status = BlockingReadRegister(Register::ZHigh);
-  status = BlockingReadRegister(Register::BiasCurrentTrimming);
-  status = BlockingReadRegister(Register::EnableTrimming);
-  status = BlockingReadRegister(Register::AbzConfig1);
-  status = BlockingReadRegister(Register::AbzConfig2);
-  status = BlockingReadRegister(Register::MagFieldThreshold);
-  status = BlockingReadRegister(Register::RotationDirection);
-  status = BlockingReadRegister(Register::MagFieldStatus);
-  status = 0;
-}
-
-uint16_t Ma702::BlockingReadRegister(Register reg) {
-  uint16_t value = 0;
-  uint16_t outbound = kReadRegister | (static_cast<uint16_t>(reg) << 8);
-  // First read's resposne is the angle...
-  spi_->BlockingTransfer(outbound, &value);
-  // Second read's resposne is the resulting register value.
-  outbound = 0;
-  spi_->BlockingTransfer(outbound, &value);
-  value = value >> 8U;
-
-  return value;
-}
-
 }  // namespace stm32g4
 }  // namespace platform
