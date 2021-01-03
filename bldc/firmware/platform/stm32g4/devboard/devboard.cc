@@ -39,11 +39,17 @@ void Devboard::Init() {
   dma1.Init();
 
   spi1_.Init(Spi::Port::Spi1);
-  auto spi1_stream_start =
-      dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
-  auto spi1_stream_end = dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
-  spi1_.EnableStreaming(spi1_stream_start, spi1_stream_end);
+  auto enable = dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
+  auto spi1_command =
+      dma1.CreateStream(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);
+  auto spi1_response =
+      dma1.CreateStream(Dma::Channel::Ch3, Dma::Request::Tim5Ch4);
+  auto spi1_disable =
+      dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
+
+  spi1_.EnableStreaming(enable, spi1_disable);
   ma702_.Init();
+  ma702_.AutoPoll(spi1_command, spi1_response);
 
   spi3_.Init(Spi::Port::Spi3);
   // spi3_.AutoPoll();

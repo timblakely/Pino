@@ -204,8 +204,15 @@ void Spi::EnableStreaming(Dma::Stream& spi_enable, Dma::Stream& spi_disable) {
 
 void Spi::StreamingTransfer(Dma::Stream& command_stream,
                             Dma::Stream& response_stream,
-                            const uint16_t* command_source, const uint16_t* response_dest,
-                            uint32_t transfer_size) {}
+                            const uint16_t* command_source,
+                            const uint16_t* response_dest,
+                            uint32_t transfer_size) {
+  command_stream.Start(reinterpret_cast<const uint32_t*>(command_source),
+                       (const uint32_t*)(&(ll_port_->DR)), transfer_size);
+  response_stream.Start((const uint32_t*)(&(ll_port_->DR)),
+                        reinterpret_cast<const uint32_t*>(response_dest),
+                        transfer_size);
+}
 
 void Spi::AutoPoll() {
   // TODO(blakely): This should be done at the peripheral/device level.

@@ -17,6 +17,7 @@ class BldcPlatform {
   virtual void BlockingWait(uint32_t micros) = 0;
 
  private:
+  uint16_t angle_ = 0;
 };
 
 }  // namespace platform
