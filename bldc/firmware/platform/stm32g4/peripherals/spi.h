@@ -57,7 +57,6 @@ class Spi {
                          const uint32_t transfer_size);
 
  private:
-  void AutoPoll();
   struct SPI_TypeDefI;
   SPI_TypeDefI* ll_port_;
   Gpio::Pin cs_;

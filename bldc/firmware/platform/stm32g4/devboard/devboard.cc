@@ -52,7 +52,6 @@ void Devboard::Init() {
   ma702_.AutoPoll(spi1_command, spi1_response);
 
   spi3_.Init(Spi::Port::Spi3);
-  // spi3_.AutoPoll();
 
   drv_.Init();
   drv_.Enable();
@@ -80,6 +79,8 @@ void Devboard::Init() {
 
   blue_->On();
 }
+
+uint16_t Devboard::Angle() { return ma702_.Angle(); }
 
 void Devboard::OnFatal() {
   drv_.Disable();

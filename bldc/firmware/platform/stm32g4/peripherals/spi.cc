@@ -207,43 +207,13 @@ void Spi::StreamingTransfer(Dma::Stream& command_stream,
                             const uint16_t* command_source,
                             const uint16_t* response_dest,
                             uint32_t transfer_size) {
+  // TODO(blakely): Careful, we might be clobbering stuff with the cast to
+  // uint32 here...
   command_stream.Start(reinterpret_cast<const uint32_t*>(command_source),
                        (const uint32_t*)(&(ll_port_->DR)), transfer_size);
   response_stream.Start((const uint32_t*)(&(ll_port_->DR)),
                         reinterpret_cast<const uint32_t*>(response_dest),
                         transfer_size);
-}
-
-void Spi::AutoPoll() {
-  // TODO(blakely): This should be done at the peripheral/device level.
-
-  Dma dma1(Dma::Instance::Dma1);
-  dma1.Init();
-
-  // Load SPI transmit FIFO.
-  auto stream = dma1.CreateStream(Dma::Channel::Ch1, Dma::Request::Tim5Ch1);
-  // TODO(blakely): Configure stream in particular peripheral.
-  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
-                   Dma::TransferSize::Word);
-  // stream.Start(&kSpiTransmit, (const uint32_t*)(&(ll_port_->DR)), 1);
-
-  // Enable SPI
-  stream = dma1.CreateStream(Dma::Channel::Ch2, Dma::Request::Tim5Ch1);
-  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
-                   Dma::TransferSize::Word);
-  stream.Start(&kSpiEnable, (const uint32_t*)(&(ll_port_->CR1)), 1);
-
-  // Read from SPI Receive FIFO.
-  stream = dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
-  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
-                   Dma::TransferSize::Word);
-  stream.Start((const uint32_t*)(&(ll_port_->DR)), &kSpiReceive, 1);
-
-  // Disable SPI
-  stream = dma1.CreateStream(Dma::Channel::Ch4, Dma::Request::Tim5Ch4);
-  stream.Configure(Dma::Mode::Circular, Dma::Increment::No, Dma::Increment::No,
-                   Dma::TransferSize::Word);
-  stream.Start(&kSpiDisable, (const uint32_t*)(&(ll_port_->CR1)), 1);
 }
 
 }  // namespace stm32g4

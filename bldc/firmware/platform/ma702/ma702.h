@@ -27,7 +27,7 @@ class Ma702 {
 
   uint16_t BlockingReadRegister(Register reg);
   uint16_t Update();
-  uint16_t Angle() { return angle_; }
+  inline uint16_t Angle() { return angle_ >> 4; }
 
   void AutoPoll(stm32g4::Dma::Stream& command_stream,
                 stm32g4::Dma::Stream& angle_stream);

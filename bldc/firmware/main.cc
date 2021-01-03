@@ -8,11 +8,19 @@ int main() {
   auto* platform = BldcPlatform::Instance();
   platform->Startup();
 
-  uint32_t asdf = 0;
+  uint32_t angle = 0;
 
   while (true) {
     asm("nop");
-    asdf = kSpiReceive;
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    asm("nop");
+    angle = platform->Angle();
     // platform->BlockingWait(1e6);
     // platform->Fatal();
   }

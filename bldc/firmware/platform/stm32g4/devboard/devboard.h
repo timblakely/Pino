@@ -15,6 +15,8 @@ class Devboard : public G4Platform {
   Devboard();
   virtual void Init() override;
 
+  virtual uint16_t Angle() override;
+
  protected:
  private:
   void OnFatal();
