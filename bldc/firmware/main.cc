@@ -22,6 +22,6 @@ int main() {
     asm("nop");
     angle = platform->Angle();
     // platform->BlockingWait(1e6);
-    // platform->Fatal();
+    platform->Fatal();
   }
 }

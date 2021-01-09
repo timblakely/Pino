@@ -61,13 +61,9 @@ void Devboard::Init() {
 
   Tim5 tim5;
   tim5.Enable();
-  // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
   tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
   tim5.EnableChannel(Tim5::Channel::Ch1, 1UL);
   tim5.EnableChannel(Tim5::Channel::Ch4, 2048UL + 128 * 1);
-  // tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 340000000, 0);
-  // tim5.EnableChannel(Tim5::Channel::Ch1, 170000000UL);
-  // tim5.EnableChannelIRQ(Tim5::Channel::Ch1);
   tim5.EnableChannelDMA(Tim5::Channel::Ch1);
   tim5.EnableChannelDMA(Tim5::Channel::Ch4);
   Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
@@ -80,15 +76,18 @@ void Devboard::Init() {
   blue_->On();
 }
 
+void Devboard::InitializeTimers() {
+  // Tim3 is LED blinker, but nothing to do for now.
+}
+
 uint16_t Devboard::Angle() { return ma702_.Angle(); }
 
 void Devboard::OnFatal() {
   drv_.Disable();
   blue_->Off();
-  Tim3 timer;
-  timer.Configure();
-  timer.EnableOutput(Tim3::Channel::Ch4);
-  timer.Start();
+  tim3.Configure();
+  tim3.EnableOutput(Tim3::Channel::Ch4);
+  tim3.Start();
   green_->Blink();
   // blue_->On();
   while (true) asm("nop");
