@@ -4,6 +4,7 @@
 #include "bldc/firmware/platform/drv8323rs/drv8323rs.h"
 #include "bldc/firmware/platform/ma702/ma702.h"
 #include "bldc/firmware/platform/stm32g4/g4_platform.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/spi.h"
 #include "bldc/firmware/stm32g474/led.h"
 
@@ -31,6 +32,7 @@ class Devboard : public G4Platform {
   ma702::Ma702 ma702_;
   Spi spi3_;
   drv8323rs::Drv drv_;
+  Can can_;
 };
 
 }  // namespace stm32g4
