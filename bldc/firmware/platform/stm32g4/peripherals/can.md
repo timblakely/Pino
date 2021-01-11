@@ -165,6 +165,8 @@
   - No more message written until at least one has been read, and the Rx FIFO
     Get Index has been incremented
   - If another message comes in while full, it's dropped and `IR[RFnL]` (Lost?)
+- When reading, Rx FIFO Get `RXFnS[FnGI]` + FIFO Element Size has to be added to
+  the corresponding Rx FIFO start address `[FnSA]`
 - Blocking mode
   - Default mode `RXGFC.FnOM=0`
   - Blocks (drops) until message read out and Get Index
@@ -202,4 +204,25 @@
   
 # Tx FIFO
 
-- 
+- Configured by programming `TXBC[TFQM]` to 0
+- Messages transmitted starting with message referenced by Get Index
+  `TXFQS[TFGI]` 
+  - After each transmission, Get is incremented cyclically until Tx FIFO empty
+- Can enable transmission of message with same Message ID from different Tx
+  buffers
+  - In order they're written to TxFIFO
+- Tx FIFO Free Level `TXFQS[TFFL]`
+  - Difference between put and get
+- Messages need to be written to appropriate Put index `TXFQS[TFQPI]`
+  - Add Request increments Put 
+  - If Put == Get, FIFO FULL `TXFQS[TFQF]=1`
+- Transmit requested by writing `TXBAR`
+  - For one message, write 1
+  - For n messages, write n
+    - Can't be higher than number of free buffers `TXFQS[TFFL]`
+- When transmission referenced by Get is canceled, Get incremented 
+  - Any others, Get and FIFO Free unchanged
+- Tx allocates eighteen 32-bit words in MRAM
+  - Start address of the next (free) TxFIFO is 4x Put `TXFQS[TFQPI](0...2)` to
+    the Tx buffer Start addrress `TBSA`
+
