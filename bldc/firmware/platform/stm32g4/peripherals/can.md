@@ -223,6 +223,46 @@
 - When transmission referenced by Get is canceled, Get incremented 
   - Any others, Get and FIFO Free unchanged
 - Tx allocates eighteen 32-bit words in MRAM
-  - Start address of the next (free) TxFIFO is 4x Put `TXFQS[TFQPI](0...2)` to
+  - Start address of the next (free) TxFIFO is 4* Put `TXFQS[TFQPI](0...2)` to
     the Tx buffer Start addrress `TBSA`
 
+# Tx Queue
+
+- Configuration by programming `TXBC[TFQM]=1`
+  - Queue operates by transmitting starting with the message with the lowest
+    Message ID (highest priority)
+  - Alternative to FIFO
+  - When mixing standard and extended, bits `28:18` of extended are used
+  - For multiple of the same, lowest idx is transmitted first
+- New messages written to Put `TXFQS[TFQPI]
+  - Add Request cyclically increments Put to next free Tx buffer
+  - On queue full `TXFQS[TFQF]=1`, Put is not valid
+    - No writes can be done
+  - Can use register `TXBRP` instead of Put to place messages into any Tx buffer
+  - Eighteen 32-bit words in MRAM
+  - Start address of next available (free) Tx buffer is 4*Put
+    `TXFQS[TFQPI](0...2)` to TxBuffer Start Address `TBSA`
+
+# Transmit cancel
+
+- Write 1 to corresponding buffer idx of `TXBCR`
+  - Not inteded for Tx FIFO operation
+  - Cancel confirmed by `TXBCF`
+- Canceling in-flight
+  - `TXBRP` stays set while in progress
+  - If _transmit_ successful, `TXBTO` and `TXBCF` are set
+  - If _transmit_ not successful, not repeated and only `TXBCF` are set
+
+# Tx event handling
+
+- Event FIFO
+  - Message ID and timestamp are stored in Tx event FIFO
+  - Message Marker from transmitted tx buffer is copied into the corresponding
+    Tx event FIFO element 
+- Three elements
+- Decouple handling of transmit status from transmit message handling
+  - Transmit status stored separately
+- Event full at `IR[TEFF]`
+  - Get needs to be incremented
+  - On attempted update while full `IR[TEFL]` is set
+- Reading needs 2xGet `TXEFS[EFGI]` to `EFSA`
