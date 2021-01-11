@@ -20,10 +20,10 @@
       TEST.LBCK |   0    |     0      |     0      |    1     |    1
       CCCR.ASM  |   0    |     1      |     0      |    0     |    0
   - NOTE: Writing to TEST requires enabling TEST in CCCR
-  Set bit timing FDCAN_NBTP_*
-  If data bit timining is needed, set FDCAN_DBTP_*
-  Set FIFO queue via TXBC
-  Calculate FDCAN RAM configuration
+  - Set bit timing FDCAN_NBTP_*
+  - If data bit timining is needed, set FDCAN_DBTP_*
+  - Set FIFO queue via TXBC
+  - Calculate FDCAN RAM configuration
   - TODO(timmay): Do these have to be aligned?
   - Total: 3k, shared between all three FDCAN periphs
     - Can do 1k/1k/1k, 2k/512/512, etc
