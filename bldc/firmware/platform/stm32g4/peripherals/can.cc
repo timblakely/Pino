@@ -5,8 +5,6 @@
 namespace platform {
 namespace stm32g4 {
 
-using internal::CanInstance;
-
 Can::Can(Can::Instance instance)
     : can_(reinterpret_cast<CanInstance*>(instance)) {}
 
@@ -18,11 +16,6 @@ void Can::Init() {
   // Controlled by FDCAN_NBTP.NBRP, FDCAN_NBTP.NTSEG1, and FDCAN_NBTP.NTSEG2
 
   // TODO(blakely): Do we need to read FDCAN_ENDN?
-  uint32_t add = reinterpret_cast<uint32_t>(&(can_->ENDN));
-  add -= reinterpret_cast<uint32_t>(can_);
-  uint32_t endianness = can_->ENDN.EVT;
-  int i = 0;
-  ++i;
 }
 
 }  // namespace stm32g4
