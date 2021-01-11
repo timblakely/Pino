@@ -191,6 +191,7 @@ class Can {
   struct CanInstance {
     // Core release
     registers::CREL CREL;
+    uint32_t r1;  // Reserved
     // Endian
     registers::ENDN ENDN;
     // Data bit timing and prescalar
