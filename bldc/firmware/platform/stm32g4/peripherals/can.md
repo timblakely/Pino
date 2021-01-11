@@ -124,30 +124,30 @@
   - Filter configurable for acceptance or rejection
   - Enabled individually
   Relevant registers:
-  - Global: RXGFC
-  - Extended ID AND Mask (XIDAM)
-  Filter configuration (SFEC/EFEC) triggers one of the following
+  - Global: `RXGFC`
+  - Extended ID AND Mask (`XIDAM`)
+  Filter configuration (`SFEC`/`EFEC`) triggers one of the following
   - Store in F0 or F1
   - Reject
-  - Set high priority IR[HPM]
-  - Set high priority IR[HPM] and store in F0 or F1
+  - Set high priority `IR[HPM`]
+  - Set high priority `IR[HPM]` and store in F0 or F1
   Acceptance triggers immediately on identifier complete
   - Starts writing received signal directly in Fn if match
     - 32 bit writes at a time
   - On CRC error, writing is stopped/discarded
     - Put index is not updated
       - Old Rx FIFO Put index is overwritten with received data
-    - For error type check PSR.LEC and PSR.DLEC
+    - For error type check `PSR.LEC` and `PSR.DLEC`
     - FIFO Overwrite mode, has to be considered, if enabled
   Range filter
-  - Message ID determined by SF1ID/SF2ID and EF1ID/EF2ID
-    - MessageID in [SF1ID, SF2ID] for standard
-    - MessageID in [EF1ID, EF2ID] if EFT=00
-    - MessageID & XIDAM[EIDN] in [EF1ID, EF2ID] if EFT=11
+  - Message ID determined by `SF1ID`/`SF2ID` and `EF1ID`/`EF2ID`
+    - MessageID in [`SF1ID`, `SF2ID`] for standard
+    - MessageID in [`EF1ID`, `EF2ID`] if EFT=00
+    - MessageID & `XIDAM[EIDN]` in [`EF1ID`, `EF2ID`] if EFT=11
   - Two possibilities when using extended frames
-    - EFT=00: message ID of _received_ frame is AND-ed with XIDAM before filter
+    - `EFT=00`: message ID of _received_ frame is AND-ed with XIDAM before filter
       is applied
-    - EFT=11: XIDAM not used
+    - `EFT=11`: XIDAM not used
   Dedicated IDs
   - For specific message, filter must set xFID1=xFID2
   Classic bit mask
@@ -161,9 +161,45 @@
 # Rx FIFOs
 
 - FIFO 0 and FIFO1 can hold up to three elements each
-- RX FIFO full condition IR[RFnF]
+- RX FIFO full condition `IR[RFnF]`
   - No more message written until at least one has been read, and the Rx FIFO
     Get Index has been incremented
-  - If another message comes in while full, it's dropped and IR[RFnL] (Lost?)
+  - If another message comes in while full, it's dropped and `IR[RFnL]` (Lost?)
 - Blocking mode
-  - RXGFC.FnOM
+  - Default mode `RXGFC.FnOM=0`
+  - Blocks (drops) until message read out and Get Index
+  - Full signal `RXFnS.FnF`=1 
+    - Interrupt `IR.RFnF` is set
+- Overwrite mode
+  - RXGFC.FnOM=1
+  - Same fulil signal
+  - Next message is written, both put and get are incremented by one
+    - Message obviously lost
+  - If full, reading must start at get index + 1
+    - A received message can start to be written at Put while cpu is reading
+      from Get
+  - After reading from Rx FIFO, number of last element read has to be written to
+    Fifo Acknowledge Index `RXFnA.FnA`
+    - Increments the get index to that element number.
+    - Can trigger Full condition `RXFnS.FnF` if Get=Put
+
+# Tx handling
+
+- Controls Put, Get, Event FIFO
+- Up to three TxBuffers can be set up
+- Message data field is configured to 64 bytes, Tx FIFO allocates eighteen 32
+  bit words per Tx element
+- ![](images/2021-01-11-13-12-34.png)
+- Handler starts Tx scan for highest priority pending Tx request (lowest ID)
+  - When Tx buffer Request Pending is updated `TXBRP`
+  - Or when a transmission has been startd
+- Transmit pause
+  - Useful when IDs are permanent
+  - `TXP` bit in `CCCR`
+  - Pauses for two can bit times before starting next transmission
+    - Allows hardcoded lower priority message to go through
+  - Mitigates "babbling idiot" scenarios
+  
+# Tx FIFO
+
+- 
