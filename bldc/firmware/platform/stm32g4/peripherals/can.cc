@@ -111,8 +111,72 @@ void Can::Init() {
     - I think it's part of the Bosch M_CAN controller. Not sure why it's
       referenced in ST's documentation...?
     - Guessing it's related to the data rate register
-
+  - Oof. 22.2 uA/MHz. Think about lowering the clock by using PLLQ/8 (4?)
+  - Look into DBTP.TDC: transmitter delay compensation
+  - Restricted mode is receive-only, and does not do dominant bits in error or
+    overload conditions.
+    - Restricted mode is entered when TxHandler was not able to read data from
+      the message RAM in time.
+    - To clear, must reset CCCR.ASM
+  - Can disable automatic retransmission (DAR)
+  - Messages can be timestamped
+    - Timer is prescaled TSSC.TCP
+      - Multiples of CAN bit times, NOT clock cycles!
+    - Read via RXTS or TXTS
   */
+
+  /*
+  Message SRAM
+  - 212 words, addressable at 32-bit words (NOT bytes)
+    - i.e. only bits 15-2 are evaluated (first two are ignored)
+  - Consecutive in memory
+    - FDCAN2 = final address of FDCAN1 + 4
+  */
+
+  /*
+  Acceptance filters
+  - Two sets: one for standard, one for extended
+    - Individually assigned to Rx FIFO0 and/or RxFIFO1
+  - Filters applied in order (from element 0)
+    - Early exit criteria for matches
+  - Filter has three types:
+    - Range fileter (from-to)
+    - Filter for one or two dedicated IDs
+    - Classic bit mask filter
+  - Filter configurable for acceptance or rejection
+  - Enabled individually
+  Relevant registers:
+  - Global: RXGFC
+  - Extended ID AND Mask (XIDAM)
+  Filter configuration (SFEC/EFEC) triggers one of the following
+  - Store in F0 or F1
+  - Reject
+  - Set high priority IR[HPM]
+  - Set high priority IR[HPM] and store in F0 or F1
+  Acceptance triggers immediately on identifier complete
+  - Starts writing received signal directly in Fx if match
+    - 32 bit writes at a time
+  - On CRC error, writing is stopped/discarded
+    - Put index is not updated
+      - Old Rx FIFO Put index is overwritten with received data
+    - For error type check PSR.LEC and PSR.DLEC
+    - FIFO Overwrite mode, has to be considered, if enabled
+  Range filter
+  - Message ID determined by SF1ID/SF2ID and EF1ID/EF2ID
+    - MessageID in [SF1ID, SF2ID] for standard
+    - MessageID in [EF1ID, EF2ID] if EFT=00
+    - MessageID & XIDAM[EIDN] in [EF1ID, EF2ID] if EFT=11
+  - Two possibilities when using extended frames
+    - EFT=00: message ID of _received_ frame is AND-ed with XIDAM before filter
+      is applied
+    - EFT=11: XIDAM not used
+  Dedicated IDs
+  - For specific message, filter must set xFID1=xFID2
+  Classic bit mask
+  - Single bit masking; akin to Range filtering with XIDAM but single messages
+    (no range)
+  - xF1ID is used as Message ID filter, while xF2ID is used as filter mask
+ */
 }
 
 }  // namespace stm32g4
