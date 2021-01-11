@@ -266,3 +266,20 @@
   - Get needs to be incremented
   - On attempted update while full `IR[TEFL]` is set
 - Reading needs 2xGet `TXEFS[EFGI]` to `EFSA`
+
+# FIFO Ack
+
+- Gets of Rx F1, Rx F2, Tx Event are controlled by writing to the corresponding
+  FIFO Ack Index
+  - Rx FIFOn at `FDCAN_RXFnA`
+  - Tx Event at `FDCAN_TXEFA`
+- Writing Ack Index sets Get to FIFO Ack Index + 1
+  - Updates FIFO Fill Level
+  - When only a single element has been read from FIFO, Get is written to FIFO Ack
+  - When multiple, only need to write once at end of read sequence
+- Generally bad to read from non-Get
+  - CPU has free access to MRAM memory
+  - Can collide. Better to read/copy Get index only
+  - Can be done to read High Priority message
+    - If done, _don't write Ack index_
+- No checking of Ack done by periph
