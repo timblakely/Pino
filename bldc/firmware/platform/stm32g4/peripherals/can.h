@@ -67,6 +67,117 @@ struct CanInstance {
   };
   // Test mode. Must be enabled by setting bit `CCCR[TEST]` to 1.
   TESTRegister TEST;
+
+  struct RWDRegister {
+    uint8_t WDC : 8;
+    uint8_t WDV : 8;
+  };
+  // RAM watchdog
+  RWDRegister RWD;
+
+  struct CCCRRegister {
+    enum class InitMode : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class ConfigMode : uint8_t {
+      ReadOnly = 0b0U,
+      ReadWrite = 0b1U,
+    };
+
+    enum class RestrictedMode : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class ClockStopAck : uint8_t {
+      NoAck = 0b0U,
+      Ack = 0b1U,
+    };
+
+    enum class ClockStopRequest : uint8_t {
+      No = 0b0U,
+      Yes = 0b1U,
+    };
+
+    enum class BusMonitoringMode : uint8_t {
+      Normal = 0b0U,
+      Monitoring = 0b1U,
+    };
+
+    enum class AutomaticRetransmission : uint8_t {
+      Enabled = 0b0U,
+      Disabled = 0b1U,
+    };
+
+    enum class TestMode : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class FDMode : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class FDBitrateSwitching : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class ProtocolExceptionHandling : uint8_t {
+      Enabled = 0b0U,
+      Disabled = 0b1U,
+    };
+
+    enum class EdgeFiltering : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class TransmitPause : uint8_t {
+      Disabled = 0b0U,
+      Enabled = 0b1U,
+    };
+
+    enum class ISOMode : uint8_t {
+      ISO11898_1 = 0b0U,
+      Bosch = 0b1U,
+    };
+
+    // Initialization
+    InitMode INIT : 1;
+    // Configuration change enable
+    ConfigMode CCE : 1;
+    // ASM restricted operation mode
+    RestrictedMode ASM : 1;
+    // Clock stop acknowledge
+    ClockStopAck CSA : 1;
+    // Clock stop request
+    ClockStopRequest CSR : 1;
+    // Bus monitoring mode
+    BusMonitoringMode MON : 1;
+    // Disable automatic retransmission
+    AutomaticRetransmission DAR : 1;
+    // Test mode
+    TestMode TEST : 1;
+    // FD mode
+    FDMode FDOE : 1;
+    // FD bit rate switching
+    FDBitrateSwitching BSRE : 1;
+    unsigned : 2;  // Reserved
+    // Protocol exception handling
+    ProtocolExceptionHandling PXHD : 1;
+    // Edge filtering during bus integration
+    EdgeFiltering EFBI : 1;
+    // Pause before starting next transmission
+    TransmitPause TXP : 1;
+    // Non-ISO mode
+    ISOMode NISO : 1;
+  };
+  // CC control.
+  CCCRRegister CCCR;
 };
 
 }  // namespace internal
