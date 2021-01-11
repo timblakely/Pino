@@ -283,3 +283,46 @@
   - Can be done to read High Priority message
     - If done, _don't write Ack index_
 - No checking of Ack done by periph
+
+# Rx FIFO memory layout
+
+- Up to three received messages
+  - Rx element size is fixed (?) at 64 bytes
+- ![](images/2021-01-11-14-00-58.png)
+- ![](images/2021-01-11-14-02-25.png)
+- ![](images/2021-01-11-14-02-38.png)
+
+# Tx FIFO memory layout
+
+- Three elements
+  - Tx FIFO **OR** queue
+    - Configured by `FDCAN_TXBC.TFQM`
+  - Configurable **up to** 64 bytes
+- ![](images/2021-01-11-14-05-05.png)
+- ![](images/2021-01-11-14-05-16.png)
+- ![](images/2021-01-11-14-05-28.png)
+- ![](images/2021-01-11-14-05-53.png)
+
+# Tx event FIFO memory layout
+
+- Info about messages in order transmitted
+  - Info about the event FIFO as a whole is available in status reg `TXEFS`
+- ![](images/2021-01-11-14-07-27.png)
+- ![](images/2021-01-11-14-07-37.png)
+- ![](images/2021-01-11-14-07-50.png)
+
+# Standard message filter memory layout
+
+- Up to 28 filter elements
+  - Addressable by `FLSSA` plus index of filter element (0-27)
+  - Note: If `reserved` is configured, element is disabled
+- ![](images/2021-01-11-14-09-05.png)
+- ![](images/2021-01-11-14-09-15.png)
+- ![](images/2021-01-11-14-09-27.png)
+  
+# FDCAN Extended Message filter memory layout
+
+- Up to 8 filters for 29-bit extended IDs
+  - Located at `FLESA` + 2x index (0-7)
+- ![](images/2021-01-11-14-10-41.png)
+- ![](images/2021-01-11-14-10-50.png)
