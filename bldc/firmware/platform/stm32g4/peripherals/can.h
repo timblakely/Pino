@@ -7,7 +7,6 @@ namespace stm32g4 {
 namespace internal {
 
 struct CanInstance {
-  // Core release register
   struct CRELRegister {
     uint8_t DAY : 8;
     uint8_t MON : 8;
@@ -16,7 +15,15 @@ struct CanInstance {
     uint8_t STEP : 4;
     uint8_t REL : 4;
   };
-  CRELRegister *CREL;
+  // Core release register
+  CRELRegister CREL;
+
+  // Endian register
+  struct ENDNRegister {
+    uint32_t EVT;
+    operator uint32_t() { return reinterpret_cast<uint32_t>(EVT); }
+  };
+  ENDNRegister ENDN;
 
   // DO NOT USE CURRENTLY BROKEN HACKHACKHACK
   struct DBTPRegister {
@@ -33,7 +40,7 @@ struct CanInstance {
     TransceiverDelayCompensation TDC : 1;
   };
 
-  DBTPRegister *DBTP;
+  DBTPRegister DBTP;
 };
 
 }  // namespace internal

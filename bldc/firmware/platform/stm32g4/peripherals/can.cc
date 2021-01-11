@@ -18,6 +18,9 @@ void Can::Init() {
   // Controlled by FDCAN_NBTP.NBRP, FDCAN_NBTP.NTSEG1, and FDCAN_NBTP.NTSEG2
 
   // TODO(blakely): Do we need to read FDCAN_ENDN?
+  uint32_t add = reinterpret_cast<uint32_t>(&(can_->ENDN));
+  add -= reinterpret_cast<uint32_t>(can_);
+  uint32_t endianness = can_->ENDN.EVT;
   int i = 0;
   ++i;
 }
