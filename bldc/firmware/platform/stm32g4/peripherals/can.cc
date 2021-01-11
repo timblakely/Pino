@@ -41,8 +41,10 @@ void Can::Init() {
   Set bit timing FDCAN_NBTP_*
   If data bit timining is needed, set FDCAN_DBTP_*
   Set FIFO queue via TXBC
-  Calculate FDCAN RAM configuration (I think it's 1k?)
+  Calculate FDCAN RAM configuration
   - TODO(timmay): Do these have to be aligned?
+  - Total: 3k, shared between all three FDCAN periphs
+    - Can do 1k/1k/1k, 2k/512/512, etc
   - Starting location based on CAN1/2/3 as CAN_SRAM_START + (ID-1)*CAN_SRAM_SIZE
   - Number of filter elements RXGFC and FDCAN_RXGFC_LSS
   - Extended filter elements RXGFC and FDCAN_RXGFC_LSE
@@ -95,6 +97,22 @@ void Can::Init() {
   */
 
   // Some solid info on protocol error handling on P1951
+
+  /*
+  Other notes:
+  - FDF and BRS bits in CAN frame are ignored if FDOE is set to 0
+    - BRSE - Enable bit rate switching, only enabled if FDOE is set
+  - DLC codes 0-8 indicate length of data in standard CAN
+    - DLC codes 9-15 have different meaning in FDCAN
+    - Not uniform, 9-15 are 12,16,20,24,32,48, and 64 respectively
+  - Bit rate switching in Fast Frames is controlled by timing/prescalar bits in
+    FBTP
+    - Not actually a register...?
+    - I think it's part of the Bosch M_CAN controller. Not sure why it's
+      referenced in ST's documentation...?
+    - Guessing it's related to the data rate register
+
+  */
 }
 
 }  // namespace stm32g4
