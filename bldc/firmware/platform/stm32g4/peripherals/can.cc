@@ -5,7 +5,10 @@
 namespace platform {
 namespace stm32g4 {
 
-Can::Can() {}
+using internal::CanInstance;
+
+Can::Can(Can::Instance instance)
+    : can_(reinterpret_cast<CanInstance*>(instance)) {}
 
 void Can::Init() {
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_FDCAN);

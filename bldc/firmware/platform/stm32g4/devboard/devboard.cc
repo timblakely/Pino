@@ -24,7 +24,8 @@ Devboard::Devboard()
       ma702_(&spi1_),
       spi3_({Gpio::Port::A, 15}, {Gpio::Port::C, 10}, {Gpio::Port::B, 5},
             {Gpio::Port::C, 11}),
-      drv_({Gpio::Port::C, 6}, &spi3_) {}
+      drv_({Gpio::Port::C, 6}, &spi3_),
+      can_(Can::Instance::Fdcan1) {}
 
 void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
