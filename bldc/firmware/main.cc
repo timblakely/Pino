@@ -20,8 +20,8 @@ int main() {
     asm("nop");
     asm("nop");
     asm("nop");
-    angle = platform->Angle();
+    // angle = platform->Angle();
     // platform->BlockingWait(1e6);
-    platform->Fatal();
+    // platform->Fatal();
   }
 }

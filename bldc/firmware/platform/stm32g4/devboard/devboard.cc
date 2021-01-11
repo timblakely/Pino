@@ -74,6 +74,8 @@ void Devboard::Init() {
   });
   tim5.Start();
 
+  can_.Init();
+
   blue_->On();
 }
 

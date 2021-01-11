@@ -18,6 +18,8 @@ void Can::Init() {
   // Controlled by FDCAN_NBTP.NBRP, FDCAN_NBTP.NTSEG1, and FDCAN_NBTP.NTSEG2
 
   // TODO(blakely): Do we need to read FDCAN_ENDN?
+  int i = 0;
+  ++i;
 }
 
 }  // namespace stm32g4
