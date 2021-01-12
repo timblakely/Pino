@@ -13,12 +13,12 @@
   - frame format FDCAN_FRAME_FD_BRS
   - test mode FDCAN_CCCR_TEST | FDCAN_CCCR_MON | FDCAN_CCCR_ASM
   - loopback FDCAN_TEST_LBCK
-                | Normal | Restricted |    Bus     | Internal | External
-                |        | Operation  | Monitoring | LoopBack | LoopBack
-      CCCR.TEST |   0    |     0      |     0      |    1     |    1
-      CCCR.MON  |   0    |     0      |     1      |    1     |    0
-      TEST.LBCK |   0    |     0      |     0      |    1     |    1
-      CCCR.ASM  |   0    |     1      |     0      |    0     |    0
+      |          | Normal | Restricted  | Bus Monitoring | Int LoopBack | Ext LoopBack|
+      |----------|--------|------------|------------|----------|---------|
+      |CCCR.TEST |   0    |     0      |     0      |    1     |    1    |
+      |CCCR.MON  |   0    |     0      |     1      |    1     |    0    |
+      |TEST.LBCK |   0    |     0      |     0      |    1     |    1    |
+      |CCCR.ASM  |   0    |     1      |     0      |    0     |    0    |
   - NOTE: Writing to TEST requires enabling TEST in CCCR
   - Set bit timing FDCAN_NBTP_*
   - If data bit timining is needed, set FDCAN_DBTP_*
@@ -109,8 +109,7 @@
     - i.e. only bits 15-2 are evaluated (first two are ignored)
   - Consecutive in memory
     - FDCAN2 = final address of FDCAN1 + 4
-
-![](images/2021-01-11-12-58-08.png)
+  - ![](images/2021-01-11-12-58-08.png)
 
   # Acceptance filters
   - Two sets: one for standard, one for extended
@@ -326,3 +325,28 @@
   - Located at `FLESA` + 2x index (0-7)
 - ![](images/2021-01-11-14-10-41.png)
 - ![](images/2021-01-11-14-10-50.png)
+
+# Bit timing
+
+![](images/2021-01-11-15-59-42.png)
+
+Python code to do bit timing:
+
+```f_clk = 170000000
+NBRP = 6
+NTSEG1 = 11
+NTSEG2 = 10
+
+tq = (NBRP + 1) * 1/f_clk
+print(f'tq = {tq*1e9} ns')
+t_sync = 1 * tq
+print(f't_sync = {t_sync*1e9} ns')
+bs1 = tq * (NTSEG1 + 1)
+print(f'bs1 = {bs1*1e6} us')
+bs2 = tq * (NTSEG2 + 1)
+print(f'bs2 = {bs2*1e6} us')
+bit_time = t_sync + bs1 + bs2
+print(f'bit_time = {bit_time*1e6} us')
+baud = 1 / bit_time
+print(f'baud = {int(baud):,}')
+```
