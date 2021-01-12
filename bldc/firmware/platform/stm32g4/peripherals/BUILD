@@ -9,6 +9,7 @@ cc_library(
     srcs = ["can.cc"],
     hdrs = ["can.h"],
     deps = [
+        ":gpio_defines",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )

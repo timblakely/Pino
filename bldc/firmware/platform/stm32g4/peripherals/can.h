@@ -1,6 +1,8 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_H_
 
+#include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+
 namespace platform {
 namespace stm32g4 {
 
@@ -32,9 +34,11 @@ struct DBTP {
   uint8_t DSJW : 4;
   uint8_t DTSEG2 : 4;
   uint8_t DTSEG1 : 5;
-  unsigned : 3;  // Reserved
+  // Reserved
+  unsigned : 3;
   uint8_t DBRP : 5;
-  unsigned : 2;  // Reserved
+  // Reserved
+  unsigned : 2;
   TransceiverDelayCompensation TDC : 1;
 };
 
@@ -57,7 +61,8 @@ struct TEST {
     Recessive = 0b1U,
   };
 
-  unsigned : 4;  // Reserved
+  // Reserved
+  unsigned : 4;
   LoopbackMode LBCK : 1;
   TransmitPin TX : 2;
   ReceivePin RX : 1;
@@ -71,105 +76,126 @@ struct RWD {
 
 // CC control.
 struct CCCR {
-  enum class InitMode : uint8_t {
+  enum class InitMode : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class ConfigMode : uint8_t {
+  enum class ConfigMode : bool {
     ReadOnly = 0b0U,
     ReadWrite = 0b1U,
   };
 
-  enum class RestrictedMode : uint8_t {
+  enum class RestrictedMode : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class ClockStopAck : uint8_t {
+  enum class ClockStopAck : bool {
     NoAck = 0b0U,
     Ack = 0b1U,
   };
 
-  enum class ClockStopRequest : uint8_t {
+  enum class ClockStopRequest : bool {
     No = 0b0U,
     Yes = 0b1U,
   };
 
-  enum class BusMonitoringMode : uint8_t {
+  enum class BusMonitoringMode : bool {
     Normal = 0b0U,
     Monitoring = 0b1U,
   };
 
-  enum class AutomaticRetransmission : uint8_t {
+  enum class AutomaticRetransmission : bool {
     Enabled = 0b0U,
     Disabled = 0b1U,
   };
 
-  enum class TestMode : uint8_t {
+  enum class TestMode : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class FDMode : uint8_t {
+  enum class FDMode : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class FDBitrateSwitching : uint8_t {
+  enum class FDBitrateSwitching : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class ProtocolExceptionHandling : uint8_t {
+  enum class ProtocolExceptionHandling : bool {
     Enabled = 0b0U,
     Disabled = 0b1U,
   };
 
-  enum class EdgeFiltering : uint8_t {
+  enum class EdgeFiltering : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class TransmitPause : uint8_t {
+  enum class TransmitPause : bool {
     Disabled = 0b0U,
     Enabled = 0b1U,
   };
 
-  enum class ISOMode : uint8_t {
+  enum class ISOMode : bool {
     ISO11898_1 = 0b0U,
     Bosch = 0b1U,
   };
 
-  // Initialization
-  InitMode INIT : 1;
-  // Configuration change enable
-  ConfigMode CCE : 1;
-  // ASM restricted operation mode
-  RestrictedMode ASM : 1;
-  // Clock stop acknowledge
-  ClockStopAck CSA : 1;
-  // Clock stop request
-  ClockStopRequest CSR : 1;
-  // Bus monitoring mode
-  BusMonitoringMode MON : 1;
-  // Disable automatic retransmission
-  AutomaticRetransmission DAR : 1;
-  // Test mode
-  TestMode TEST : 1;
-  // FD mode
-  FDMode FDOE : 1;
-  // FD bit rate switching
-  FDBitrateSwitching BSRE : 1;
-  unsigned : 2;  // Reserved
-  // Protocol exception handling
-  ProtocolExceptionHandling PXHD : 1;
-  // Edge filtering during bus integration
-  EdgeFiltering EFBI : 1;
-  // Pause before starting next transmission
-  TransmitPause TXP : 1;
-  // Non-ISO mode
-  ISOMode NISO : 1;
+  union {
+    struct {
+      // Initialization
+      InitMode INIT : 1;
+      // Configuration change enable
+      ConfigMode CCE : 1;
+      // ASM restricted operation mode
+      RestrictedMode ASM : 1;
+      // Clock stop acknowledge
+      ClockStopAck CSA : 1;
+      // Clock stop request
+      ClockStopRequest CSR : 1;
+      // Bus monitoring mode
+      BusMonitoringMode MON : 1;
+      // Disable automatic retransmission
+      // AutomaticRetransmission DAR : 1;
+      bool DAR : 1;
+      // Test mode
+      TestMode TEST : 1;
+      // FD mode
+      FDMode FDOE : 1;
+      // FD bit rate switching
+      FDBitrateSwitching BSRE : 1;
+      // Reserved
+      unsigned : 2;
+      // Protocol exception handling
+      ProtocolExceptionHandling PXHD : 1;
+      // Edge filtering during bus integration
+      EdgeFiltering EFBI : 1;
+      // Pause before starting next transmission
+      TransmitPause TXP : 1;
+      // Non-ISO mode
+      ISOMode NISO : 1;
+    };
+    uint32_t storage_;
+  };
+};
+
+// Nominal bit timing and prescalar
+struct NBTP {
+  // Nominal time segment after sample point.
+  uint8_t NTSEG2 : 7;
+  // Reserved
+  unsigned : 1;
+  // Nominal time before sample point
+  uint8_t NTSEG1 : 8;
+  // Bit rate prescalar
+  uint16_t NBRP : 9;
+  // Nominal resynchronization jump width
+  uint8_t NSJW : 7;
 };
 
 }  // namespace registers
@@ -183,11 +209,13 @@ class Can {
     Fdcan3 = 0x40006C00UL,
   };
 
-  Can(Can::Instance instance);
+  Can(Gpio::Pin tx, Gpio::Pin rx);
 
-  void Init();
+  void Init(Can::Instance instance);
 
  private:
+  inline void ConfigureMRAM();
+
   struct CanInstance {
     // Core release
     registers::CREL CREL;
@@ -202,9 +230,16 @@ class Can {
     registers::RWD RWD;
     // CC control.
     registers::CCCR CCCR;
+    // Nominal bit timing and prescalar
+    registers::NBTP NBTP;
   };
 
-  CanInstance *can_;
+  CanInstance* can_;
+
+  Gpio::Pin tx_;
+  Gpio::Pin rx_;
+
+  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
 };
 
 }  // namespace stm32g4

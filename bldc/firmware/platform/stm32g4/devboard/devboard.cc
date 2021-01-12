@@ -25,7 +25,7 @@ Devboard::Devboard()
       spi3_({Gpio::Port::A, 15}, {Gpio::Port::C, 10}, {Gpio::Port::B, 5},
             {Gpio::Port::C, 11}),
       drv_({Gpio::Port::C, 6}, &spi3_),
-      can_(Can::Instance::Fdcan1) {}
+      can_({Gpio::Port::A, 12}, {Gpio::Port::A, 11}) {}
 
 void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
@@ -74,7 +74,7 @@ void Devboard::Init() {
   });
   tim5.Start();
 
-  can_.Init();
+  can_.Init(Can::Instance::Fdcan1);
 
   blue_->On();
 }
