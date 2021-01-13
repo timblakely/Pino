@@ -6,10 +6,14 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "can",
-    srcs = ["can.cc"],
+    srcs = [
+        "can.cc",
+        "can_registers.inl",
+    ],
     hdrs = ["can.h"],
     deps = [
         ":gpio_defines",
+        "//third_party/etl:biffield",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )

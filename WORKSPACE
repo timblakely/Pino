@@ -18,6 +18,8 @@ http_archive(
     urls = ["https://github.com/ARM-software/CMSIS_5/archive/5.7.0.zip"],
 )
 
+""
+
 local_repository(
     name = "arm_gcc",
     path = "/home/tim/git/stm32g4/arm_gcc",
@@ -52,6 +54,18 @@ new_git_repository(
     commit = "756ff2e049bd57d75f3bf869240e641095575b80",
     remote = "https://github.com/mapbox/eternal",
     shallow_since = "1603709757 +0200",
+)
+
+new_git_repository(
+    name = "etl",
+    build_file = "//third_party/etl:repo.BUILD",
+    commit = "2d00ac79ec13632e6c10df11f4623938cfdc2dd4",
+    patch_cmds = [
+        "rm biffield/BUILD",
+        "find ./ -type f -exec sed -i 's|#include \"etl|#include \"third_party/etl|g' {} \\;",
+    ],
+    remote = "https://github.com/cbiffle/etl",
+    shallow_since = "1464883496 -0700",
 )
 
 http_archive(
