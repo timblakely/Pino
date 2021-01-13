@@ -159,8 +159,108 @@ ETL_BFF_REG_RO(uint32_t, PSR,
   )
 )
 
-ETL_BFF_REG_RW(uint32_t, name,
+ETL_BFF_REG_RW(uint32_t, TDCR,
+  ETL_BFF_FIELD(14:8, uint8_t, TDCO)
+  ETL_BFF_FIELD(6:0, uint8_t, TDCF)
+)
+
+ETL_BFF_REG_RW(uint32_t, IR,
+  ETL_BFF_FIELD(23:23, bool, ARA)
+  ETL_BFF_FIELD(22:22, bool, PED)
+  ETL_BFF_FIELD(21:21, bool, PEA)
+  ETL_BFF_FIELD(20:20, bool, WDI)
+  ETL_BFF_FIELD(19:19, bool, BO)
+  ETL_BFF_FIELD(18:18, bool, EW)
+  ETL_BFF_FIELD(17:17, bool, EP)
+  ETL_BFF_FIELD(16:16, bool, ELO)
+  ETL_BFF_FIELD(15:15, bool, TOO)
+  ETL_BFF_FIELD(14:14, bool, MRAF)
+  ETL_BFF_FIELD(13:13, bool, TSW)
+  ETL_BFF_FIELD(12:12, bool, TEFL)
+  ETL_BFF_FIELD(11:11, bool, TEFF)
+  ETL_BFF_FIELD(10:10, bool, TEFN)
+  ETL_BFF_FIELD(9:9, bool, TFE)
+  ETL_BFF_FIELD(8:8, bool, TCF)
+  ETL_BFF_FIELD(7:7, bool, TC)
+  ETL_BFF_FIELD(6:6, bool, HPM)
+  ETL_BFF_FIELD(5:5, bool, RF1L)
+  ETL_BFF_FIELD(4:4, bool, RF1F)
+  ETL_BFF_FIELD(3:3, bool, RF1N)
+  ETL_BFF_FIELD(2:2, bool, RF0L)
+  ETL_BFF_FIELD(1:1, bool, RF0F)
+  ETL_BFF_FIELD(0:0, bool, RF0N)
+)
+
+ETL_BFF_REG_RW(uint32_t, IE,
+  ETL_BFF_FIELD(23:23, bool, ARAE)
+  ETL_BFF_FIELD(22:22, bool, PEDE)
+  ETL_BFF_FIELD(21:21, bool, PEAE)
+  ETL_BFF_FIELD(20:20, bool, WDIE)
+  ETL_BFF_FIELD(19:19, bool, BOE)
+  ETL_BFF_FIELD(18:18, bool, EWE)
+  ETL_BFF_FIELD(17:17, bool, EPE)
+  ETL_BFF_FIELD(16:16, bool, ELOE)
+  ETL_BFF_FIELD(15:15, bool, TOOE)
+  ETL_BFF_FIELD(14:14, bool, MRAFE)
+  ETL_BFF_FIELD(13:13, bool, TSWE)
+  ETL_BFF_FIELD(12:12, bool, TEFLE)
+  ETL_BFF_FIELD(11:11, bool, TEFFE)
+  ETL_BFF_FIELD(10:10, bool, TEFNE)
+  ETL_BFF_FIELD(9:9, bool, TFEE)
+  ETL_BFF_FIELD(8:8, bool, TCFE)
+  ETL_BFF_FIELD(7:7, bool, TCE)
+  ETL_BFF_FIELD(6:6, bool, HPME)
+  ETL_BFF_FIELD(5:5, bool, RF1LE)
+  ETL_BFF_FIELD(4:4, bool, RF1FE)
+  ETL_BFF_FIELD(3:3, bool, RF1NE)
+  ETL_BFF_FIELD(2:2, bool, RF0LE)
+  ETL_BFF_FIELD(1:1, bool, RF0FE)
+  ETL_BFF_FIELD(0:0, bool, RF0NE)
+)
+
+ETL_BFF_REG_RW(uint32_t, ILS,
+  ETL_BFF_FIELD(6:6, bool, PERR)
+  ETL_BFF_FIELD(5:5, bool, BERR)
+  ETL_BFF_FIELD(4:4, bool, MISC)
+  ETL_BFF_FIELD(3:3, bool, TFERR)
+  ETL_BFF_FIELD(2:2, bool, SMSG)
+  ETL_BFF_FIELD(1:1, bool, RxFIFO1)
+  ETL_BFF_FIELD(0:0, bool, RxFIFO0)
+)
+
+ETL_BFF_REG_RW(uint32_t, ILE,
+  ETL_BFF_FIELD(1:1, bool, EINT1)
+  ETL_BFF_FIELD(0:0, bool, EINT0)
+)
+
+ETL_BFF_REG_RW(uint32_t, RXGFC,
+  ETL_BFF_FIELD(27:24, uint8_t, LSE)
   
+  ETL_BFF_FIELD(20:16, uint8_t, LSS)
+
+  ETL_BFF_FIELD(9:9, bool, F0OM)
+  ETL_BFF_FIELD(8:8, bool, F1OM)
+
+  ETL_BFF_FIELD_E(5:4, uint8_t, ANFS,
+    ETL_BFF_ENUM(0b00, accept_rx_fifo0)
+    ETL_BFF_ENUM(0b01, accept_rx_fifo1)
+    ETL_BFF_ENUM(0b10, reject)
+    ETL_BFF_ENUM(0b11, reject_)
+  )
+  ETL_BFF_FIELD_E(3:2, uint8_t, ANFE,
+    ETL_BFF_ENUM(0b00, accept_rx_fifo0)
+    ETL_BFF_ENUM(0b01, accept_rx_fifo1)
+    ETL_BFF_ENUM(0b10, reject)
+    ETL_BFF_ENUM(0b11, reject_)
+  )
+  ETL_BFF_FIELD_E(1:1, bool, RRFS,
+    ETL_BFF_ENUM(0, filter)
+    ETL_BFF_ENUM(1, reject)
+  )
+  ETL_BFF_FIELD_E(1:1, bool, RRFE,
+    ETL_BFF_ENUM(0, filter)
+    ETL_BFF_ENUM(1, reject)
+  )
 )
 
 // clang-format on
