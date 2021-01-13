@@ -101,10 +101,10 @@ void Can::Init(Can::Instance instance) {
   using CCCR = Can::CanInstance::CCCR_value_t;
 
   can_->update_CCCR([](CCCR v) {
-    return v
-        .with_INT(CCCR::INT_t::init)  
-        .with_CCE(CCCR::CCE_t::readwrite);
+    return v.with_INT(CCCR::INT_t::init).with_CCE(CCCR::CCE_t::readwrite);
   });
+
+  auto txbc_addr = can_->const_addr_of_TXBC();
 
   int i = 0;
 
