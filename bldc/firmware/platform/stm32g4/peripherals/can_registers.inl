@@ -82,4 +82,85 @@ ETL_BFF_REG_RW(uint32_t, NBTP,
   ETL_BFF_FIELD(15 : 8, unsigned, NTSEG1)
   ETL_BFF_FIELD(6 : 0, unsigned, NTSEG2)
 )
+
+ETL_BFF_REG_RW(uint32_t, TSCC,
+  ETL_BFF_FIELD(19:16, uint8_t, TCP)
+
+  ETL_BFF_FIELD_E(1:0, uint8_t, TSS,
+    ETL_BFF_ENUM(0b00, zero)
+    ETL_BFF_ENUM(0b01, increment_by_tcp)
+    ETL_BFF_ENUM(0b10, tim3_cnt)
+    ETL_BFF_ENUM(0b11, zero_)
+  )
+)
+
+ETL_BFF_REG_RW(uint32_t, TSCV,
+  ETL_BFF_FIELD(15:0, uint16_t, TSC)
+)
+
+ETL_BFF_REG_RW(uint32_t, TOCC,
+  ETL_BFF_FIELD(31:16, uint16_t, TOP)
+  
+  ETL_BFF_FIELD_E(2:1, uint8_t, TOS,
+    ETL_BFF_ENUM(0b00, continuous)
+    ETL_BFF_ENUM(0b01, tx_event_fifo)
+    ETL_BFF_ENUM(0b10, rx_fifo0)
+    ETL_BFF_ENUM(0b11, rx_fifo1)
+  )
+  ETL_BFF_FIELD(0:0, bool, ETOC)
+)
+
+ETL_BFF_REG_RW(uint32_t, TOCV,
+  ETL_BFF_FIELD(15:0, uint16_t, TOC)
+)
+
+ETL_BFF_REG_RO(uint32_t, ECR,
+  ETL_BFF_FIELD(23:16, uint8_t, CEL)
+  ETL_BFF_FIELD(15:15, bool, RP)
+  ETL_BFF_FIELD(14:8, uint8_t, REC)
+  ETL_BFF_FIELD(7:0, uint8_t, TEC)
+)
+
+ETL_BFF_REG_RO(uint32_t, PSR,
+  ETL_BFF_FIELD(22:16, uint8_t, TDCV)
+
+  ETL_BFF_FIELD(14:14, bool, PXE)
+  ETL_BFF_FIELD(13:13, bool, REDL)
+  ETL_BFF_FIELD(12:12, bool, RBRS)
+  ETL_BFF_FIELD(11:11, bool, RESI)
+  ETL_BFF_FIELD_E(10:8, uint8_t, DLEC,
+    ETL_BFF_ENUM(0b000, none)
+    ETL_BFF_ENUM(0b001, stuff)
+    ETL_BFF_ENUM(0b010, form)
+    ETL_BFF_ENUM(0b11, ack)
+    ETL_BFF_ENUM(0b100, bit1)
+    ETL_BFF_ENUM(0b101, bit0)
+    ETL_BFF_ENUM(0b110, crc)
+    ETL_BFF_ENUM(0b111, no_change)
+  )
+  ETL_BFF_FIELD(7:7, bool, BO)
+  ETL_BFF_FIELD(6:6, bool, EW)
+  ETL_BFF_FIELD(5:5, bool, EP)
+  ETL_BFF_FIELD_E(4:3, uint8_t, ACT,
+    ETL_BFF_ENUM(0b00, synchronizing)
+    ETL_BFF_ENUM(0b01, idle)
+    ETL_BFF_ENUM(0b10, receiver)
+    ETL_BFF_ENUM(0b11, transmitter)
+  )
+  ETL_BFF_FIELD_E(2:0, uint8_t, LEC,
+    ETL_BFF_ENUM(0b000, none)
+    ETL_BFF_ENUM(0b001, stuff)
+    ETL_BFF_ENUM(0b010, form)
+    ETL_BFF_ENUM(0b110, ack)
+    ETL_BFF_ENUM(0b100, bit1)
+    ETL_BFF_ENUM(0b101, bit0)
+    ETL_BFF_ENUM(0b110, crc)
+    ETL_BFF_ENUM(0b111, no_change)
+  )
+)
+
+ETL_BFF_REG_RW(uint32_t, name,
+  
+)
+
 // clang-format on
