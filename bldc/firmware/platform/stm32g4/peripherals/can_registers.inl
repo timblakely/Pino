@@ -263,4 +263,25 @@ ETL_BFF_REG_RW(uint32_t, RXGFC,
   )
 )
 
+ETL_BFF_REG_RW(uint32_t, XIDAM,
+  ETL_BFF_FIELD(28:0, uint32_t, EIDM)
+)
+
+ETL_BFF_REG_RO(uint32_t, HPMS,
+  ETL_BFF_FIELD_E(15:15, bool, RRFE,
+    ETL_BFF_ENUM(0, standard)
+    ETL_BFF_ENUM(1, extended)
+  )
+
+  ETL_BFF_FIELD(12:8, uint8_t, FIDX)
+  ETL_BFF_FIELD_E(7:6, uint8_t, MSI,
+    ETL_BFF_ENUM(0b00, no_fifo)
+    ETL_BFF_ENUM(0b01, fifo_overrun)
+    ETL_BFF_ENUM(0b10, fifo0)
+    ETL_BFF_ENUM(0b11, fifo1)
+  )
+
+  ETL_BFF_FIELD(2:0, uint8_t, BIDX)
+)
+
 // clang-format on
