@@ -8,6 +8,7 @@ cc_library(
     name = "can",
     srcs = [
         "can.cc",
+        "can_extended_filter_memory.inl",
         "can_registers.inl",
         "can_standard_filter_memory.inl",
     ],

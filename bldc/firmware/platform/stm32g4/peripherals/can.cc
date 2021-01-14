@@ -1,5 +1,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/can.h"
 
+#include <cstring>
+
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 
 namespace platform {
@@ -23,6 +25,7 @@ void Can::Init(Can::Instance instance) {
           reinterpret_cast<StandardFilters*>(kMRAMAddress + kMRAMBankSize * 2);
       break;
   }
+
   // TODO(blakely): Assumes FDCAN1 on PA11/PA12 for RX/TX respectively.
 
   rx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
@@ -31,6 +34,9 @@ void Can::Init(Can::Instance instance) {
                 Gpio::AlternateFunction::AF10);
 
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_FDCAN);
+
+  // Zero out the memory. Note: Must be done *after* enabling the FDCAN clock!
+  memset(reinterpret_cast<void*>(standard_filters_), 0, kMRAMBankSize);
 
   // TODO(blakely): Set SynSeg, BS1, and BS2
   // Baud = 1 / bit_time = t_ss + t_bs1 + t_bs2
@@ -136,16 +142,20 @@ void Can::Init(Can::Instance instance) {
     can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::normal); });
   }
 
+  int i = 0;
+
+  ++i;
+
   // Set the first filter.
   {
     using FLSSA = Can::StandardFilters::FLSSA_value_t;
     standard_filters_->update_FLSSA(0, [](FLSSA v) {
       return v.with_SFT(FLSSA::SFT_t::dual_id)
-          .with_SFEC(FLSSA::SFEC_t::store_fifo0);
+          .with_SFEC(FLSSA::SFEC_t::store_fifo0)
+          .with_SFID1(13)
+          .with_SFID2(37);
     });
   }
-
-  int i = 0;
 
   ++i;
 }
