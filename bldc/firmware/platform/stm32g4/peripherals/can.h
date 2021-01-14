@@ -216,29 +216,14 @@ class Can {
  private:
   inline void ConfigureMRAM();
 
-  struct CanInstance {
-// // Core release
-// registers::CREL CREL;
-// uint32_t r1;  // Reserved
-// // Endian
-// registers::ENDN ENDN;
-// // Data bit timing and prescalar
-// registers::DBTP DBTP;
-// // Test mode. Must be enabled by setting bit `CCCR[TEST]` to 1.
-// registers::TEST TEST;
-// // RAM watchdog
-// registers::RWD RWD;
-// // CC control.
-// registers::CCCR CCCR;
-// // Nominal bit timing and prescalar
-// registers::NBTP NBTP;
+  struct Periph {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   };
 
-  CanInstance* can_;
+  Periph* can_;
 
   Gpio::Pin tx_;
   Gpio::Pin rx_;

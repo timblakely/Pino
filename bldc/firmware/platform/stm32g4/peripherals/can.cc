@@ -5,23 +5,16 @@
 namespace platform {
 namespace stm32g4 {
 
-// using registers::CCCR;
-
 Can::Can(Gpio::Pin tx, Gpio::Pin rx) : tx_(tx), rx_(rx) {}
 
 void Can::Init(Can::Instance instance) {
-  can_ = reinterpret_cast<CanInstance*>(instance);
+  can_ = reinterpret_cast<Periph*>(instance);
   // TODO(blakely): Assumes FDCAN1 on PA11/PA12 for RX/TX respectively.
 
   rx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
                 Gpio::AlternateFunction::AF10);
   tx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
                 Gpio::AlternateFunction::AF10);
-
-  // rx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-  // rx_.High();
-  // tx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None);
-  // tx_.High();
 
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_FDCAN);
 
@@ -31,80 +24,70 @@ void Can::Init(Can::Instance instance) {
 
   // TODO(blakely): Do we need to read FDCAN_ENDN?
 
-  // // First, make sure we're in init mode.
-  // can_->CCCR.INIT = CCCR::InitMode::Enabled;
+  {
+    using CCCR = Can::Periph::CCCR_value_t;
+    // TODO(blakely): Is this staged start necessary, or can we write CCCR INT,
+    // CCE, and other bits all at once?
+    // First, Update CCCR to enter init mode.
+    can_->update_CCCR([](CCCR v) { return v.with_INT(CCCR::INT_t::init); });
 
-  // // Then enable configuration.
-  // can_->CCCR.CCE = CCCR::ConfigMode::ReadWrite;
+    // Next, enable configuration readwrite.
+    can_->update_CCCR(
+        [](CCCR v) { return v.with_CCE(CCCR::CCE_t::readwrite); });
 
-  // // Enable retransmission on error.
-  // // can_->CCCR.DAR = CCCR::AutomaticRetransmission::Enabled;
-  // // *((uint32_t*)(0x40006418)) = 0b1000011;
-  // // *((uint32_t*)(&can_->CCCR)) = 0b1000011;
-  // // *((uint32_t*)(&can_->CCCR)) &= (0b11111111111111111111111110111111U);
-  // can_->CCCR.DAR = true;
+    // Now set the various CCCR fields.
+    can_->update_CCCR([](CCCR v) {
+      return v
+          // Enable Tx pause
+          .with_TXP(1)
+          // No edge filtering
+          .with_EFBI(0)
+          // Protocol exception handling disalbed
+          .with_PXHD(0)
+          // TODO(blakely): Enable bit rate switching eventually.
+          // No bit rate switching
+          .with_BRSE(0)
+          // Enable FDCAN mode
+          .with_FDOE(1)
+          // No test mode
+          .with_TEST(CCCR::TEST_t::normal)
+          // Enable automatic retransmission
+          .with_DAR(CCCR::DAR_t::retransmit)
+          // No bus monitoring
+          .with_MON(0)
+          // No restricted mode
+          .with_ASM(CCCR::ASM_t::normal);
+    });
+  }
 
-  // // Pause between transmissions.
-  // can_->CCCR.TXP = CCCR::TransmitPause::Enabled;
+  {
+    using NBTP = Can::Periph::NBTP_value_t;
+    // Configure bit timing.
+    can_->update_NBTP([](NBTP v) {
+      // TODO(blakely): Pull actual clock source and freq from RCC. This
+      // assumes PCLK1@170MHz, aiming for 1MBit
 
-  // // Exception handling.
-  // can_->CCCR.PXHD = CCCR::ProtocolExceptionHandling::Disabled;
+      // NBRP = 6
+      // NTSEG1 = 11
+      // NTSEG2 = 10
+      // NSJW = 4
 
-  // // TODO(blakely): Enable bit rate switching
+      // tq = (NBRP + 1) * t_fdcan_clk = (6 + 1) * 5.88235ns = 41.176ns
+      // t_syncseg = 1 * tq = 41.176ns
+      // bs1 = tq * (NTSEG1 + 1) = 41.176ns * (11 + 1) = 494.41 ns
+      // bs2 = tq * (NTSEG2 + 1) = 41.176ns * (10 + 1) = 452.94 ns
+      // Bit time = 41.176 + 494.41 + 452.94 = 988.235 ns
+      // Baud = 1e9 / (988.235) = 1.0116 MBit
 
-  // // Normal, non-test mode. Would normally set CCCR.(TEST|MON|ASM) here for
-  // // debugging and monitoring. Would also set TEST.LBCK if loopback is
-  // // necessary.
+      return v.with_NBRP(6)
+          .with_NTSEG1(11)
+          .with_NTSEG2(10)
+          // Jump width of 4
+          .with_NSJW(4);
+    });
+  }
 
-  // // Enable FD operation
-  // can_->CCCR.FDOE = CCCR::FDMode::Enabled;
-
-  // // Configure bit timing.
-  // // TODO(blakely): Pull actual clock source and freq from RCC. This assumes
-  // // PCLK1@170MHz, aiming for 1MBit
-  // // tq = (NBRP + 1) * t_fdcan_clk = (6 + 1) * 5.88235ns = 41.176ns
-  // // t_syncseg = 1 * tq = 41.176ns
-  // // bs1 = tq * (NTSEG1 + 1) = 41.176ns * (11 + 1) = 494.41 ns
-  // // bs2 = tq * (NTSEG2 + 1) = 41.176ns * (10 + 1) = 452.94 ns
-  // // Bit speed = 1e9 / (41.176+494.41+452.94) = 1.0116 MBit
-  // can_->NBTP.NBRP = 6;
-  // can_->NBTP.NTSEG1 = 11;
-  // can_->NBTP.NTSEG2 = 10;
-  // // Setting jump width to 4 because it's the maximum available to standard
-  // CAN. can_->NBTP.NSJW = 4;
-
-  // // TODO(blakely): Set DBTP. 8.01MBit is 2/2/2
-
-  // can_->CCCR.INIT = CCCR::InitMode::Disabled;
-  // while (can_->CCCR.INIT == CCCR::InitMode::Enabled) {
-  //   asm("nop");
-  // }
-  // can_->
-  // auto asdf = can_->addr_of_CREL();
-
-  // can_->
-  // uint8_t cce = 1;
-  // // can_->update_CCCR([&cce](CanInstance::CCCR_value_t v) {
-  // //   return v.with_INT(1).with_CCE(cce);  //
-  // // });
-
-  // auto asdf = static_cast<uint32_t>(can_->read_NBTP());
-  // auto addr = can_->const_addr_of_NBTP();
-  // can_->update_NBTP([](CanInstance::NBTP_value_t v) {
-  //   return v.with_NBRP(1);  //
-  // });
-
-  // can_->write_NBTP(0xDEADBE6F);
-
-  // auto asdf2 = static_cast<uint32_t>(can_->read_NBTP());
-
-  using CCCR = Can::CanInstance::CCCR_value_t;
-
-  can_->update_CCCR([](CCCR v) {
-    return v.with_INT(CCCR::INT_t::init).with_CCE(CCCR::CCE_t::readwrite);
-  });
-
-  auto txbc_addr = can_->const_addr_of_CKDIV();
+  // TODO(blakely): Set DBTP. 8.01MBit is 2/2/2
 
   int i = 0;
 
