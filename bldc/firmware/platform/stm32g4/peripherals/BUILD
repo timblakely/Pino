@@ -9,6 +9,7 @@ cc_library(
     srcs = [
         "can.cc",
         "can_registers.inl",
+        "can_standard_filter_memory.inl",
     ],
     hdrs = ["can.h"],
     deps = [

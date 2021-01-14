@@ -9,7 +9,20 @@ Can::Can(Gpio::Pin tx, Gpio::Pin rx) : tx_(tx), rx_(rx) {}
 
 void Can::Init(Can::Instance instance) {
   instance_ = instance;
-  can_ = reinterpret_cast<Periph*>(instance_);
+  can_ = reinterpret_cast<Periph*>(instance);
+  switch (instance) {
+    case Instance::Fdcan1:
+      standard_filters_ = reinterpret_cast<StandardFilters*>(kMRAMAddress);
+      break;
+    case Instance::Fdcan2:
+      standard_filters_ =
+          reinterpret_cast<StandardFilters*>(kMRAMAddress + kMRAMBankSize);
+      break;
+    case Instance::Fdcan3:
+      standard_filters_ =
+          reinterpret_cast<StandardFilters*>(kMRAMAddress + kMRAMBankSize * 2);
+      break;
+  }
   // TODO(blakely): Assumes FDCAN1 on PA11/PA12 for RX/TX respectively.
 
   rx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
@@ -121,6 +134,15 @@ void Can::Init(Can::Instance instance) {
         [](TEST v) { return v.with_LBCK(0).with_TX(TEST::TX_t::can_core); });
     // Disable access to TEST register.
     can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::normal); });
+  }
+
+  // Set the first filter.
+  {
+    using FLSSA = Can::StandardFilters::FLSSA_value_t;
+    standard_filters_->update_FLSSA(0, [](FLSSA v) {
+      return v.with_SFT(FLSSA::SFT_t::dual_id)
+          .with_SFEC(FLSSA::SFEC_t::store_fifo0);
+    });
   }
 
   int i = 0;

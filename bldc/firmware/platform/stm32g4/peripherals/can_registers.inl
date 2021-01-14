@@ -384,6 +384,8 @@ ETL_BFF_REG_RW(uint32_t, TXEFA,
   ETL_BFF_FIELD(1:0, uint8_t, EFAI)
 )
 
+ETL_BFF_REG_RESERVED(uint32_t, reserved7, 5)
+
 ETL_BFF_REG_RW(uint32_t, CKDIV,
   ETL_BFF_FIELD_E(3:0, uint8_t, PDIV,
     ETL_BFF_ENUM(0b0000, div1)

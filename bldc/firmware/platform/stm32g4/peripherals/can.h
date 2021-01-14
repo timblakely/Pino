@@ -214,20 +214,31 @@ class Can {
   void Init(Can::Instance instance);
 
  private:
+  Instance instance_;
+
+  Gpio::Pin tx_;
+  Gpio::Pin rx_;
+
+  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
+  static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
+
+  // Biffields
   struct Periph {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   };
-
-  Instance instance_;
+  static_assert(sizeof(Periph) == 0x104);
   Periph* can_;
 
-  Gpio::Pin tx_;
-  Gpio::Pin rx_;
-
-  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
+  struct StandardFilters {
+#define ETL_BFF_DEFINITION_FILE \
+  "bldc/firmware/platform/stm32g4/peripherals/can_standard_filter_memory.inl"
+#include "third_party/etl/biffield/generate.h"
+#undef ETL_BFF_DEFINITION_FILE
+  };
+  StandardFilters* standard_filters_;
 };
 
 }  // namespace stm32g4
