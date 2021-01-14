@@ -238,7 +238,7 @@ class Can {
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   };
-  static_assert(sizeof(StandardFilters) == 0x70);
+  static_assert(sizeof(StandardFilters) == 0x70 / 28);
   StandardFilters* standard_filters_;
 };
 

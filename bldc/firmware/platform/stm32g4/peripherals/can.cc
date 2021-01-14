@@ -149,7 +149,7 @@ void Can::Init(Can::Instance instance) {
   // Set the first filter.
   {
     using FLSSA = Can::StandardFilters::FLSSA_value_t;
-    standard_filters_->update_FLSSA(0, [](FLSSA v) {
+    standard_filters_[0].update_FLSSA([](FLSSA v) {
       return v.with_SFT(FLSSA::SFT_t::dual_id)
           .with_SFEC(FLSSA::SFEC_t::store_fifo0)
           .with_SFID1(13)

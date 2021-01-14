@@ -1,5 +1,5 @@
 // clang-format off
-ETL_BFF_REG_ARRAY_RW(uint32_t, FLSSA, 28,
+ETL_BFF_REG_RW(uint32_t, FLSSA,
   ETL_BFF_FIELD_E(31:30, uint8_t, SFT,
     ETL_BFF_ENUM(0b00, range)
     ETL_BFF_ENUM(0b01, dual_id)
