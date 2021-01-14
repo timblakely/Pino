@@ -70,7 +70,7 @@ ETL_BFF_REG_RW(uint32_t, CCCR,
     ETL_BFF_ENUM(0, readonly)
     ETL_BFF_ENUM(1, readwrite)
   )
-  ETL_BFF_FIELD_E(0:0, bool, INT,
+  ETL_BFF_FIELD_E(0:0, bool, INIT,
     ETL_BFF_ENUM(0, run)
     ETL_BFF_ENUM(1, init)
   )

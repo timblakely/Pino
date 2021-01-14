@@ -29,7 +29,7 @@ void Can::Init(Can::Instance instance) {
     // TODO(blakely): Is this staged start necessary, or can we write CCCR INT,
     // CCE, and other bits all at once?
     // First, Update CCCR to enter init mode.
-    can_->update_CCCR([](CCCR v) { return v.with_INT(CCCR::INT_t::init); });
+    can_->update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::init); });
 
     // Next, enable configuration readwrite.
     can_->update_CCCR(
