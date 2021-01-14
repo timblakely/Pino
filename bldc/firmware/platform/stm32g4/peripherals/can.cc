@@ -15,6 +15,8 @@ void Can::Init(Can::Instance instance) {
   switch (instance) {
     case Instance::Fdcan1:
       standard_filters_ = reinterpret_cast<StandardFilters*>(kMRAMAddress);
+      extended_filters_ = reinterpret_cast<ExtendedFilters*>(
+          kMRAMAddress + sizeof(StandardFilters) * 28);
       break;
     case Instance::Fdcan2:
       standard_filters_ =

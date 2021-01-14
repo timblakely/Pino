@@ -219,10 +219,7 @@ class Can {
   Gpio::Pin tx_;
   Gpio::Pin rx_;
 
-  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
-  static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
-
-  // Biffields
+  // Registers
   struct Periph {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
@@ -232,6 +229,8 @@ class Can {
   static_assert(sizeof(Periph) == 0x104);
   Periph* can_;
 
+  // Memory configuration
+
   struct StandardFilters {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_standard_filter_memory.inl"
@@ -240,6 +239,34 @@ class Can {
   };
   static_assert(sizeof(StandardFilters) == 0x70 / 28);
   StandardFilters* standard_filters_;
+  static constexpr uint32_t kStandardFilterMemOffset = 0x0;
+  static_assert(kStandardFilterMemOffset == 0x0000);
+
+  struct ExtendedFilters {
+#define ETL_BFF_DEFINITION_FILE \
+  "bldc/firmware/platform/stm32g4/peripherals/can_extended_filter_memory.inl"
+#include "third_party/etl/biffield/generate.h"
+#undef ETL_BFF_DEFINITION_FILE
+  };
+  static_assert(sizeof(ExtendedFilters) == 0x40 / 8);
+  ExtendedFilters* extended_filters_;
+  static constexpr uint32_t kExtendedFilterMemOffset =
+      kStandardFilterMemOffset + sizeof(StandardFilters) * 28 + 4;
+  static_assert(kExtendedFilterMemOffset == 0x0074);
+
+  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
+
+  static constexpr uint32_t kRxFIFO0MemOffset =
+      kExtendedFilterMemOffset + sizeof(ExtendedFilters) * 8;
+  static_assert(kRxFIFO0MemOffset == 0x00B4);
+
+  // static constexpr uint32_t kRxFIFO1MemOffset =
+  //     kExtendedFilterMemOffset + sizeof(ExtendedFilters) * 8;
+  // static_assert(kRxFIFO1MemOffset == 0x00B4);
+
+  static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
+
+  static_assert(kMRAMBankSize == 0x350U);
 };
 
 }  // namespace stm32g4
