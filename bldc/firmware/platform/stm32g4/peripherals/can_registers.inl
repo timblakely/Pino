@@ -325,7 +325,10 @@ ETL_BFF_REG_RW(uint32_t, RXF1A,
 ETL_BFF_REG_RESERVED(uint32_t, reserved6, 8)
 
 ETL_BFF_REG_RW(uint32_t, TXBC,
-  ETL_BFF_FIELD(24:24, bool, TFQM)
+  ETL_BFF_FIELD_E(24:24, bool, TFQM,
+    ETL_BFF_ENUM(0b0, fifo)
+    ETL_BFF_ENUM(0b1, queue)
+  )
 )
 
 ETL_BFF_REG_RW(uint32_t, TXFQS,

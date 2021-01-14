@@ -8,7 +8,8 @@ namespace stm32g4 {
 Can::Can(Gpio::Pin tx, Gpio::Pin rx) : tx_(tx), rx_(rx) {}
 
 void Can::Init(Can::Instance instance) {
-  can_ = reinterpret_cast<Periph*>(instance);
+  instance_ = instance;
+  can_ = reinterpret_cast<Periph*>(instance_);
   // TODO(blakely): Assumes FDCAN1 on PA11/PA12 for RX/TX respectively.
 
   rx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
@@ -24,12 +25,17 @@ void Can::Init(Can::Instance instance) {
 
   // TODO(blakely): Do we need to read FDCAN_ENDN?
 
+  // Init and control configuration.
   {
     using CCCR = Can::Periph::CCCR_value_t;
     // TODO(blakely): Is this staged start necessary, or can we write CCCR INT,
     // CCE, and other bits all at once?
     // First, Update CCCR to enter init mode.
     can_->update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::init); });
+
+    // Wait for ACK to init mode, in case we're already transmitting.
+    while (can_->read_CCCR().get_INIT() == CCCR::INIT_t::run) {
+    }
 
     // Next, enable configuration readwrite.
     can_->update_CCCR(
@@ -56,13 +62,15 @@ void Can::Init(Can::Instance instance) {
           // No bus monitoring
           .with_MON(0)
           // No restricted mode
-          .with_ASM(CCCR::ASM_t::normal);
+          .with_ASM(CCCR::ASM_t::normal)
+          // Make sure we're not in sleep mode.
+          .with_CSR(0);
     });
   }
 
+  // Configure bit timing.
   {
     using NBTP = Can::Periph::NBTP_value_t;
-    // Configure bit timing.
     can_->update_NBTP([](NBTP v) {
       // TODO(blakely): Pull actual clock source and freq from RCC. This
       // assumes PCLK1@170MHz, aiming for 1MBit
@@ -88,6 +96,32 @@ void Can::Init(Can::Instance instance) {
   }
 
   // TODO(blakely): Set DBTP. 8.01MBit is 2/2/2
+
+  // Configure for TxFIFO usage
+  {
+    using TXBC = Can::Periph::TXBC_value_t;
+    can_->update_TXBC([](TXBC v) { return v.with_TFQM(TXBC::TFQM_t::fifo); });
+  }
+
+  // Set clock divider
+  {
+    using CKDIV = Can::Periph::CKDIV_value_t;
+    can_->update_CKDIV(
+        [](CKDIV v) { return v.with_PDIV(CKDIV::PDIV_t::div1); });
+  }
+
+  // TODO(blakely): Configure this though an enum to Init()
+  // Disable loopback mode
+  {
+    using CCCR = Can::Periph::CCCR_value_t;
+    using TEST = Can::Periph::TEST_value_t;
+    // Enable access to TEST register.
+    can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::test); });
+    can_->update_TEST(
+        [](TEST v) { return v.with_LBCK(0).with_TX(TEST::TX_t::can_core); });
+    // Disable access to TEST register.
+    can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::normal); });
+  }
 
   int i = 0;
 

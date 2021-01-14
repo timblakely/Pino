@@ -204,9 +204,9 @@ class Can {
  public:
   enum class Instance : uint32_t {
     // Note: these are the actual addresses in memory of each peripheral.
-    Fdcan1 = 0x40006400UL,
-    Fdcan2 = 0x40006800UL,
-    Fdcan3 = 0x40006C00UL,
+    Fdcan1 = 0x4000'6400UL,
+    Fdcan2 = 0x4000'6800UL,
+    Fdcan3 = 0x4000'6C00UL,
   };
 
   Can(Gpio::Pin tx, Gpio::Pin rx);
@@ -214,8 +214,6 @@ class Can {
   void Init(Can::Instance instance);
 
  private:
-  inline void ConfigureMRAM();
-
   struct Periph {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
@@ -223,6 +221,7 @@ class Can {
 #undef ETL_BFF_DEFINITION_FILE
   };
 
+  Instance instance_;
   Periph* can_;
 
   Gpio::Pin tx_;
