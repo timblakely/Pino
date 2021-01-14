@@ -263,7 +263,7 @@ ETL_BFF_REG_RW(uint32_t, RXGFC,
     ETL_BFF_ENUM(0, filter)
     ETL_BFF_ENUM(1, reject)
   )
-  ETL_BFF_FIELD_E(1:1, bool, RRFE,
+  ETL_BFF_FIELD_E(0:0, bool, RRFE,
     ETL_BFF_ENUM(0, filter)
     ETL_BFF_ENUM(1, reject)
   )
