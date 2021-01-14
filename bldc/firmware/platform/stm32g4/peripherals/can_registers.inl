@@ -328,4 +328,78 @@ ETL_BFF_REG_RW(uint32_t, TXBC,
   ETL_BFF_FIELD(24:24, bool, TFQM)
 )
 
+ETL_BFF_REG_RW(uint32_t, TXFQS,
+  ETL_BFF_FIELD(21:21, bool, TFQF)
+
+  ETL_BFF_FIELD(17:16, uint8_t, TFQPI)
+
+  ETL_BFF_FIELD(9:8, uint8_t, TFGI)
+
+  ETL_BFF_FIELD(2:0, uint8_t, TFFL)
+)
+
+ETL_BFF_REG_RO(uint32_t, TXBRP,
+  ETL_BFF_FIELD(2:0, uint8_t, TRP)
+)
+
+ETL_BFF_REG_RW(uint32_t, TXBAR,
+  ETL_BFF_FIELD(2:0, uint8_t, AR)
+)
+
+ETL_BFF_REG_RW(uint32_t, TXBCR,
+  ETL_BFF_FIELD(2:0, uint8_t, CR)
+)
+
+ETL_BFF_REG_RO(uint32_t, TXBTO,
+  ETL_BFF_FIELD(2:0, uint8_t, TO)
+)
+
+ETL_BFF_REG_RO(uint32_t, TXBCF,
+  ETL_BFF_FIELD(2:0, uint8_t, CF)
+)
+
+ETL_BFF_REG_RW(uint32_t, TXBTIE,
+  ETL_BFF_FIELD(2:0, uint8_t, TIE)
+)
+
+ETL_BFF_REG_RW(uint32_t, TXBCIE,
+  ETL_BFF_FIELD(2:0, uint8_t, TXBCIE)
+)
+
+ETL_BFF_REG_RO(uint32_t, TXEFS,
+  ETL_BFF_FIELD(25:25, bool, TEFL)
+  ETL_BFF_FIELD(24:24, bool, EFF)
+
+  ETL_BFF_FIELD(17:16, uint8_t, EFPI)
+
+  ETL_BFF_FIELD(9:8, uint8_t, EFGI)
+
+  ETL_BFF_FIELD(2:0, uint8_t, EFFL)
+)
+
+ETL_BFF_REG_RW(uint32_t, TXEFA,
+  ETL_BFF_FIELD(1:0, uint8_t, EFAI)
+)
+
+ETL_BFF_REG_RW(uint32_t, CKDIV,
+  ETL_BFF_FIELD_E(3:0, uint8_t, PDIV,
+    ETL_BFF_ENUM(0b0000, div1)
+    ETL_BFF_ENUM(0b0001, div2)
+    ETL_BFF_ENUM(0b0010, div4)
+    ETL_BFF_ENUM(0b0011, div6)
+    ETL_BFF_ENUM(0b0100, div8)
+    ETL_BFF_ENUM(0b0101, div10)
+    ETL_BFF_ENUM(0b0110, div12)
+    ETL_BFF_ENUM(0b0111, div14)
+    ETL_BFF_ENUM(0b1000, div16)
+    ETL_BFF_ENUM(0b1001, div18)
+    ETL_BFF_ENUM(0b1010, div20)
+    ETL_BFF_ENUM(0b1011, div22)
+    ETL_BFF_ENUM(0b1100, div24)
+    ETL_BFF_ENUM(0b1101, div26)
+    ETL_BFF_ENUM(0b1110, div28)
+    ETL_BFF_ENUM(0b1111, div30)
+  )
+)
+
 // clang-format on

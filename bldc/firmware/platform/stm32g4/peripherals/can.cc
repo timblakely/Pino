@@ -104,7 +104,7 @@ void Can::Init(Can::Instance instance) {
     return v.with_INT(CCCR::INT_t::init).with_CCE(CCCR::CCE_t::readwrite);
   });
 
-  auto txbc_addr = can_->const_addr_of_TXBC();
+  auto txbc_addr = can_->const_addr_of_CKDIV();
 
   int i = 0;
 
