@@ -144,12 +144,6 @@ void Can::Init(Can::Instance instance) {
     can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::normal); });
   }
 
-  int i = 0;
-
-  auto asdf = sizeof(RxBuffer);
-
-  ++i;
-
   // Set the first filter.
   {
     using FLSSA = Can::StandardFilter::FLSSA_value_t;
@@ -161,6 +155,14 @@ void Can::Init(Can::Instance instance) {
     });
   }
 
+  int i = 0;
+
+  ++i;
+  // Start up the FDCAN device
+  {
+    using CCCR = Can::Periph::CCCR_value_t;
+    can_->update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::run); });
+  }
   ++i;
 }
 
