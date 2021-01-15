@@ -14,17 +14,17 @@ void Can::Init(Can::Instance instance) {
   can_ = reinterpret_cast<Periph*>(instance);
   switch (instance) {
     case Instance::Fdcan1:
-      standard_filters_ = reinterpret_cast<StandardFilters*>(kMRAMAddress);
-      extended_filters_ = reinterpret_cast<ExtendedFilters*>(
-          kMRAMAddress + sizeof(StandardFilters) * 28);
+      standard_filters_ = reinterpret_cast<StandardFilter*>(kMRAMAddress);
+      extended_filters_ = reinterpret_cast<ExtendedFilter*>(
+          kMRAMAddress + sizeof(StandardFilter) * 28);
       break;
     case Instance::Fdcan2:
       standard_filters_ =
-          reinterpret_cast<StandardFilters*>(kMRAMAddress + kMRAMBankSize);
+          reinterpret_cast<StandardFilter*>(kMRAMAddress + kMRAMBankSize);
       break;
     case Instance::Fdcan3:
       standard_filters_ =
-          reinterpret_cast<StandardFilters*>(kMRAMAddress + kMRAMBankSize * 2);
+          reinterpret_cast<StandardFilter*>(kMRAMAddress + kMRAMBankSize * 2);
       break;
   }
 
@@ -146,13 +146,13 @@ void Can::Init(Can::Instance instance) {
 
   int i = 0;
 
-  auto asdf = sizeof(RxFIFO);
+  auto asdf = sizeof(RxBuffer);
 
   ++i;
 
   // Set the first filter.
   {
-    using FLSSA = Can::StandardFilters::FLSSA_value_t;
+    using FLSSA = Can::StandardFilter::FLSSA_value_t;
     standard_filters_[0].update_FLSSA([](FLSSA v) {
       return v.with_SFT(FLSSA::SFT_t::dual_id)
           .with_SFEC(FLSSA::SFEC_t::store_fifo0)

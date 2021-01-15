@@ -231,62 +231,79 @@ class Can {
 
   // Memory configuration
 
-  struct StandardFilters {
+  struct StandardFilter {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_standard_filter_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   };
-  static_assert(sizeof(StandardFilters) == 1 * 4);
-  StandardFilters* standard_filters_;
+  static_assert(sizeof(StandardFilter) == 1 * 4);
+  StandardFilter* standard_filters_;
   static constexpr uint32_t kStandardFilterMemOffset = 0x0;
   static_assert(kStandardFilterMemOffset == 0x0000);
 
-  struct ExtendedFilters {
+  struct ExtendedFilter {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_extended_filter_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   };
-  static_assert(sizeof(ExtendedFilters) == 2 * 4);
-  ExtendedFilters* extended_filters_;
+  static_assert(sizeof(ExtendedFilter) == 2 * 4);
+  ExtendedFilter* extended_filters_;
   static constexpr uint32_t kExtendedFilterMemOffset =
-      kStandardFilterMemOffset + sizeof(StandardFilters) * 28 + 4;
+      kStandardFilterMemOffset + sizeof(StandardFilter) * 28 + 4;
   static_assert(kExtendedFilterMemOffset == 0x0074);
 
-  struct RxFIFO {
+  struct RxBuffer {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_rx_fifo_memory.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can_rx_buffer_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
     uint32_t data[16];
   };
-  static_assert(sizeof(RxFIFO) == 18 * 4);
-  RxFIFO* rx_fifo0_;
+  static_assert(sizeof(RxBuffer) == 18 * 4);
+  RxBuffer* rx_fifo0_;
   static constexpr uint32_t kRxFIFO0MemOffset =
-      kExtendedFilterMemOffset + sizeof(ExtendedFilters) * 8;
+      kExtendedFilterMemOffset + sizeof(ExtendedFilter) * 8;
   static_assert(kRxFIFO0MemOffset == 0x00B4);
 
-  RxFIFO* rx_fifo1_;
+  RxBuffer* rx_fifo1_;
   static constexpr uint32_t kRxFIFO1MemOffset =
-      kRxFIFO0MemOffset + sizeof(RxFIFO) * 3;
+      kRxFIFO0MemOffset + sizeof(RxBuffer) * 3;
   static_assert(kRxFIFO1MemOffset == 0x018C);
 
-  struct TxEventFIFO {
+  struct TxEvent {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_tx_event_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   };
-  static_assert(sizeof(TxEventFIFO) == 2 * 4);
-  TxEventFIFO* tx_event_fifo_;
+  static_assert(sizeof(TxEvent) == 2 * 4);
+  TxEvent* tx_event_fifo_;
   static constexpr uint32_t kTxEventFifoMemOffset =
-      kRxFIFO1MemOffset + sizeof(RxFIFO) * 3;
+      kRxFIFO1MemOffset + sizeof(RxBuffer) * 3;
   static_assert(kTxEventFifoMemOffset == 0x0264);
+
+  struct TxBuffer {
+#define ETL_BFF_DEFINITION_FILE \
+  "bldc/firmware/platform/stm32g4/peripherals/can_tx_buffer_memory.inl"
+#include "third_party/etl/biffield/generate.h"
+#undef ETL_BFF_DEFINITION_FILE
+    uint32_t data[16];
+  };
+  static_assert(sizeof(TxBuffer) == 18 * 4);
+  TxBuffer* tx_buffer_;
+  static constexpr uint32_t kTxBufferMemOffset =
+      kTxEventFifoMemOffset + sizeof(TxEvent) * 3;
+  static_assert(kTxBufferMemOffset == 0x027C);
+  // Final memory accounting
 
   static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
   static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
-  static_assert(kMRAMBankSize == 0x350U);
+  static_assert(kMRAMBankSize ==
+                (sizeof(StandardFilter) * 28 + sizeof(ExtendedFilter) * 8 +
+                 sizeof(RxBuffer) * 3 + sizeof(RxBuffer) * 3 +
+                 sizeof(TxEvent) * 3 + sizeof(TxBuffer) * 3));
 };
 
 }  // namespace stm32g4
