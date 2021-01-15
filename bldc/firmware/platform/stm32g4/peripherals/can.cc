@@ -146,6 +146,8 @@ void Can::Init(Can::Instance instance) {
 
   int i = 0;
 
+  auto asdf = sizeof(RxFIFO);
+
   ++i;
 
   // Set the first filter.

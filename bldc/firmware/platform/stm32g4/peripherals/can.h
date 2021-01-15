@@ -254,18 +254,26 @@ class Can {
       kStandardFilterMemOffset + sizeof(StandardFilters) * 28 + 4;
   static_assert(kExtendedFilterMemOffset == 0x0074);
 
-  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
-
+  struct RxFIFO {
+#define ETL_BFF_DEFINITION_FILE \
+  "bldc/firmware/platform/stm32g4/peripherals/can_rx_fifo_memory.inl"
+#include "third_party/etl/biffield/generate.h"
+#undef ETL_BFF_DEFINITION_FILE
+    uint32_t data[16];
+  };
+  static_assert(sizeof(RxFIFO) == 0xD8 / 3);
+  RxFIFO* rx_fifo0_;
   static constexpr uint32_t kRxFIFO0MemOffset =
       kExtendedFilterMemOffset + sizeof(ExtendedFilters) * 8;
   static_assert(kRxFIFO0MemOffset == 0x00B4);
 
-  // static constexpr uint32_t kRxFIFO1MemOffset =
-  //     kExtendedFilterMemOffset + sizeof(ExtendedFilters) * 8;
-  // static_assert(kRxFIFO1MemOffset == 0x00B4);
+  RxFIFO* rx_fifo1_;
+  static constexpr uint32_t kRxFIFO1MemOffset =
+      kRxFIFO0MemOffset + sizeof(RxFIFO) * 3;
+  static_assert(kRxFIFO1MemOffset == 0x018C);
 
+  static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
   static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
-
   static_assert(kMRAMBankSize == 0x350U);
 };
 

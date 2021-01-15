@@ -10,6 +10,7 @@ cc_library(
         "can.cc",
         "can_extended_filter_memory.inl",
         "can_registers.inl",
+        "can_rx_fifo_memory.inl",
         "can_standard_filter_memory.inl",
     ],
     hdrs = ["can.h"],
