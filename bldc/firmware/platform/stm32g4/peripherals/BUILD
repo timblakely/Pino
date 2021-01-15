@@ -12,6 +12,7 @@ cc_library(
         "can_registers.inl",
         "can_rx_fifo_memory.inl",
         "can_standard_filter_memory.inl",
+        "can_tx_event_memory.inl",
     ],
     hdrs = ["can.h"],
     deps = [
