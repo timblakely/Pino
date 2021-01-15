@@ -25,7 +25,7 @@ void Can::Init(Can::Instance instance) {
           reinterpret_cast<StandardFilter*>(kMRAMAddress + kMRAMBankSize * 2);
       break;
   }
-  uint32_t* base_addr = reinterpret_cast<uint32_t*>(standard_filters_);
+  uint8_t* base_addr = reinterpret_cast<uint8_t*>(standard_filters_);
   extended_filters_ =
       reinterpret_cast<ExtendedFilter*>(base_addr + kExtendedFilterMemOffset);
   rx_fifo0_ = reinterpret_cast<RxBuffer*>(base_addr + kRxFIFO0MemOffset);
@@ -37,9 +37,9 @@ void Can::Init(Can::Instance instance) {
   // TODO(blakely): Assumes FDCAN1 on PA11/PA12 for RX/TX respectively.
 
   rx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
-                Gpio::AlternateFunction::AF10);
+                Gpio::AlternateFunction::AF9);
   tx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
-                Gpio::AlternateFunction::AF10);
+                Gpio::AlternateFunction::AF9);
 
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_FDCAN);
 
@@ -150,6 +150,17 @@ void Can::Init(Can::Instance instance) {
     can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::normal); });
   }
 
+  // {
+  //   using CCCR = Can::Periph::CCCR_value_t;
+  //   using TEST = Can::Periph::TEST_value_t;
+  //   can_->update_CCCR([](CCCR v) {
+  //     return v.with_TEST(CCCR::TEST_t::test)
+  //         .with_MON(0)
+  //         .with_ASM(CCCR::ASM_t::normal);
+  //   });
+  //   can_->update_TEST([](TEST v) { return v.with_LBCK(1); });
+  // }
+
   // Set the first filter.
   {
     using FLSSA = Can::StandardFilter::FLSSA_value_t;
@@ -180,7 +191,7 @@ void Can::TransmitData(uint8_t* data, uint8_t size) {
     using T0 = Can::TxBuffer::T0_value_t;
     buffer.update_T0([](T0 v) {
       return v
-          // ESI only on error passive
+          // ESI only on error active
           .with_ESI(0)
           // Standard
           .with_XTD(0)
@@ -195,7 +206,7 @@ void Can::TransmitData(uint8_t* data, uint8_t size) {
     using T1 = Can::TxBuffer::T1_value_t;
     buffer.update_T1([](T1 v) {
       return v
-          // Set message marger
+          // Set message marker
           .with_MM(123)
           // Store tx events
           .with_EFC(1)
