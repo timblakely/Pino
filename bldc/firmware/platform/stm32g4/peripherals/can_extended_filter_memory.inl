@@ -1,7 +1,7 @@
 // clang-format off
 // Intentionally not an array, as it's actually two 32 bit values repeated, and
 // the Biffield API doesn't support that.
-ETL_BFF_REG_RW(uint32_t, FLSEA0,
+ETL_BFF_REG_RW(uint32_t, F0,
    ETL_BFF_FIELD_E(31:29, uint8_t, EFEC,
     ETL_BFF_ENUM(0b001, disable)
     ETL_BFF_ENUM(0b001, store_fifo0)
@@ -14,7 +14,7 @@ ETL_BFF_REG_RW(uint32_t, FLSEA0,
   ETL_BFF_FIELD(28:0, uint32_t, EFID1)
 )
 
-ETL_BFF_REG_RW(uint32_t, FLSEA1,
+ETL_BFF_REG_RW(uint32_t, F1,
   ETL_BFF_FIELD_E(31:30, uint8_t, EFT,
     ETL_BFF_ENUM(0b00, range)
     ETL_BFF_ENUM(0b01, dual_id)
