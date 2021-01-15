@@ -12,7 +12,7 @@ ETL_BFF_REG_RW(uint32_t, T1,
 
   ETL_BFF_FIELD(21:21, bool, FDF)
   ETL_BFF_FIELD(20:20, bool, BRS)
-  // ETL_BFF_FIELD(19:16, uint8_t, DLC)
+  
   ETL_BFF_FIELD_E(19:16, uint8_t, DLC,
     ETL_BFF_ENUM(0b0000, can0)    
     ETL_BFF_ENUM(0b0001, can1)    
