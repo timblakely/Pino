@@ -15,8 +15,6 @@ void Can::Init(Can::Instance instance) {
   switch (instance) {
     case Instance::Fdcan1:
       standard_filters_ = reinterpret_cast<StandardFilter*>(kMRAMAddress);
-      extended_filters_ = reinterpret_cast<ExtendedFilter*>(
-          kMRAMAddress + sizeof(StandardFilter) * 28);
       break;
     case Instance::Fdcan2:
       standard_filters_ =
@@ -27,6 +25,14 @@ void Can::Init(Can::Instance instance) {
           reinterpret_cast<StandardFilter*>(kMRAMAddress + kMRAMBankSize * 2);
       break;
   }
+  uint32_t* base_addr = reinterpret_cast<uint32_t*>(standard_filters_);
+  extended_filters_ =
+      reinterpret_cast<ExtendedFilter*>(base_addr + kExtendedFilterMemOffset);
+  rx_fifo0_ = reinterpret_cast<RxBuffer*>(base_addr + kRxFIFO0MemOffset);
+  rx_fifo1_ = reinterpret_cast<RxBuffer*>(base_addr + kRxFIFO1MemOffset);
+  tx_event_fifo_ =
+      reinterpret_cast<TxEvent*>(base_addr + kTxEventFifoMemOffset);
+  tx_buffer_ = reinterpret_cast<TxBuffer*>(base_addr + kTxBufferMemOffset);
 
   // TODO(blakely): Assumes FDCAN1 on PA11/PA12 for RX/TX respectively.
 
@@ -163,6 +169,54 @@ void Can::Init(Can::Instance instance) {
     using CCCR = Can::Periph::CCCR_value_t;
     can_->update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::run); });
   }
+  ++i;
+}
+
+void Can::TransmitData(uint8_t* data, uint8_t size) {
+  const auto idx = can_->tx_put();
+  auto buffer = tx_buffer_[idx];
+
+  {
+    using T0 = Can::TxBuffer::T0_value_t;
+    buffer.update_T0([](T0 v) {
+      return v
+          // ESI only on error passive
+          .with_ESI(0)
+          // Standard
+          .with_XTD(0)
+          // Data frame
+          .with_RTR(0)
+          // Set message ID
+          .with_ID(13);
+    });
+  }
+
+  {
+    using T1 = Can::TxBuffer::T1_value_t;
+    buffer.update_T1([](T1 v) {
+      return v
+          // Set message marger
+          .with_MM(123)
+          // Store tx events
+          .with_EFC(1)
+          // Transmit as FD
+          .with_FDF(1)
+          // Don't use bitrate switching
+          .with_BRS(0)
+          // Data length code HACKHACKHACK
+          .with_DLC(T1::DLC_t::can3);
+    });
+  }
+
+  // Copy memory into buffer
+  memcpy(reinterpret_cast<void*>(data), buffer.data, size);
+
+  // Notify periphal of transmit request
+  {
+    using TXBAR = Can::Periph::TXBAR_value_t;
+    can_->update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
+  }
+  int i = 0;
   ++i;
 }
 

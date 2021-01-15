@@ -213,6 +213,8 @@ class Can {
 
   void Init(Can::Instance instance);
 
+  void TransmitData(uint8_t* t, uint8_t size);
+
  private:
   Instance instance_;
 
@@ -225,6 +227,9 @@ class Can {
   "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
+
+    uint8_t tx_put() { return read_TXFQS().get_TFQPI(); }
+    uint8_t tx_get() { return read_TXFQS().get_TFGI(); }
   };
   static_assert(sizeof(Periph) == 0x104);
   Periph* can_;
