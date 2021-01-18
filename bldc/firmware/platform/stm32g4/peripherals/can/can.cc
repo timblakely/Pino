@@ -41,9 +41,6 @@ static_assert(kMRAMBankSize ==
                sizeof(RxBuffer) * 3 + sizeof(RxBuffer) * 3 +
                sizeof(TxEvent) * 3 + sizeof(TxBuffer) * 3));
 
-// Implementation
-
-
 }  // namespace impl
 
 using impl::ExtendedFilter;

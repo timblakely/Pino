@@ -1,7 +1,13 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 
+// TODO(blakely): Forward declare where necessary.
+#include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter_memory.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer_memory.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter_memory.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer_memory.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_event_memory.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
 namespace platform {
@@ -10,42 +16,8 @@ namespace stm32g4 {
 namespace impl {
 
 // Memory configuration
-struct StandardFilter {
-#define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter_memory.inl"
-#include "third_party/etl/biffield/generate.h"
-#undef ETL_BFF_DEFINITION_FILE
-};
 
-struct ExtendedFilter {
-#define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter_memory.inl"
-#include "third_party/etl/biffield/generate.h"
-#undef ETL_BFF_DEFINITION_FILE
-};
 
-struct RxBuffer {
-#define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer_memory.inl"
-#include "third_party/etl/biffield/generate.h"
-#undef ETL_BFF_DEFINITION_FILE
-  uint32_t data[16];
-};
-
-struct TxEvent {
-#define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can/tx_event_memory.inl"
-#include "third_party/etl/biffield/generate.h"
-#undef ETL_BFF_DEFINITION_FILE
-};
-
-struct TxBuffer {
-#define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer_memory.inl"
-#include "third_party/etl/biffield/generate.h"
-#undef ETL_BFF_DEFINITION_FILE
-  uint32_t data[16];
-};
 
 }  // namespace impl
 

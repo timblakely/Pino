@@ -18,7 +18,12 @@ cc_library(
     ],
     hdrs = [
         "can.h",
+        "extended_filter_memory.h",
         "fdcan.h",
+        "rx_buffer_memory.h",
+        "standard_filter_memory.h",
+        "tx_buffer_memory.h",
+        "tx_event_memory.h",
     ],
     deps = [
         "//bldc/firmware/platform/stm32g4/peripherals:gpio_defines",
