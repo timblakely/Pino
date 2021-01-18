@@ -11,7 +11,7 @@ static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
 
 struct Fdcan {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/fdcan_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 

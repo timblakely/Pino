@@ -2,12 +2,12 @@
 
 #include <cstring>
 
-#include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter_memory.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer_memory.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter_memory.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer_memory.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_event_memory.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_event.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_rcc.h"
 
@@ -125,16 +125,8 @@ void Can::Init(Can::Instance instance) {
 
   // TODO(blakely): Configure this though an enum to Init()
 
-  // Set the first filter.
-  {
-    using FLSSA = impl::StandardFilter::FLSSA_value_t;
-    standard_filters_[0].update_FLSSA([](FLSSA v) {
-      return v.with_SFT(FLSSA::SFT_t::dual_id)
-          .with_SFEC(FLSSA::SFEC_t::store_fifo0)
-          .with_SFID1(13)
-          .with_SFID2(37);
-    });
-  }
+  standard_filters_[0].SetFilter(StandardFilter::FilterType::dual_id,
+                                 StandardFilter::Action::store_fifo0, 13, 37);
   peripheral_->Start();
 }
 
