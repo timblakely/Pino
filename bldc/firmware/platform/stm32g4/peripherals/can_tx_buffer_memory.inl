@@ -4,6 +4,8 @@ ETL_BFF_REG_RW(uint32_t, T0,
   ETL_BFF_FIELD(30:30, bool, XTD)
   ETL_BFF_FIELD(29:29, bool, RTR)
   ETL_BFF_FIELD(28:0, uint32_t, ID)
+  // Alias for SID, since standard identifiers have to be written to ID[28:18]
+  ETL_BFF_FIELD(28:18, uint32_t, SID)
 )
 
 ETL_BFF_REG_RW(uint32_t, T1,
