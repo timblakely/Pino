@@ -9,13 +9,17 @@ cc_library(
     srcs = [
         "can.cc",
         "extended_filter_memory.inl",
-        "registers.inl",
+        "fdcan.cc",
+        "fdcan.inl",
         "rx_buffer_memory.inl",
         "standard_filter_memory.inl",
         "tx_buffer_memory.inl",
         "tx_event_memory.inl",
     ],
-    hdrs = ["can.h"],
+    hdrs = [
+        "can.h",
+        "fdcan.h",
+    ],
     deps = [
         "//bldc/firmware/platform/stm32g4/peripherals:gpio_defines",
         "//third_party/etl:biffield",
