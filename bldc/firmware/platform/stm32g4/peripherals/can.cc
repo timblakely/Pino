@@ -3,6 +3,7 @@
 #include <cstring>
 
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
+#include "third_party/stm32cubeg4/stm32g4xx_ll_rcc.h"
 
 namespace platform {
 namespace stm32g4 {
@@ -56,7 +57,7 @@ void Periph::Initialize() {
   update_CCCR([](CCCR v) {
     return v
         // Enable Tx pause
-        .with_TXP(1)
+        .with_TXP(0)
         // No edge filtering
         .with_EFBI(0)
         // Protocol exception handling disalbed
@@ -179,6 +180,12 @@ void Can::Init(Can::Instance instance) {
   tx_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
                 Gpio::AlternateFunction::AF9);
 
+  // TODO(blakely): We have to set bit 20 directly since the LL drivers
+  // helpfully ignore any configuration of it >:(
+  RCC->PLLCFGR = (RCC->PLLCFGR & 0xFFEFFFFF) | (1U << 20);
+  // Make sure we set thre right clock source: PLL is currently used.
+  LL_RCC_SetFDCANClockSource(LL_RCC_FDCAN_CLKSOURCE_PLL);
+  // Enable the clock.
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_FDCAN);
 
   // Zero out the memory. Note: Must be done *after* enabling the FDCAN clock!
