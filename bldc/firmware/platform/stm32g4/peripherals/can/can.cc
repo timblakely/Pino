@@ -1,4 +1,4 @@
-#include "bldc/firmware/platform/stm32g4/peripherals/can.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/can.h"
 
 #include <cstring>
 

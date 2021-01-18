@@ -5,25 +5,6 @@ package(default_visibility = ["//visibility:public"])
 # TODO(blakely): Figure out a better way to deal with CMSIS defines globally.
 
 cc_library(
-    name = "can",
-    srcs = [
-        "can.cc",
-        "can_extended_filter_memory.inl",
-        "can_registers.inl",
-        "can_rx_buffer_memory.inl",
-        "can_standard_filter_memory.inl",
-        "can_tx_buffer_memory.inl",
-        "can_tx_event_memory.inl",
-    ],
-    hdrs = ["can.h"],
-    deps = [
-        ":gpio_defines",
-        "//third_party/etl:biffield",
-        "//third_party/stm32cubeg4:stm32g474xx",
-    ],
-)
-
-cc_library(
     name = "dma",
     srcs = ["dma.cc"],
     hdrs = ["dma.h"],

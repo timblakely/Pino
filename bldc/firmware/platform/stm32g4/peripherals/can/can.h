@@ -16,7 +16,7 @@ static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
 // Registers
 struct Fdcan {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/registers.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 
@@ -46,21 +46,21 @@ struct Fdcan {
 // Memory configuration
 struct StandardFilter {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_standard_filter_memory.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 };
 
 struct ExtendedFilter {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_extended_filter_memory.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 };
 
 struct RxBuffer {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_rx_buffer_memory.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   uint32_t data[16];
@@ -68,14 +68,14 @@ struct RxBuffer {
 
 struct TxEvent {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_tx_event_memory.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/tx_event_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 };
 
 struct TxBuffer {
 #define ETL_BFF_DEFINITION_FILE \
-  "bldc/firmware/platform/stm32g4/peripherals/can_tx_buffer_memory.inl"
+  "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
   uint32_t data[16];
