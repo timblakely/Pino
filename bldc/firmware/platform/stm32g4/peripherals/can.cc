@@ -44,7 +44,7 @@ void Can::Init(Can::Instance instance) {
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_FDCAN);
 
   // Zero out the memory. Note: Must be done *after* enabling the FDCAN clock!
-  memset(reinterpret_cast<void*>(standard_filters_), 0, kMRAMBankSize);
+  memset(reinterpret_cast<void*>(kMRAMAddress), 0, kMRAMBankSize * 3);
 
   // TODO(blakely): Set SynSeg, BS1, and BS2
   // Baud = 1 / bit_time = t_ss + t_bs1 + t_bs2
@@ -139,27 +139,18 @@ void Can::Init(Can::Instance instance) {
 
   // TODO(blakely): Configure this though an enum to Init()
   // Disable loopback mode
+  // {
+
   {
     using CCCR = Can::Periph::CCCR_value_t;
     using TEST = Can::Periph::TEST_value_t;
-    // Enable access to TEST register.
-    can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::test); });
-    can_->update_TEST(
-        [](TEST v) { return v.with_LBCK(0).with_TX(TEST::TX_t::can_core); });
-    // Disable access to TEST register.
-    can_->update_CCCR([](CCCR v) { return v.with_TEST(CCCR::TEST_t::normal); });
+    can_->update_CCCR([](CCCR v) {
+      return v.with_TEST(CCCR::TEST_t::test)
+          .with_MON(0)
+          .with_ASM(CCCR::ASM_t::normal);
+    });
+    can_->update_TEST([](TEST v) { return v.with_LBCK(1); });
   }
-
-  // {
-  //   using CCCR = Can::Periph::CCCR_value_t;
-  //   using TEST = Can::Periph::TEST_value_t;
-  //   can_->update_CCCR([](CCCR v) {
-  //     return v.with_TEST(CCCR::TEST_t::test)
-  //         .with_MON(0)
-  //         .with_ASM(CCCR::ASM_t::normal);
-  //   });
-  //   can_->update_TEST([](TEST v) { return v.with_LBCK(1); });
-  // }
 
   // Set the first filter.
   {
@@ -185,11 +176,11 @@ void Can::Init(Can::Instance instance) {
 
 void Can::TransmitData(uint8_t* data, uint8_t size) {
   const auto idx = can_->tx_put();
-  auto buffer = tx_buffer_[idx];
+  auto buffer = &(tx_buffer_[idx]);
 
   {
     using T0 = Can::TxBuffer::T0_value_t;
-    buffer.update_T0([](T0 v) {
+    buffer->update_T0([](T0 v) {
       return v
           // ESI only on error active
           .with_ESI(0)
@@ -204,7 +195,7 @@ void Can::TransmitData(uint8_t* data, uint8_t size) {
 
   {
     using T1 = Can::TxBuffer::T1_value_t;
-    buffer.update_T1([](T1 v) {
+    buffer->update_T1([](T1 v) {
       return v
           // Set message marker
           .with_MM(123)
@@ -219,8 +210,29 @@ void Can::TransmitData(uint8_t* data, uint8_t size) {
     });
   }
 
-  // Copy memory into buffer
-  memcpy(reinterpret_cast<void*>(data), buffer.data, size);
+  // Copy memory into buffer. MRAM is must be written in 32-bit chunks, so use
+  // memcpy for most of it then manually copy the remainder.
+  const uint8_t words = size / sizeof(uint32_t);
+  uint32_t* src = reinterpret_cast<uint32_t*>(data);
+  uint32_t* dest = buffer->data;
+  const uint32_t* fence = dest + words;
+  while (dest != fence) {
+    *dest = *src;
+    ++dest;
+    ++src;
+  }
+  const uint8_t remainder = size - words * 4;
+  const uint8_t* remainder_src = reinterpret_cast<uint8_t*>(src);
+  if (remainder == 1) {
+    *dest = 0xFFU & remainder_src[0];
+  } else if (remainder == 2) {
+    *dest = 0xFFFFU & (remainder_src[1] << 8 | remainder_src[0]);
+  } else if (remainder == 3) {
+    *dest = 0xFFFFFFU &
+            (remainder_src[2] << 16 | remainder_src[1] << 8 | remainder_src[0]);
+  }
+
+  // memcpy(reinterpret_cast<void*>(buffer->data), data, size);
 
   // Notify periphal of transmit request
   {
