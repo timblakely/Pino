@@ -8,10 +8,10 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace can {
+namespace impl {
 
 // Ensure memory addresses are at expected locations.
-static_assert(sizeof(Periph) == 0x104);
+static_assert(sizeof(Fdcan) == 0x104);
 static_assert(sizeof(StandardFilter) == 1 * 4);
 static constexpr uint32_t kStandardFilterMemOffset = 0x0;
 static_assert(kStandardFilterMemOffset == 0x0000);
@@ -43,7 +43,7 @@ static_assert(kMRAMBankSize ==
 
 // Implementation
 
-void Periph::InitMode() {
+void Fdcan::InitMode() {
   // Enter init mode.
   update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::init); });
   // Wait for ACK to init mode, in case we're already transmitting.
@@ -53,7 +53,7 @@ void Periph::InitMode() {
   update_CCCR([](CCCR v) { return v.with_CCE(CCCR::CCE_t::readwrite); });
 }
 
-void Periph::Initialize() {
+void Fdcan::Initialize() {
   update_CCCR([](CCCR v) {
     return v
         // Enable Tx pause
@@ -80,7 +80,7 @@ void Periph::Initialize() {
   });
 }
 
-void Periph::SetBitTiming() {
+void Fdcan::SetBitTiming() {
   update_NBTP([](NBTP v) {
     // TODO(blakely): Pull actual clock source and freq from RCC. This
     // assumes PCLK1@170MHz, aiming for 1MBit
@@ -105,15 +105,15 @@ void Periph::SetBitTiming() {
   });
 }
 
-void Periph::EnableQueueMode() {
+void Fdcan::EnableQueueMode() {
   update_TXBC([](TXBC v) { return v.with_TFQM(TXBC::TFQM_t::fifo); });
 }
 
-void Periph::SetClockDivider() {
+void Fdcan::SetClockDivider() {
   update_CKDIV([](CKDIV v) { return v.with_PDIV(CKDIV::PDIV_t::div1); });
 }
 
-void Periph::EnableLoopbackMode() {
+void Fdcan::EnableLoopbackMode() {
   update_CCCR([](CCCR v) {
     return v.with_TEST(CCCR::TEST_t::test)
         .with_MON(0)
@@ -122,35 +122,35 @@ void Periph::EnableLoopbackMode() {
   update_TEST([](TEST v) { return v.with_LBCK(1); });
 }
 
-void Periph::Start() {
+void Fdcan::Start() {
   update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::run); });
 }
 
-uint8_t Periph::TxPut() { return read_TXFQS().get_TFQPI(); }
+uint8_t Fdcan::TxPut() { return read_TXFQS().get_TFQPI(); }
 
-uint8_t Periph::TxGet() { return read_TXFQS().get_TFGI(); }
+uint8_t Fdcan::TxGet() { return read_TXFQS().get_TFGI(); }
 
-}  // namespace can
+}  // namespace impl
 
-using can::ExtendedFilter;
-using can::kExtendedFilterMemOffset;
-using can::kMRAMAddress;
-using can::kMRAMBankSize;
-using can::kRxFIFO0MemOffset;
-using can::kRxFIFO1MemOffset;
-using can::kTxBufferMemOffset;
-using can::kTxEventFifoMemOffset;
-using can::Periph;
-using can::RxBuffer;
-using can::StandardFilter;
-using can::TxBuffer;
-using can::TxEvent;
+using impl::ExtendedFilter;
+using impl::Fdcan;
+using impl::kExtendedFilterMemOffset;
+using impl::kMRAMAddress;
+using impl::kMRAMBankSize;
+using impl::kRxFIFO0MemOffset;
+using impl::kRxFIFO1MemOffset;
+using impl::kTxBufferMemOffset;
+using impl::kTxEventFifoMemOffset;
+using impl::RxBuffer;
+using impl::StandardFilter;
+using impl::TxBuffer;
+using impl::TxEvent;
 
 Can::Can(Gpio::Pin tx, Gpio::Pin rx) : tx_(tx), rx_(rx) {}
 
 void Can::Init(Can::Instance instance) {
   instance_ = instance;
-  can_ = reinterpret_cast<can::Periph*>(instance);
+  peripheral_ = reinterpret_cast<impl::Fdcan*>(instance);
   switch (instance) {
     case Instance::Fdcan1:
       standard_filters_ = reinterpret_cast<StandardFilter*>(kMRAMAddress);
@@ -198,19 +198,19 @@ void Can::Init(Can::Instance instance) {
   // TODO(blakely): Do we need to read FDCAN_ENDN?
 
   // Init and control configuration.
-  can_->InitMode();
-  can_->Initialize();
-  can_->SetBitTiming();
-  can_->EnableQueueMode();
-  can_->EnableLoopbackMode();
+  peripheral_->InitMode();
+  peripheral_->Initialize();
+  peripheral_->SetBitTiming();
+  peripheral_->EnableQueueMode();
+  peripheral_->EnableLoopbackMode();
   // TODO(blakely): Set DBTP. 8.01MBit is 2/2/2
-  can_->SetClockDivider();
+  peripheral_->SetClockDivider();
 
   // TODO(blakely): Configure this though an enum to Init()
 
   // Set the first filter.
   {
-    using FLSSA = can::StandardFilter::FLSSA_value_t;
+    using FLSSA = impl::StandardFilter::FLSSA_value_t;
     standard_filters_[0].update_FLSSA([](FLSSA v) {
       return v.with_SFT(FLSSA::SFT_t::dual_id)
           .with_SFEC(FLSSA::SFEC_t::store_fifo0)
@@ -218,15 +218,15 @@ void Can::Init(Can::Instance instance) {
           .with_SFID2(37);
     });
   }
-  can_->Start();
+  peripheral_->Start();
 }
 
 void Can::TransmitData(uint8_t* data, uint8_t size) {
-  const auto idx = can_->TxPut();
+  const auto idx = peripheral_->TxPut();
   auto buffer = &(tx_buffer_[idx]);
 
   {
-    using T0 = can::TxBuffer::T0_value_t;
+    using T0 = impl::TxBuffer::T0_value_t;
     buffer->update_T0([](T0 v) {
       return v
           // ESI only on error active
@@ -241,7 +241,7 @@ void Can::TransmitData(uint8_t* data, uint8_t size) {
   }
 
   {
-    using T1 = can::TxBuffer::T1_value_t;
+    using T1 = impl::TxBuffer::T1_value_t;
     buffer->update_T1([](T1 v) {
       return v
           // Set message marker
@@ -279,12 +279,10 @@ void Can::TransmitData(uint8_t* data, uint8_t size) {
             (remainder_src[2] << 16 | remainder_src[1] << 8 | remainder_src[0]);
   }
 
-  // memcpy(reinterpret_cast<void*>(buffer->data), data, size);
-
   // Notify periphal of transmit request
   {
-    using TXBAR = can::Periph::TXBAR_value_t;
-    can_->update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
+    using TXBAR = impl::Fdcan::TXBAR_value_t;
+    peripheral_->update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
   }
   int i = 0;
   ++i;

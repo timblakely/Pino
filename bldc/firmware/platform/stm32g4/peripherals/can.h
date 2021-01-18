@@ -6,7 +6,7 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace can {
+namespace impl {
 
 #define PSL_INL inline
 
@@ -14,7 +14,7 @@ static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
 static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
 
 // Registers
-struct Periph {
+struct Fdcan {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can_registers.inl"
 #include "third_party/etl/biffield/generate.h"
@@ -81,7 +81,7 @@ struct TxBuffer {
   uint32_t data[16];
 };
 
-}  // namespace can
+}  // namespace impl
 
 class Can {
  public:
@@ -104,14 +104,14 @@ class Can {
   Gpio::Pin tx_;
   Gpio::Pin rx_;
 
-  can::Periph* can_;
+  impl::Fdcan* peripheral_;
 
-  can::StandardFilter* standard_filters_;
-  can::ExtendedFilter* extended_filters_;
-  can::RxBuffer* rx_fifo0_;
-  can::RxBuffer* rx_fifo1_;
-  can::TxEvent* tx_event_fifo_;
-  can::TxBuffer* tx_buffer_;
+  impl::StandardFilter* standard_filters_;
+  impl::ExtendedFilter* extended_filters_;
+  impl::RxBuffer* rx_fifo0_;
+  impl::RxBuffer* rx_fifo1_;
+  impl::TxEvent* tx_event_fifo_;
+  impl::TxBuffer* tx_buffer_;
 };
 
 }  // namespace stm32g4
