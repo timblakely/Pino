@@ -75,7 +75,7 @@ void Devboard::Init() {
   tim5.Start();
 
   can_.Init(Can::Instance::Fdcan1);
-  uint8_t data[4] = {0b10101010, 0, 0b10101010};
+  uint8_t data[4] = {0b0, 0b00011000, 0b0};
   can_.TransmitData(data, 3);
 
   blue_->On();
