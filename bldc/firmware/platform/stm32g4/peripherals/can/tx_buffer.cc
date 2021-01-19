@@ -6,7 +6,7 @@ namespace impl {
 
 using FrameSize = TxBuffer::FrameSize;
 
-uint8_t FrameSizeBytes(FrameSize size) {
+uint8_t FrameSizeBytes(TxBuffer::FrameSize size) {
   switch (size) {
     case FrameSize::fdcan0:
     case FrameSize::fdcan1:
@@ -36,8 +36,7 @@ uint8_t FrameSizeBytes(FrameSize size) {
   };
 }
 
-void TxBuffer::WriteStandardDataFrame(uint8_t id, uint8_t* data,
-                                      FrameSize frame_size) {
+void TxBuffer::DataFrame(uint8_t id, uint8_t* data, FrameSize frame_size) {
   update_T0([&id](T0 v) {
     return v
         // ESI only on error active
