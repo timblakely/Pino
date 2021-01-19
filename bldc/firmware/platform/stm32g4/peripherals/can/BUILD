@@ -14,6 +14,7 @@ cc_library(
         "rx_buffer_memory.inl",
         "standard_filter.cc",
         "standard_filter_memory.inl",
+        "tx_buffer.cc",
         "tx_buffer_memory.inl",
         "tx_event_memory.inl",
     ],

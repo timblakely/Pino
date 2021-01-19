@@ -12,7 +12,18 @@ struct TxBuffer {
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 
-  uint32_t data[16];
+ private:
+  using T0 = T0_value_t;
+  using T1 = T1_value_t;
+
+ public:
+  using FrameSize = T1::DLC_t;
+  uint32_t data_[16];
+
+  // TODO(blakely): templatize
+  void WriteStandardDataFrame(uint8_t id, uint8_t* data, FrameSize size);
+ 
+ private:
 };
 
 }  // namespace impl

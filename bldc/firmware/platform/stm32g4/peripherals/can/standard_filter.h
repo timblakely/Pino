@@ -19,6 +19,7 @@ struct StandardFilter {
   using FilterType = FLSSA::SFT_t;
   using Action = FLSSA::SFEC_t;
 
+  // TODO(blakely): templatize for CONSTEXPR evalulation
   void SetFilter(FilterType type, Action action, uint8_t id1, uint8_t id2);
 };
 
