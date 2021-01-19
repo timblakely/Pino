@@ -4,8 +4,40 @@ namespace platform {
 namespace stm32g4 {
 namespace impl {
 
+using FrameSize = TxBuffer::FrameSize;
+
+uint8_t FrameSizeBytes(FrameSize size) {
+  switch (size) {
+    case FrameSize::fdcan0:
+    case FrameSize::fdcan1:
+    case FrameSize::fdcan2:
+    case FrameSize::fdcan3:
+    case FrameSize::fdcan4:
+    case FrameSize::fdcan5:
+    case FrameSize::fdcan6:
+    case FrameSize::fdcan7:
+    case FrameSize::fdcan8:
+      return static_cast<uint8_t>(size);
+    case FrameSize::fdcan12:
+      return 12;
+    case FrameSize::fdcan16:
+      return 16;
+    case FrameSize::fdcan20:
+      return 20;
+    case FrameSize::fdcan24:
+      return 24;
+    case FrameSize::fdcan32:
+      return 32;
+    case FrameSize::fdcan48:
+      return 48;
+    case FrameSize::fdcan64:
+    default:
+      return 64;
+  };
+}
+
 void TxBuffer::WriteStandardDataFrame(uint8_t id, uint8_t* data,
-                                      FrameSize size) {
+                                      FrameSize frame_size) {
   update_T0([&id](T0 v) {
     return v
         // ESI only on error active
@@ -18,7 +50,7 @@ void TxBuffer::WriteStandardDataFrame(uint8_t id, uint8_t* data,
         .with_SID(id);
   });
 
-  update_T1([&size](T1 v) {
+  update_T1([&frame_size](T1 v) {
     return v
         // Set message marker
         .with_MM(123)
@@ -29,10 +61,11 @@ void TxBuffer::WriteStandardDataFrame(uint8_t id, uint8_t* data,
         // Don't use bitrate switching
         .with_BRS(0)
         // Data length code
-        .with_DLC(size);
+        .with_DLC(frame_size);
   });
 
-  const uint8_t words = static_cast<uint8_t>(size) / sizeof(uint32_t);
+  const uint8_t size = FrameSizeBytes(frame_size);
+  const uint8_t words = size / sizeof(uint32_t);
   uint32_t* src = reinterpret_cast<uint32_t*>(data);
   uint32_t* dest = data_;
   const uint32_t* fence = dest + words;
@@ -41,7 +74,7 @@ void TxBuffer::WriteStandardDataFrame(uint8_t id, uint8_t* data,
     ++dest;
     ++src;
   }
-  const uint8_t remainder = static_cast<uint8_t>(size) - words * 4;
+  const uint8_t remainder = size - words * 4;
   const uint8_t* remainder_src = reinterpret_cast<uint8_t*>(src);
   if (remainder == 1) {
     *dest = 0xFFU & remainder_src[0];

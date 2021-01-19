@@ -133,72 +133,8 @@ void Can::Init(Can::Instance instance) {
 void Can::TransmitData(uint8_t* data, uint8_t size) {
   const auto idx = peripheral_->TxPut();
   auto buffer = &(tx_buffer_[idx]);
-
   buffer->WriteStandardDataFrame(13, data, TxBuffer::FrameSize::can3);
-
-  // {
-  //   using T0 = impl::TxBuffer::T0_value_t;
-  //   buffer->update_T0([](T0 v) {
-  //     return v
-  //         // ESI only on error active
-  //         .with_ESI(0)
-  //         // Standard
-  //         .with_XTD(0)
-  //         // Data frame
-  //         .with_RTR(0)
-  //         // Set message ID
-  //         .with_SID(13);
-  //   });
-  // }
-
-  // {
-  //   using T1 = impl::TxBuffer::T1_value_t;
-  //   buffer->update_T1([](T1 v) {
-  //     return v
-  //         // Set message marker
-  //         .with_MM(123)
-  //         // Store tx events
-  //         .with_EFC(1)
-  //         // Transmit as FD
-  //         .with_FDF(1)
-  //         // Don't use bitrate switching
-  //         .with_BRS(0)
-  //         // Data length code HACKHACKHACK
-  //         .with_DLC(T1::DLC_t::can3);
-  //   });
-  // }
-
-  // // Copy memory into buffer. MRAM is must be written in 32-bit chunks, so
-  // use
-  // // memcpy for most of it then manually copy the remainder.
-  // const uint8_t words = size / sizeof(uint32_t);
-  // uint32_t* src = reinterpret_cast<uint32_t*>(data);
-  // uint32_t* dest = buffer->data;
-  // const uint32_t* fence = dest + words;
-  // while (dest != fence) {
-  //   *dest = *src;
-  //   ++dest;
-  //   ++src;
-  // }
-  // const uint8_t remainder = size - words * 4;
-  // const uint8_t* remainder_src = reinterpret_cast<uint8_t*>(src);
-  // if (remainder == 1) {
-  //   *dest = 0xFFU & remainder_src[0];
-  // } else if (remainder == 2) {
-  //   *dest = 0xFFFFU & (remainder_src[1] << 8 | remainder_src[0]);
-  // } else if (remainder == 3) {
-  //   *dest = 0xFFFFFFU &
-  //           (remainder_src[2] << 16 | remainder_src[1] << 8 |
-  //           remainder_src[0]);
-  // }
-
-  // Notify periphal of transmit request
-  {
-    using TXBAR = impl::Fdcan::TXBAR_value_t;
-    peripheral_->update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
-  }
-  int i = 0;
-  ++i;
+  peripheral_->TransmitBuffer(idx);
 }
 
 }  // namespace stm32g4

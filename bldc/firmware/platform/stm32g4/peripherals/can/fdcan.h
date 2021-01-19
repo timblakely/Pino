@@ -20,12 +20,12 @@ struct Fdcan {
   void EnableLoopbackMode();
   void Start();
 
-  void Transmit();
-
   // TODO(blakely): Actually make these configurable?
   void Initialize();
   void SetBitTiming();
   void SetClockDivider();
+
+  void TransmitBuffer(uint8_t idx);
 
   uint8_t TxPut();
   uint8_t TxGet();
@@ -35,6 +35,7 @@ struct Fdcan {
   using CKDIV = CKDIV_value_t;
   using NBTP = NBTP_value_t;
   using TEST = TEST_value_t;
+  using TXBAR = TXBAR_value_t;
   using TXBC = TXBC_value_t;
 };
 

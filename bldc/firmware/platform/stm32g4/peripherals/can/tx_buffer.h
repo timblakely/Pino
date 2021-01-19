@@ -22,8 +22,6 @@ struct TxBuffer {
 
   // TODO(blakely): templatize
   void WriteStandardDataFrame(uint8_t id, uint8_t* data, FrameSize size);
- 
- private:
 };
 
 }  // namespace impl

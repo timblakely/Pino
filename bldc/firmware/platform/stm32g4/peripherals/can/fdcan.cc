@@ -91,6 +91,10 @@ uint8_t Fdcan::TxPut() { return read_TXFQS().get_TFQPI(); }
 
 uint8_t Fdcan::TxGet() { return read_TXFQS().get_TFGI(); }
 
+void Fdcan::TransmitBuffer(uint8_t idx) {
+  update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
+}
+
 }  // namespace impl
 }  // namespace stm32g4
 }  // namespace platform
