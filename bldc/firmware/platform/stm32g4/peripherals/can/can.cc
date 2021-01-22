@@ -132,8 +132,8 @@ void Can::Init(Can::Instance instance) {
 
 void Can::TransmitData(uint8_t* data, uint8_t size) {
   const auto idx = peripheral_->TxPut();
-  auto buffer = &(tx_buffer_[idx]);
-  buffer->DataFrame(13, data, TxBuffer::FrameSize::can3);
+  auto test_frame = static_cast<TestFrame*>(&(tx_buffer_[idx]));
+  test_frame->Build(data);
   peripheral_->TransmitBuffer(idx);
 }
 
