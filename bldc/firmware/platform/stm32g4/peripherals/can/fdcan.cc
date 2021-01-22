@@ -23,9 +23,8 @@ void Fdcan::Initialize() {
         .with_EFBI(0)
         // Protocol exception handling disalbed
         .with_PXHD(0)
-        // TODO(blakely): Enable bit rate switching eventually.
-        // No bit rate switching
-        .with_BRSE(0)
+        // Enable bit rate switching
+        .with_BRSE(1)
         // Enable FDCAN mode
         .with_FDOE(1)
         // No test mode
@@ -58,11 +57,31 @@ void Fdcan::SetBitTiming() {
     // Bit time = 41.176 + 494.41 + 452.94 = 988.235 ns
     // Baud = 1e9 / (988.235) = 1.0116 MBit
 
-    return v.with_NBRP(6)
-        .with_NTSEG1(11)
+    return v.with_NBRP(4)
+        .with_NTSEG1(21)
         .with_NTSEG2(10)
         // Jump width of 4
-        .with_NSJW(4);
+        .with_NSJW(5);
+  });
+
+  update_DBTP([](DBTP v) {
+    // TODO(blakely): Pull actual clock source and freq from RCC. This
+    // assumes PCLK1@170MHz, aiming for 1MBit
+
+    // DBRP = 1
+    // DTSEG1 = 4
+    // DTSEG2 = 3
+    // DSJW = 2
+
+    // tq = (DBRP + 1) * t_fdcan_clk = (1 + 1) * 5.88235ns = 11.67ns
+    // t_syncseg = 1 * tq = 11.67ns
+    // bs1 = tq * (DTSEG1 + 1) = 11.67ns * (4 + 1) = 58.82 ns
+    // bs2 = tq * (DTSEG2 + 1) = 11.67ns * (3 + 1) = 47.06 ns
+    // Bit time = 11.67 + 58.82 + 47.06 = 117.65 ns
+    // Baud = 1e9 / (117.65) = 8.5 MBit
+
+    // return v.with_DBRP(1).with_DTSEG1(4).with_DTSEG2(3).with_DSJW(2);
+    return v.with_DBRP(0).with_DTSEG1(21).with_DTSEG2(10).with_DSJW(10);
   });
 }
 

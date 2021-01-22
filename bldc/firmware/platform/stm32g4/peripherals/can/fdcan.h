@@ -33,6 +33,7 @@ struct Fdcan {
  private:
   using CCCR = CCCR_value_t;
   using CKDIV = CKDIV_value_t;
+  using DBTP = DBTP_value_t;
   using NBTP = NBTP_value_t;
   using TEST = TEST_value_t;
   using TXBAR = TXBAR_value_t;

@@ -119,7 +119,7 @@ void Can::Init(Can::Instance instance) {
   peripheral_->Initialize();
   peripheral_->SetBitTiming();
   peripheral_->EnableQueueMode();
-  peripheral_->EnableLoopbackMode();
+  // peripheral_->EnableLoopbackMode();
   // TODO(blakely): Set DBTP. 8.01MBit is 2/2/2
   peripheral_->SetClockDivider();
 

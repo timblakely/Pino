@@ -42,11 +42,11 @@ void TxBuffer::DataFrame(uint8_t id, uint8_t* data, FrameSize frame_size) {
         // ESI only on error active
         .with_ESI(0)
         // Standard
-        .with_XTD(0)
+        .with_XTD(1)
         // Data frame
         .with_RTR(0)
         // Set message ID
-        .with_SID(id);
+        .with_ID(id);
   });
 
   update_T1([&frame_size](T1 v) {
@@ -58,7 +58,7 @@ void TxBuffer::DataFrame(uint8_t id, uint8_t* data, FrameSize frame_size) {
         // Transmit as FD
         .with_FDF(1)
         // Don't use bitrate switching
-        .with_BRS(0)
+        .with_BRS(1)
         // Data length code
         .with_DLC(frame_size);
   });
