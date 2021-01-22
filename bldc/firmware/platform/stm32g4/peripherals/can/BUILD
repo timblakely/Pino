@@ -19,9 +19,11 @@ cc_library(
         "tx_event_memory.inl",
     ],
     hdrs = [
+        "base_frame.h",
         "can.h",
         "extended_filter.h",
         "fdcan.h",
+        "frame_types.h",
         "rx_buffer.h",
         "standard_filter.h",
         "tx_buffer.h",

@@ -4,6 +4,7 @@
 
 #include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/frame_types.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
@@ -132,8 +133,9 @@ void Can::Init(Can::Instance instance) {
 
 void Can::TransmitData(uint8_t* data, uint8_t size) {
   const auto idx = peripheral_->TxPut();
-  auto test_frame = static_cast<TestFrame*>(&(tx_buffer_[idx]));
-  test_frame->Build(data);
+  auto buffer = &(tx_buffer_[idx]);
+  buffer->ApplyHeader<TestFrame>();
+  buffer->CopyData(data, 3);
   peripheral_->TransmitBuffer(idx);
 }
 

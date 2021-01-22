@@ -4,7 +4,6 @@ namespace platform {
 namespace stm32g4 {
 namespace impl {
 
-
 void TxBuffer::CopyData(uint8_t* data, uint8_t size) {
   const uint8_t words = size / sizeof(uint32_t);
   uint32_t* src = reinterpret_cast<uint32_t*>(data);

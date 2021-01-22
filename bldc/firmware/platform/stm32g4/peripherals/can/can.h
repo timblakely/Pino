@@ -15,9 +15,6 @@ struct Fdcan;
 struct TxBuffer;
 struct TxEvent;
 struct RxBuffer;
-template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes, uint8_t MessageMarker,
-          bool StoreTxEvent, bool BitrateSwitching>
-struct BaseCanFrame;
 
 }  // namespace impl
 
@@ -37,8 +34,6 @@ class Can {
   void TransmitData(uint8_t* t, uint8_t size);
 
  private:
-  using TestFrame = impl::BaseCanFrame<true, 0xD, 3, 123, true, true>;
-
   Instance instance_;
 
   Gpio::Pin tx_;
