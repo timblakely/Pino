@@ -1,7 +1,9 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 
-// #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/frame_types.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
 namespace platform {
@@ -12,7 +14,8 @@ namespace impl {
 struct ExtendedFilter;
 struct StandardFilter;
 struct Fdcan;
-struct TxBuffer;
+// struct TxHeader;
+// struct TxBuffer;
 struct TxEvent;
 struct RxBuffer;
 
@@ -31,7 +34,15 @@ class Can {
 
   void Init(Can::Instance instance);
 
-  void TransmitData(uint8_t* t, uint8_t size);
+  template <typename FrameType>
+  void SendFrame(FrameType& frame) {
+    const auto idx = peripheral_->TxPut();
+    auto buffer = &(tx_buffer_[idx]);
+    static_cast<FrameType::HeaderType&>(buffer->header_)
+        .template Apply<true, true>(123);
+    frame.Pack(buffer->data_);
+    peripheral_->TransmitBuffer(idx);
+  }
 
  private:
   Instance instance_;

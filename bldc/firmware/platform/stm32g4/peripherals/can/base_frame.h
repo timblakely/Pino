@@ -9,18 +9,18 @@ namespace platform {
 namespace stm32g4 {
 namespace impl {
 
-template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes, uint8_t MessageMarker,
-          bool StoreTxEvent, bool BitrateSwitching>
+template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes>
 struct FrameHeader : public TxHeader {
   FrameHeader() = delete;
   FrameHeader(FrameHeader&) = delete;
 
-  inline void Apply() {
+  template <bool BitrateSwitching, bool StoreTxEvent>
+  inline void Apply(uint8_t message_marker) {
     update_T0([](T0 v) {
       return v.with_ESI(0).with_XTD(IsFD).with_RTR(0).with_ID(ID());
     });
-    update_T1([](T1 v) {
-      return v.with_MM(MessageMarker)
+    update_T1([&](T1 v) {
+      return v.with_MM(message_marker)
           .with_EFC(StoreTxEvent)
           .with_FDF(IsFD)
           .with_BRS(BitrateSwitching)

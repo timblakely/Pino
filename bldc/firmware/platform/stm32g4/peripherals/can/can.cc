@@ -131,13 +131,5 @@ void Can::Init(Can::Instance instance) {
   peripheral_->Start();
 }
 
-void Can::TransmitData(uint8_t* data, uint8_t size) {
-  const auto idx = peripheral_->TxPut();
-  auto buffer = &(tx_buffer_[idx]);
-  buffer->ApplyHeader<TestFrame>();
-  buffer->CopyData(data, 3);
-  peripheral_->TransmitBuffer(idx);
-}
-
 }  // namespace stm32g4
 }  // namespace platform

@@ -1,6 +1,7 @@
 #include "bldc/firmware/platform/stm32g4/devboard/devboard.h"
 
 #include "bldc/firmware/platform/bldc_platform.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/frame_types.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
@@ -75,8 +76,9 @@ void Devboard::Init() {
   tim5.Start();
 
   can_.Init(Can::Instance::Fdcan1);
-  uint8_t data[4] = {0b0, 0b00011000, 0b0};
-  can_.TransmitData(data, 3);
+
+  HardcodedFrame frame;
+  can_.SendFrame(frame);
 
   blue_->On();
 }

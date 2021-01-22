@@ -21,14 +21,7 @@ struct TxHeader {
 
 struct TxBuffer {
   TxHeader header_;
-
-  template <typename T>
-  inline void ApplyHeader() {
-    static_cast<T*>(&header_)->Apply();
-  }
-
   uint32_t data_[16];
-  void CopyData(uint8_t* data, uint8_t size);
 };
 
 }  // namespace impl
