@@ -275,12 +275,12 @@ ETL_BFF_REG_WO(uint32_t, EGR,
   ETL_BFF_FIELD(0:0, bool, UG)
 )
 
-// CCMR1_Output
+// CCMR1
 //
 // capture/compare mode register 1 (output mode)
 //
 //   Offset: 0x018
-ETL_BFF_REG_RW(uint32_t, CCMR1_Output,
+ETL_BFF_REG_RW(uint32_t, CCMR1,
   // Output Compare 2 mode - bit 3
   ETL_BFF_FIELD(24:24, bool, OC2M_3)
   // 23 : 17 reserved
@@ -308,34 +308,12 @@ ETL_BFF_REG_RW(uint32_t, CCMR1_Output,
   ETL_BFF_FIELD(1:0, uint8_t, CC1S)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved1, -1)
-
-// CCMR1_Input
-//
-// capture/compare mode register 1 (input mode)
-//
-//   Offset: 0x018
-ETL_BFF_REG_RW(uint32_t, CCMR1_Input,
-  // Input capture 2 filter
-  ETL_BFF_FIELD(15:12, uint8_t, IC2F)
-  // Input capture 2 prescaler
-  ETL_BFF_FIELD(11:10, uint8_t, IC2PSC)
-  // Capture/Compare 2 selection
-  ETL_BFF_FIELD(9:8, uint8_t, CC2S)
-  // Input capture 1 filter
-  ETL_BFF_FIELD(7:4, uint8_t, IC1F)
-  // Input capture 1 prescaler
-  ETL_BFF_FIELD(3:2, uint8_t, ICPCS)
-  // Capture/Compare 1 selection
-  ETL_BFF_FIELD(1:0, uint8_t, CC1S)
-)
-
-// CCMR2_Output
+// CCMR2
 //
 // capture/compare mode register 2 (output mode)
 //
 //   Offset: 0x01C
-ETL_BFF_REG_RW(uint32_t, CCMR2_Output,
+ETL_BFF_REG_RW(uint32_t, CCMR2,
   // Output Compare 4 mode - bit 3
   ETL_BFF_FIELD(24:24, bool, OC4M_3)
   // 23 : 17 reserved
@@ -360,28 +338,6 @@ ETL_BFF_REG_RW(uint32_t, CCMR2_Output,
   // Output compare 3 fast enable
   ETL_BFF_FIELD(2:2, bool, OC3FE)
   // Capture/Compare 3 selection
-  ETL_BFF_FIELD(1:0, uint8_t, CC3S)
-)
-
-ETL_BFF_REG_RESERVED(uint32_t, reserved2, -1)
-
-// CCMR2_Input
-//
-// capture/compare mode register 2 (input mode)
-//
-//   Offset: 0x01C
-ETL_BFF_REG_RW(uint32_t, CCMR2_Input,
-  // Input capture 4 filter
-  ETL_BFF_FIELD(15:12, uint8_t, IC4F)
-  // Input capture 4 prescaler
-  ETL_BFF_FIELD(11:10, uint8_t, IC4PSC)
-  // Capture/Compare 4 selection
-  ETL_BFF_FIELD(9:8, uint8_t, CC4S)
-  // Input capture 3 filter
-  ETL_BFF_FIELD(7:4, uint8_t, IC3F)
-  // Input capture 3 prescaler
-  ETL_BFF_FIELD(3:2, uint8_t, IC3PSC)
-  // Capture/compare 3 selection
   ETL_BFF_FIELD(1:0, uint8_t, CC3S)
 )
 
@@ -464,6 +420,8 @@ ETL_BFF_REG_RW(uint32_t, PSC,
 //   Offset: 0x02C
 //   Reset value: 0x0000FFFF
 ETL_BFF_REG_RW(uint32_t, ARR,
+  // ARR Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, ARR_DITH)
   // Auto-reload value
   ETL_BFF_FIELD(15:0, uint16_t, ARR)
 )
@@ -484,6 +442,8 @@ ETL_BFF_REG_RW(uint32_t, RCR,
 //
 //   Offset: 0x034
 ETL_BFF_REG_RW(uint32_t, CCR1,
+  // CCR1 Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, CCR1_DITH)
   // Capture/Compare 1 value
   ETL_BFF_FIELD(15:0, uint16_t, CCR1)
 )
@@ -494,6 +454,8 @@ ETL_BFF_REG_RW(uint32_t, CCR1,
 //
 //   Offset: 0x038
 ETL_BFF_REG_RW(uint32_t, CCR2,
+  // CCR2 Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, CCR2_DITH)
   // Capture/Compare 2 value
   ETL_BFF_FIELD(15:0, uint16_t, CCR2)
 )
@@ -504,6 +466,8 @@ ETL_BFF_REG_RW(uint32_t, CCR2,
 //
 //   Offset: 0x03C
 ETL_BFF_REG_RW(uint32_t, CCR3,
+  // CCR3 Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, CCR3_DITH)
   // Capture/Compare value
   ETL_BFF_FIELD(15:0, uint16_t, CCR3)
 )
@@ -514,6 +478,8 @@ ETL_BFF_REG_RW(uint32_t, CCR3,
 //
 //   Offset: 0x040
 ETL_BFF_REG_RW(uint32_t, CCR4,
+  // CCR4 Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, CCR4_DITH)
   // Capture/Compare value
   ETL_BFF_FIELD(15:0, uint16_t, CCR4)
 )
@@ -560,7 +526,7 @@ ETL_BFF_REG_RW(uint32_t, BDTR,
 
 // CCR5
 //
-// capture/compare register 4
+// Capture/compare register 5
 //
 //   Offset: 0x048
 ETL_BFF_REG_RW(uint32_t, CCR5,
@@ -570,32 +536,36 @@ ETL_BFF_REG_RW(uint32_t, CCR5,
   ETL_BFF_FIELD(30:30, bool, GC5C2)
   // Group Channel 5 and Channel 1
   ETL_BFF_FIELD(29:29, bool, GC5C1)
-  // 28 : 16 reserved
+  // 28 : 20 reserved
+  // CCR5 Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, CCR5_DITH)
   // Capture/Compare value
   ETL_BFF_FIELD(15:0, uint16_t, CCR5)
 )
 
 // CCR6
 //
-// capture/compare register 4
+// Capture/compare register 6
 //
 //   Offset: 0x04C
 ETL_BFF_REG_RW(uint32_t, CCR6,
+  // CCR6 Dither bits
+  ETL_BFF_FIELD(19:16, uint8_t, CCR6_DITH)
   // Capture/Compare value
   ETL_BFF_FIELD(15:0, uint16_t, CCR6)
 )
 
-// CCMR3_Output
+// CCMR3
 //
-// capture/compare mode register 2 (output mode)
+// capture/compare mode register 3
 //
 //   Offset: 0x050
-ETL_BFF_REG_RW(uint32_t, CCMR3_Output,
+ETL_BFF_REG_RW(uint32_t, CCMR3,
   // Output Compare 6 mode bit 3
-  ETL_BFF_FIELD(24:24, bool, OC6M_bit3)
-  // 23 : 19 reserved
+  ETL_BFF_FIELD(24:24, bool, OC6M_3)
+  // 23 : 17 reserved
   // Output Compare 5 mode bit 3
-  ETL_BFF_FIELD(18:16, uint8_t, OC5M_bit3)
+  ETL_BFF_FIELD(16:16, bool, OC5M_3)
   // Output compare 6 clear enable
   ETL_BFF_FIELD(15:15, bool, OC6CE)
   // Output compare 6 mode
@@ -747,7 +717,7 @@ ETL_BFF_REG_RW(uint32_t, AF2,
   ETL_BFF_FIELD(0:0, bool, BKINE)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved3, 221)
+ETL_BFF_REG_RESERVED(uint32_t, reserved1, 221)
 
 // DCR
 //

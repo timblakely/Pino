@@ -1,4 +1,20 @@
 TIM1:
+  # TODO(blakely): Swap to input if needed
+  _delete:
+    CCMR1_Input:
+    CCMR2_Input:
+  _modify:
+    CCMR1_Output:
+      name: CCMR1
+    CCMR2_Output:
+      name: CCMR2
+    CCR5:
+      description: Capture/compare register 5
+    CCR6:
+      description: Capture/compare register 6
+    CCMR3_Output:
+      name: CCMR3
+      description: capture/compare mode register 3
   CR1:
     CKD:
       div1: [0b00, div1]
@@ -56,4 +72,52 @@ TIM1:
       dts_div32_n6: [0b1110, _]
       dts_div32_n8: [0b1111, _]
   
-    
+  ARR:
+    _add:
+      ARR_DITH:
+        description: ARR Dither bits
+        msb: 19
+        lsb: 16
+  CCR1:
+    _add:
+      CCR1_DITH:
+        description: CCR1 Dither bits
+        msb: 19
+        lsb: 16
+  CCR2:
+    _add:
+      CCR2_DITH:
+        description: CCR2 Dither bits
+        msb: 19
+        lsb: 16
+  CCR3:
+    _add:
+      CCR3_DITH:
+        description: CCR3 Dither bits
+        msb: 19
+        lsb: 16
+  CCR4:
+    _add:
+      CCR4_DITH:
+        description: CCR4 Dither bits
+        msb: 19
+        lsb: 16
+  CCR5:
+    _add:
+      CCR5_DITH:
+        description: CCR5 Dither bits
+        msb: 19
+        lsb: 16
+  CCR6:
+    _add:
+      CCR6_DITH:
+        description: CCR6 Dither bits
+        msb: 19
+        lsb: 16
+  CCMR3:
+    _modify:
+      OC6M_bit3:
+        name: OC6M_3
+      OC5M_bit3:
+        name: OC5M_3
+        bitWidth: 1
