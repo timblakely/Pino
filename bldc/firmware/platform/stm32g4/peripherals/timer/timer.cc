@@ -1,4 +1,4 @@
-#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"

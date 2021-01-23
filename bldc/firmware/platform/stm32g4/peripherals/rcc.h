@@ -2,7 +2,7 @@
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_H_
 
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 
 namespace platform {
 namespace stm32g4 {

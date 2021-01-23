@@ -25,6 +25,7 @@ cc_library(
         "//bldc/firmware/platform/stm32g4/peripherals:rcc",
         "//bldc/firmware/platform/stm32g4/peripherals:spi",
         "//bldc/firmware/platform/stm32g4/peripherals/can",
+        "//bldc/firmware/platform/stm32g4/peripherals/timer",
         "//bldc/firmware/stm32g474:led",
     ],
 )

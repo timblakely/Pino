@@ -7,7 +7,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/timer.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 
 using platform::stm32g4::Dma;
 
