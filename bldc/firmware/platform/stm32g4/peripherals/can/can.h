@@ -38,7 +38,7 @@ class Can {
   void SendFrame(FrameType& frame) {
     const auto idx = peripheral_->TxPut();
     auto buffer = &(tx_buffer_[idx]);
-    static_cast<FrameType::HeaderType&>(buffer->header_)
+    static_cast<FrameType::Header&>(buffer->header_)
         .template Apply<true, true>(123);
     frame.Pack(buffer->data_);
     peripheral_->TransmitBuffer(idx);
