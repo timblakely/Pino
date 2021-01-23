@@ -14,6 +14,7 @@ flags.DEFINE_string('svd_path',
 flags.DEFINE_string('output_path', None, 'Path to write biffields.')
 flags.DEFINE_bool('register_descriptions', True,
                   'Whether to add register descriptions')
+flags.DEFINE_bool('register_offsets', True, 'Whether to add register offsets')
 flags.DEFINE_bool('field_descriptions', True,
                   'Whether to add field descriptions')
 flags.DEFINE_bool('reserved_comments', True,
@@ -38,13 +39,13 @@ class Formatter:
     self.tabs -= 2
 
   def finish(self):
-    self.file.write('// clang-format on\n')
+    self.file.write('// clang-format on\n\n')
     self.file.close()
 
   def write(self, msg=''):
     if self.file is None:
       self.file = open(self.path, 'w')
-      self.file.write('// clang-format off\n')
+      self.file.write('\n// clang-format off\n')
     if len(msg):
       self.file.write(f'{" " * self.tabs}{msg}\n')
     else:
@@ -117,6 +118,8 @@ class RegWriter(BiffieldBase):
   def _write_description(self, register):
     if not FLAGS.register_descriptions:
       return
+    self.fmt.write(f'// {register.name}')
+    self.fmt.write(f'//')
     description = re.sub(' +', ' ', register.description)
     description = textwrap.fill(
         description, width=80, initial_indent='// ', subsequent_indent='// ')
@@ -140,9 +143,18 @@ class RegWriter(BiffieldBase):
       self.fmt.write(reserved_str)
     self.last_bit = field.bit_offset
 
+  def _write_offset(self, register):
+    if not FLAGS.register_offsets:
+      return
+    self.fmt.write('//')
+    self.fmt.write(f'//   Offset: 0x{register.address_offset:03X}')
+    if register._reset_value:
+      self.fmt.write(f'//   Reset value: 0x{register._reset_value:08X}')
+
   def write(self, register):
     self.last_bit = None
     self._write_description(register)
+    self._write_offset(register)
 
     size = self.size_map[register._size]
     reg_type = self.reg_type[register._access]

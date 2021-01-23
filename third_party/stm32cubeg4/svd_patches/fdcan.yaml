@@ -1,7 +1,8 @@
 "FDCAN*":
   _modify:
-    TSCV:
-      access: read-write
+    CREL:
+      resetValue: 0x32141218
+    TSCV:32141218     access: read-write
     PSR:
       access: read-only
     RXF0S:
