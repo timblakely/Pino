@@ -74,7 +74,16 @@ class FieldWriter(BiffieldBase):
   def __init__(self, *args, **kwargs):
     super(FieldWriter, self).__init__(*args, **kwargs)
 
+  def _write_description(self, field):
+    if not FLAGS.field_descriptions:
+      return
+    description = re.sub(' +', ' ', field.description)
+    description = textwrap.fill(
+        description, width=80, initial_indent='// ', subsequent_indent='// ')
+    self.fmt.write(description)
+
   def write(self, field):
+    self._write_description(field)
     if field.bit_width == 1:
       dtype = 'bool'
     elif field.bit_width <= 8:

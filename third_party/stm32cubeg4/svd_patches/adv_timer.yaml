@@ -1,3 +1,59 @@
 TIM1:
-  _modify:
-    CC:
+  CR1:
+    CKD:
+      div1: [0b00, div1]
+      div2: [0b01, div2]
+      div4: [0b10, div4]
+    CMS:
+      edge_aligned:   [0b00, edge_aligned]
+      center_aligned_1: [0b01, center_aligned_1]
+      center_aligned_2: [0b10, center_aligned_2]
+      center_aligned_3: [0b11, center_aligned_3]
+    DIR:
+      up: [0b0, _]
+      down: [0b1, _]
+    URS:
+      all: [0b0, _]
+      only_overflow_underflow: [0b1, _]
+    UDIS:
+      enabled: [0b0, _]
+      disabled: [0b1, _]
+  
+  # CR2:
+  #   # TODO(blakely): MMS/2 Master mode enum
+  
+  SMCR:
+    # TODO(blakely): TS Trigger selection
+    # TODO(blakely): SMS Slave mode
+    _modify:
+      ETPS:
+        _write_constraint: "enum"
+      ETF:
+        _write_constraint: "enum"
+    ETP:
+      normal: [0b0, _]
+      inverted: [0b1, _]
+    ETPS:
+      div1: [0b00, _]
+      div2: [0b01, _]
+      div4: [0b10, _]
+      div8: [0b11, _]
+    ETF:
+      dts: [0b0000, _]
+      kernel_ck_n2: [0b0001, _]
+      kernel_ck_n4: [0b0010, _]
+      kernel_ck_n8: [0b0011, _]
+      dts_div2_n6: [0b0100, _]
+      dts_div2_n8: [0b0101, _]
+      dts_div4_n6: [0b0110, _]
+      dts_div4_n8: [0b0111, _]
+      dts_div8_n6: [0b1000, _]
+      dts_div8_n8: [0b1001, _]
+      dts_div16_n5: [0b1010, _]
+      dts_div16_n6: [0b1011, _]
+      dts_div16_n8: [0b1100, _]
+      dts_div32_n5: [0b1101, _]
+      dts_div32_n6: [0b1110, _]
+      dts_div32_n8: [0b1111, _]
+  
+    
