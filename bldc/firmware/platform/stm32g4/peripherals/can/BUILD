@@ -9,8 +9,8 @@ cc_library(
     srcs = [
         "can.cc",
         "extended_filter_memory.inl",
-        "fdcan.cc",
         "fdcan_memory.inl",
+        "peripheral.cc",
         "rx_buffer_memory.inl",
         "standard_filter.cc",
         "standard_filter_memory.inl",
@@ -21,8 +21,8 @@ cc_library(
     hdrs = [
         "can.h",
         "extended_filter.h",
-        "fdcan.h",
         "frame.h",
+        "peripheral.h",
         "rx_buffer.h",
         "standard_filter.h",
         "tx_buffer.h",

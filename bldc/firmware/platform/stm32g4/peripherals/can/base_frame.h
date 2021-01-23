@@ -7,7 +7,7 @@
 
 namespace platform {
 namespace stm32g4 {
-namespace impl {}  // namespace impl
+namespace can {}  // namespace can
 }  // namespace stm32g4
 }  // namespace platform
 #endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_BASE_FRAME_H_

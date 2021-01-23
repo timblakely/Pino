@@ -1,25 +1,23 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 
-#include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 struct ExtendedFilter;
 struct StandardFilter;
-struct Fdcan;
-// struct TxHeader;
-// struct TxBuffer;
+struct Peripheral;
 struct TxEvent;
 struct RxBuffer;
 
-}  // namespace impl
+}  // namespace can
 
 struct HardcodedFrame : public FDFrame {
   using Header = FDFrame::Header<0xD, 3>;
@@ -59,14 +57,14 @@ class Can {
   Gpio::Pin tx_;
   Gpio::Pin rx_;
 
-  impl::Fdcan* peripheral_;
+  can::Peripheral* peripheral_;
 
-  impl::StandardFilter* standard_filters_;
-  impl::ExtendedFilter* extended_filters_;
-  impl::RxBuffer* rx_fifo0_;
-  impl::RxBuffer* rx_fifo1_;
-  impl::TxEvent* tx_event_fifo_;
-  impl::TxBuffer* tx_buffer_;
+  can::StandardFilter* standard_filters_;
+  can::ExtendedFilter* extended_filters_;
+  can::RxBuffer* rx_fifo0_;
+  can::RxBuffer* rx_fifo1_;
+  can::TxEvent* tx_event_fifo_;
+  can::TxBuffer* tx_buffer_;
 };
 
 }  // namespace stm32g4

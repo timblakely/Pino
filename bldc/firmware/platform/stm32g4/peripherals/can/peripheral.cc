@@ -1,10 +1,10 @@
-#include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
 
 namespace platform {
 namespace stm32g4 {
-namespace impl {
+namespace can {
 
-void Fdcan::InitMode() {
+void Peripheral::InitMode() {
   // Enter init mode.
   update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::init); });
   // Wait for ACK to init mode, in case we're already transmitting.
@@ -14,7 +14,7 @@ void Fdcan::InitMode() {
   update_CCCR([](CCCR v) { return v.with_CCE(CCCR::CCE_t::readwrite); });
 }
 
-void Fdcan::Initialize() {
+void Peripheral::Initialize() {
   update_CCCR([](CCCR v) {
     return v
         // Enable Tx pause
@@ -40,7 +40,7 @@ void Fdcan::Initialize() {
   });
 }
 
-void Fdcan::SetBitTiming() {
+void Peripheral::SetBitTiming() {
   update_NBTP([](NBTP v) {
     // TODO(blakely): Pull actual clock source and freq from RCC. This
     // assumes PCLK1@170MHz, aiming for 1MBit
@@ -85,15 +85,15 @@ void Fdcan::SetBitTiming() {
   });
 }
 
-void Fdcan::EnableQueueMode() {
+void Peripheral::EnableQueueMode() {
   update_TXBC([](TXBC v) { return v.with_TFQM(TXBC::TFQM_t::fifo); });
 }
 
-void Fdcan::SetClockDivider() {
+void Peripheral::SetClockDivider() {
   update_CKDIV([](CKDIV v) { return v.with_PDIV(CKDIV::PDIV_t::div1); });
 }
 
-void Fdcan::EnableLoopbackMode() {
+void Peripheral::EnableLoopbackMode() {
   update_CCCR([](CCCR v) {
     return v.with_TEST(CCCR::TEST_t::test)
         .with_MON(0)
@@ -102,18 +102,18 @@ void Fdcan::EnableLoopbackMode() {
   update_TEST([](TEST v) { return v.with_LBCK(1); });
 }
 
-void Fdcan::Start() {
+void Peripheral::Start() {
   update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::run); });
 }
 
-uint8_t Fdcan::TxPut() { return read_TXFQS().get_TFQPI(); }
+uint8_t Peripheral::TxPut() { return read_TXFQS().get_TFQPI(); }
 
-uint8_t Fdcan::TxGet() { return read_TXFQS().get_TFGI(); }
+uint8_t Peripheral::TxGet() { return read_TXFQS().get_TFGI(); }
 
-void Fdcan::TransmitBuffer(uint8_t idx) {
+void Peripheral::TransmitBuffer(uint8_t idx) {
   update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
 }
 
-}  // namespace impl
+}  // namespace can
 }  // namespace stm32g4
 }  // namespace platform

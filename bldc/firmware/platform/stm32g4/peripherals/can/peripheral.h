@@ -1,15 +1,15 @@
-#ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_FDCAN_H_
-#define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_FDCAN_H_
+#ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_PERIPHERAL_H_
+#define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_PERIPHERAL_H_
 
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
 static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
 
-struct Fdcan {
+struct Peripheral {
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can/fdcan_memory.inl"
 #include "third_party/etl/biffield/generate.h"
@@ -40,9 +40,9 @@ struct Fdcan {
   using TXBC = TXBC_value_t;
 };
 
-}  // namespace impl
+}  // namespace can
 
 }  // namespace stm32g4
 }  // namespace platform
 
-#endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_FDCAN_H_
+#endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_PERIPHERAL_H_

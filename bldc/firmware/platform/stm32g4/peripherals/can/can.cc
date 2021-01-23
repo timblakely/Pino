@@ -3,8 +3,8 @@
 #include <cstring>
 
 #include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
@@ -15,10 +15,10 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 // Ensure memory addresses are at expected locations.
-static_assert(sizeof(Fdcan) == 0x104);
+static_assert(sizeof(Peripheral) == 0x104);
 static_assert(sizeof(StandardFilter) == 1 * 4);
 static constexpr uint32_t kStandardFilterMemOffset = 0x0;
 static_assert(kStandardFilterMemOffset == 0x0000);
@@ -48,27 +48,27 @@ static_assert(kMRAMBankSize ==
                sizeof(RxBuffer) * 3 + sizeof(RxBuffer) * 3 +
                sizeof(TxEvent) * 3 + sizeof(TxBuffer) * 3));
 
-}  // namespace impl
+}  // namespace can
 
-using impl::ExtendedFilter;
-using impl::Fdcan;
-using impl::kExtendedFilterMemOffset;
-using impl::kMRAMAddress;
-using impl::kMRAMBankSize;
-using impl::kRxFIFO0MemOffset;
-using impl::kRxFIFO1MemOffset;
-using impl::kTxBufferMemOffset;
-using impl::kTxEventFifoMemOffset;
-using impl::RxBuffer;
-using impl::StandardFilter;
-using impl::TxBuffer;
-using impl::TxEvent;
+using can::ExtendedFilter;
+using can::Peripheral;
+using can::kExtendedFilterMemOffset;
+using can::kMRAMAddress;
+using can::kMRAMBankSize;
+using can::kRxFIFO0MemOffset;
+using can::kRxFIFO1MemOffset;
+using can::kTxBufferMemOffset;
+using can::kTxEventFifoMemOffset;
+using can::RxBuffer;
+using can::StandardFilter;
+using can::TxBuffer;
+using can::TxEvent;
 
 Can::Can(Gpio::Pin tx, Gpio::Pin rx) : tx_(tx), rx_(rx) {}
 
 void Can::Init(Can::Instance instance) {
   instance_ = instance;
-  peripheral_ = reinterpret_cast<impl::Fdcan*>(instance);
+  peripheral_ = reinterpret_cast<can::Peripheral*>(instance);
   switch (instance) {
     case Instance::Fdcan1:
       standard_filters_ = reinterpret_cast<StandardFilter*>(kMRAMAddress);
@@ -108,12 +108,6 @@ void Can::Init(Can::Instance instance) {
 
   // Zero out the memory. Note: Must be done *after* enabling the FDCAN clock!
   memset(reinterpret_cast<void*>(kMRAMAddress), 0, kMRAMBankSize * 3);
-
-  // TODO(blakely): Set SynSeg, BS1, and BS2
-  // Baud = 1 / bit_time = t_ss + t_bs1 + t_bs2
-  // Controlled by FDCAN_NBTP.NBRP, FDCAN_NBTP.NTSEG1, and FDCAN_NBTP.NTSEG2
-
-  // TODO(blakely): Do we need to read FDCAN_ENDN?
 
   // Init and control configuration.
   peripheral_->InitMode();

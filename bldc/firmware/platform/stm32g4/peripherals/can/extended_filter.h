@@ -4,7 +4,7 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 struct ExtendedFilter {
 #define ETL_BFF_DEFINITION_FILE \
@@ -13,7 +13,7 @@ struct ExtendedFilter {
 #undef ETL_BFF_DEFINITION_FILE
 };
 
-}  // namespace impl
+}  // namespace can
 
 }  // namespace stm32g4
 }  // namespace platform

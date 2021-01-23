@@ -2,7 +2,7 @@
 
 namespace platform {
 namespace stm32g4 {
-namespace impl {
+namespace can {
 
 // void TxBuffer::CopyData(uint8_t* data, uint8_t size) {
 //   const uint8_t words = size / sizeof(uint32_t);
@@ -27,6 +27,6 @@ namespace impl {
 //   }
 // }
 
-}  // namespace impl
+}  // namespace can
 }  // namespace stm32g4
 }  // namespace platform

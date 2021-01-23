@@ -2,7 +2,7 @@
 
 namespace platform {
 namespace stm32g4 {
-namespace impl {
+namespace can {
 
 void StandardFilter::SetFilter(FilterType type, Action action, uint8_t id1,
                                uint8_t id2) {
@@ -11,6 +11,6 @@ void StandardFilter::SetFilter(FilterType type, Action action, uint8_t id1,
   });
 }
 
-}  // namespace impl
+}  // namespace can
 }  // namespace stm32g4
 }  // namespace platform

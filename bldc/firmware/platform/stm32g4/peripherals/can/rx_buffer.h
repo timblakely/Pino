@@ -4,7 +4,7 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 struct RxBuffer {
 #define ETL_BFF_DEFINITION_FILE \
@@ -15,7 +15,7 @@ struct RxBuffer {
   uint32_t data[16];
 };
 
-}  // namespace impl
+}  // namespace can
 
 }  // namespace stm32g4
 }  // namespace platform

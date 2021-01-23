@@ -9,7 +9,7 @@ namespace platform {
 namespace stm32g4 {
 
 template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes>
-struct FrameHeader : public impl::TxHeader {
+struct FrameHeader : public can::TxHeader {
   FrameHeader() = delete;
   FrameHeader(FrameHeader&) = delete;
 

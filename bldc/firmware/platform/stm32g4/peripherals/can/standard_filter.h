@@ -4,7 +4,7 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 struct StandardFilter {
 #define ETL_BFF_DEFINITION_FILE \
@@ -23,7 +23,7 @@ struct StandardFilter {
   void SetFilter(FilterType type, Action action, uint8_t id1, uint8_t id2);
 };
 
-}  // namespace impl
+}  // namespace can
 
 }  // namespace stm32g4
 }  // namespace platform

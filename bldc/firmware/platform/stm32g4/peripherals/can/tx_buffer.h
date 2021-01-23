@@ -6,7 +6,7 @@
 namespace platform {
 namespace stm32g4 {
 
-namespace impl {
+namespace can {
 
 struct TxHeader {
 #define ETL_BFF_DEFINITION_FILE \
@@ -24,7 +24,7 @@ struct TxBuffer {
   uint32_t data_[16];
 };
 
-}  // namespace impl
+}  // namespace can
 
 }  // namespace stm32g4
 }  // namespace platform
