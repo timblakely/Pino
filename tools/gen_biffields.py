@@ -1,17 +1,21 @@
 import re
+import tempfile
 import textwrap
 
 from absl import app
 from absl import flags
 from absl import logging
 from cmsis_svd.parser import SVDParser
+import svdtools
+import xml.etree.ElementTree as ET
+import yaml
 
-from bazel_tools.tools.python.runfiles import runfiles
-
-flags.DEFINE_string('svd_path',
-                    '//pino/third_party/stm32cubeg4/STM32G474xx.svd',
+flags.DEFINE_string('svd_path', None,
                     'Path to svd, either //workspace/and/path, or absolute')
+flags.DEFINE_string('peripheral', None, 'Peripheral to generate')
 flags.DEFINE_string('output_path', None, 'Path to write biffields.')
+flags.DEFINE_string('svd_yaml_patch', None,
+                    'If set, will use svdtools to apply a yaml patch')
 flags.DEFINE_bool('register_descriptions', True,
                   'Whether to add register descriptions')
 flags.DEFINE_bool('register_offsets', True, 'Whether to add register offsets')
@@ -20,7 +24,7 @@ flags.DEFINE_bool('field_descriptions', True,
 flags.DEFINE_bool('reserved_comments', True,
                   'Whether to add bitfield reserved comments')
 
-flags.mark_flags_as_required(['output_path'])
+flags.mark_flags_as_required(['output_path', 'svd_path', 'peripheral'])
 
 FLAGS = flags.FLAGS
 
@@ -39,13 +43,13 @@ class Formatter:
     self.tabs -= 2
 
   def finish(self):
-    self.file.write('// clang-format on\n\n')
+    self.file.write('\n// clang-format on\n')
     self.file.close()
 
   def write(self, msg=''):
     if self.file is None:
       self.file = open(self.path, 'w')
-      self.file.write('\n// clang-format off\n')
+      self.file.write('// clang-format off\n\n')
     if len(msg):
       self.file.write(f'{" " * self.tabs}{msg}\n')
     else:
@@ -205,18 +209,26 @@ class Biffile:
 def main(unused_argv):
   del unused_argv
 
-  r = runfiles.Create()
   svd_path = FLAGS.svd_path
-  if svd_path.startswith('//'):
-    svd_path = r.Rlocation(svd_path[2:])
+  if FLAGS.svd_yaml_patch:
+    with open(FLAGS.svd_yaml_patch, "r") as f:
+      root = yaml.safe_load(f)
+      root["_path"] = FLAGS.svd_yaml_patch
+    svd = ET.parse(FLAGS.svd_path)
+    svdtools.patch.yaml_includes(root)
+    svdtools.patch.process_device(svd, root)
+    _, svd_path = tempfile.mkstemp()
+    svd.write(svd_path)
+
   parser = SVDParser.for_xml_file(svd_path)
-  fdcan1 = [
-      p for p in parser.get_device().peripherals if p.name.lower() == 'fdcan1'
-  ][0]
-  # dest_file = open(FLAGS.output_path, 'w')
+  peripheral = None
+  for p in parser.get_device().peripherals:
+    if p.name.lower() == FLAGS.peripheral.lower():
+      peripheral = p
+      break
 
   formatter = Formatter(FLAGS.output_path)
-  Biffile(formatter).write_peripheral(fdcan1)
+  Biffile(formatter).write_peripheral(peripheral)
   formatter.finish()
 
   # print('%s @ 0x%08x' % (fdcan1.name,fdcan1.base_address))

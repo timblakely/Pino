@@ -10,7 +10,7 @@ py_binary(
     deps = [
         requirement("absl-py"),
         requirement("cmsis-svd"),
-        "@bazel_tools//tools/python/runfiles",
+        requirement("svdtools"),
     ],
 )
 
