@@ -26,17 +26,24 @@ FLAGS = flags.FLAGS
 
 class Formatter:
 
-  def __init__(self, file):
+  def __init__(self, path):
     self.tabs = 0
-    self.file = file
+    self.path = path
+    self.file = None
 
   def __enter__(self):
     self.tabs += 2
 
   def __exit__(self, *args):
     self.tabs -= 2
+    if self.tabs < 0:
+      file.write('// clang-format on')
+      self.file.close()
 
   def write(self, msg=''):
+    if self.file is None:
+      self.file = open(self.path, 'w')
+      self.file.write('// clang-format off')
     if len(msg):
       self.file.write(f'{" " * self.tabs}{msg}\n')
     else:
@@ -46,7 +53,17 @@ class Formatter:
     self.write()
 
 
-class Biffile:
+class BiffieldBase:
+
+  def __init__(self, formatter):
+    self.fmt = formatter
+
+  @property
+  def section(self):
+    return self.fmt
+
+
+class BiffieldRegister(BiffieldBase):
   size_map = {
       32: 'uint32_t',
       16: 'uint16_t',
@@ -60,8 +77,54 @@ class Biffile:
       'write-only': 'ETL_BFF_REG_WO',
   }
 
+  def __init__(self, descriptions, reserved_comments, *args, **kwargs):
+    super(BiffieldRegister, self).__init__(*args, **kwargs)
+    self.description = descriptions
+    self.reserved_comments = reserved_comments
+
+  def _write_description(self, register):
+    if not self.description:
+      return
+    description = re.sub(' +', ' ', register.description)
+    description = textwrap.fill(
+        description, width=80, initial_indent='// ', subsequent_indent='// ')
+    self.fmt.write(description)
+
+  def write(self, register):
+    self._write_description(register)
+
+    size = self.size_map[register._size]
+    reg_type = self.reg_type[register._access]
+    self.fmt.write(f'{reg_type}({size}, {register.name},')
+    with self.section:
+      last_bit = None
+      for idx, f in enumerate(
+          sorted(register.fields, key=lambda x: x.bit_offset, reverse=True)):
+        if last_bit is not None:
+          high_bit = (f.bit_offset + f.bit_width - 1)
+          gap = last_bit - high_bit - 1
+          if gap > 0:
+            if self.reserved_comments:
+              if gap == 1:
+                reserved_str = f'// {last_bit-1} reserved'
+              else:
+                reserved_str = f'// {last_bit-1} : {high_bit+1} reserved'
+            else:
+              reserved_str = ''
+            self.fmt.write(reserved_str)
+        # self.write_field(f)
+        last_bit = f.bit_offset
+    self.fmt.write(')')
+
+
+class Biffile:
+
   def __init__(self, output_path, register_descriptions, reserved_comments):
-    self.output_path = output_path
+    self.formatter = Formatter(output_path)
+    self.regwriter = BiffieldRegister(register_descriptions, reserved_comments,
+                                      self.formatter)
+
+    # self.output_path = output_path
     self.num_reserved = 0
     self.reg_desc = register_descriptions
     self.reserved_comments = reserved_comments
@@ -89,34 +152,7 @@ class Biffile:
     self.num_reserved += 1
 
   def write_register(self, register):
-    if self.reg_desc:
-      description = re.sub(' +', ' ', register.description)
-      description = textwrap.fill(
-          description, width=80, initial_indent='// ', subsequent_indent='// ')
-      self.formatter.write(description)
-
-    size = self.size_map[register._size]
-    reg_type = self.reg_type[register._access]
-    self.formatter.write(f'{reg_type}({size}, {register.name},')
-    with self.section:
-      last_bit = None
-      for idx, f in enumerate(
-          sorted(register.fields, key=lambda x: x.bit_offset, reverse=True)):
-        if last_bit is not None:
-          high_bit = (f.bit_offset + f.bit_width - 1)
-          gap = last_bit - high_bit - 1
-          if gap > 0:
-            if self.reserved_comments:
-              if gap == 1:
-                reserved_str = f'// {last_bit-1} reserved'
-              else:
-                reserved_str = f'// {last_bit-1} : {high_bit+1} reserved'
-            else:
-              reserved_str = ''
-            self.formatter.write(reserved_str)
-        self.write_field(f)
-        last_bit = f.bit_offset
-    self.formatter.write(')')
+    self.regwriter.write(register)
 
   def write_field(self, field):
     if field.bit_width == 1:
@@ -146,16 +182,6 @@ class Biffile:
         bit_str = '0' * (field.bit_width - len(bit_str)) + bit_str
       self.formatter.write(f'ETL_BFF_ENUM(0b{bit_str}, {v.name})')
 
-  def __enter__(self):
-    self.file = open(self.output_path, 'w')
-    self.formatter = Formatter(self.file)
-    self.formatter.write('// clang-format off')
-    return self
-
-  def __exit__(self, *args):
-    self.formatter.write('// clang-format on')
-    self.file.close()
-
 
 def main(unused_argv):
   del unused_argv
@@ -170,9 +196,8 @@ def main(unused_argv):
   ][0]
   # dest_file = open(FLAGS.output_path, 'w')
 
-  with Biffile(FLAGS.output_path, FLAGS.register_descriptions,
-               FLAGS.reserved_comments) as b:
-    b.write_peripheral(fdcan1)
+  Biffile(FLAGS.output_path, FLAGS.register_descriptions,
+          FLAGS.reserved_comments).write_peripheral(fdcan1)
 
   # print('%s @ 0x%08x' % (fdcan1.name,fdcan1.base_address))
   # for r in fdcan1.registers:
