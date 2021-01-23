@@ -2,3 +2,4 @@ _svd: "PLACEHOLDER"
 
 _include:
   - "fdcan.yaml"
+  - "adv_timer.yaml"
