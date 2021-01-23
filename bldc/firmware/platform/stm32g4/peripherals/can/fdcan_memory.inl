@@ -368,7 +368,7 @@ ETL_BFF_REG_RW(uint32_t, TXBTIE,
 )
 
 ETL_BFF_REG_RW(uint32_t, TXBCIE,
-  ETL_BFF_FIELD(2:0, uint8_t, TXBCIE)
+  ETL_BFF_FIELD(2:0, uint8_t, CFIE)
 )
 
 ETL_BFF_REG_RO(uint32_t, TXEFS,

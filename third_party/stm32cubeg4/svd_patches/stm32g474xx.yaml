@@ -396,33 +396,72 @@ _svd: "PLACEHOLDER"
         msb: 9
         lsb: 8
       TFFL:
-        msb: 2
-        lsb: 0
+        bitWidth: 3
   
   TXBRP:
     _modify:
       TRP:
-        msb: 2
-        lsb: 0
+        bitWidth: 3
 
   TXBAR:
     _modify:
       AR:
-        msb: 2
-        lsb: 0
+        bitWidth: 3
+  
+  TXBCR:
+    _modify:
+      CR:
+        bitWidth: 3
+  
+  TXBTO:
+    _modify:
+      TO:
+        bitWidth: 3
+  
+  TXBCF:
+    _modify:
+      CF:
+        bitWidth: 3
+  
+  TXBTIE:
+    _modify:
+      TIE:
+        bitWidth: 3
+  
+  TXBCIE:
+    _modify:
+      CFIE:
+        bitWidth: 3
 
+  TXEFS:
+    _modify:
+      EFPI:
+        bitWidth: 2
+      EFGI:
+        bitWidth: 2
+      EFFL:
+        bitWidth: 3
+  
+  TXEFA:
+    _modify:
+      EFAI:
+        bitWidth: 2
 
-
-
-    # RXGFC:
-    #   _modify:
-    #       _read:
-    #         accept_rx_fifo0:  [0b00, accept_rx_fifo0]
-    #         accept_rx_fifo1:  [0b01, accept_rx_fifo1]
-    #         reject:           [0b00, reject]
-    #         reject_:          [0b00, reject_]
-    #       _write:
-    #         accept_rx_fifo0:  [0b00, accept_rx_fifo0]
-    #         accept_rx_fifo1:  [0b01, accept_rx_fifo1]
-    #         reject:           [0b00, reject]
-    #         reject_:          [0b00, reject_]
+  CKDIV:
+    PDIV:
+      div1:     [0b0000, div1]
+      div2:     [0b0001, div2]
+      div4:     [0b0010, div4]
+      div6:     [0b0011, div6]
+      div8:     [0b0100, div8]
+      div10:    [0b0101, div10]
+      div12:    [0b0110, div12]
+      div14:    [0b0111, div14]
+      div16:    [0b1000, div16]
+      div18:    [0b1001, div18]
+      div20:    [0b1010, div20]
+      div22:    [0b1011, div22]
+      div24:    [0b1100, div24]
+      div26:    [0b1101, div26]
+      div28:    [0b1110, div28]
+      div30:    [0b1111, div30]
