@@ -1,0 +1,465 @@
+"FDCAN*":
+  _modify:
+    TSCV:
+      access: read-write
+    PSR:
+      access: read-only
+    RXF0S:
+      access: read-only
+
+  TEST:
+      
+    RX:
+      dominant: [0b0, dominant]
+      recessive: [0b1, recessive]
+    TX:
+      can_core:     [0b00, can_core]
+      sample_point: [0b01, sample_point]
+      dominant:     [0b10, dominant]
+      recessive:    [0b11, recessive]
+
+  CCCR:
+    TEST:
+      normal:       [0b0, normal]
+      test:         [0b1, test]
+    DAR:
+      retransmit:   [0b0, retransmit]
+      noretransmit: [0b1, noretransmit]
+    ASM:
+      normal:       [0b0, normal]
+      restricted:   [0b1, restricted]
+    CCE:
+      readonly:     [0b0, readonly]
+      readwrite:    [0b1, readwrite]
+    INIT:
+      run:          [0b0, run]
+      init:         [0b1, init]
+
+  NBTP:
+    _modify:
+      TSEG2:
+        name: NTSEG2
+
+  TSCC:
+    _modify:
+      TSS:
+        _write_constraint: "enum"
+    TSS:
+      zero:             [0b00, zero]
+      increment_by_tcp: [0b01, zincrement_by_tcpero]
+      tim3_cnt:         [0b10, tim3_cnt]
+      zero_:            [0b11, zero_]
+  
+  TOCC:
+    _modify:
+      TOS:
+        _write_constraint: "enum"
+    TOS:
+      continuous:     [0b00, continuous]
+      tx_event_fifo:  [0b01, tx_event_fifo]
+      rx_fifo0:       [0b10, rx_fifo0]
+      rx_fifo1:       [0b11, rx_fifo1]
+
+  ECR:
+    _modify:
+      TREC:
+        name: REC
+
+  PSR:
+    DLEC:
+      none:       [0b000, none]
+      stuff:      [0b001, stuff]
+      form:       [0b010, form]
+      ack:        [0b11, ack]
+      bit1:       [0b100, bit1]
+      bit0:       [0b101, bit0]
+      crc:        [0b110, crc]
+      no_change:  [0b111, no_change]
+    ACT:
+      synchronizing:  [0b00, synchronizing]
+      idle:           [0b01, idle]
+      receiver:       [0b10, receiver]
+      transmitter:    [0b11, transmitter]
+    LEC:
+      none:       [0b000, none]
+      stuff:      [0b001, stuff]
+      form:       [0b010, form]
+      ack:        [0b11, ack]
+      bit1:       [0b100, bit1]
+      bit0:       [0b101, bit0]
+      crc:        [0b110, crc]
+      no_change:  [0b111, no_change]
+  
+  _delete:
+    IR:
+    IE:
+    ILS:
+
+  _add:
+    IR:
+      description: Interrupt status
+      addressOffset: 0x0050
+      access: read-write
+      size: 32
+      fields:
+        ARA:
+          bitOffset: 23
+          bitWidth: 1
+        PED:
+          bitOffset: 22
+          bitWidth: 1
+        PEA:
+          bitOffset: 21
+          bitWidth: 1
+        WDI:
+          bitOffset: 20
+          bitWidth: 1
+        BO:
+          bitOffset: 19
+          bitWidth: 1
+        EW:
+          bitOffset: 18
+          bitWidth: 1
+        EP:
+          bitOffset: 17
+          bitWidth: 1
+        ELO:
+          bitOffset: 16
+          bitWidth: 1
+        TOO:
+          bitOffset: 15
+          bitWidth: 1
+        MRAF:
+          bitOffset: 14
+          bitWidth: 1
+        TSW:
+          bitOffset: 13
+          bitWidth: 1
+        TEFL:
+          bitOffset: 12
+          bitWidth: 1
+        TEFF:
+          bitOffset: 11
+          bitWidth: 1
+        TEFN:
+          bitOffset: 10
+          bitWidth: 1
+        TFE:
+          bitOffset: 9
+          bitWidth: 1
+        TCF:
+          bitOffset: 8
+          bitWidth: 1
+        TC:
+          bitOffset: 7
+          bitWidth: 1
+        HPM:
+          bitOffset: 6
+          bitWidth: 1
+        RF1L:
+          bitOffset: 5
+          bitWidth: 1
+        RF1F:
+          bitOffset: 4
+          bitWidth: 1
+        RF1N:
+          bitOffset: 3
+          bitWidth: 1
+        RF0L:
+          bitOffset: 2
+          bitWidth: 1
+        RF0F:
+          bitOffset: 1
+          bitWidth: 1
+        RF0N:
+          bitOffset: 0
+          bitWidth: 1
+
+    IE:
+      description: Interrupt enable
+      addressOffset: 0x0054
+      access: read-write
+      size: 32
+      fields:
+        ARAE:
+          bitOffset: 23
+          bitWidth: 1
+        PEDE:
+          bitOffset: 22
+          bitWidth: 1
+        PEAE:
+          bitOffset: 21
+          bitWidth: 1
+        WDIE:
+          bitOffset: 20
+          bitWidth: 1
+        BOE:
+          bitOffset: 19
+          bitWidth: 1
+        EWE:
+          bitOffset: 18
+          bitWidth: 1
+        EPE:
+          bitOffset: 17
+          bitWidth: 1
+        ELOE:
+          bitOffset: 16
+          bitWidth: 1
+        TOOE:
+          bitOffset: 15
+          bitWidth: 1
+        MRAFE:
+          bitOffset: 14
+          bitWidth: 1
+        TSWE:
+          bitOffset: 13
+          bitWidth: 1
+        TEFLE:
+          bitOffset: 12
+          bitWidth: 1
+        TEFFE:
+          bitOffset: 11
+          bitWidth: 1
+        TEFNE:
+          bitOffset: 10
+          bitWidth: 1
+        TFEE:
+          bitOffset: 9
+          bitWidth: 1
+        TCFE:
+          bitOffset: 8
+          bitWidth: 1
+        TCE:
+          bitOffset: 7
+          bitWidth: 1
+        HPME:
+          bitOffset: 6
+          bitWidth: 1
+        RF1LE:
+          bitOffset: 5
+          bitWidth: 1
+        RF1FE:
+          bitOffset: 4
+          bitWidth: 1
+        RF1NE:
+          bitOffset: 3
+          bitWidth: 1
+        RF0LE:
+          bitOffset: 2
+          bitWidth: 1
+        RF0FE:
+          bitOffset: 1
+          bitWidth: 1
+        RF0NE:
+          bitOffset: 0
+          bitWidth: 1
+    ILS:
+      description: Interrupt line select
+      addressOffset: 0x0058
+      access: read-write
+      size: 32
+      fields:
+        PERR:
+          bitOffset: 6
+          bitWidth: 1
+        BERR:
+          bitOffset: 5
+          bitWidth: 1
+        MISC:
+          bitOffset: 4
+          bitWidth: 1
+        TFERR:
+          bitOffset: 3
+          bitWidth: 1
+        SMSG:
+          bitOffset: 2
+          bitWidth: 1
+        RxFIFO1:
+          bitOffset: 1
+          bitWidth: 1
+        RxFIFO0:
+          bitOffset: 0
+          bitWidth: 1
+  
+  RXGFC:
+    _add:
+      LSE:
+        bitOffset: 24
+        bitWidth: 4
+      LSS:
+        bitOffset: 16
+        bitWidth: 5
+      F0OM:
+        bitOffset: 9
+        bitWidth: 1
+      F1OM:
+        bitOffset: 8
+        bitWidth: 1
+    ANFS:
+      accept_rx_fifo0:  [0b00, accept_rx_fifo0]
+      accept_rx_fifo1:  [0b01, accept_rx_fifo1]
+      reject:           [0b10, reject]
+      reject_:          [0b11, reject_]
+    ANFE:
+      accept_rx_fifo0:  [0b00, accept_rx_fifo0]
+      accept_rx_fifo1:  [0b01, accept_rx_fifo1]
+      reject:           [0b10, reject]
+      reject_:          [0b11, reject_]
+    RRFS:
+      filter: [0b0, filter]
+      reject: [0b1, reject]
+    RRFE:
+      filter: [0b0, filter]
+      reject: [0b1, reject]
+
+  HPMS:
+    _modify:
+      FIDX:
+        msb: 12
+        lsb: 8
+      MSI:
+        msb: 7
+        lsb: 6
+      BIDX:
+        msb: 2
+        lsb: 0
+    FLST:
+      standard: [0b0, standard]
+      extended: [0b1, extended]
+    MSI:
+      no_fifo:      [0b00, no_fifo]
+      fifo_overrun: [0b01, fifo_overrun]
+      store_fifo0:  [0b10, store_fifo0]
+      store_fifo1:  [0b11, store_fifo1]
+
+      no_fifo: [0b00, no_fifo]
+  
+  RXF0S:
+    _modify:
+      F0PI:
+        msb: 17
+        lsb: 16
+      F0GI:
+        msb: 9
+        lsb: 8
+      F0FL:
+        msb: 3
+        lsb: 0
+  
+  RXF0A:
+    _modify:
+      F0AI:
+        msb: 2
+        lsb: 0
+  
+  RXF1S:
+    _delete:
+      DMS:
+    _modify:
+      F1PI:
+        msb: 17
+        lsb: 16
+      F1GI:
+        msb: 9
+        lsb: 8
+      F1FL:
+        msb: 3
+        lsb: 0
+
+  RXF1A:
+    _modify:
+      F1AI:
+        msb: 2
+        lsb: 0
+  
+  TXBC:
+    _delete:
+      TFQS:
+      NDTB:
+      TBSA:
+    _modify:
+      TFQM:
+        bitOffset: 24
+        bitWidth: 1
+    TFQM:
+      fifo:   [0b0, fifo]
+      queue:  [0b1, queue]
+
+  TXFQS:
+    _modify:
+      TFQPI:
+        msb: 17
+        lsb: 16
+      TFGI:
+        msb: 9
+        lsb: 8
+      TFFL:
+        bitWidth: 3
+  
+  TXBRP:
+    _modify:
+      TRP:
+        bitWidth: 3
+
+  TXBAR:
+    _modify:
+      AR:
+        bitWidth: 3
+  
+  TXBCR:
+    _modify:
+      CR:
+        bitWidth: 3
+  
+  TXBTO:
+    _modify:
+      TO:
+        bitWidth: 3
+  
+  TXBCF:
+    _modify:
+      CF:
+        bitWidth: 3
+  
+  TXBTIE:
+    _modify:
+      TIE:
+        bitWidth: 3
+  
+  TXBCIE:
+    _modify:
+      CFIE:
+        bitWidth: 3
+
+  TXEFS:
+    _modify:
+      EFPI:
+        bitWidth: 2
+      EFGI:
+        bitWidth: 2
+      EFFL:
+        bitWidth: 3
+  
+  TXEFA:
+    _modify:
+      EFAI:
+        bitWidth: 2
+
+  CKDIV:
+    PDIV:
+      div1:     [0b0000, div1]
+      div2:     [0b0001, div2]
+      div4:     [0b0010, div4]
+      div6:     [0b0011, div6]
+      div8:     [0b0100, div8]
+      div10:    [0b0101, div10]
+      div12:    [0b0110, div12]
+      div14:    [0b0111, div14]
+      div16:    [0b1000, div16]
+      div18:    [0b1001, div18]
+      div20:    [0b1010, div20]
+      div22:    [0b1011, div22]
+      div24:    [0b1100, div24]
+      div26:    [0b1101, div26]
+      div28:    [0b1110, div28]
+      div30:    [0b1111, div30]

@@ -20,11 +20,9 @@ FLAGS = flags.FLAGS
 
 def main(unused_argv):
   del unused_argv
-  print("worked")
   with open(FLAGS.yaml_path, "r") as f:
-    print(FLAGS.yaml_path)
     root = yaml.safe_load(f)
-    root["_path"] = FLAGS.svd_path
+    root["_path"] = FLAGS.yaml_path
   svd = ET.parse(FLAGS.svd_path)
   svdtools.patch.yaml_includes(root)
   svdtools.patch.process_device(svd, root)
