@@ -19,14 +19,6 @@ struct RxBuffer;
 
 }  // namespace can
 
-struct HardcodedFrame : public FDFrame {
-  using Header = FDFrame::Header<0xD, 3>;
-
-  virtual void Pack(uint32_t* buffer) override {
-    buffer[0] = 0x0 << 16 | 0x13 << 8 | 0x0;
-  };
-};
-
 class Can {
  public:
   enum class Instance : uint32_t {
