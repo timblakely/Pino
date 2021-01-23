@@ -398,6 +398,18 @@ _svd: "PLACEHOLDER"
       TFFL:
         msb: 2
         lsb: 0
+  
+  TXBRP:
+    _modify:
+      TRP:
+        msb: 2
+        lsb: 0
+
+  TXBAR:
+    _modify:
+      AR:
+        msb: 2
+        lsb: 0
 
 
 
