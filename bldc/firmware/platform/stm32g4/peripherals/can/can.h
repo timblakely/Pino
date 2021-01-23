@@ -2,7 +2,7 @@
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 
 #include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/frame_types.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 
@@ -21,6 +21,14 @@ struct RxBuffer;
 
 }  // namespace impl
 
+struct HardcodedFrame : public FDFrame {
+  using Header = FDFrame::Header<0xD, 3>;
+
+  virtual void Pack(uint32_t* buffer) override {
+    buffer[0] = 0x0 << 16 | 0x13 << 8 | 0x0;
+  };
+};
+
 class Can {
  public:
   enum class Instance : uint32_t {
@@ -34,12 +42,13 @@ class Can {
 
   void Init(Can::Instance instance);
 
-  template <typename FrameType>
+  template <typename FrameType, bool BitrateSwitching = true,
+            bool StoreEvent = true>
   void SendFrame(FrameType& frame) {
     const auto idx = peripheral_->TxPut();
     auto buffer = &(tx_buffer_[idx]);
     static_cast<FrameType::Header&>(buffer->header_)
-        .template Apply<true, true>(123);
+        .template Apply<BitrateSwitching, StoreEvent>(123);
     frame.Pack(buffer->data_);
     peripheral_->TransmitBuffer(idx);
   }

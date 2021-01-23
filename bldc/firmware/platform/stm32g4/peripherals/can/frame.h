@@ -1,7 +1,9 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_FRAME_TYPES_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_FRAME_TYPES_H_
 
-#include "bldc/firmware/platform/stm32g4/peripherals/can/base_frame.h"
+#include <array>
+
+#include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 
 namespace platform {
 namespace stm32g4 {
@@ -88,16 +90,14 @@ struct CanFrame {
   virtual void Pack(uint32_t* buffer) = 0;
 };
 
+struct StandardFrame : public CanFrame {
+  template <uint32_t Id, uint8_t FrameSizeBytes>
+  using Header = FrameHeader<false, Id, FrameSizeBytes>;
+};
+
 struct FDFrame : public CanFrame {
   template <uint32_t Id, uint8_t FrameSizeBytes>
   using Header = FrameHeader<true, Id, FrameSizeBytes>;
-};
-
-struct HardcodedFrame : FDFrame {
-  using Header = FDFrame::Header<0xd, 3>;
-  virtual void Pack(uint32_t* buffer) override {
-    buffer[0] = 0x0 << 16 | 0x13 << 8 | 0x0;
-  };
 };
 
 }  // namespace stm32g4

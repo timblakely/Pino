@@ -4,7 +4,7 @@
 
 #include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/fdcan.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/frame_types.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"

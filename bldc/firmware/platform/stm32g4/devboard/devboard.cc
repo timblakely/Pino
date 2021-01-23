@@ -1,7 +1,7 @@
 #include "bldc/firmware/platform/stm32g4/devboard/devboard.h"
 
 #include "bldc/firmware/platform/bldc_platform.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/can/frame_types.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
