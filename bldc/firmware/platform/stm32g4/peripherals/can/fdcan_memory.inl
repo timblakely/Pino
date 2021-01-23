@@ -1,15 +1,15 @@
 // clang-format off
 ETL_BFF_REG_RO(uint32_t, CREL,
-  ETL_BFF_FIELD(31 : 28, unsigned, REL)
-  ETL_BFF_FIELD(27 : 24, unsigned, STEP)
-  ETL_BFF_FIELD(23 : 20, unsigned, SUBSTEP)
-  ETL_BFF_FIELD(19 : 16, unsigned, YEAR)
-  ETL_BFF_FIELD(15 : 8, unsigned, MON)
-  ETL_BFF_FIELD(7 : 0, unsigned, DAY)
+  ETL_BFF_FIELD(31:28, uint8_t, REL)
+  ETL_BFF_FIELD(27:24, uint8_t, STEP)
+  ETL_BFF_FIELD(23:20, uint8_t, SUBSTEP)
+  ETL_BFF_FIELD(19:16, uint8_t, YEAR)
+  ETL_BFF_FIELD(15:8, uint8_t, MON)
+  ETL_BFF_FIELD(7:0, uint8_t, DAY)
 )
 
 ETL_BFF_REG_RO(uint32_t, ENDN,
-  ETL_BFF_FIELD(31 : 0, unsigned, ETV)
+  ETL_BFF_FIELD(31:0, uint32_t, ETV)
 )
 
 ETL_BFF_REG_RESERVED(uint32_t, reserved1, 1)
@@ -26,8 +26,8 @@ ETL_BFF_REG_RW(uint32_t, DBTP,
 
 ETL_BFF_REG_RW(uint32_t, TEST,
   ETL_BFF_FIELD_E(7:7, bool, RX,
-    ETL_BFF_ENUM(0, dominant)
-    ETL_BFF_ENUM(1, recessive)
+    ETL_BFF_ENUM(0b0, dominant)
+    ETL_BFF_ENUM(0b1, recessive)
   )
   ETL_BFF_FIELD_E(6:5, uint8_t, TX,
     ETL_BFF_ENUM(0b00, can_core)
@@ -52,35 +52,36 @@ ETL_BFF_REG_RW(uint32_t, CCCR,
   ETL_BFF_FIELD(9:9, bool, BRSE)
   ETL_BFF_FIELD(8:8, bool, FDOE)
   ETL_BFF_FIELD_E(7:7, bool, TEST,
-    ETL_BFF_ENUM(0, normal)
-    ETL_BFF_ENUM(1, test)
+    ETL_BFF_ENUM(0b0, normal)
+    ETL_BFF_ENUM(0b1, test)
   )
   ETL_BFF_FIELD_E(6:6, bool, DAR,
-    ETL_BFF_ENUM(0, retransmit)
-    ETL_BFF_ENUM(1, noretransmit)
+    ETL_BFF_ENUM(0b0, retransmit)
+    ETL_BFF_ENUM(0b1, noretransmit)
   )
   ETL_BFF_FIELD(5:5, bool, MON)
   ETL_BFF_FIELD(4:4, bool, CSR)
   ETL_BFF_FIELD(3:3, bool, CSA)
   ETL_BFF_FIELD_E(2:2, bool, ASM,
-    ETL_BFF_ENUM(0, normal)
-    ETL_BFF_ENUM(1, restricted)
+    ETL_BFF_ENUM(0b0, normal)
+    ETL_BFF_ENUM(0b1, restricted)
   )
   ETL_BFF_FIELD_E(1:1, bool, CCE,
-    ETL_BFF_ENUM(0, readonly)
-    ETL_BFF_ENUM(1, readwrite)
+    ETL_BFF_ENUM(0b0, readonly)
+    ETL_BFF_ENUM(0b1, readwrite)
   )
   ETL_BFF_FIELD_E(0:0, bool, INIT,
-    ETL_BFF_ENUM(0, run)
-    ETL_BFF_ENUM(1, init)
+    ETL_BFF_ENUM(0b0, run)
+    ETL_BFF_ENUM(0b1, init)
   )
 )
 
 ETL_BFF_REG_RW(uint32_t, NBTP,
-  ETL_BFF_FIELD(31 : 25, unsigned, NSJW)
-  ETL_BFF_FIELD(24 : 16, unsigned, NBRP)
-  ETL_BFF_FIELD(15 : 8, unsigned, NTSEG1)
-  ETL_BFF_FIELD(6 : 0, unsigned, NTSEG2)
+  ETL_BFF_FIELD(31:25, uint8_t, NSJW)
+  ETL_BFF_FIELD(24:16, uint16_t, NBRP)
+  ETL_BFF_FIELD(15:8, uint8_t, NTSEG1)
+
+  ETL_BFF_FIELD(6:0, uint8_t, NTSEG2)
 )
 
 ETL_BFF_REG_RW(uint32_t, TSCC,
@@ -110,7 +111,7 @@ ETL_BFF_REG_RW(uint32_t, TOCC,
   ETL_BFF_FIELD(0:0, bool, ETOC)
 )
 
-ETL_BFF_REG_RW(uint32_t, TOCV,
+ETL_BFF_REG_RO(uint32_t, TOCV,
   ETL_BFF_FIELD(15:0, uint16_t, TOC)
 )
 
@@ -134,7 +135,7 @@ ETL_BFF_REG_RO(uint32_t, PSR,
     ETL_BFF_ENUM(0b000, none)
     ETL_BFF_ENUM(0b001, stuff)
     ETL_BFF_ENUM(0b010, form)
-    ETL_BFF_ENUM(0b11, ack)
+    ETL_BFF_ENUM(0b011, ack)
     ETL_BFF_ENUM(0b100, bit1)
     ETL_BFF_ENUM(0b101, bit0)
     ETL_BFF_ENUM(0b110, crc)
@@ -153,7 +154,7 @@ ETL_BFF_REG_RO(uint32_t, PSR,
     ETL_BFF_ENUM(0b000, none)
     ETL_BFF_ENUM(0b001, stuff)
     ETL_BFF_ENUM(0b010, form)
-    ETL_BFF_ENUM(0b110, ack)
+    ETL_BFF_ENUM(0b011, ack)
     ETL_BFF_ENUM(0b100, bit1)
     ETL_BFF_ENUM(0b101, bit0)
     ETL_BFF_ENUM(0b110, crc)
@@ -163,6 +164,7 @@ ETL_BFF_REG_RO(uint32_t, PSR,
 
 ETL_BFF_REG_RW(uint32_t, TDCR,
   ETL_BFF_FIELD(14:8, uint8_t, TDCO)
+  
   ETL_BFF_FIELD(6:0, uint8_t, TDCF)
 )
 

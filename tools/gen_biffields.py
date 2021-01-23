@@ -11,6 +11,7 @@ from bazel_tools.tools.python.runfiles import runfiles
 flags.DEFINE_string('svd_path', '//pino/third_party/stm32cubeg4/STM32G474xx.svd', 'Path to svd, either //workspace/and/path, or absolute')
 flags.DEFINE_string('output_path', None, 'Path to write biffields.')
 flags.DEFINE_bool('register_descriptions', True, 'Whether to add descriptions')
+flags.DEFINE_bool('reserved_comments', True, 'Whether to add bitfield reserved comments')
 
 flags.mark_flags_as_required(['output_path'])
 
@@ -47,10 +48,11 @@ class Biffile:
     'write-only': 'ETL_BFF_REG_WO',
   }
 
-  def __init__(self, output_path, register_descriptions):
+  def __init__(self, output_path, register_descriptions, reserved_comments):
     self.output_path = output_path
     self.num_reserved = 0
     self.reg_desc = register_descriptions
+    self.reserved_comments = reserved_comments
 
   @property
   def section(self):
@@ -90,10 +92,14 @@ class Biffile:
           high_bit = (f.bit_offset + f.bit_width - 1)
           gap = last_bit - high_bit - 1
           if gap > 0:
-            if gap == 1:
-              self.formatter.write(f'// {last_bit-1} reserved')
+            if self.reserved_comments:
+              if gap == 1:
+                reserved_str = f'// {last_bit-1} reserved'
+              else:
+                reserved_str = f'// {last_bit-1} : {high_bit+1} reserved'
             else:
-              self.formatter.write(f'// {last_bit-1} : {high_bit+1} reserved')
+              reserved_str = ''
+            self.formatter.write(reserved_str)
         self.write_field(f)
         last_bit = f.bit_offset
     self.formatter.write(')')
@@ -109,8 +115,20 @@ class Biffile:
       dtype = 'uint32_t'
     start = field.bit_offset
     end = field.bit_offset + field.bit_width - 1
-    self.formatter.write(f'ETL_BFF_FIELD({end} : {start}, {dtype}, {field.name})')
-
+    if not field.is_enumerated_type:
+      self.formatter.write(f'ETL_BFF_FIELD({end}:{start}, {dtype}, {field.name})')
+    else:
+      self.formatter.write(f'ETL_BFF_FIELD_E({end}:{start}, {dtype}, {field.name},')
+      with self.section:
+        self.write_enumerated_values(field, field.enumerated_values)
+      self.formatter.write(f')')
+  
+  def write_enumerated_values(self, field, values):
+    for v in values:
+      bit_str = f'{v.value:b}'
+      if len(bit_str) < field.bit_width:
+        bit_str = '0' * (field.bit_width - len(bit_str)) + bit_str
+      self.formatter.write(f'ETL_BFF_ENUM(0b{bit_str}, {v.name})')
 
   def __enter__(self):
     self.file = open(self.output_path, 'w')
@@ -134,7 +152,7 @@ def main(unused_argv):
   # dest_file = open(FLAGS.output_path, 'w')
   
 
-  with Biffile(FLAGS.output_path, FLAGS.register_descriptions) as b:
+  with Biffile(FLAGS.output_path, FLAGS.register_descriptions, FLAGS.reserved_comments) as b:
     b.write_peripheral(fdcan1)
 
   # print('%s @ 0x%08x' % (fdcan1.name,fdcan1.base_address))

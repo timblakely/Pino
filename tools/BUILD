@@ -13,3 +13,16 @@ py_binary(
         "@bazel_tools//tools/python/runfiles",
     ],
 )
+
+py_binary(
+    name = "patch_svd",
+    srcs = ["patch_svd.py"],
+    data = [
+        "//third_party/stm32cubeg4:STM32G474xx.svd",
+    ],
+    deps = [
+        requirement("absl-py"),
+        requirement("svdtools"),
+        "@bazel_tools//tools/python/runfiles",
+    ],
+)

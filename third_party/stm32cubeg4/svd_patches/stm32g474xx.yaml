@@ -1,0 +1,195 @@
+_svd: "PLACEHOLDER"
+
+"FDCAN*":
+  _modify:
+    TSCV:
+      access: read-write
+    PSR:
+      access: read-only
+
+  TEST:
+    _modify:
+      RX:
+        _write_constraint: "enum"
+      
+    RX:
+      dominant: [0b0, dominant]
+      recessive: [0b1, recessive]
+    TX:
+      can_core:     [0b00, can_core]
+      sample_point: [0b01, sample_point]
+      dominant:     [0b10, dominant]
+      recessive:    [0b11, recessive]
+
+  CCCR:
+    _modify:
+      TEST:
+        _write_constraint: "enum"
+      DAR:
+        _write_constraint: "enum"
+      ASM:
+        _write_constraint: "enum"
+      CCE:
+        _write_constraint: "enum"
+      INIT:
+        _write_constraint: "enum"
+    TEST:
+      normal:       [0b0, normal]
+      test:         [0b1, test]
+    DAR:
+      retransmit:   [0b0, retransmit]
+      noretransmit: [0b1, noretransmit]
+    ASM:
+      normal:       [0b0, normal]
+      restricted:   [0b1, restricted]
+    CCE:
+      readonly:     [0b0, readonly]
+      readwrite:    [0b1, readwrite]
+    INIT:
+      run:          [0b0, run]
+      init:         [0b1, init]
+
+  NBTP:
+    _modify:
+      TSEG2:
+        name: NTSEG2
+
+  TSCC:
+    _modify:
+      TSS:
+        _write_constraint: "enum"
+    TSS:
+      zero:             [0b00, zero]
+      increment_by_tcp: [0b01, zincrement_by_tcpero]
+      tim3_cnt:         [0b10, tim3_cnt]
+      zero_:            [0b11, zero_]
+  
+  TOCC:
+    _modify:
+      TOS:
+        _write_constraint: "enum"
+    TOS:
+      continuous:     [0b00, continuous]
+      tx_event_fifo:  [0b01, tx_event_fifo]
+      rx_fifo0:       [0b10, rx_fifo0]
+      rx_fifo1:       [0b11, rx_fifo1]
+
+  ECR:
+    _modify:
+      TREC:
+        name: REC
+
+  PSR:
+    _modify:
+      DLEC:
+        _write_constraint: "enum"
+      ACT:
+        _write_constraint: "enum"
+      LEC:
+        _write_constraint: "enum"
+    DLEC:
+      none:       [0b000, none]
+      stuff:      [0b001, stuff]
+      form:       [0b010, form]
+      ack:        [0b11, ack]
+      bit1:       [0b100, bit1]
+      bit0:       [0b101, bit0]
+      crc:        [0b110, crc]
+      no_change:  [0b111, no_change]
+    ACT:
+      synchronizing:  [0b00, synchronizing]
+      idle:           [0b01, idle]
+      receiver:       [0b10, receiver]
+      transmitter:    [0b11, transmitter]
+    LEC:
+      none:       [0b000, none]
+      stuff:      [0b001, stuff]
+      form:       [0b010, form]
+      ack:        [0b11, ack]
+      bit1:       [0b100, bit1]
+      bit0:       [0b101, bit0]
+      crc:        [0b110, crc]
+      no_change:  [0b111, no_change]
+  
+  _delete:
+    IR:
+
+  _add:
+    IR:
+      description: Interrupt status register
+      addressOffset: 0x0050
+      access: read-write
+      size: 32
+      fields:
+        ARA:
+          bitOffset: 23
+          bitWidth: 1
+        PED:
+          bitOffset: 22
+          bitWidth: 1
+        PEA:
+          bitOffset: 21
+          bitWidth: 1
+        WDI:
+          bitOffset: 20
+          bitWidth: 1
+        BO:
+          bitOffset: 19
+          bitWidth: 1
+        EW:
+          bitOffset: 18
+          bitWidth: 1
+        EP:
+          bitOffset: 17
+          bitWidth: 1
+        ELO:
+          bitOffset: 16
+          bitWidth: 1
+        TOO:
+          bitOffset: 15
+          bitWidth: 1
+        MRAF:
+          bitOffset: 14
+          bitWidth: 1
+        TSW:
+          bitOffset: 13
+          bitWidth: 1
+        TEFL:
+          bitOffset: 12
+          bitWidth: 1
+        TEFF:
+          bitOffset: 11
+          bitWidth: 1
+        TEFN:
+          bitOffset: 10
+          bitWidth: 1
+        TFE:
+          bitOffset: 9
+          bitWidth: 1
+        TCF:
+          bitOffset: 8
+          bitWidth: 1
+        TC:
+          bitOffset: 7
+          bitWidth: 1
+        HPM:
+          bitOffset: 6
+          bitWidth: 1
+        RF1L:
+          bitOffset: 5
+          bitWidth: 1
+        RF1F:
+          bitOffset: 4
+          bitWidth: 1
+        RF1N:
+          bitOffset: 3
+          bitWidth: 1
+        RF0L:
+          bitOffset: 2
+          bitWidth: 1
+        RF0F:
+          bitOffset: 1
+          bitWidth: 1
+        RF0N:
+          bitOffset: 0
+          bitWidth: 1
