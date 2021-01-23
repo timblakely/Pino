@@ -5,12 +5,10 @@ import svdtools
 import xml.etree.ElementTree as ET
 import yaml
 
-flags.DEFINE_string(
-    "svd_path", None, "Path to svd, either //workspace/and/path, or absolute"
-)
-flags.DEFINE_string(
-    "yaml_path", None, "Path to yaml, either //workspace/and/path, or absolute"
-)
+flags.DEFINE_string("svd_path", None,
+                    "Path to svd, either //workspace/and/path, or absolute")
+flags.DEFINE_string("yaml_path", None,
+                    "Path to yaml, either //workspace/and/path, or absolute")
 flags.DEFINE_string("output_path", None, "Path to write patched svd.")
 
 flags.mark_flags_as_required(["svd_path", "yaml_path", "output_path"])
@@ -30,4 +28,4 @@ def main(unused_argv):
 
 
 if __name__ == "__main__":
-    app.run(main)
+  app.run(main)

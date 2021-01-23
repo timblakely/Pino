@@ -8,10 +8,16 @@ from cmsis_svd.parser import SVDParser
 
 from bazel_tools.tools.python.runfiles import runfiles
 
-flags.DEFINE_string('svd_path', '//pino/third_party/stm32cubeg4/STM32G474xx.svd', 'Path to svd, either //workspace/and/path, or absolute')
+flags.DEFINE_string('svd_path',
+                    '//pino/third_party/stm32cubeg4/STM32G474xx.svd',
+                    'Path to svd, either //workspace/and/path, or absolute')
 flags.DEFINE_string('output_path', None, 'Path to write biffields.')
-flags.DEFINE_bool('register_descriptions', True, 'Whether to add descriptions')
-flags.DEFINE_bool('reserved_comments', True, 'Whether to add bitfield reserved comments')
+flags.DEFINE_bool('register_descriptions', True,
+                  'Whether to add register descriptions')
+flags.DEFINE_bool('field_descriptions', True,
+                  'Whether to add field descriptions')
+flags.DEFINE_bool('reserved_comments', True,
+                  'Whether to add bitfield reserved comments')
 
 flags.mark_flags_as_required(['output_path'])
 
@@ -19,36 +25,39 @@ FLAGS = flags.FLAGS
 
 
 class Formatter:
+
   def __init__(self, file):
     self.tabs = 0
     self.file = file
+
   def __enter__(self):
     self.tabs += 2
+
   def __exit__(self, *args):
     self.tabs -= 2
-  
+
   def write(self, msg=''):
     if len(msg):
       self.file.write(f'{" " * self.tabs}{msg}\n')
     else:
       self.file.write('\n')
-  
+
   def newln(self):
     self.write()
 
 
 class Biffile:
   size_map = {
-    32: 'uint32_t',
-    16: 'uint16_t',
-    8: 'uint8_t',
+      32: 'uint32_t',
+      16: 'uint16_t',
+      8: 'uint8_t',
   }
 
   reg_type = {
-    None: 'ETL_BFF_REG_RW',
-    'read-write': 'ETL_BFF_REG_RW',
-    'read-only': 'ETL_BFF_REG_RO',
-    'write-only': 'ETL_BFF_REG_WO',
+      None: 'ETL_BFF_REG_RW',
+      'read-write': 'ETL_BFF_REG_RW',
+      'read-only': 'ETL_BFF_REG_RO',
+      'write-only': 'ETL_BFF_REG_WO',
   }
 
   def __init__(self, output_path, register_descriptions, reserved_comments):
@@ -63,7 +72,8 @@ class Biffile:
 
   def write_peripheral(self, peripheral):
     next_addr = 0
-    for idx, r in enumerate(sorted(peripheral.registers, key=lambda x: x.address_offset)):
+    for idx, r in enumerate(
+        sorted(peripheral.registers, key=lambda x: x.address_offset)):
       if r.address_offset != next_addr:
         reserved_size = (r.address_offset - next_addr)
         self.write_reserved_register(reserved_size)
@@ -72,17 +82,17 @@ class Biffile:
       next_addr = r.address_offset + 4
 
   def write_reserved_register(self, reserved_size):
-    self.formatter.write(f'ETL_BFF_REG_RESERVED(uint32_t, reserved{self.num_reserved+1}, {reserved_size//4})')
+    self.formatter.write(
+        f'ETL_BFF_REG_RESERVED(uint32_t, reserved{self.num_reserved+1}, {reserved_size//4})'
+    )
     self.formatter.newln()
     self.num_reserved += 1
 
   def write_register(self, register):
     if self.reg_desc:
       description = re.sub(' +', ' ', register.description)
-      description = textwrap.fill(description, 
-          width=80, 
-          initial_indent='// ', 
-          subsequent_indent='// ')
+      description = textwrap.fill(
+          description, width=80, initial_indent='// ', subsequent_indent='// ')
       self.formatter.write(description)
 
     size = self.size_map[register._size]
@@ -90,7 +100,8 @@ class Biffile:
     self.formatter.write(f'{reg_type}({size}, {register.name},')
     with self.section:
       last_bit = None
-      for idx, f in enumerate(sorted(register.fields, key=lambda x: x.bit_offset, reverse=True)):
+      for idx, f in enumerate(
+          sorted(register.fields, key=lambda x: x.bit_offset, reverse=True)):
         if last_bit is not None:
           high_bit = (f.bit_offset + f.bit_width - 1)
           gap = last_bit - high_bit - 1
@@ -119,13 +130,15 @@ class Biffile:
     start = field.bit_offset
     end = field.bit_offset + field.bit_width - 1
     if not field.is_enumerated_type:
-      self.formatter.write(f'ETL_BFF_FIELD({end}:{start}, {dtype}, {field.name})')
+      self.formatter.write(
+          f'ETL_BFF_FIELD({end}:{start}, {dtype}, {field.name})')
     else:
-      self.formatter.write(f'ETL_BFF_FIELD_E({end}:{start}, {dtype}, {field.name},')
+      self.formatter.write(
+          f'ETL_BFF_FIELD_E({end}:{start}, {dtype}, {field.name},')
       with self.section:
         self.write_enumerated_values(field, field.enumerated_values)
       self.formatter.write(f')')
-  
+
   def write_enumerated_values(self, field, values):
     for v in values:
       bit_str = f'{v.value:b}'
@@ -136,12 +149,13 @@ class Biffile:
   def __enter__(self):
     self.file = open(self.output_path, 'w')
     self.formatter = Formatter(self.file)
-    self.formatter.write('// clang-format off')    
+    self.formatter.write('// clang-format off')
     return self
-  
+
   def __exit__(self, *args):
     self.formatter.write('// clang-format on')
     self.file.close()
+
 
 def main(unused_argv):
   del unused_argv
@@ -151,11 +165,13 @@ def main(unused_argv):
   if svd_path.startswith('//'):
     svd_path = r.Rlocation(svd_path[2:])
   parser = SVDParser.for_xml_file(svd_path)
-  fdcan1 = [p for p in parser.get_device().peripherals if p.name.lower() == 'fdcan1'][0]
+  fdcan1 = [
+      p for p in parser.get_device().peripherals if p.name.lower() == 'fdcan1'
+  ][0]
   # dest_file = open(FLAGS.output_path, 'w')
-  
 
-  with Biffile(FLAGS.output_path, FLAGS.register_descriptions, FLAGS.reserved_comments) as b:
+  with Biffile(FLAGS.output_path, FLAGS.register_descriptions,
+               FLAGS.reserved_comments) as b:
     b.write_peripheral(fdcan1)
 
   # print('%s @ 0x%08x' % (fdcan1.name,fdcan1.base_address))
@@ -167,6 +183,7 @@ def main(unused_argv):
   #       print('\n\n\nYAS\n\n\n')
 
   # dest_file.close()
+
 
 if __name__ == '__main__':
   app.run(main)
