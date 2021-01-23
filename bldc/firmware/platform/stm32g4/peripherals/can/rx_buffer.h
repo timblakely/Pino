@@ -7,6 +7,9 @@ namespace stm32g4 {
 namespace can {
 
 struct RxBuffer {
+  RxBuffer() = delete;
+  RxBuffer(RxBuffer&) = delete;
+  RxBuffer(RxBuffer&&) = delete;
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer_memory.inl"
 #include "third_party/etl/biffield/generate.h"

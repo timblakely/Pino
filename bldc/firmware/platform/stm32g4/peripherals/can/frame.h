@@ -12,6 +12,7 @@ template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes>
 struct FrameHeader : public can::TxHeader {
   FrameHeader() = delete;
   FrameHeader(FrameHeader&) = delete;
+  FrameHeader(FrameHeader&&) = delete;
 
   template <bool BitrateSwitching, bool StoreTxEvent>
   inline void Apply(uint8_t message_marker) {

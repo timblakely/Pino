@@ -9,6 +9,9 @@ namespace stm32g4 {
 namespace can {
 
 struct TxHeader {
+  TxHeader() = delete;
+  TxHeader(TxHeader&) = delete;
+  TxHeader(TxHeader&&) = delete;
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer_memory.inl"
 #include "third_party/etl/biffield/generate.h"
@@ -20,6 +23,9 @@ struct TxHeader {
 };
 
 struct TxBuffer {
+  TxBuffer() = delete;
+  TxBuffer(TxBuffer&) = delete;
+  TxBuffer(TxBuffer&&) = delete;
   TxHeader header_;
   uint32_t data_[16];
 };

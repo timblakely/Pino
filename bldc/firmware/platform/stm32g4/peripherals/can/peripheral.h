@@ -10,6 +10,9 @@ static constexpr uint32_t kMRAMAddress = 0x4000'A400U;
 static constexpr uint32_t kMRAMBankSize = 0x350U /* 212*4=848 bytes */;
 
 struct Peripheral {
+  Peripheral() = delete;
+  Peripheral(Peripheral&) = delete;
+  Peripheral(Peripheral&&) = delete;
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can/fdcan_memory.inl"
 #include "third_party/etl/biffield/generate.h"

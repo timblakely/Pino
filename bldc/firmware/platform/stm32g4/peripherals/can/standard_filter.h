@@ -7,6 +7,9 @@ namespace stm32g4 {
 namespace can {
 
 struct StandardFilter {
+  StandardFilter() = delete;
+  StandardFilter(StandardFilter&) = delete;
+  StandardFilter(StandardFilter&&) = delete;
 #define ETL_BFF_DEFINITION_FILE \
   "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter_memory.inl"
 #include "third_party/etl/biffield/generate.h"
