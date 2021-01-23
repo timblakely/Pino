@@ -24,3 +24,5 @@ cc_library(
         "@stm32cubeg4//:low_level_drivers",
     ],
 )
+
+exports_files(["STM32G474xx.svd"])
