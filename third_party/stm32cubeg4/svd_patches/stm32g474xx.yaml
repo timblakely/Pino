@@ -6,11 +6,10 @@ _svd: "PLACEHOLDER"
       access: read-write
     PSR:
       access: read-only
+    RXF0S:
+      access: read-only
 
   TEST:
-    _modify:
-      RX:
-        _write_constraint: "enum"
       
     RX:
       dominant: [0b0, dominant]
@@ -22,17 +21,6 @@ _svd: "PLACEHOLDER"
       recessive:    [0b11, recessive]
 
   CCCR:
-    _modify:
-      TEST:
-        _write_constraint: "enum"
-      DAR:
-        _write_constraint: "enum"
-      ASM:
-        _write_constraint: "enum"
-      CCE:
-        _write_constraint: "enum"
-      INIT:
-        _write_constraint: "enum"
     TEST:
       normal:       [0b0, normal]
       test:         [0b1, test]
@@ -80,13 +68,6 @@ _svd: "PLACEHOLDER"
         name: REC
 
   PSR:
-    _modify:
-      DLEC:
-        _write_constraint: "enum"
-      ACT:
-        _write_constraint: "enum"
-      LEC:
-        _write_constraint: "enum"
     DLEC:
       none:       [0b000, none]
       stuff:      [0b001, stuff]
@@ -113,10 +94,12 @@ _svd: "PLACEHOLDER"
   
   _delete:
     IR:
+    IE:
+    ILS:
 
   _add:
     IR:
-      description: Interrupt status register
+      description: Interrupt status
       addressOffset: 0x0050
       access: read-write
       size: 32
@@ -193,3 +176,191 @@ _svd: "PLACEHOLDER"
         RF0N:
           bitOffset: 0
           bitWidth: 1
+
+    IE:
+      description: Interrupt enable
+      addressOffset: 0x0054
+      access: read-write
+      size: 32
+      fields:
+        ARAE:
+          bitOffset: 23
+          bitWidth: 1
+        PEDE:
+          bitOffset: 22
+          bitWidth: 1
+        PEAE:
+          bitOffset: 21
+          bitWidth: 1
+        WDIE:
+          bitOffset: 20
+          bitWidth: 1
+        BOE:
+          bitOffset: 19
+          bitWidth: 1
+        EWE:
+          bitOffset: 18
+          bitWidth: 1
+        EPE:
+          bitOffset: 17
+          bitWidth: 1
+        ELOE:
+          bitOffset: 16
+          bitWidth: 1
+        TOOE:
+          bitOffset: 15
+          bitWidth: 1
+        MRAFE:
+          bitOffset: 14
+          bitWidth: 1
+        TSWE:
+          bitOffset: 13
+          bitWidth: 1
+        TEFLE:
+          bitOffset: 12
+          bitWidth: 1
+        TEFFE:
+          bitOffset: 11
+          bitWidth: 1
+        TEFNE:
+          bitOffset: 10
+          bitWidth: 1
+        TFEE:
+          bitOffset: 9
+          bitWidth: 1
+        TCFE:
+          bitOffset: 8
+          bitWidth: 1
+        TCE:
+          bitOffset: 7
+          bitWidth: 1
+        HPME:
+          bitOffset: 6
+          bitWidth: 1
+        RF1LE:
+          bitOffset: 5
+          bitWidth: 1
+        RF1FE:
+          bitOffset: 4
+          bitWidth: 1
+        RF1NE:
+          bitOffset: 3
+          bitWidth: 1
+        RF0LE:
+          bitOffset: 2
+          bitWidth: 1
+        RF0FE:
+          bitOffset: 1
+          bitWidth: 1
+        RF0NE:
+          bitOffset: 0
+          bitWidth: 1
+    ILS:
+      description: Interrupt line select
+      addressOffset: 0x0058
+      access: read-write
+      size: 32
+      fields:
+        PERR:
+          bitOffset: 6
+          bitWidth: 1
+        BERR:
+          bitOffset: 5
+          bitWidth: 1
+        MISC:
+          bitOffset: 4
+          bitWidth: 1
+        TFERR:
+          bitOffset: 3
+          bitWidth: 1
+        SMSG:
+          bitOffset: 2
+          bitWidth: 1
+        RxFIFO1:
+          bitOffset: 1
+          bitWidth: 1
+        RxFIFO0:
+          bitOffset: 0
+          bitWidth: 1
+  
+  RXGFC:
+    _add:
+      LSE:
+        bitOffset: 24
+        bitWidth: 4
+      LSS:
+        bitOffset: 16
+        bitWidth: 5
+      F0OM:
+        bitOffset: 9
+        bitWidth: 1
+      F1OM:
+        bitOffset: 8
+        bitWidth: 1
+    ANFS:
+      accept_rx_fifo0:  [0b00, accept_rx_fifo0]
+      accept_rx_fifo1:  [0b01, accept_rx_fifo1]
+      reject:           [0b10, reject]
+      reject_:          [0b11, reject_]
+    ANFE:
+      accept_rx_fifo0:  [0b00, accept_rx_fifo0]
+      accept_rx_fifo1:  [0b01, accept_rx_fifo1]
+      reject:           [0b10, reject]
+      reject_:          [0b11, reject_]
+    RRFS:
+      filter: [0b0, filter]
+      reject: [0b1, reject]
+    RRFE:
+      filter: [0b0, filter]
+      reject: [0b1, reject]
+
+  HPMS:
+    _modify:
+      FIDX:
+        msb: 12
+        lsb: 8
+      MSI:
+        msb: 7
+        lsb: 6
+      BIDX:
+        msb: 2
+        lsb: 0
+    FLST:
+      standard: [0b0, standard]
+      extended: [0b1, extended]
+    MSI:
+      no_fifo:      [0b00, no_fifo]
+      fifo_overrun: [0b01, fifo_overrun]
+      store_fifo0:  [0b10, store_fifo0]
+      store_fifo1:  [0b11, store_fifo1]
+
+      no_fifo: [0b00, no_fifo]
+  
+  RXF0S:
+    _modify:
+      F0PI:
+        msb: 17
+        lsb: 16
+      F0GI:
+        msb: 9
+        lsb: 8
+      F0FL:
+        msb: 3
+        lsb: 0
+  
+
+
+
+
+    # RXGFC:
+    #   _modify:
+    #       _read:
+    #         accept_rx_fifo0:  [0b00, accept_rx_fifo0]
+    #         accept_rx_fifo1:  [0b01, accept_rx_fifo1]
+    #         reject:           [0b00, reject]
+    #         reject_:          [0b00, reject_]
+    #       _write:
+    #         accept_rx_fifo0:  [0b00, accept_rx_fifo0]
+    #         accept_rx_fifo1:  [0b01, accept_rx_fifo1]
+    #         reject:           [0b00, reject]
+    #         reject_:          [0b00, reject_]

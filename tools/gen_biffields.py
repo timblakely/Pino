@@ -28,7 +28,10 @@ class Formatter:
     self.tabs -= 2
   
   def write(self, msg=''):
-    self.file.write(f'{" " * self.tabs}{msg}\n')
+    if len(msg):
+      self.file.write(f'{" " * self.tabs}{msg}\n')
+    else:
+      self.file.write('\n')
   
   def newln(self):
     self.write()
