@@ -6,13 +6,25 @@
 namespace platform {
 namespace stm32g4 {
 
-struct HardcodedFrame : public FDFrame {
+struct DebugFrame : public FDFrame {
   using Header = FDFrame::Header<0xD, 3>;
 
   virtual void Pack(uint32_t* buffer) override {
     buffer[0] = 0x0 << 16 | 0x13 << 8 | 0x0;
   };
 };
+
+struct AngleFrame : public FDFrame {
+  using Header = FDFrame::Header<0xA, 2>;
+
+  AngleFrame(uint16_t angle) : angle_(angle) {}
+
+  virtual void Pack(uint32_t* buffer) override { buffer[0] = angle_; };
+
+ private:
+  uint16_t angle_;
+};
+
 }  // namespace stm32g4
 }  // namespace platform
 #endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_CAN_MESSAGES_H_

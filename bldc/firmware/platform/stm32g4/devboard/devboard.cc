@@ -59,7 +59,7 @@ void Devboard::Init() {
   drv_.Init();
   drv_.Enable();
   SysTickTimer::BlockingWait(1000);
-  uint16_t value = 0;
+  // uint16_t value = 0;
   // value = drv_.BlockingReadRegister(Drv::Register::GateDriveHigh);
 
   Tim5 tim5;
@@ -78,8 +78,11 @@ void Devboard::Init() {
 
   can_.Init(Can::Instance::Fdcan1);
 
-  HardcodedFrame frame;
-  can_.SendFrame(frame);
+  while (true) {
+    AngleFrame frame(ma702_.Angle());
+    can_.SendFrame(frame);
+    SysTickTimer::BlockingWait(100000);
+  }
 
   blue_->On();
 }
