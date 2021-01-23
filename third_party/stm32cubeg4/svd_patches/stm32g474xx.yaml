@@ -348,6 +348,56 @@ _svd: "PLACEHOLDER"
         msb: 3
         lsb: 0
   
+  RXF0A:
+    _modify:
+      F0AI:
+        msb: 2
+        lsb: 0
+  
+  RXF1S:
+    _delete:
+      DMS:
+    _modify:
+      F1PI:
+        msb: 17
+        lsb: 16
+      F1GI:
+        msb: 9
+        lsb: 8
+      F1FL:
+        msb: 3
+        lsb: 0
+
+  RXF1A:
+    _modify:
+      F1AI:
+        msb: 2
+        lsb: 0
+  
+  TXBC:
+    _delete:
+      TFQS:
+      NDTB:
+      TBSA:
+    _modify:
+      TFQM:
+        bitOffset: 24
+        bitWidth: 1
+    TFQM:
+      fifo:   [0b0, fifo]
+      queue:  [0b1, queue]
+
+  TXFQS:
+    _modify:
+      TFQPI:
+        msb: 17
+        lsb: 16
+      TFGI:
+        msb: 9
+        lsb: 8
+      TFFL:
+        msb: 2
+        lsb: 0
 
 
 

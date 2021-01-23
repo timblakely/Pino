@@ -315,7 +315,7 @@ ETL_BFF_REG_RO(uint32_t, RXF1S,
 
   ETL_BFF_FIELD(17:16, uint8_t, F1PI)
 
-  ETL_BFF_FIELD(9:8, uint8_t, F1FI)
+  ETL_BFF_FIELD(9:8, uint8_t, F1GI)
 
   ETL_BFF_FIELD(3:0, uint8_t, F1FL)
 )
@@ -333,7 +333,7 @@ ETL_BFF_REG_RW(uint32_t, TXBC,
   )
 )
 
-ETL_BFF_REG_RW(uint32_t, TXFQS,
+ETL_BFF_REG_RO(uint32_t, TXFQS,
   ETL_BFF_FIELD(21:21, bool, TFQF)
 
   ETL_BFF_FIELD(17:16, uint8_t, TFQPI)
