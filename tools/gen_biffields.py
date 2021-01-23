@@ -43,7 +43,7 @@ class Formatter:
     self.tabs -= 2
 
   def finish(self):
-    self.file.write('\n// clang-format on\n')
+    self.file.write('// clang-format on\n')
     self.file.close()
 
   def write(self, msg=''):

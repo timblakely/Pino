@@ -121,3 +121,15 @@ TIM1:
       OC5M_bit3:
         name: OC5M_3
         bitWidth: 1
+  AF2:
+    _add:
+      BK2CMP8E:
+        description: tim_brk2_cmp8 enable
+        msb: 8
+        lsb: 8
+
+_copy:
+  TIM8:
+    from: TIM1
+  TIM20:
+    from: TIM20

@@ -698,7 +698,8 @@ ETL_BFF_REG_RW(uint32_t, AF2,
   ETL_BFF_FIELD(10:10, bool, BK2CMP1P)
   // BRK2 BKIN input polarity
   ETL_BFF_FIELD(9:9, bool, BK2INP)
-  // 8 reserved
+  // tim_brk2_cmp8 enable
+  ETL_BFF_FIELD(8:8, bool, BK2CMP8E)
   // BRK2 COMP7 enable
   ETL_BFF_FIELD(7:7, bool, BK2CMP7E)
   // BRK2 COMP6 enable
@@ -741,6 +742,5 @@ ETL_BFF_REG_RW(uint32_t, DMAR,
   // DMA register for burst accesses
   ETL_BFF_FIELD(31:0, uint32_t, DMAB)
 )
-
 
 // clang-format on

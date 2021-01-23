@@ -1,0 +1,28 @@
+SPI1:
+  CR1:
+    _delete:
+      DFF:
+    _add:
+      CRCL:
+        description: CRC length
+        msb: 11
+        lsb: 11
+  SR:
+    _modify:
+      TIFRFE:
+        name: FRE
+    _add:
+      UDR:
+        description: Underrun flag
+        msb: 3
+        lsb: 3
+      CHSIDE:
+        description: Channel side
+        msb: 2
+        lsb: 2
+  I2SCFGR:
+    _add:
+      ASTRTEN:
+        description: Asynchronous start enable
+        msb: 12
+        lsb: 12
