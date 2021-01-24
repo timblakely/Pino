@@ -117,17 +117,6 @@ class Biffile:
       self.write_registers(registers)
       self.write_union_end(address)
 
-    # next_addr = 0
-    # for idx, r in enumerate(
-    #     sorted(peripheral.registers, key=lambda x: x.address_offset)):
-    #   if r.address_offset - next_addr > 0:
-    #     reserved_size = (r.address_offset - next_addr)
-    #     self.write_reserved_register(reserved_size)
-
-    #   self.write_register(r)
-    #   self.fmt.newln()
-    #   next_addr = r.address_offset + 4
-
   def write_reserved_register(self, address):
     if self.current_address == 0 or self.current_address == address:
       return
@@ -262,17 +251,6 @@ def main(unused_argv):
 
   formatter = Formatter(FLAGS.output_path)
   Biffile(formatter).write_peripheral(peripheral)
-  # formatter.finish()
-
-  # print('%s @ 0x%08x' % (fdcan1.name,fdcan1.base_address))
-  # for r in fdcan1.registers:
-  #   print('  %s @ 0x%08x %d' % (r.name,r.address_offset, r._size))
-  #   for f in r.fields:
-  #     print('    %s @ %d:%d %s' % (f.name,f.bit_offset, f.bit_width, f.access))
-  #     if f.is_enumerated_type:
-  #       print('\n\n\nYAS\n\n\n')
-
-  # dest_file.close()
 
 
 if __name__ == '__main__':
