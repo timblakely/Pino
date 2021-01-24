@@ -132,4 +132,4 @@ _copy:
   TIM8:
     from: TIM1
   TIM20:
-    from: TIM20
+    from: TIM1
