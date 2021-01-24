@@ -1,13 +1,5 @@
 TIM1:
-  # TODO(blakely): Swap to input if needed
-  _delete:
-    CCMR1_Input:
-    CCMR2_Input:
   _modify:
-    CCMR1_Output:
-      name: CCMR1
-    CCMR2_Output:
-      name: CCMR2
     CCR5:
       description: Capture/compare register 5
     CCR6:

@@ -1,3 +1,4 @@
+import itertools
 import re
 import tempfile
 import textwrap
@@ -19,6 +20,9 @@ flags.DEFINE_string('svd_yaml_patch', None,
 flags.DEFINE_bool('register_descriptions', True,
                   'Whether to add register descriptions')
 flags.DEFINE_bool('register_offsets', True, 'Whether to add register offsets')
+flags.DEFINE_string(
+    'union_addresses', None,
+    'comma-separated list of address offsets to union together, hex')
 flags.DEFINE_bool('field_descriptions', True,
                   'Whether to add field descriptions')
 flags.DEFINE_bool('reserved_comments', True,
@@ -46,44 +50,169 @@ class Formatter:
     self.file.write('// clang-format on\n')
     self.file.close()
 
+  @property
+  def whitespace(self):
+    return " " * self.tabs
+
   def write(self, msg=''):
     if self.file is None:
       self.file = open(self.path, 'w')
       self.file.write('// clang-format off\n\n')
     if len(msg):
-      self.file.write(f'{" " * self.tabs}{msg}\n')
+      self.file.write(f'{self.whitespace}{msg}\n')
     else:
       self.file.write('\n')
+
+  def comment(self, content, clean=True):
+    if clean:
+      content = re.sub(' +', ' ', content)
+    content = textwrap.fill(
+        content,
+        width=80,
+        initial_indent='// ',
+        subsequent_indent=self.whitespace + '// ',
+    )
+    self.write(content)
 
   def newln(self):
     self.write()
 
 
-class BiffieldBase:
+class Biffile:
+
+  size_map = {
+      32: 'uint32_t',
+      16: 'uint16_t',
+      8: 'uint8_t',
+  }
+
+  reg_type = {
+      None: 'ETL_BFF_REG_RW',
+      'read-write': 'ETL_BFF_REG_RW',
+      'read-only': 'ETL_BFF_REG_RO',
+      'write-only': 'ETL_BFF_REG_WO',
+  }
 
   def __init__(self, formatter):
     self.fmt = formatter
+    self.current_address = 0
+    self.num_reserved = 0
+    self.union_addresses = [
+        int(x, base=16) for x in FLAGS.union_addresses.split(',')
+    ]
+    self.in_union = False
 
   @property
   def section(self):
     return self.fmt
 
+  def write_peripheral(self, peripheral):
+    sorted_registers = sorted(
+        peripheral.registers, key=lambda x: x.address_offset)
+    blocks = itertools.groupby(sorted_registers, lambda x: x.address_offset)
 
-class FieldWriter(BiffieldBase):
+    for address, registers in blocks:
+      self.write_reserved_register(address)
+      self.write_union_start(address)
+      self.write_registers(registers)
+      self.write_union_end(address)
 
-  def __init__(self, *args, **kwargs):
-    super(FieldWriter, self).__init__(*args, **kwargs)
+    # next_addr = 0
+    # for idx, r in enumerate(
+    #     sorted(peripheral.registers, key=lambda x: x.address_offset)):
+    #   if r.address_offset - next_addr > 0:
+    #     reserved_size = (r.address_offset - next_addr)
+    #     self.write_reserved_register(reserved_size)
 
-  def _write_description(self, field):
-    if not FLAGS.field_descriptions:
+    #   self.write_register(r)
+    #   self.fmt.newln()
+    #   next_addr = r.address_offset + 4
+
+  def write_reserved_register(self, address):
+    if self.current_address == 0 or self.current_address == address:
       return
-    description = re.sub(' +', ' ', field.description)
+    reserved_size = (address - current_address) // 4
+    self.fmt.write(
+        f'ETL_BFF_REG_RESERVED(uint32_t, reserved{self.num_reserved+1}, {reserved_size//4})'
+    )
+    self.fmt.newln()
+    self.num_reserved += 1
+
+  def write_union_start(self, address):
+    if address not in self.union_addresses or self.in_union:
+      return
+    self.fmt.write('union {')
+    self.in_union = True
+
+  def write_union_end(self, address):
+    if not self.in_union:
+      return
+    self.fmt.write('}  // union')
+    self.fmt.newln()
+    self.in_union = False
+
+  def write_registers(self, registers):
+    for register in registers:
+      if FLAGS.register_descriptions:
+        self.register_description(register)
+      self.register_begin(register)
+      with self.section:
+        self.register_fields(register.fields)
+      self.register_end(register)
+    if not self.in_union:
+      self.fmt.newln()
+
+  def register_description(self, register):
+    self.fmt.write(f'// {register.name}')
+    self.fmt.write(f'//')
+    description = re.sub(' +', ' ', register.description)
     description = textwrap.fill(
         description, width=80, initial_indent='// ', subsequent_indent='// ')
     self.fmt.write(description)
+    self.fmt.write('//')
+    self.fmt.write(f'//   Offset: 0x{register.address_offset:03X}')
+    if register._reset_value:
+      self.fmt.write(f'//   Reset value: 0x{register._reset_value:08X}')
 
-  def write(self, field):
-    self._write_description(field)
+  def register_begin(self, register):
+    size = self.size_map[register._size]
+    reg_type = self.reg_type[register._access]
+    self.fmt.write(f'{reg_type}({size}, {register.name},')
+
+  def register_end(self, register):
+    self.fmt.write(')')
+
+  def register_fields(self, fields):
+    current_bit = 31
+    fields = sorted(fields, key=lambda x: x.bit_offset, reverse=True)
+
+    for f in fields:
+      lsb = f.bit_offset
+      msb = lsb + f.bit_width - 1
+
+      if msb != current_bit:
+        self.reserved_bits(current_bit, msb)
+      self.field(f)
+      current_bit = lsb - 1
+    if current_bit >= 0:
+      self.reserved_bits(current_bit, -1)
+
+  def reserved_bits(self, current_bit, msb):
+    if not FLAGS.reserved_comments:
+      self.fmt.newln()
+      return
+
+    gap = current_bit - msb
+    if gap == 1:
+      reserved_str = f'// {current_bit} reserved'
+    else:
+      reserved_str = f'// {current_bit}:{msb+1} reserved'
+    self.fmt.write(reserved_str)
+
+  def field(self, field):
+    if not FLAGS.field_descriptions:
+      return
+    self.fmt.comment(field.description)
     if field.bit_width == 1:
       dtype = 'bool'
     elif field.bit_width <= 8:
@@ -99,120 +228,15 @@ class FieldWriter(BiffieldBase):
     else:
       self.fmt.write(f'ETL_BFF_FIELD_E({end}:{start}, {dtype}, {field.name},')
       with self.section:
-        self.write_enumerated_values(field, field.enumerated_values)
+        self.write_enumerated_values(field)
       self.fmt.write(f')')
 
-  def write_enumerated_values(self, field, values):
-    for v in values:
+  def write_enumerated_values(self, field):
+    for v in field.enumerated_values:
       bit_str = f'{v.value:b}'
       if len(bit_str) < field.bit_width:
         bit_str = '0' * (field.bit_width - len(bit_str)) + bit_str
       self.fmt.write(f'ETL_BFF_ENUM(0b{bit_str}, {v.name})')
-
-
-class RegWriter(BiffieldBase):
-  size_map = {
-      32: 'uint32_t',
-      16: 'uint16_t',
-      8: 'uint8_t',
-  }
-
-  reg_type = {
-      None: 'ETL_BFF_REG_RW',
-      'read-write': 'ETL_BFF_REG_RW',
-      'read-only': 'ETL_BFF_REG_RO',
-      'write-only': 'ETL_BFF_REG_WO',
-  }
-
-  def __init__(self, *args, **kwargs):
-    super(RegWriter, self).__init__(*args, **kwargs)
-    self.fieldwriter = FieldWriter(self.fmt)
-
-  def _write_description(self, register):
-    if not FLAGS.register_descriptions:
-      return
-    self.fmt.write(f'// {register.name}')
-    self.fmt.write(f'//')
-    description = re.sub(' +', ' ', register.description)
-    description = textwrap.fill(
-        description, width=80, initial_indent='// ', subsequent_indent='// ')
-    self.fmt.write(description)
-
-  def _write_reserved(self, field):
-    if self.last_bit is None:
-      self.last_bit = field.bit_offset
-      return
-
-    high_bit = (field.bit_offset + field.bit_width - 1)
-    gap = self.last_bit - high_bit - 1
-    if gap > 0:
-      if FLAGS.reserved_comments:
-        if gap == 1:
-          reserved_str = f'// {self.last_bit-1} reserved'
-        else:
-          reserved_str = f'// {self.last_bit-1} : {high_bit+1} reserved'
-      else:
-        reserved_str = ''
-      self.fmt.write(reserved_str)
-    self.last_bit = field.bit_offset
-
-  def _write_offset(self, register):
-    if not FLAGS.register_offsets:
-      return
-    self.fmt.write('//')
-    self.fmt.write(f'//   Offset: 0x{register.address_offset:03X}')
-    if register._reset_value:
-      self.fmt.write(f'//   Reset value: 0x{register._reset_value:08X}')
-
-  def write(self, register):
-    self.last_bit = None
-    self._write_description(register)
-    self._write_offset(register)
-
-    size = self.size_map[register._size]
-    reg_type = self.reg_type[register._access]
-    self.fmt.write(f'{reg_type}({size}, {register.name},')
-    with self.section:
-      for f in sorted(
-          register.fields, key=lambda x: x.bit_offset, reverse=True):
-        self._write_reserved(f)
-        self.fieldwriter.write(f)
-    self.fmt.write(')')
-
-
-class Biffile:
-
-  def __init__(self, formatter):
-    self.fmt = formatter
-    self.regwriter = RegWriter(self.fmt)
-
-    # self.output_path = output_path
-    self.num_reserved = 0
-
-  @property
-  def section(self):
-    return self.fmt
-
-  def write_peripheral(self, peripheral):
-    next_addr = 0
-    for idx, r in enumerate(
-        sorted(peripheral.registers, key=lambda x: x.address_offset)):
-      if r.address_offset != next_addr:
-        reserved_size = (r.address_offset - next_addr)
-        self.write_reserved_register(reserved_size)
-      self.write_register(r)
-      self.fmt.newln()
-      next_addr = r.address_offset + 4
-
-  def write_reserved_register(self, reserved_size):
-    self.fmt.write(
-        f'ETL_BFF_REG_RESERVED(uint32_t, reserved{self.num_reserved+1}, {reserved_size//4})'
-    )
-    self.fmt.newln()
-    self.num_reserved += 1
-
-  def write_register(self, register):
-    self.regwriter.write(register)
 
 
 def main(unused_argv):
@@ -238,7 +262,7 @@ def main(unused_argv):
 
   formatter = Formatter(FLAGS.output_path)
   Biffile(formatter).write_peripheral(peripheral)
-  formatter.finish()
+  # formatter.finish()
 
   # print('%s @ 0x%08x' % (fdcan1.name,fdcan1.base_address))
   # for r in fdcan1.registers:
