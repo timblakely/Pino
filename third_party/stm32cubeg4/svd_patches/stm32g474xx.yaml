@@ -1,7 +1,8 @@
 _svd: "PLACEHOLDER"
 
 _include:
-  - "fdcan.yaml"
   - "adv_timer.yaml"
+  - "fdcan.yaml"
+  - "flash.yaml"
   - "spi.yaml"
   - "../../stm32_rs/devices/common_patches/g4_rcc.yaml"
