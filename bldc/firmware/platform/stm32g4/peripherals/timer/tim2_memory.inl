@@ -169,14 +169,9 @@ ETL_BFF_REG_RW(uint32_t, SR,
 //
 //   Offset: 0x014
 ETL_BFF_REG_WO(uint32_t, EGR,
-  // Break 2 generation
-  ETL_BFF_FIELD(8:8, bool, B2G)
-  // Break generation
-  ETL_BFF_FIELD(7:7, bool, BG)
   // Trigger generation
   ETL_BFF_FIELD(6:6, bool, TG)
-  // Capture/Compare control update generation
-  ETL_BFF_FIELD(5:5, bool, COMG)
+  // 5 reserved
   // Capture/compare 4 generation
   ETL_BFF_FIELD(4:4, bool, CC4G)
   // Capture/compare 3 generation

@@ -28,3 +28,5 @@ TIM2:
     _delete: [COMDE, BIE, COMIE]
   SR:
     _delete: [CC6IF, CC5IF, SBIF, B2IF, BIF, COMIF]
+  EGR:
+    _delete: [B2G, BG, COMG]
