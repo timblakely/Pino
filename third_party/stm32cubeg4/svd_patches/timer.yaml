@@ -1,0 +1,30 @@
+TIM2:
+  _delete:
+    CR2:
+  _add:
+    CR2:
+      description: Control register 2
+      addressOffset: 0x0004
+      access: read-write
+      size: 32
+      fields:
+        MMS_3:  
+          description: high bit of MMS
+          msb: 25
+          lsb: 25
+        TI1S:  
+          description: tim_ti1 selection
+          msb: 7
+          lsb: 7
+        MMS:  
+          description: Master mode selection
+          msb: 6
+          lsb: 4
+        CCDS:
+          description: Capture/control DMA selection
+          msb: 3
+          lsb: 3
+  DIER:
+    _delete: [COMDE, BIE, COMIE]
+  SR:
+    _delete: [CC6IF, CC5IF, SBIF, B2IF, BIF, COMIF]

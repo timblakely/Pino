@@ -8,4 +8,5 @@ _include:
   - "flash.yaml"
   - "gpio.yaml"
   - "spi.yaml"
+  - "timer.yaml"
   - "../../stm32_rs/devices/common_patches/g4_rcc.yaml"
