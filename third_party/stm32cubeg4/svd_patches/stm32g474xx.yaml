@@ -3,6 +3,7 @@ _svd: "PLACEHOLDER"
 _include:
   - "adv_timer.yaml"
   - "dma.yaml"
+  - "dmamux.yaml"
   - "fdcan.yaml"
   - "flash.yaml"
   - "gpio.yaml"
