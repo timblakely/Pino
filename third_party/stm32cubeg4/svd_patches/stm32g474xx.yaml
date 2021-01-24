@@ -4,5 +4,6 @@ _include:
   - "adv_timer.yaml"
   - "fdcan.yaml"
   - "flash.yaml"
+  - "gpio.yaml"
   - "spi.yaml"
   - "../../stm32_rs/devices/common_patches/g4_rcc.yaml"

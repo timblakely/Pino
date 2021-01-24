@@ -1,0 +1,5 @@
+"GPIO*":
+  LCKR:
+    _modify:
+      LCKK:
+        description: Lock key
