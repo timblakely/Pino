@@ -12,4 +12,4 @@ history is an absolute trainwreck. You're welcome to browse around the code, but
 please don't expect anything to actually work without somewhat extensive removal
 of the various hard-coded paths, hacks, and general terrible code health. If
 you're still reading this and are actually interested in getting any of this to
-_maybe_ compile, let me know :)
+_maybe_ compile, let me know via GitHub or my-github-username@gmail :)
