@@ -9,3 +9,8 @@ cc_library(
     includes = ["."],
     strip_include_prefix = "biffield",
 )
+
+filegroup(
+    name = "biffield_headers",
+    srcs = glob(["biffield/*.h"]),
+)

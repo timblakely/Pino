@@ -7,6 +7,8 @@ TIM1:
     CCMR3_Output:
       name: CCMR3
       description: capture/compare mode register 3
+    EGR:
+      access: read-write
   CR1:
     CKD:
       div1: [0b00, div1]

@@ -6,11 +6,14 @@ py_binary(
     srcs = ["gen_biffields.py"],
     data = [
         "//third_party/stm32cubeg4:STM32G474xx.svd",
+        "@etl//:biffield_headers",
+        # "//third_party/etl:biffield_headers",
     ],
     deps = [
         requirement("absl-py"),
         requirement("cmsis-svd"),
         requirement("svdtools"),
+        "@rules_python//python/runfiles",
     ],
 )
 

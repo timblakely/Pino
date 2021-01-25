@@ -8,3 +8,8 @@ cc_library(
         "@etl//:biffield",
     ],
 )
+
+filegroup(
+    name = "biffield_headers",
+    srcs = ["@etl//:biffield_headers"],
+)

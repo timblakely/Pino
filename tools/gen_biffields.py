@@ -1,12 +1,15 @@
 import itertools
+import os
 import re
 import tempfile
 import textwrap
+import time
 
 from absl import app
 from absl import flags
 from absl import logging
 from cmsis_svd.parser import SVDParser
+from rules_python.python.runfiles import runfiles
 import svdtools
 import xml.etree.ElementTree as ET
 import yaml
@@ -21,12 +24,16 @@ flags.DEFINE_bool('register_descriptions', True,
                   'Whether to add register descriptions')
 flags.DEFINE_bool('register_offsets', True, 'Whether to add register offsets')
 flags.DEFINE_string(
-    'union_addresses', None,
-    'comma-separated list of address offsets to union together, hex')
+    'drop', None, 'comma-separated list of peripheral register names to skip')
+flags.DEFINE_string('rename', None,
+                    'comma-separated list of old=new register names')
 flags.DEFINE_bool('field_descriptions', True,
                   'Whether to add field descriptions')
 flags.DEFINE_bool('reserved_comments', True,
                   'Whether to add bitfield reserved comments')
+flags.DEFINE_bool(
+    'verify', True, 'Whether attempt to statically compile gcc and verify '
+    'addresses and offsets')
 
 flags.mark_flags_as_required(['output_path', 'svd_path', 'peripheral'])
 
@@ -97,10 +104,8 @@ class Biffile:
     self.fmt = formatter
     self.current_address = 0
     self.num_reserved = 0
-    self.union_addresses = [
-        int(x, base=16) for x in FLAGS.union_addresses.split(',')
-    ]
-    self.in_union = False
+    self.drop = FLAGS.drop.split(',')
+    self.rename = dict([pair.split('=') for pair in FLAGS.rename.split(',')])
 
   @property
   def section(self):
@@ -113,9 +118,9 @@ class Biffile:
 
     for address, registers in blocks:
       self.write_reserved_register(address)
-      self.write_union_start(address)
       self.write_registers(registers)
-      self.write_union_end(address)
+      if address == 0x18:
+        break
 
   def write_reserved_register(self, address):
     if self.current_address == 0 or self.current_address == address:
@@ -127,32 +132,21 @@ class Biffile:
     self.fmt.newln()
     self.num_reserved += 1
 
-  def write_union_start(self, address):
-    if address not in self.union_addresses or self.in_union:
-      return
-    self.fmt.write('union {')
-    self.in_union = True
-
-  def write_union_end(self, address):
-    if not self.in_union:
-      return
-    self.fmt.write('}  // union')
-    self.fmt.newln()
-    self.in_union = False
-
   def write_registers(self, registers):
     for register in registers:
+      if register.name in self.drop:
+        continue
       if FLAGS.register_descriptions:
         self.register_description(register)
       self.register_begin(register)
       with self.section:
         self.register_fields(register.fields)
       self.register_end(register)
-    if not self.in_union:
-      self.fmt.newln()
+    self.fmt.newln()
 
   def register_description(self, register):
-    self.fmt.write(f'// {register.name}')
+    name = self.rename.get(register.name, register.name)
+    self.fmt.write(f'// {name}')
     self.fmt.write(f'//')
     description = re.sub(' +', ' ', register.description)
     description = textwrap.fill(
@@ -166,7 +160,8 @@ class Biffile:
   def register_begin(self, register):
     size = self.size_map[register._size]
     reg_type = self.reg_type[register._access]
-    self.fmt.write(f'{reg_type}({size}, {register.name},')
+    name = self.rename.get(register.name, register.name)
+    self.fmt.write(f'{reg_type}({size}, {name},')
 
   def register_end(self, register):
     self.fmt.write(')')
@@ -228,6 +223,42 @@ class Biffile:
       self.fmt.write(f'ETL_BFF_ENUM(0b{bit_str}, {v.name})')
 
 
+def verify(biffield_path, peripheral):
+  # handle, cc_path = tempfile.mkstemp(suffix='.cc')
+  handle = '/tmp/verify.cc'
+  cc_path = handle
+
+  r = runfiles.Create()
+  runfiles_dir = r.EnvVars()['RUNFILES_DIR']
+  biffield_generate = r.Rlocation('etl/biffield/generate.h')
+  temp_dir = tempfile.mkdtemp()
+  include_path = os.path.join(temp_dir, 'third_party')
+  os.symlink(runfiles_dir, include_path)
+
+  with open(handle, 'w') as f:
+    f.write('// clang-format off\n')
+    f.write('#ifndef __VERIFY__\n')
+    f.write('#define __VERIFY__\n')
+    f.write('#include <cstdint>')
+    f.write('\n')
+    f.write(f'struct {peripheral.name} {{\n')
+    f.write(f'#define ETL_BFF_DEFINITION_FILE \\\n')
+    f.write(f'  "{biffield_path}"\n')
+    f.write(f'#include "{biffield_generate}"\n')
+    f.write(f'#undef ETL_BFF_DEFINITION_FILE\n')
+    f.write(f'}};\n')
+    f.write('\n')
+    f.write('static_assert(1 == 1);\n')
+    f.write('\n')
+    f.write('#endif  // __VERIFY__\n')
+    os.fsync(f)
+
+  out_path = os.path.join(temp_dir, 'out')
+  cmd = f'gcc {cc_path} -c -o {out_path} -I {include_path}'
+  if os.system(cmd) != 0:
+    print('Verification failed')
+
+
 def main(unused_argv):
   del unused_argv
 
@@ -251,6 +282,10 @@ def main(unused_argv):
 
   formatter = Formatter(FLAGS.output_path)
   Biffile(formatter).write_peripheral(peripheral)
+  formatter.finish()
+
+  if FLAGS.verify:
+    verify(FLAGS.output_path, peripheral)
 
 
 if __name__ == '__main__':
