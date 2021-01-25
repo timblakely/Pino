@@ -23,11 +23,11 @@ constexpr auto index_upto(std::integral_constant<std::size_t, N> = {}) {
 }
 }  // namespace utility
 
-template <int NumInterrupts, int InplaceFunctionStorageSize = 10>
+template <int NumInterrupts>
 class InterruptTable {
  public:
   using ISR = void (*)();
-  using Callback = stdext::inplace_function<void(), InplaceFunctionStorageSize>;
+  using Callback = stdext::Callback<void()>;
   InterruptTable() = delete;
 
   // Creates an array of ISRs that invoke the associated handler. This is

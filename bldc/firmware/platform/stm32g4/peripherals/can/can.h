@@ -12,8 +12,6 @@ namespace stm32g4 {
 
 namespace can {
 
-static const uint32_t kInplaceFunctionStorageSize = 10;
-
 struct ExtendedFilter;
 struct StandardFilter;
 struct Peripheral;
@@ -24,8 +22,7 @@ struct RxBuffer;
 
 class Can {
  public:
-  using ReceiveCallback =
-      stdext::inplace_function<void(), can::kInplaceFunctionStorageSize>;
+  using ReceiveCallback = stdext::Callback<void()>;
   enum class Instance : uint32_t {
     // Note: these are the actual addresses in memory of each peripheral.
     Fdcan1 = 0x4000'6400UL,

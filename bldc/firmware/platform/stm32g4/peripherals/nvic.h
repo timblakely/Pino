@@ -9,7 +9,6 @@ namespace stm32g4 {
 
 static const uint32_t kNumCortexInterrupts = 16;
 static const uint32_t kNumMaskableInterrupts = 102;
-static const uint32_t kInplaceFunctionStorageSize = 10;
 static const uint32_t kTotalNumInterrupts =
     kNumCortexInterrupts + kNumMaskableInterrupts;
 
@@ -33,12 +32,9 @@ enum class Interrupt : int32_t {
   Comp7 = 66,
 };
 
-using InterruptCallback =
-    common::InterruptTable<kTotalNumInterrupts,
-                           kInplaceFunctionStorageSize>::Callback;
+using InterruptCallback = common::InterruptTable<kTotalNumInterrupts>::Callback;
 
-class Nvic : public common::InterruptTable<kTotalNumInterrupts,
-                                           kInplaceFunctionStorageSize> {
+class Nvic : public common::InterruptTable<kTotalNumInterrupts> {
  public:
   static void Init();
   static void Init(InterruptCallback default_handler);
