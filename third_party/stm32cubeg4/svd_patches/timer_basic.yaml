@@ -1,0 +1,5 @@
+TIM6:
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    EGR:
+      access: read-write

@@ -1,0 +1,58 @@
+TIM15:
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    EGR:
+      access: read-write
+  _delete: [SMCR]
+  _add:
+    OR1:
+      description: Option register 1
+      addressOffset: 0x0068
+      access: read-write
+      size: 32
+      resetValue: 0x00000000
+      fields:
+        HSE32EN:
+          description: HSE Divided by 32 enable
+          msb: 0
+          lsb: 0
+
+  CR2:
+    _delete: [OIS2, TI1S, MMS]
+  DIER:
+    _delete: [TDE, CC2DE, TIE, CC2IE]
+  SR:
+    _delete: ["CC2*", TIF, ]
+  EGR:
+    _delete: [TG, CC2G]
+  CCMR1_Output:
+    _delete: ["OC2*", CC2S]
+  CCER:
+    _delete: ["CC2*"]
+  ARR:
+    _add:
+      ARR_DITH:
+        description: ARR dither bits
+        bitOffset: 16
+        bitWidth: 4
+  CCR1:
+    _add:
+      CCR1_DITH:
+        description: CCR1 dither bits
+        bitOffset: 16
+        bitWidth: 4
+  CCR2:
+    _add:
+      CCR1_DITH:
+        description: CCR1 dither bits
+        bitOffset: 16
+        bitWidth: 4
+  TISEL:
+    _delete: [TI2SEL]
+
+  # ECR:
+  #   _delete: [IBLK]
+  # AF1:
+  #   _delete: ["BK*"]
+  # AF2:
+  #   _delete: ["BK*"]
