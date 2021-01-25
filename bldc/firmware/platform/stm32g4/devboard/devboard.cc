@@ -78,6 +78,8 @@ void Devboard::Init() {
 
   can_.Init(Can::Instance::Fdcan1);
 
+  can_.SetHandler<SimpleReceiveFrame>([](SimpleReceiveFrame& f) { (void)f; });
+
   while (true) {
     AngleFrame frame(ma702_.Angle());
     can_.SendFrame(frame);

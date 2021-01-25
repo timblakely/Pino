@@ -89,10 +89,16 @@ struct FrameHeader : public can::TxHeader {
   }
 };
 
-template <uint8_t Size>
+template <bool IsFd, uint32_t Id, uint8_t SizeBytes>
 struct CanFrame {
+  using Header = FrameHeader<IsFd, Id, SizeBytes>;
+
+ protected:
+  uint8_t data_[SizeBytes];
+
+ private:
   void CopyToSRAM(uint32_t* buffer) {
-    const uint8_t words = Size / sizeof(uint32_t);
+    const uint8_t words = SizeBytes / sizeof(uint32_t);
     uint32_t* src = reinterpret_cast<uint32_t*>(data_);
     uint32_t* dest = buffer;
     const uint32_t* fence = dest + words;
@@ -101,7 +107,7 @@ struct CanFrame {
       ++dest;
       ++src;
     }
-    const uint8_t remainder = Size - words * 4;
+    const uint8_t remainder = SizeBytes - words * 4;
     const uint8_t* remainder_src = reinterpret_cast<uint8_t*>(src);
     if (remainder == 1) {
       *dest = 0xFFU & remainder_src[0];
@@ -113,21 +119,26 @@ struct CanFrame {
     }
   }
 
- protected:
-  uint8_t data_[Size];
-};
+  void CopyFromSRAM(uint32_t* buffer) {
+    auto src = reinterpret_cast<uint8_t*>(buffer);
+    auto dest = data_;
+    uint8_t remaining = SizeBytes;
+    while (remaining > 0) {
+      *dest = *src;
+      dest++;
+      src++;
+      --remaining;
+    }
+  }
 
-template <uint8_t Size>
-struct StandardFrame : public CanFrame<Size> {
-  template <uint32_t Id>
-  using Header = FrameHeader<false, Id, Size>;
-};
+  friend class Can;
+};  // namespace stm32g4
 
-template <uint8_t Size>
-struct FDFrame : public CanFrame<Size> {
-  template <uint32_t Id>
-  using Header = FrameHeader<true, Id, Size>;
-};
+template <uint8_t Id, uint8_t Size>
+struct StandardFrame : public CanFrame<false, Id, Size> {};
+
+template <uint32_t Id, uint8_t Size>
+struct FDFrame : public CanFrame<true, Id, Size> {};
 
 }  // namespace stm32g4
 }  // namespace platform

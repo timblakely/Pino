@@ -6,9 +6,7 @@
 namespace platform {
 namespace stm32g4 {
 
-struct DebugFrame : public FDFrame<3> {
-  using Header = FDFrame::Header<0xD>;
-
+struct DebugFrame : public FDFrame<0xD, 3> {
   DebugFrame() {
     data_[0] = 0x0;
     data_[1] = 0x13;
@@ -16,18 +14,12 @@ struct DebugFrame : public FDFrame<3> {
   };
 };
 
-struct AngleFrame : public FDFrame<2> {
-  using Header = FDFrame::Header<0xA>;
-
+struct AngleFrame : public FDFrame<0xA, 2> {
   AngleFrame(uint16_t angle) { *reinterpret_cast<uint16_t*>(data_) = angle; }
 };
 
-struct SimpleReceiveFrame : public FDFrame<2> {
-  using Header = FDFrame::Header<0x10>;
-
-  SimpleReceiveFrame() = delete;
-  SimpleReceiveFrame(SimpleReceiveFrame&) = delete;
-  SimpleReceiveFrame(SimpleReceiveFrame&&) = delete;
+struct SimpleReceiveFrame : public FDFrame<0x10, 2> {
+  void foo(){};
 };
 
 }  // namespace stm32g4

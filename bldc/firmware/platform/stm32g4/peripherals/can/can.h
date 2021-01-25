@@ -22,7 +22,7 @@ struct RxBuffer;
 
 class Can {
  public:
-  using ReceiveCallback = stdext::Callback<void()>;
+  using ReceiveCallback = stdext::Callback<void(uint32_t*)>;
 
   enum class Instance : uint32_t {
     // Note: these are the actual addresses in memory of each peripheral.
@@ -46,8 +46,15 @@ class Can {
     peripheral_->TransmitBuffer(idx);
   }
 
-  template <typename T>
-  void SetHandler(ReceiveCallback callback);
+  template <typename FrameType>
+  void SetHandler(stdext::Callback<void(FrameType&)> callback) {
+    // HACKHACKHACK
+    handlers[0] = [&callback](uint32_t* buffer) {
+      FrameType frame;
+      frame.CopyFromSRAM(buffer);
+      callback(static_cast<FrameType&>(frame));
+    };
+  }
 
  private:
   Instance instance_;
