@@ -40,6 +40,15 @@ flags.mark_flags_as_required(['output_path', 'svd_path', 'peripheral'])
 FLAGS = flags.FLAGS
 
 
+def reg_name(name):
+  rename = dict([pair.split('=') for pair in FLAGS.rename.split(',')])
+  return rename.get(name, name)
+
+
+def is_dropped(name):
+  return name in FLAGS.drop.split(',')
+
+
 class Formatter:
 
   def __init__(self, path):
@@ -104,8 +113,6 @@ class Biffile:
     self.fmt = formatter
     self.current_address = 0
     self.num_reserved = 0
-    self.drop = FLAGS.drop.split(',')
-    self.rename = dict([pair.split('=') for pair in FLAGS.rename.split(',')])
 
   @property
   def section(self):
@@ -119,22 +126,23 @@ class Biffile:
     for address, registers in blocks:
       self.write_reserved_register(address)
       self.write_registers(registers)
-      if address == 0x18:
-        break
 
   def write_reserved_register(self, address):
     if self.current_address == 0 or self.current_address == address:
+      self.current_address = address
       return
-    reserved_size = (address - current_address) // 4
-    self.fmt.write(
-        f'ETL_BFF_REG_RESERVED(uint32_t, reserved{self.num_reserved+1}, {reserved_size//4})'
-    )
-    self.fmt.newln()
+    reserved_size = (address - self.current_address) // 4
+    if reserved_size > 1:
+      self.fmt.write(
+          f'ETL_BFF_REG_RESERVED(uint32_t, reserved{self.num_reserved+1}, {reserved_size-1})'
+      )
+      self.fmt.newln()
+    self.current_address = address
     self.num_reserved += 1
 
   def write_registers(self, registers):
     for register in registers:
-      if register.name in self.drop:
+      if is_dropped(register.name):
         continue
       if FLAGS.register_descriptions:
         self.register_description(register)
@@ -145,7 +153,7 @@ class Biffile:
     self.fmt.newln()
 
   def register_description(self, register):
-    name = self.rename.get(register.name, register.name)
+    name = reg_name(register.name)
     self.fmt.write(f'// {name}')
     self.fmt.write(f'//')
     description = re.sub(' +', ' ', register.description)
@@ -160,7 +168,7 @@ class Biffile:
   def register_begin(self, register):
     size = self.size_map[register._size]
     reg_type = self.reg_type[register._access]
-    name = self.rename.get(register.name, register.name)
+    name = reg_name(register.name)
     self.fmt.write(f'{reg_type}({size}, {name},')
 
   def register_end(self, register):
@@ -239,22 +247,33 @@ def verify(biffield_path, peripheral):
     f.write('// clang-format off\n')
     f.write('#ifndef __VERIFY__\n')
     f.write('#define __VERIFY__\n')
-    f.write('#include <cstdint>')
+    f.write('#include <cstdint>\n')
+    f.write('#include <cstddef>\n')
     f.write('\n')
     f.write(f'struct {peripheral.name} {{\n')
     f.write(f'#define ETL_BFF_DEFINITION_FILE \\\n')
     f.write(f'  "{biffield_path}"\n')
     f.write(f'#include "{biffield_generate}"\n')
     f.write(f'#undef ETL_BFF_DEFINITION_FILE\n')
+    f.write('\n')
+    f.write('  void Verify();\n')
     f.write(f'}};\n')
     f.write('\n')
-    f.write('static_assert(1 == 1);\n')
+    f.write(f'void {peripheral.name}::Verify() {{\n')
+    for r in peripheral.registers:
+      if is_dropped(r.name):
+        continue
+      name = reg_name(r.name)
+      f.write(f'  static_assert(offsetof({peripheral.name}, _{name}) == '
+              f'0x{r.address_offset:03x});\n')
+    f.write(f'}}\n')
     f.write('\n')
     f.write('#endif  // __VERIFY__\n')
     os.fsync(f)
 
   out_path = os.path.join(temp_dir, 'out')
   cmd = f'gcc {cc_path} -c -o {out_path} -I {include_path}'
+  print(cmd)
   if os.system(cmd) != 0:
     print('Verification failed')
 

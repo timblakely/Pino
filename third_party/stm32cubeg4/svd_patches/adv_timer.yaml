@@ -7,6 +7,7 @@ TIM1:
     CCMR3_Output:
       name: CCMR3
       description: capture/compare mode register 3
+    # TODO(blakely): Technically read-only but not happy with Biffields.
     EGR:
       access: read-write
   CR1:
