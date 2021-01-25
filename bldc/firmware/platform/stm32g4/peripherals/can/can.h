@@ -5,11 +5,14 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "third_party/sg14/inplace_function_wrapper.h"
 
 namespace platform {
 namespace stm32g4 {
 
 namespace can {
+
+static const uint32_t kInplaceFunctionStorageSize = 10;
 
 struct ExtendedFilter;
 struct StandardFilter;
@@ -21,6 +24,8 @@ struct RxBuffer;
 
 class Can {
  public:
+  using ReceiveCallback =
+      stdext::inplace_function<void(), can::kInplaceFunctionStorageSize>;
   enum class Instance : uint32_t {
     // Note: these are the actual addresses in memory of each peripheral.
     Fdcan1 = 0x4000'6400UL,

@@ -25,6 +25,14 @@ struct AngleFrame : public FDFrame {
   uint16_t angle_;
 };
 
+struct SimpleReceiveFrame : public FDFrame {
+  using Header = FDFrame::Header<0x10, 2>;
+
+  SimpleReceiveFrame() = delete;
+  SimpleReceiveFrame(SimpleReceiveFrame&) = delete;
+  SimpleReceiveFrame(SimpleReceiveFrame&&) = delete;
+};
+
 }  // namespace stm32g4
 }  // namespace platform
 #endif  // BLDC_FIRMWARE_PLATFORM_STM32G4_CAN_MESSAGES_H_

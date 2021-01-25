@@ -10,6 +10,8 @@ namespace stm32g4 {
 
 template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes>
 struct FrameHeader : public can::TxHeader {
+  static constexpr auto ID = Id;
+
   FrameHeader() = delete;
   FrameHeader(FrameHeader&) = delete;
   FrameHeader(FrameHeader&&) = delete;
@@ -17,7 +19,7 @@ struct FrameHeader : public can::TxHeader {
   template <bool BitrateSwitching, bool StoreTxEvent>
   inline void Apply(uint8_t message_marker) {
     update_T0([](T0 v) {
-      return v.with_ESI(0).with_XTD(IsFD).with_RTR(0).with_ID(ID());
+      return v.with_ESI(0).with_XTD(IsFD).with_RTR(0).with_ID(MsgId());
     });
     update_T1([&](T1 v) {
       return v.with_MM(message_marker)
@@ -32,7 +34,7 @@ struct FrameHeader : public can::TxHeader {
   constexpr static std::array<uint8_t, 16> fd_frame_sizes_ = {
       0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 16, 20, 24, 32, 48, 64};
 
-  static constexpr uint32_t ID() {
+  static constexpr uint32_t MsgId() {
     if (IsFD) {
       return Id;
     } else {

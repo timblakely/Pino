@@ -31,6 +31,7 @@ cc_library(
     deps = [
         "//bldc/firmware/platform/stm32g4/peripherals:gpio_defines",
         "//third_party/etl:biffield",
+        "//third_party/sg14:inplace_function",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )

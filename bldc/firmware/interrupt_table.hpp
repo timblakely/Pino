@@ -1,15 +1,10 @@
 #ifndef COMMON_INTERRUPT_TABLE_H_
 #define COMMON_INTERRUPT_TABLE_H_
 
-// Disable exception throwing
-#ifndef SG14_INPLACE_FUNCTION_THROW
-#define SG14_INPLACE_FUNCTION_THROW(x)
-#endif
-
 #include <memory>
 #include <utility>
 
-#include "third_party/sg14/inplace_function.h"
+#include "third_party/sg14/inplace_function_wrapper.h"
 
 // TODO(blakely): find a more appropriate place for this
 namespace common {
