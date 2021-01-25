@@ -23,6 +23,7 @@ struct RxBuffer;
 class Can {
  public:
   using ReceiveCallback = stdext::Callback<void()>;
+
   enum class Instance : uint32_t {
     // Note: these are the actual addresses in memory of each peripheral.
     Fdcan1 = 0x4000'6400UL,
@@ -41,9 +42,12 @@ class Can {
     auto buffer = &(tx_buffer_[idx]);
     static_cast<FrameType::Header&>(buffer->header_)
         .template Apply<BitrateSwitching, StoreEvent>(123);
-    frame.Pack(buffer->data_);
+    frame.CopyToSRAM(buffer->data_);
     peripheral_->TransmitBuffer(idx);
   }
+
+  template <typename T>
+  void SetHandler(ReceiveCallback callback);
 
  private:
   Instance instance_;
@@ -59,6 +63,10 @@ class Can {
   can::RxBuffer* rx_fifo1_;
   can::TxEvent* tx_event_fifo_;
   can::TxBuffer* tx_buffer_;
+
+  static constexpr uint8_t kMaxNumReceiveHandlers = 10;
+  static inline std::array<ReceiveCallback, kMaxNumReceiveHandlers> handlers = {
+      {}};
 };
 
 }  // namespace stm32g4

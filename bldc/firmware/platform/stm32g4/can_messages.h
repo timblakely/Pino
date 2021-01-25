@@ -6,27 +6,24 @@
 namespace platform {
 namespace stm32g4 {
 
-struct DebugFrame : public FDFrame {
-  using Header = FDFrame::Header<0xD, 3>;
+struct DebugFrame : public FDFrame<3> {
+  using Header = FDFrame::Header<0xD>;
 
-  virtual void Pack(uint32_t* buffer) override {
-    buffer[0] = 0x0 << 16 | 0x13 << 8 | 0x0;
+  DebugFrame() {
+    data_[0] = 0x0;
+    data_[1] = 0x13;
+    data_[2] = 0x0;
   };
 };
 
-struct AngleFrame : public FDFrame {
-  using Header = FDFrame::Header<0xA, 2>;
+struct AngleFrame : public FDFrame<2> {
+  using Header = FDFrame::Header<0xA>;
 
-  AngleFrame(uint16_t angle) : angle_(angle) {}
-
-  virtual void Pack(uint32_t* buffer) override { buffer[0] = angle_; };
-
- private:
-  uint16_t angle_;
+  AngleFrame(uint16_t angle) { *reinterpret_cast<uint16_t*>(data_) = angle; }
 };
 
-struct SimpleReceiveFrame : public FDFrame {
-  using Header = FDFrame::Header<0x10, 2>;
+struct SimpleReceiveFrame : public FDFrame<2> {
+  using Header = FDFrame::Header<0x10>;
 
   SimpleReceiveFrame() = delete;
   SimpleReceiveFrame(SimpleReceiveFrame&) = delete;
