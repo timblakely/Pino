@@ -232,9 +232,7 @@ class Biffile:
 
 
 def verify(biffield_path, peripheral):
-  # handle, cc_path = tempfile.mkstemp(suffix='.cc')
-  handle = '/tmp/verify.cc'
-  cc_path = handle
+  handle, cc_path = tempfile.mkstemp(suffix='.cc')
 
   r = runfiles.Create()
   runfiles_dir = r.EnvVars()['RUNFILES_DIR']
@@ -273,7 +271,6 @@ def verify(biffield_path, peripheral):
 
   out_path = os.path.join(temp_dir, 'out')
   cmd = f'gcc {cc_path} -c -o {out_path} -I {include_path}'
-  print(cmd)
   if os.system(cmd) != 0:
     print('Verification failed')
 
@@ -281,12 +278,13 @@ def verify(biffield_path, peripheral):
 def main(unused_argv):
   del unused_argv
 
-  svd_path = FLAGS.svd_path
+  svd_path = os.path.abspath(FLAGS.svd_path)
   if FLAGS.svd_yaml_patch:
-    with open(FLAGS.svd_yaml_patch, "r") as f:
+    patch_path = os.path.abspath(FLAGS.svd_yaml_patch)
+    with open(patch_path, "r") as f:
       root = yaml.safe_load(f)
-      root["_path"] = FLAGS.svd_yaml_patch
-    svd = ET.parse(FLAGS.svd_path)
+      root["_path"] = patch_path
+    svd = ET.parse(svd_path)
     svdtools.patch.yaml_includes(root)
     svdtools.patch.process_device(svd, root)
     _, svd_path = tempfile.mkstemp()
