@@ -1,12 +1,13 @@
 _svd: "PLACEHOLDER"
 
 _include:
-  - "adv_timer.yaml"
   - "dma.yaml"
   - "dmamux.yaml"
   - "fdcan.yaml"
   - "flash.yaml"
   - "gpio.yaml"
+  - "rcc.yaml"
   - "spi.yaml"
-  - "timer.yaml"
+  - "timer_adv.yaml"
+  - "timer_gp_A.yaml"
   - "../../stm32_rs/devices/common_patches/g4_rcc.yaml"

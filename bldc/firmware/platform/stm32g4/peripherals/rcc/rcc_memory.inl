@@ -7,11 +7,12 @@
 //   Offset: 0x000
 //   Reset value: 0x00000063
 ETL_BFF_REG_RW(uint32_t, CR,
+  // 31:26 reserved
   // Main PLL clock ready flag
   ETL_BFF_FIELD(25:25, bool, PLLRDY)
   // Main PLL enable
   ETL_BFF_FIELD(24:24, bool, PLLON)
-  // 23 : 20 reserved
+  // 23:20 reserved
   // Clock security system enable
   ETL_BFF_FIELD(19:19, bool, CSSON)
   // HSE crystal oscillator bypass
@@ -20,13 +21,14 @@ ETL_BFF_REG_RW(uint32_t, CR,
   ETL_BFF_FIELD(17:17, bool, HSERDY)
   // HSE clock enable
   ETL_BFF_FIELD(16:16, bool, HSEON)
-  // 15 : 11 reserved
+  // 15:11 reserved
   // HSI clock ready flag
   ETL_BFF_FIELD(10:10, bool, HSIRDY)
   // HSI always enable for peripheral kernels
   ETL_BFF_FIELD(9:9, bool, HSIKERON)
   // HSI clock enable
   ETL_BFF_FIELD(8:8, bool, HSION)
+  // 7:0 reserved
 )
 
 // ICSCR
@@ -36,10 +38,12 @@ ETL_BFF_REG_RW(uint32_t, CR,
 //   Offset: 0x004
 //   Reset value: 0x40000000
 ETL_BFF_REG_RW(uint32_t, ICSCR,
+  // 31 reserved
   // Internal High Speed clock trimming
   ETL_BFF_FIELD(30:24, uint8_t, HSITRIM)
   // Internal High Speed clock Calibration
   ETL_BFF_FIELD(23:16, uint8_t, HSICAL0)
+  // 15:0 reserved
 )
 
 // CFGR
@@ -49,11 +53,12 @@ ETL_BFF_REG_RW(uint32_t, ICSCR,
 //   Offset: 0x008
 //   Reset value: 0x00000005
 ETL_BFF_REG_RW(uint32_t, CFGR,
+  // 31 reserved
   // Microcontroller clock output prescaler
   ETL_BFF_FIELD(30:28, uint8_t, MCOPRE)
   // Microcontroller clock output
   ETL_BFF_FIELD(27:24, uint8_t, MCOSEL)
-  // 23 : 14 reserved
+  // 23:14 reserved
   // APB high-speed prescaler (APB2)
   ETL_BFF_FIELD(13:11, uint8_t, PPRE2)
   // PB low-speed prescaler (APB1)
@@ -84,7 +89,7 @@ ETL_BFF_REG_RW(uint32_t, PLLCFGR,
   ETL_BFF_FIELD(22:21, uint8_t, PLLQ)
   // Main PLL PLLUSB1CLK output enable
   ETL_BFF_FIELD(20:20, bool, PLLQEN)
-  // 19 : 18 reserved
+  // 19:18 reserved
   // Main PLL division factor for PLLSAI3CLK (SAI1 and SAI2 clock)
   ETL_BFF_FIELD(17:17, bool, PLLP)
   // Main PLL PLLSAI3CLK output enable
@@ -93,14 +98,14 @@ ETL_BFF_REG_RW(uint32_t, PLLCFGR,
   // Main PLL multiplication factor for VCO
   ETL_BFF_FIELD(14:8, uint8_t, PLLN)
   // Division factor for the main PLL and audio PLL (PLLSAI1 and PLLSAI2) input
-// clock
+  // clock
   ETL_BFF_FIELD(7:4, uint8_t, PLLM)
-  // 3 : 2 reserved
+  // 3:2 reserved
   // Main PLL, PLLSAI1 and PLLSAI2 entry clock source
   ETL_BFF_FIELD(1:0, uint8_t, PLLSRC)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved1, 2)
+ETL_BFF_REG_RESERVED(uint32_t, reserved3, 2)
 
 // CIER
 //
@@ -108,11 +113,12 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved1, 2)
 //
 //   Offset: 0x018
 ETL_BFF_REG_RW(uint32_t, CIER,
+  // 31:11 reserved
   // HSI48 ready interrupt enable
   ETL_BFF_FIELD(10:10, bool, HSI48RDYIE)
   // LSE clock security system interrupt enable
   ETL_BFF_FIELD(9:9, bool, LSECSSIE)
-  // 8 : 6 reserved
+  // 8:6 reserved
   // PLL ready interrupt enable
   ETL_BFF_FIELD(5:5, bool, PLLRDYIE)
   // HSE ready interrupt enable
@@ -132,13 +138,14 @@ ETL_BFF_REG_RW(uint32_t, CIER,
 //
 //   Offset: 0x01C
 ETL_BFF_REG_RO(uint32_t, CIFR,
+  // 31:11 reserved
   // HSI48 ready interrupt flag
   ETL_BFF_FIELD(10:10, bool, HSI48RDYF)
   // LSE Clock security system interrupt flag
   ETL_BFF_FIELD(9:9, bool, LSECSSF)
   // Clock security system interrupt flag
   ETL_BFF_FIELD(8:8, bool, CSSF)
-  // 7 : 6 reserved
+  // 7:6 reserved
   // PLL ready interrupt flag
   ETL_BFF_FIELD(5:5, bool, PLLRDYF)
   // HSE ready interrupt flag
@@ -157,14 +164,15 @@ ETL_BFF_REG_RO(uint32_t, CIFR,
 // Clock interrupt clear register
 //
 //   Offset: 0x020
-ETL_BFF_REG_WO(uint32_t, CICR,
+ETL_BFF_REG_RW(uint32_t, CICR,
+  // 31:11 reserved
   // HSI48 oscillator ready interrupt clear
   ETL_BFF_FIELD(10:10, bool, HSI48RDYC)
   // LSE Clock security system interrupt clear
   ETL_BFF_FIELD(9:9, bool, LSECSSC)
   // Clock security system interrupt clear
   ETL_BFF_FIELD(8:8, bool, CSSC)
-  // 7 : 6 reserved
+  // 7:6 reserved
   // PLL ready interrupt clear
   ETL_BFF_FIELD(5:5, bool, PLLRDYC)
   // HSE ready interrupt clear
@@ -178,7 +186,7 @@ ETL_BFF_REG_WO(uint32_t, CICR,
   ETL_BFF_FIELD(0:0, bool, LSIRDYC)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved2, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved6, 1)
 
 // AHB1RSTR
 //
@@ -186,12 +194,13 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved2, 1)
 //
 //   Offset: 0x028
 ETL_BFF_REG_RW(uint32_t, AHB1RSTR,
+  // 31:13 reserved
   // CRC reset
   ETL_BFF_FIELD(12:12, bool, CRCRST)
-  // 11 : 9 reserved
+  // 11:9 reserved
   // Flash memory interface reset
   ETL_BFF_FIELD(8:8, bool, FLASHRST)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // FMAC reset
   ETL_BFF_FIELD(4:4, bool, FMACRST)
   // CORDIC reset
@@ -210,12 +219,13 @@ ETL_BFF_REG_RW(uint32_t, AHB1RSTR,
 //
 //   Offset: 0x02C
 ETL_BFF_REG_RW(uint32_t, AHB2RSTR,
+  // 31:27 reserved
   // Random Number Generator module reset
   ETL_BFF_FIELD(26:26, bool, RNGRST)
   // 25 reserved
   // Cryptography module reset
   ETL_BFF_FIELD(24:24, bool, AESRST)
-  // 23 : 20 reserved
+  // 23:20 reserved
   // DAC4 interface reset
   ETL_BFF_FIELD(19:19, bool, DAC4RST)
   // DAC3 interface reset
@@ -229,7 +239,7 @@ ETL_BFF_REG_RW(uint32_t, AHB2RSTR,
   ETL_BFF_FIELD(14:14, bool, ADC345RST)
   // ADC reset
   ETL_BFF_FIELD(13:13, bool, ADC12RST)
-  // 12 : 7 reserved
+  // 12:7 reserved
   // IO port G reset
   ETL_BFF_FIELD(6:6, bool, GPIOGRST)
   // IO port F reset
@@ -252,14 +262,15 @@ ETL_BFF_REG_RW(uint32_t, AHB2RSTR,
 //
 //   Offset: 0x030
 ETL_BFF_REG_RW(uint32_t, AHB3RSTR,
+  // 31:9 reserved
   // Quad SPI 1 module reset
   ETL_BFF_FIELD(8:8, bool, QSPIRST)
-  // 7 : 1 reserved
+  // 7:1 reserved
   // Flexible memory controller reset
   ETL_BFF_FIELD(0:0, bool, FMCRST)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved3, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved9, 1)
 
 // APB1RSTR1
 //
@@ -274,7 +285,7 @@ ETL_BFF_REG_RW(uint32_t, APB1RSTR1,
   // 29 reserved
   // Power interface reset
   ETL_BFF_FIELD(28:28, bool, PWRRST)
-  // 27 : 26 reserved
+  // 27:26 reserved
   // FDCAN reset
   ETL_BFF_FIELD(25:25, bool, FDCANRST)
   // 24 reserved
@@ -297,10 +308,10 @@ ETL_BFF_REG_RW(uint32_t, APB1RSTR1,
   ETL_BFF_FIELD(15:15, bool, SPI3RST)
   // SPI2 reset
   ETL_BFF_FIELD(14:14, bool, SPI2RST)
-  // 13 : 9 reserved
+  // 13:9 reserved
   // Clock recovery system reset
   ETL_BFF_FIELD(8:8, bool, CRSRST)
-  // 7 : 6 reserved
+  // 7:6 reserved
   // TIM7 timer reset
   ETL_BFF_FIELD(5:5, bool, TIM7RST)
   // TIM6 timer reset
@@ -321,9 +332,10 @@ ETL_BFF_REG_RW(uint32_t, APB1RSTR1,
 //
 //   Offset: 0x03C
 ETL_BFF_REG_RW(uint32_t, APB1RSTR2,
+  // 31:9 reserved
   // UCPD1 reset
   ETL_BFF_FIELD(8:8, bool, UCPD1RST)
-  // 7 : 2 reserved
+  // 7:2 reserved
   // I2C4 reset
   ETL_BFF_FIELD(1:1, bool, I2C4RST)
   // Low-power UART 1 reset
@@ -336,9 +348,10 @@ ETL_BFF_REG_RW(uint32_t, APB1RSTR2,
 //
 //   Offset: 0x040
 ETL_BFF_REG_RW(uint32_t, APB2RSTR,
+  // 31:27 reserved
   // HRTIMER reset
   ETL_BFF_FIELD(26:26, bool, HRTIM1RST)
-  // 25 : 22 reserved
+  // 25:22 reserved
   // Serial audio interface 1 (SAI1) reset
   ETL_BFF_FIELD(21:21, bool, SAI1RST)
   // Timer 20 reset
@@ -360,12 +373,12 @@ ETL_BFF_REG_RW(uint32_t, APB2RSTR,
   ETL_BFF_FIELD(12:12, bool, SPI1RST)
   // TIM1 timer reset
   ETL_BFF_FIELD(11:11, bool, TIM1RST)
-  // 10 : 1 reserved
+  // 10:1 reserved
   // System configuration (SYSCFG) reset
   ETL_BFF_FIELD(0:0, bool, SYSCFGRST)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved4, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved12, 1)
 
 // AHB1ENR
 //
@@ -374,12 +387,13 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved4, 1)
 //   Offset: 0x048
 //   Reset value: 0x00000100
 ETL_BFF_REG_RW(uint32_t, AHB1ENR,
+  // 31:13 reserved
   // CRC clock enable
   ETL_BFF_FIELD(12:12, bool, CRCEN)
-  // 11 : 9 reserved
+  // 11:9 reserved
   // Flash memory interface clock enable
   ETL_BFF_FIELD(8:8, bool, FLASHEN)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // FMAC clock enable
   ETL_BFF_FIELD(4:4, bool, FMACEN)
   // CORDIC clock enable
@@ -398,12 +412,13 @@ ETL_BFF_REG_RW(uint32_t, AHB1ENR,
 //
 //   Offset: 0x04C
 ETL_BFF_REG_RW(uint32_t, AHB2ENR,
+  // 31:27 reserved
   // Random Number Generator clock enable
   ETL_BFF_FIELD(26:26, bool, RNGEN)
   // 25 reserved
   // AES clock enable
   ETL_BFF_FIELD(24:24, bool, AESEN)
-  // 23 : 20 reserved
+  // 23:20 reserved
   // DAC4 clock enable
   ETL_BFF_FIELD(19:19, bool, DAC4EN)
   // Random Number Generator clock enable
@@ -417,7 +432,7 @@ ETL_BFF_REG_RW(uint32_t, AHB2ENR,
   ETL_BFF_FIELD(14:14, bool, ADC345EN)
   // ADC clock enable
   ETL_BFF_FIELD(13:13, bool, ADC12EN)
-  // 12 : 7 reserved
+  // 12:7 reserved
   // IO port G clock enable
   ETL_BFF_FIELD(6:6, bool, GPIOGEN)
   // IO port F clock enable
@@ -440,14 +455,15 @@ ETL_BFF_REG_RW(uint32_t, AHB2ENR,
 //
 //   Offset: 0x050
 ETL_BFF_REG_RW(uint32_t, AHB3ENR,
+  // 31:9 reserved
   // QUADSPI memory interface clock enable
   ETL_BFF_FIELD(8:8, bool, QSPIEN)
-  // 7 : 1 reserved
+  // 7:1 reserved
   // Flexible memory controller clock enable
   ETL_BFF_FIELD(0:0, bool, FMCEN)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved5, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved15, 1)
 
 // APB1ENR1
 //
@@ -462,7 +478,7 @@ ETL_BFF_REG_RW(uint32_t, APB1ENR1,
   // 29 reserved
   // Power interface clock enable
   ETL_BFF_FIELD(28:28, bool, PWREN)
-  // 27 : 26 reserved
+  // 27:26 reserved
   // FDCAN clock enable
   ETL_BFF_FIELD(25:25, bool, FDCANEN)
   // 24 reserved
@@ -485,7 +501,7 @@ ETL_BFF_REG_RW(uint32_t, APB1ENR1,
   ETL_BFF_FIELD(15:15, bool, SP3EN)
   // SPI2 clock enable
   ETL_BFF_FIELD(14:14, bool, SPI2EN)
-  // 13 : 12 reserved
+  // 13:12 reserved
   // Window watchdog clock enable
   ETL_BFF_FIELD(11:11, bool, WWDGEN)
   // RTC APB clock enable
@@ -493,7 +509,7 @@ ETL_BFF_REG_RW(uint32_t, APB1ENR1,
   // 9 reserved
   // CRSclock enable
   ETL_BFF_FIELD(8:8, bool, CRSEN)
-  // 7 : 6 reserved
+  // 7:6 reserved
   // TIM7 timer clock enable
   ETL_BFF_FIELD(5:5, bool, TIM7EN)
   // TIM6 timer clock enable
@@ -514,9 +530,10 @@ ETL_BFF_REG_RW(uint32_t, APB1ENR1,
 //
 //   Offset: 0x05C
 ETL_BFF_REG_RW(uint32_t, APB1ENR2,
+  // 31:9 reserved
   // UCPD1 clock enable
   ETL_BFF_FIELD(8:8, bool, UCPD1EN)
-  // 7 : 2 reserved
+  // 7:2 reserved
   // I2C4 clock enable
   ETL_BFF_FIELD(1:1, bool, I2C4EN)
   // Low power UART 1 clock enable
@@ -529,9 +546,10 @@ ETL_BFF_REG_RW(uint32_t, APB1ENR2,
 //
 //   Offset: 0x060
 ETL_BFF_REG_RW(uint32_t, APB2ENR,
+  // 31:27 reserved
   // HRTIMER clock enable
   ETL_BFF_FIELD(26:26, bool, HRTIM1EN)
-  // 25 : 22 reserved
+  // 25:22 reserved
   // SAI1 clock enable
   ETL_BFF_FIELD(21:21, bool, SAI1EN)
   // Timer 20 clock enable
@@ -553,12 +571,12 @@ ETL_BFF_REG_RW(uint32_t, APB2ENR,
   ETL_BFF_FIELD(12:12, bool, SPI1EN)
   // TIM1 timer clock enable
   ETL_BFF_FIELD(11:11, bool, TIM1EN)
-  // 10 : 1 reserved
+  // 10:1 reserved
   // SYSCFG clock enable
   ETL_BFF_FIELD(0:0, bool, SYSCFGEN)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved6, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved18, 1)
 
 // AHB1SMENR
 //
@@ -567,14 +585,14 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved6, 1)
 //   Offset: 0x068
 //   Reset value: 0x0000130F
 ETL_BFF_REG_RW(uint32_t, AHB1SMENR,
-  // CRCSMEN
+  // 31:13 reserved
   ETL_BFF_FIELD(12:12, bool, CRCSMEN)
-  // 11 : 10 reserved
+  // 11:10 reserved
   // SRAM1 interface clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(9:9, bool, SRAM1SMEN)
   // Flash memory interface clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(8:8, bool, FLASHSMEN)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // FMACSM clock enable
   ETL_BFF_FIELD(4:4, bool, FMACSMEN)
   // CORDIC clock enable during sleep mode
@@ -594,12 +612,13 @@ ETL_BFF_REG_RW(uint32_t, AHB1SMENR,
 //   Offset: 0x06C
 //   Reset value: 0x050F667F
 ETL_BFF_REG_RW(uint32_t, AHB2SMENR,
+  // 31:27 reserved
   // Random Number Generator clock enable during sleep mode
   ETL_BFF_FIELD(26:26, bool, RNGEN)
   // 25 reserved
   // Cryptography clock enable during sleep mode
   ETL_BFF_FIELD(24:24, bool, AESMEN)
-  // 23 : 20 reserved
+  // 23:20 reserved
   // DAC4 clock enable during sleep mode
   ETL_BFF_FIELD(19:19, bool, DAC4SMEN)
   // DAC3 clock enable during sleep mode
@@ -613,12 +632,12 @@ ETL_BFF_REG_RW(uint32_t, AHB2SMENR,
   ETL_BFF_FIELD(14:14, bool, ADC345SMEN)
   // ADC clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(13:13, bool, ADC12SMEN)
-  // 12 : 11 reserved
+  // 12:11 reserved
   // SRAM2 interface clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(10:10, bool, SRAM2SMEN)
   // CCM SRAM interface clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(9:9, bool, CCMSRAMSMEN)
-  // 8 : 7 reserved
+  // 8:7 reserved
   // IO port G clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(6:6, bool, GPIOGSMEN)
   // IO port F clocks enable during Sleep and Stop modes
@@ -642,14 +661,15 @@ ETL_BFF_REG_RW(uint32_t, AHB2SMENR,
 //   Offset: 0x070
 //   Reset value: 0x00000101
 ETL_BFF_REG_RW(uint32_t, AHB3SMENR,
+  // 31:9 reserved
   // QUADSPI memory interface clock enable during Sleep and Stop modes
   ETL_BFF_FIELD(8:8, bool, QSPISMEN)
-  // 7 : 1 reserved
+  // 7:1 reserved
   // Flexible memory controller clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(0:0, bool, FMCSMEN)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved7, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved21, 1)
 
 // APB1SMENR1
 //
@@ -665,7 +685,7 @@ ETL_BFF_REG_RW(uint32_t, APB1SMENR1,
   // 29 reserved
   // Power interface clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(28:28, bool, PWRSMEN)
-  // 27 : 26 reserved
+  // 27:26 reserved
   // FDCAN clock enable during sleep mode
   ETL_BFF_FIELD(25:25, bool, FDCANSMEN)
   // 24 reserved
@@ -688,7 +708,7 @@ ETL_BFF_REG_RW(uint32_t, APB1SMENR1,
   ETL_BFF_FIELD(15:15, bool, SP3SMEN)
   // SPI2 clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(14:14, bool, SPI2SMEN)
-  // 13 : 12 reserved
+  // 13:12 reserved
   // Window watchdog clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(11:11, bool, WWDGSMEN)
   // RTC APB clock enable during Sleep and Stop modes
@@ -696,7 +716,7 @@ ETL_BFF_REG_RW(uint32_t, APB1SMENR1,
   // 9 reserved
   // CRS clock enable during sleep mode
   ETL_BFF_FIELD(8:8, bool, CRSSMEN)
-  // 7 : 6 reserved
+  // 7:6 reserved
   // TIM7 timer clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(5:5, bool, TIM7SMEN)
   // TIM6 timer clocks enable during Sleep and Stop modes
@@ -718,9 +738,10 @@ ETL_BFF_REG_RW(uint32_t, APB1SMENR1,
 //   Offset: 0x07C
 //   Reset value: 0x00000103
 ETL_BFF_REG_RW(uint32_t, APB1SMENR2,
+  // 31:9 reserved
   // UCPD1 clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(8:8, bool, UCPD1SMEN)
-  // 7 : 2 reserved
+  // 7:2 reserved
   // I2C4 clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(1:1, bool, I2C4SMEN)
   // Low power UART 1 clocks enable during Sleep and Stop modes
@@ -734,9 +755,10 @@ ETL_BFF_REG_RW(uint32_t, APB1SMENR2,
 //   Offset: 0x080
 //   Reset value: 0x0437F801
 ETL_BFF_REG_RW(uint32_t, APB2SMENR,
+  // 31:27 reserved
   // HRTIMER clock enable during sleep mode
   ETL_BFF_FIELD(26:26, bool, HRTIM1SMEN)
-  // 25 : 22 reserved
+  // 25:22 reserved
   // SAI1 clock enable during sleep mode
   ETL_BFF_FIELD(21:21, bool, SAI1SMEN)
   // Timer 20clock enable during sleep mode
@@ -758,12 +780,12 @@ ETL_BFF_REG_RW(uint32_t, APB2SMENR,
   ETL_BFF_FIELD(12:12, bool, SPI1SMEN)
   // TIM1 timer clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(11:11, bool, TIM1SMEN)
-  // 10 : 1 reserved
+  // 10:1 reserved
   // SYSCFG clocks enable during Sleep and Stop modes
   ETL_BFF_FIELD(0:0, bool, SYSCFGSMEN)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved8, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved24, 1)
 
 // CCIPR
 //
@@ -805,7 +827,7 @@ ETL_BFF_REG_RW(uint32_t, CCIPR,
   ETL_BFF_FIELD(1:0, uint8_t, USART1SEL)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved9, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved25, 1)
 
 // BDCR
 //
@@ -813,22 +835,21 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved9, 1)
 //
 //   Offset: 0x090
 ETL_BFF_REG_RW(uint32_t, BDCR,
+  // 31:26 reserved
   // Low speed clock output selection
   ETL_BFF_FIELD(25:25, bool, LSCOSEL)
   // Low speed clock output enable
   ETL_BFF_FIELD(24:24, bool, LSCOEN)
-  // 23 : 17 reserved
+  // 23:17 reserved
   // RTC domain software reset
   ETL_BFF_FIELD(16:16, bool, BDRST)
   // RTC clock enable
   ETL_BFF_FIELD(15:15, bool, RTCEN)
-  // 14 : 10 reserved
+  // 14:10 reserved
   // RTC clock source selection
   ETL_BFF_FIELD(9:8, uint8_t, RTCSEL)
   // 7 reserved
-  // LSECSSD
   ETL_BFF_FIELD(6:6, bool, LSECSSD)
-  // LSECSSON
   ETL_BFF_FIELD(5:5, bool, LSECSSON)
   // SE oscillator drive capability
   ETL_BFF_FIELD(4:3, uint8_t, LSEDRV)
@@ -864,7 +885,7 @@ ETL_BFF_REG_RW(uint32_t, CSR,
   // 24 reserved
   // Remove reset flag
   ETL_BFF_FIELD(23:23, bool, RMVF)
-  // 22 : 2 reserved
+  // 22:2 reserved
   // LSI oscillator ready
   ETL_BFF_FIELD(1:1, bool, LSIRDY)
   // LSI oscillator enable
@@ -877,9 +898,10 @@ ETL_BFF_REG_RW(uint32_t, CSR,
 //
 //   Offset: 0x098
 ETL_BFF_REG_RW(uint32_t, CRRCR,
+  // 31:16 reserved
   // HSI48 clock calibration
   ETL_BFF_FIELD(15:7, uint16_t, HSI48CAL)
-  // 6 : 2 reserved
+  // 6:2 reserved
   // HSI48 clock ready flag
   ETL_BFF_FIELD(1:1, bool, HSI48RDY)
   // HSI48 clock enable
@@ -892,9 +914,10 @@ ETL_BFF_REG_RW(uint32_t, CRRCR,
 //
 //   Offset: 0x09C
 ETL_BFF_REG_RW(uint32_t, CCIPR2,
+  // 31:22 reserved
   // Octospi clock source selection
   ETL_BFF_FIELD(21:20, uint8_t, QSPISEL)
-  // 19 : 2 reserved
+  // 19:2 reserved
   // I2C4 clock source selection
   ETL_BFF_FIELD(1:0, uint8_t, I2C4SEL)
 )

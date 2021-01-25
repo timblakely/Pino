@@ -1,6 +1,14 @@
 TIM2:
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    EGR:
+      access: read-write
   _delete:
     CR2:
+    BDTR:
+    CCR[45]:
+    CCMR3_Output:
+    DTR2:
   _add:
     CR2:
       description: Control register 2
@@ -30,3 +38,26 @@ TIM2:
     _delete: [CC6IF, CC5IF, SBIF, B2IF, BIF, COMIF]
   EGR:
     _delete: [B2G, BG, COMG]
+  CCER:
+    _delete: ["CC6*", "CC5*", CC4NE, CC3NE, CC2NE, CC1NE]
+  
+  # TODO(blakely): Force to 32-bit to allow same fields for 2/5 and 3/4
+  CNT:
+    _modify:
+      CNT:
+        bitWidth: 31
+  ARR:
+    _modify:
+      ARR:
+        bitWidth: 32
+  CCR[1234]:
+    _modify:
+      CCR1:
+        bitWidth: 32
+
+  ECR:
+    _delete: [IBLK]
+  AF1:
+    _delete: ["BK*"]
+  AF2:
+    _delete: ["BK*"]

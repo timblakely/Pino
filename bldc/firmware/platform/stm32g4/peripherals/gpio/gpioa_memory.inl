@@ -47,6 +47,7 @@ ETL_BFF_REG_RW(uint32_t, MODER,
 //
 //   Offset: 0x004
 ETL_BFF_REG_RW(uint32_t, OTYPER,
+  // 31:16 reserved
   // Port x configuration bits (y = 0..15)
   ETL_BFF_FIELD(15:15, bool, OT15)
   // Port x configuration bits (y = 0..15)
@@ -169,6 +170,7 @@ ETL_BFF_REG_RW(uint32_t, PUPDR,
 //
 //   Offset: 0x010
 ETL_BFF_REG_RO(uint32_t, IDR,
+  // 31:16 reserved
   // Port input data (y = 0..15)
   ETL_BFF_FIELD(15:15, bool, IDR15)
   // Port input data (y = 0..15)
@@ -209,6 +211,7 @@ ETL_BFF_REG_RO(uint32_t, IDR,
 //
 //   Offset: 0x014
 ETL_BFF_REG_RW(uint32_t, ODR,
+  // 31:16 reserved
   // Port output data (y = 0..15)
   ETL_BFF_FIELD(15:15, bool, ODR15)
   // Port output data (y = 0..15)
@@ -248,7 +251,7 @@ ETL_BFF_REG_RW(uint32_t, ODR,
 // GPIO port bit set/reset register
 //
 //   Offset: 0x018
-ETL_BFF_REG_WO(uint32_t, BSRR,
+ETL_BFF_REG_RW(uint32_t, BSRR,
   // Port x reset bit y (y = 0..15)
   ETL_BFF_FIELD(31:31, bool, BR15)
   // Port x reset bit y (y = 0..15)
@@ -321,6 +324,7 @@ ETL_BFF_REG_WO(uint32_t, BSRR,
 //
 //   Offset: 0x01C
 ETL_BFF_REG_RW(uint32_t, LCKR,
+  // 31:17 reserved
   // Lock key
   ETL_BFF_FIELD(16:16, bool, LCKK)
   // Port x lock bit y (y= 0..15)
@@ -410,7 +414,8 @@ ETL_BFF_REG_RW(uint32_t, AFRH,
 // GPIO port bit reset register
 //
 //   Offset: 0x028
-ETL_BFF_REG_WO(uint32_t, BRR,
+ETL_BFF_REG_RW(uint32_t, BRR,
+  // 31:16 reserved
   // Port Reset bit
   ETL_BFF_FIELD(15:15, bool, BR15)
   // Port Reset bit

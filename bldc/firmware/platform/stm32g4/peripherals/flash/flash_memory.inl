@@ -274,16 +274,7 @@ ETL_BFF_REG_RW(uint32_t, PCROP2SR,
   ETL_BFF_FIELD(14:0, uint16_t, PCROP2_STRT)
 )
 
-// PCROP2ER
-//
-// Proprietary code readout protection 2 end
-//
-//   Offset: 0x048
-ETL_BFF_REG_RW(uint32_t, PCROP2ER,
-  // 31:15 reserved
-  // PCROP area end offset
-  ETL_BFF_FIELD(14:0, uint16_t, PCROP2_END)
-)
+ETL_BFF_REG_RESERVED(uint32_t, reserved12, 1)
 
 // WRP2AR
 //
@@ -313,7 +304,18 @@ ETL_BFF_REG_RW(uint32_t, WRP2BR,
   ETL_BFF_FIELD(6:0, uint8_t, WRP2B_STRT)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved15, 7)
+// PCROP2ER
+//
+// Proprietary code readout protection 2 end
+//
+//   Offset: 0x057
+ETL_BFF_REG_RW(uint32_t, PCROP2ER,
+  // 31:15 reserved
+  // PCROP area end offset
+  ETL_BFF_FIELD(14:0, uint16_t, PCROP2_END)
+)
+
+ETL_BFF_REG_RESERVED(uint32_t, reserved15, 5)
 
 // SEC1R
 //

@@ -1,0 +1,5 @@
+RCC:
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    CICR:
+      access: read-write

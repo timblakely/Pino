@@ -34,6 +34,8 @@ flags.DEFINE_bool('reserved_comments', True,
 flags.DEFINE_bool(
     'verify', True, 'Whether attempt to statically compile gcc and verify '
     'addresses and offsets')
+flags.DEFINE_bool('dump_verify_command', False,
+                  'Print out the compilation command used')
 
 flags.mark_flags_as_required(['output_path', 'svd_path', 'peripheral'])
 
@@ -276,6 +278,8 @@ def verify(biffield_path, peripheral):
 
   out_path = os.path.join(temp_dir, 'out')
   cmd = f'gcc {cc_path} -c -o {out_path} -I {include_path}'
+  if FLAGS.dump_verify_command:
+    print(cmd)
   if os.system(cmd) != 0:
     print('Verification failed')
 

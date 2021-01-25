@@ -6,9 +6,9 @@
 //
 //   Offset: 0x000
 ETL_BFF_REG_RW(uint32_t, CTRL,
-  // COUNTFLAG
+  // 31:17 reserved
   ETL_BFF_FIELD(16:16, bool, COUNTFLAG)
-  // 15 : 3 reserved
+  // 15:3 reserved
   // Clock source selection
   ETL_BFF_FIELD(2:2, bool, CLKSOURCE)
   // SysTick exception request enable
@@ -23,6 +23,7 @@ ETL_BFF_REG_RW(uint32_t, CTRL,
 //
 //   Offset: 0x004
 ETL_BFF_REG_RW(uint32_t, LOAD,
+  // 31:24 reserved
   // RELOAD value
   ETL_BFF_FIELD(23:0, uint32_t, RELOAD)
 )
@@ -33,6 +34,7 @@ ETL_BFF_REG_RW(uint32_t, LOAD,
 //
 //   Offset: 0x008
 ETL_BFF_REG_RW(uint32_t, VAL,
+  // 31:24 reserved
   // Current counter value
   ETL_BFF_FIELD(23:0, uint32_t, CURRENT)
 )
@@ -47,7 +49,7 @@ ETL_BFF_REG_RW(uint32_t, CALIB,
   ETL_BFF_FIELD(31:31, bool, NOREF)
   // SKEW flag: Indicates whether the TENMS value is exact
   ETL_BFF_FIELD(30:30, bool, SKEW)
-  // 29 : 24 reserved
+  // 29:24 reserved
   // Calibration value
   ETL_BFF_FIELD(23:0, uint32_t, TENMS)
 )

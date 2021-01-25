@@ -6,6 +6,7 @@
 //
 //   Offset: 0x000
 ETL_BFF_REG_RW(uint32_t, CR1,
+  // 31:16 reserved
   // Bidirectional data mode enable
   ETL_BFF_FIELD(15:15, bool, BIDIMODE)
   // Output enable in bidirectional mode
@@ -43,6 +44,7 @@ ETL_BFF_REG_RW(uint32_t, CR1,
 //   Offset: 0x004
 //   Reset value: 0x00000700
 ETL_BFF_REG_RW(uint32_t, CR2,
+  // 31:15 reserved
   // Last DMA transfer for transmission
   ETL_BFF_FIELD(14:14, bool, LDMA_TX)
   // Last DMA transfer for reception
@@ -76,6 +78,7 @@ ETL_BFF_REG_RW(uint32_t, CR2,
 //   Offset: 0x008
 //   Reset value: 0x00000002
 ETL_BFF_REG_RW(uint32_t, SR,
+  // 31:13 reserved
   // FIFO transmission level
   ETL_BFF_FIELD(12:11, uint8_t, FTLVL)
   // FIFO reception level
@@ -106,6 +109,7 @@ ETL_BFF_REG_RW(uint32_t, SR,
 //
 //   Offset: 0x00C
 ETL_BFF_REG_RW(uint32_t, DR,
+  // 31:16 reserved
   // Data register
   ETL_BFF_FIELD(15:0, uint16_t, DR)
 )
@@ -117,6 +121,7 @@ ETL_BFF_REG_RW(uint32_t, DR,
 //   Offset: 0x010
 //   Reset value: 0x00000007
 ETL_BFF_REG_RW(uint32_t, CRCPR,
+  // 31:16 reserved
   // CRC polynomial register
   ETL_BFF_FIELD(15:0, uint16_t, CRCPOLY)
 )
@@ -127,6 +132,7 @@ ETL_BFF_REG_RW(uint32_t, CRCPR,
 //
 //   Offset: 0x014
 ETL_BFF_REG_RO(uint32_t, RXCRCR,
+  // 31:16 reserved
   // Rx CRC register
   ETL_BFF_FIELD(15:0, uint16_t, RxCRC)
 )
@@ -137,6 +143,7 @@ ETL_BFF_REG_RO(uint32_t, RXCRCR,
 //
 //   Offset: 0x018
 ETL_BFF_REG_RO(uint32_t, TXCRCR,
+  // 31:16 reserved
   // Tx CRC register
   ETL_BFF_FIELD(15:0, uint16_t, TxCRC)
 )
@@ -147,24 +154,17 @@ ETL_BFF_REG_RO(uint32_t, TXCRCR,
 //
 //   Offset: 0x01C
 ETL_BFF_REG_RW(uint32_t, I2SCFGR,
+  // 31:13 reserved
   // Asynchronous start enable
   ETL_BFF_FIELD(12:12, bool, ASTRTEN)
-  // I2SMOD
   ETL_BFF_FIELD(11:11, bool, I2SMOD)
-  // I2SE
   ETL_BFF_FIELD(10:10, bool, I2SE)
-  // I2SCFG
   ETL_BFF_FIELD(9:8, uint8_t, I2SCFG)
-  // PCMSYNC
   ETL_BFF_FIELD(7:7, bool, PCMSYNC)
   // 6 reserved
-  // I2SSTD
   ETL_BFF_FIELD(5:4, uint8_t, I2SSTD)
-  // CKPOL
   ETL_BFF_FIELD(3:3, bool, CKPOL)
-  // DATLEN
   ETL_BFF_FIELD(2:1, uint8_t, DATLEN)
-  // CHLEN
   ETL_BFF_FIELD(0:0, bool, CHLEN)
 )
 
@@ -175,11 +175,9 @@ ETL_BFF_REG_RW(uint32_t, I2SCFGR,
 //   Offset: 0x020
 //   Reset value: 0x00000002
 ETL_BFF_REG_RW(uint32_t, I2SPR,
-  // MCKOE
+  // 31:10 reserved
   ETL_BFF_FIELD(9:9, bool, MCKOE)
-  // ODD
   ETL_BFF_FIELD(8:8, bool, ODD)
-  // I2SDIV
   ETL_BFF_FIELD(7:0, uint8_t, I2SDIV)
 )
 

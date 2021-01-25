@@ -1,4 +1,14 @@
 "GPIO*":
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    BSSR:
+      access: read-write
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    BSRR:
+      access: read-write
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    BRR:
+      access: read-write
   LCKR:
     _modify:
       LCKK:
