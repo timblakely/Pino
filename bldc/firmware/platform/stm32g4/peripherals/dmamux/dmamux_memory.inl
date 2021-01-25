@@ -6,20 +6,22 @@
 //
 //   Offset: 0x000
 ETL_BFF_REG_RW(uint32_t, C0CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -35,20 +37,22 @@ ETL_BFF_REG_RW(uint32_t, C0CR,
 //
 //   Offset: 0x004
 ETL_BFF_REG_RW(uint32_t, C1CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -64,20 +68,22 @@ ETL_BFF_REG_RW(uint32_t, C1CR,
 //
 //   Offset: 0x008
 ETL_BFF_REG_RW(uint32_t, C2CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -93,20 +99,22 @@ ETL_BFF_REG_RW(uint32_t, C2CR,
 //
 //   Offset: 0x00C
 ETL_BFF_REG_RW(uint32_t, C3CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -122,20 +130,22 @@ ETL_BFF_REG_RW(uint32_t, C3CR,
 //
 //   Offset: 0x010
 ETL_BFF_REG_RW(uint32_t, C4CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -151,20 +161,22 @@ ETL_BFF_REG_RW(uint32_t, C4CR,
 //
 //   Offset: 0x014
 ETL_BFF_REG_RW(uint32_t, C5CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -180,20 +192,22 @@ ETL_BFF_REG_RW(uint32_t, C5CR,
 //
 //   Offset: 0x018
 ETL_BFF_REG_RW(uint32_t, C6CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -209,20 +223,22 @@ ETL_BFF_REG_RW(uint32_t, C6CR,
 //
 //   Offset: 0x01C
 ETL_BFF_REG_RW(uint32_t, C7CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -238,20 +254,22 @@ ETL_BFF_REG_RW(uint32_t, C7CR,
 //
 //   Offset: 0x020
 ETL_BFF_REG_RW(uint32_t, C8CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -267,20 +285,22 @@ ETL_BFF_REG_RW(uint32_t, C8CR,
 //
 //   Offset: 0x024
 ETL_BFF_REG_RW(uint32_t, C9CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -296,20 +316,22 @@ ETL_BFF_REG_RW(uint32_t, C9CR,
 //
 //   Offset: 0x028
 ETL_BFF_REG_RW(uint32_t, C10CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -325,20 +347,22 @@ ETL_BFF_REG_RW(uint32_t, C10CR,
 //
 //   Offset: 0x02C
 ETL_BFF_REG_RW(uint32_t, C11CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -354,20 +378,22 @@ ETL_BFF_REG_RW(uint32_t, C11CR,
 //
 //   Offset: 0x030
 ETL_BFF_REG_RW(uint32_t, C12CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -383,20 +409,22 @@ ETL_BFF_REG_RW(uint32_t, C12CR,
 //
 //   Offset: 0x034
 ETL_BFF_REG_RW(uint32_t, C13CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -412,20 +440,22 @@ ETL_BFF_REG_RW(uint32_t, C13CR,
 //
 //   Offset: 0x038
 ETL_BFF_REG_RW(uint32_t, C14CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -441,20 +471,22 @@ ETL_BFF_REG_RW(uint32_t, C14CR,
 //
 //   Offset: 0x03C
 ETL_BFF_REG_RW(uint32_t, C15CR,
+  // 31:29 reserved
   // Synchronization input selected
   ETL_BFF_FIELD(28:24, uint8_t, SYNC_ID)
   // Number of DMA requests to forward Defines the number of DMA requests
-// forwarded before output event is generated. In synchronous mode, it also
-// defines the number of DMA requests to forward after a synchronization event,
-// then stop forwarding. The actual number of DMA requests forwarded is NBREQ+1.
-// Note: This field can only be written when both SE and EGE bits are reset.
+  // forwarded before output event is generated. In synchronous mode, it also
+  // defines the number of DMA requests to forward after a synchronization
+  // event, then stop forwarding. The actual number of DMA requests forwarded is
+  // NBREQ+1. Note: This field can only be written when both SE and EGE bits are
+  // reset.
   ETL_BFF_FIELD(23:19, uint8_t, NBREQ)
   // Synchronization event type selector Defines the synchronization event on the
-// selected synchronization input:
+  // selected synchronization input:
   ETL_BFF_FIELD(18:17, uint8_t, SPOL)
   // Synchronous operating mode enable/disable
   ETL_BFF_FIELD(16:16, bool, SE)
-  // 15 : 10 reserved
+  // 15:10 reserved
   // Event generation enable/disable
   ETL_BFF_FIELD(9:9, bool, EGE)
   // Interrupt enable at synchronization event overrun
@@ -464,7 +496,7 @@ ETL_BFF_REG_RW(uint32_t, C15CR,
   ETL_BFF_FIELD(6:0, uint8_t, DMAREQ_ID)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved1, 16)
+ETL_BFF_REG_RESERVED(uint32_t, reserved15, 16)
 
 // CSR
 //
@@ -472,6 +504,7 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved1, 16)
 //
 //   Offset: 0x080
 ETL_BFF_REG_RO(uint32_t, CSR,
+  // 31:16 reserved
   // Synchronization overrun event flag
   ETL_BFF_FIELD(15:15, bool, SOF15)
   // Synchronization overrun event flag
@@ -511,7 +544,8 @@ ETL_BFF_REG_RO(uint32_t, CSR,
 // DMAMUX request line multiplexer interrupt clear flag register
 //
 //   Offset: 0x084
-ETL_BFF_REG_WO(uint32_t, CFR,
+ETL_BFF_REG_RW(uint32_t, CFR,
+  // 31:16 reserved
   // Clear synchronization overrun event flag
   ETL_BFF_FIELD(15:15, bool, CSOF15)
   // Clear synchronization overrun event flag
@@ -546,7 +580,7 @@ ETL_BFF_REG_WO(uint32_t, CFR,
   ETL_BFF_FIELD(0:0, bool, CSOF0)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved2, 30)
+ETL_BFF_REG_RESERVED(uint32_t, reserved17, 30)
 
 // RG0CR
 //
@@ -554,20 +588,21 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved2, 30)
 //
 //   Offset: 0x100
 ETL_BFF_REG_RW(uint32_t, RG0CR,
+  // 31:24 reserved
   // Number of DMA requests to generate Defines the number of DMA requests
-// generated after a trigger event, then stop generating. The actual number of
-// generated DMA requests is GNBREQ+1. Note: This field can only be written when
-// GE bit is reset.
+  // generated after a trigger event, then stop generating. The actual number of
+  // generated DMA requests is GNBREQ+1. Note: This field can only be written
+  // when GE bit is reset.
   ETL_BFF_FIELD(23:19, uint8_t, GNBREQ)
   // DMA request generator trigger event type selection Defines the trigger event
-// on the selected DMA request trigger input
+  // on the selected DMA request trigger input
   ETL_BFF_FIELD(18:17, uint8_t, GPOL)
   // DMA request generator channel enable/disable
   ETL_BFF_FIELD(16:16, bool, GE)
-  // 15 : 9 reserved
+  // 15:9 reserved
   // Interrupt enable at trigger event overrun
   ETL_BFF_FIELD(8:8, bool, OIE)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // DMA request trigger input selected
   ETL_BFF_FIELD(4:0, uint8_t, SIG_ID)
 )
@@ -578,20 +613,21 @@ ETL_BFF_REG_RW(uint32_t, RG0CR,
 //
 //   Offset: 0x104
 ETL_BFF_REG_RW(uint32_t, RG1CR,
+  // 31:24 reserved
   // Number of DMA requests to generate Defines the number of DMA requests
-// generated after a trigger event, then stop generating. The actual number of
-// generated DMA requests is GNBREQ+1. Note: This field can only be written when
-// GE bit is reset.
+  // generated after a trigger event, then stop generating. The actual number of
+  // generated DMA requests is GNBREQ+1. Note: This field can only be written
+  // when GE bit is reset.
   ETL_BFF_FIELD(23:19, uint8_t, GNBREQ)
   // DMA request generator trigger event type selection Defines the trigger event
-// on the selected DMA request trigger input
+  // on the selected DMA request trigger input
   ETL_BFF_FIELD(18:17, uint8_t, GPOL)
   // DMA request generator channel enable/disable
   ETL_BFF_FIELD(16:16, bool, GE)
-  // 15 : 9 reserved
+  // 15:9 reserved
   // Interrupt enable at trigger event overrun
   ETL_BFF_FIELD(8:8, bool, OIE)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // DMA request trigger input selected
   ETL_BFF_FIELD(4:0, uint8_t, SIG_ID)
 )
@@ -602,20 +638,21 @@ ETL_BFF_REG_RW(uint32_t, RG1CR,
 //
 //   Offset: 0x108
 ETL_BFF_REG_RW(uint32_t, RG2CR,
+  // 31:24 reserved
   // Number of DMA requests to generate Defines the number of DMA requests
-// generated after a trigger event, then stop generating. The actual number of
-// generated DMA requests is GNBREQ+1. Note: This field can only be written when
-// GE bit is reset.
+  // generated after a trigger event, then stop generating. The actual number of
+  // generated DMA requests is GNBREQ+1. Note: This field can only be written
+  // when GE bit is reset.
   ETL_BFF_FIELD(23:19, uint8_t, GNBREQ)
   // DMA request generator trigger event type selection Defines the trigger event
-// on the selected DMA request trigger input
+  // on the selected DMA request trigger input
   ETL_BFF_FIELD(18:17, uint8_t, GPOL)
   // DMA request generator channel enable/disable
   ETL_BFF_FIELD(16:16, bool, GE)
-  // 15 : 9 reserved
+  // 15:9 reserved
   // Interrupt enable at trigger event overrun
   ETL_BFF_FIELD(8:8, bool, OIE)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // DMA request trigger input selected
   ETL_BFF_FIELD(4:0, uint8_t, SIG_ID)
 )
@@ -626,25 +663,26 @@ ETL_BFF_REG_RW(uint32_t, RG2CR,
 //
 //   Offset: 0x10C
 ETL_BFF_REG_RW(uint32_t, RG3CR,
+  // 31:24 reserved
   // Number of DMA requests to generate Defines the number of DMA requests
-// generated after a trigger event, then stop generating. The actual number of
-// generated DMA requests is GNBREQ+1. Note: This field can only be written when
-// GE bit is reset.
+  // generated after a trigger event, then stop generating. The actual number of
+  // generated DMA requests is GNBREQ+1. Note: This field can only be written
+  // when GE bit is reset.
   ETL_BFF_FIELD(23:19, uint8_t, GNBREQ)
   // DMA request generator trigger event type selection Defines the trigger event
-// on the selected DMA request trigger input
+  // on the selected DMA request trigger input
   ETL_BFF_FIELD(18:17, uint8_t, GPOL)
   // DMA request generator channel enable/disable
   ETL_BFF_FIELD(16:16, bool, GE)
-  // 15 : 9 reserved
+  // 15:9 reserved
   // Interrupt enable at trigger event overrun
   ETL_BFF_FIELD(8:8, bool, OIE)
-  // 7 : 5 reserved
+  // 7:5 reserved
   // DMA request trigger input selected
   ETL_BFF_FIELD(4:0, uint8_t, SIG_ID)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved3, 12)
+ETL_BFF_REG_RESERVED(uint32_t, reserved21, 12)
 
 // RGSR
 //
@@ -652,25 +690,26 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved3, 12)
 //
 //   Offset: 0x140
 ETL_BFF_REG_RO(uint32_t, RGSR,
+  // 31:4 reserved
   // Trigger event overrun flag The flag is set when a trigger event occurs on DMA
-// request generator channel x, while the DMA request generator counter value is
-// lower than GNBREQ. The flag is cleared by writing 1 to the corresponding COFx
-// bit in DMAMUX_RGCFR register.
+  // request generator channel x, while the DMA request generator counter value
+  // is lower than GNBREQ. The flag is cleared by writing 1 to the corresponding
+  // COFx bit in DMAMUX_RGCFR register.
   ETL_BFF_FIELD(3:3, bool, OF3)
   // Trigger event overrun flag The flag is set when a trigger event occurs on DMA
-// request generator channel x, while the DMA request generator counter value is
-// lower than GNBREQ. The flag is cleared by writing 1 to the corresponding COFx
-// bit in DMAMUX_RGCFR register.
+  // request generator channel x, while the DMA request generator counter value
+  // is lower than GNBREQ. The flag is cleared by writing 1 to the corresponding
+  // COFx bit in DMAMUX_RGCFR register.
   ETL_BFF_FIELD(2:2, bool, OF2)
   // Trigger event overrun flag The flag is set when a trigger event occurs on DMA
-// request generator channel x, while the DMA request generator counter value is
-// lower than GNBREQ. The flag is cleared by writing 1 to the corresponding COFx
-// bit in DMAMUX_RGCFR register.
+  // request generator channel x, while the DMA request generator counter value
+  // is lower than GNBREQ. The flag is cleared by writing 1 to the corresponding
+  // COFx bit in DMAMUX_RGCFR register.
   ETL_BFF_FIELD(1:1, bool, OF1)
   // Trigger event overrun flag The flag is set when a trigger event occurs on DMA
-// request generator channel x, while the DMA request generator counter value is
-// lower than GNBREQ. The flag is cleared by writing 1 to the corresponding COFx
-// bit in DMAMUX_RGCFR register.
+  // request generator channel x, while the DMA request generator counter value
+  // is lower than GNBREQ. The flag is cleared by writing 1 to the corresponding
+  // COFx bit in DMAMUX_RGCFR register.
   ETL_BFF_FIELD(0:0, bool, OF0)
 )
 
@@ -679,18 +718,19 @@ ETL_BFF_REG_RO(uint32_t, RGSR,
 // DMAMux - DMA request generator clear flag register
 //
 //   Offset: 0x144
-ETL_BFF_REG_WO(uint32_t, RGCFR,
+ETL_BFF_REG_RW(uint32_t, RGCFR,
+  // 31:4 reserved
   // Clear trigger event overrun flag Upon setting, this bit clears the
-// corresponding overrun flag OFx in the DMAMUX_RGCSR register.
+  // corresponding overrun flag OFx in the DMAMUX_RGCSR register.
   ETL_BFF_FIELD(3:3, bool, COF3)
   // Clear trigger event overrun flag Upon setting, this bit clears the
-// corresponding overrun flag OFx in the DMAMUX_RGCSR register.
+  // corresponding overrun flag OFx in the DMAMUX_RGCSR register.
   ETL_BFF_FIELD(2:2, bool, COF2)
   // Clear trigger event overrun flag Upon setting, this bit clears the
-// corresponding overrun flag OFx in the DMAMUX_RGCSR register.
+  // corresponding overrun flag OFx in the DMAMUX_RGCSR register.
   ETL_BFF_FIELD(1:1, bool, COF1)
   // Clear trigger event overrun flag Upon setting, this bit clears the
-// corresponding overrun flag OFx in the DMAMUX_RGCSR register.
+  // corresponding overrun flag OFx in the DMAMUX_RGCSR register.
   ETL_BFF_FIELD(0:0, bool, COF0)
 )
 

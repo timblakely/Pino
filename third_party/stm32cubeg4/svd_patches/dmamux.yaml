@@ -1,4 +1,10 @@
 DMAMUX:
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    CFR:
+      access: read-write
+    RGCFR:
+      access: read-write
   CSR:
     _split: [SOF]
   CFR:

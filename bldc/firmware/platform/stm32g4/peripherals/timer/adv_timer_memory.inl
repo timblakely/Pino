@@ -405,7 +405,6 @@ ETL_BFF_REG_RW(uint32_t, CCER,
 //
 //   Offset: 0x024
 ETL_BFF_REG_RW(uint32_t, CNT,
-  // UIFCPY
   ETL_BFF_FIELD(31:31, bool, UIFCPY)
   // 30:16 reserved
   // counter value
@@ -507,13 +506,9 @@ ETL_BFF_REG_RW(uint32_t, CCR4,
 //   Offset: 0x044
 ETL_BFF_REG_RW(uint32_t, BDTR,
   // 31:30 reserved
-  // BK2ID
   ETL_BFF_FIELD(29:29, bool, BK2ID)
-  // BKBID
   ETL_BFF_FIELD(28:28, bool, BKBID)
-  // BK2DSRM
   ETL_BFF_FIELD(27:27, bool, BK2DSRM)
-  // BKDSRM
   ETL_BFF_FIELD(26:26, bool, BKDSRM)
   // Break 2 polarity
   ETL_BFF_FIELD(25:25, bool, BK2P)

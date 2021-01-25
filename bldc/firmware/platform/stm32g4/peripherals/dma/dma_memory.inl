@@ -6,69 +6,37 @@
 //
 //   Offset: 0x000
 ETL_BFF_REG_RO(uint32_t, ISR,
-  // TEIF8
   ETL_BFF_FIELD(31:31, bool, TEIF8)
-  // HTIF8
   ETL_BFF_FIELD(30:30, bool, HTIF8)
-  // TCIF8
   ETL_BFF_FIELD(29:29, bool, TCIF8)
-  // GIF8
   ETL_BFF_FIELD(28:28, bool, GIF8)
-  // TEIF7
   ETL_BFF_FIELD(27:27, bool, TEIF7)
-  // HTIF7
   ETL_BFF_FIELD(26:26, bool, HTIF7)
-  // TCIF7
   ETL_BFF_FIELD(25:25, bool, TCIF7)
-  // GIF7
   ETL_BFF_FIELD(24:24, bool, GIF7)
-  // TEIF6
   ETL_BFF_FIELD(23:23, bool, TEIF6)
-  // HTIF6
   ETL_BFF_FIELD(22:22, bool, HTIF6)
-  // TCIF6
   ETL_BFF_FIELD(21:21, bool, TCIF6)
-  // GIF6
   ETL_BFF_FIELD(20:20, bool, GIF6)
-  // TEIF5
   ETL_BFF_FIELD(19:19, bool, TEIF5)
-  // HTIF5
   ETL_BFF_FIELD(18:18, bool, HTIF5)
-  // TCIF5
   ETL_BFF_FIELD(17:17, bool, TCIF5)
-  // GIF5
   ETL_BFF_FIELD(16:16, bool, GIF5)
-  // TEIF4
   ETL_BFF_FIELD(15:15, bool, TEIF4)
-  // HTIF4
   ETL_BFF_FIELD(14:14, bool, HTIF4)
-  // TCIF4
   ETL_BFF_FIELD(13:13, bool, TCIF4)
-  // GIF4
   ETL_BFF_FIELD(12:12, bool, GIF4)
-  // TEIF3
   ETL_BFF_FIELD(11:11, bool, TEIF3)
-  // HTIF3
   ETL_BFF_FIELD(10:10, bool, HTIF3)
-  // TCIF3
   ETL_BFF_FIELD(9:9, bool, TCIF3)
-  // GIF3
   ETL_BFF_FIELD(8:8, bool, GIF3)
-  // TEIF2
   ETL_BFF_FIELD(7:7, bool, TEIF2)
-  // HTIF2
   ETL_BFF_FIELD(6:6, bool, HTIF2)
-  // TCIF2
   ETL_BFF_FIELD(5:5, bool, TCIF2)
-  // GIF2
   ETL_BFF_FIELD(4:4, bool, GIF2)
-  // TEIF1
   ETL_BFF_FIELD(3:3, bool, TEIF1)
-  // HTIF1
   ETL_BFF_FIELD(2:2, bool, HTIF1)
-  // TCIF1
   ETL_BFF_FIELD(1:1, bool, TCIF1)
-  // GIF1
   ETL_BFF_FIELD(0:0, bool, GIF1)
 )
 
@@ -77,7 +45,7 @@ ETL_BFF_REG_RO(uint32_t, ISR,
 // DMA interrupt flag clear register
 //
 //   Offset: 0x004
-ETL_BFF_REG_WO(uint32_t, IFCR,
+ETL_BFF_REG_RW(uint32_t, IFCR,
   // TEIF8
   ETL_BFF_FIELD(31:31, bool, CTEIF8)
   // HTIF8
@@ -150,27 +118,17 @@ ETL_BFF_REG_WO(uint32_t, IFCR,
 //
 //   Offset: 0x008
 ETL_BFF_REG_RW(uint32_t, CCR1,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -182,6 +140,7 @@ ETL_BFF_REG_RW(uint32_t, CCR1,
 //
 //   Offset: 0x00C
 ETL_BFF_REG_RW(uint32_t, CNDTR1,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -206,7 +165,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR1,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved1, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved5, 1)
 
 // CCR2
 //
@@ -214,27 +173,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved1, 1)
 //
 //   Offset: 0x01C
 ETL_BFF_REG_RW(uint32_t, CCR2,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -246,6 +195,7 @@ ETL_BFF_REG_RW(uint32_t, CCR2,
 //
 //   Offset: 0x020
 ETL_BFF_REG_RW(uint32_t, CNDTR2,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -270,7 +220,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR2,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved2, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved9, 1)
 
 // CCR3
 //
@@ -278,27 +228,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved2, 1)
 //
 //   Offset: 0x030
 ETL_BFF_REG_RW(uint32_t, CCR3,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -310,6 +250,7 @@ ETL_BFF_REG_RW(uint32_t, CCR3,
 //
 //   Offset: 0x034
 ETL_BFF_REG_RW(uint32_t, CNDTR3,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -334,7 +275,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR3,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved3, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved13, 1)
 
 // CCR4
 //
@@ -342,27 +283,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved3, 1)
 //
 //   Offset: 0x044
 ETL_BFF_REG_RW(uint32_t, CCR4,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -374,6 +305,7 @@ ETL_BFF_REG_RW(uint32_t, CCR4,
 //
 //   Offset: 0x048
 ETL_BFF_REG_RW(uint32_t, CNDTR4,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -398,7 +330,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR4,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved4, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved17, 1)
 
 // CCR5
 //
@@ -406,27 +338,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved4, 1)
 //
 //   Offset: 0x058
 ETL_BFF_REG_RW(uint32_t, CCR5,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -438,6 +360,7 @@ ETL_BFF_REG_RW(uint32_t, CCR5,
 //
 //   Offset: 0x05C
 ETL_BFF_REG_RW(uint32_t, CNDTR5,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -462,7 +385,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR5,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved5, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved21, 1)
 
 // CCR6
 //
@@ -470,27 +393,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved5, 1)
 //
 //   Offset: 0x06C
 ETL_BFF_REG_RW(uint32_t, CCR6,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -502,6 +415,7 @@ ETL_BFF_REG_RW(uint32_t, CCR6,
 //
 //   Offset: 0x070
 ETL_BFF_REG_RW(uint32_t, CNDTR6,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -526,7 +440,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR6,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved6, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved25, 1)
 
 // CCR7
 //
@@ -534,27 +448,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved6, 1)
 //
 //   Offset: 0x080
 ETL_BFF_REG_RW(uint32_t, CCR7,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -566,6 +470,7 @@ ETL_BFF_REG_RW(uint32_t, CCR7,
 //
 //   Offset: 0x084
 ETL_BFF_REG_RW(uint32_t, CNDTR7,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )
@@ -590,7 +495,7 @@ ETL_BFF_REG_RW(uint32_t, CMAR7,
   ETL_BFF_FIELD(31:0, uint32_t, MA)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved7, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved29, 1)
 
 // CCR8
 //
@@ -598,27 +503,17 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved7, 1)
 //
 //   Offset: 0x094
 ETL_BFF_REG_RW(uint32_t, CCR8,
-  // MEM2MEM
+  // 31:15 reserved
   ETL_BFF_FIELD(14:14, bool, MEM2MEM)
-  // PL
   ETL_BFF_FIELD(13:12, uint8_t, PL)
-  // MSIZE
   ETL_BFF_FIELD(11:10, uint8_t, MSIZE)
-  // PSIZE
   ETL_BFF_FIELD(9:8, uint8_t, PSIZE)
-  // MINC
   ETL_BFF_FIELD(7:7, bool, MINC)
-  // PINC
   ETL_BFF_FIELD(6:6, bool, PINC)
-  // CIRC
   ETL_BFF_FIELD(5:5, bool, CIRC)
-  // DIR
   ETL_BFF_FIELD(4:4, bool, DIR)
-  // TEIE
   ETL_BFF_FIELD(3:3, bool, TEIE)
-  // HTIE
   ETL_BFF_FIELD(2:2, bool, HTIE)
-  // TCIE
   ETL_BFF_FIELD(1:1, bool, TCIE)
   // channel enable
   ETL_BFF_FIELD(0:0, bool, EN)
@@ -630,6 +525,7 @@ ETL_BFF_REG_RW(uint32_t, CCR8,
 //
 //   Offset: 0x098
 ETL_BFF_REG_RW(uint32_t, CNDTR8,
+  // 31:16 reserved
   // Number of data items to transfer
   ETL_BFF_FIELD(15:0, uint16_t, NDT)
 )

@@ -24,8 +24,8 @@ flags.DEFINE_bool('register_descriptions', True,
                   'Whether to add register descriptions')
 flags.DEFINE_bool('register_offsets', True, 'Whether to add register offsets')
 flags.DEFINE_string(
-    'drop', None, 'comma-separated list of peripheral register names to skip')
-flags.DEFINE_string('rename', None,
+    'drop', '', 'comma-separated list of peripheral register names to skip')
+flags.DEFINE_string('rename', '',
                     'comma-separated list of old=new register names')
 flags.DEFINE_bool('field_descriptions', True,
                   'Whether to add field descriptions')
@@ -41,6 +41,8 @@ FLAGS = flags.FLAGS
 
 
 def reg_name(name):
+  if not FLAGS.rename:
+    return name
   rename = dict([pair.split('=') for pair in FLAGS.rename.split(',')])
   return rename.get(name, name)
 
@@ -80,6 +82,9 @@ class Formatter:
       self.file.write('\n')
 
   def comment(self, content, clean=True):
+    if not content:
+      return
+
     if clean:
       content = re.sub(' +', ' ', content)
     content = textwrap.fill(
@@ -202,9 +207,9 @@ class Biffile:
     self.fmt.write(reserved_str)
 
   def field(self, field):
-    if not FLAGS.field_descriptions:
-      return
-    self.fmt.comment(field.description)
+    if FLAGS.field_descriptions and field.description != field.name:
+      self.fmt.comment(field.description)
+
     if field.bit_width == 1:
       dtype = 'bool'
     elif field.bit_width <= 8:

@@ -1,4 +1,8 @@
 "DMA[12]":
+  _modify:
+    # TODO(blakely): Technically read-only but not happy with Biffields.
+    IFCR:
+      access: read-write
   IFCR:  
     _modify:
       TEIF8:

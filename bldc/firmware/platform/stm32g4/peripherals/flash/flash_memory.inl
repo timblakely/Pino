@@ -7,9 +7,10 @@
 //   Offset: 0x000
 //   Reset value: 0x00000600
 ETL_BFF_REG_RW(uint32_t, ACR,
+  // 31:19 reserved
   // Debug software enable
   ETL_BFF_FIELD(18:18, bool, DBG_SWEN)
-  // 17 : 15 reserved
+  // 17:15 reserved
   // Flash Power-down mode during Low-power sleep mode
   ETL_BFF_FIELD(14:14, bool, SLEEP_PD)
   // Flash Power-down mode during Low-power run mode
@@ -24,7 +25,7 @@ ETL_BFF_REG_RW(uint32_t, ACR,
   ETL_BFF_FIELD(9:9, bool, ICEN)
   // Prefetch enable
   ETL_BFF_FIELD(8:8, bool, PRFTEN)
-  // 7 : 4 reserved
+  // 7:4 reserved
   // Latency
   ETL_BFF_FIELD(3:0, uint8_t, LATENCY)
 )
@@ -34,7 +35,7 @@ ETL_BFF_REG_RW(uint32_t, ACR,
 // Power down key register
 //
 //   Offset: 0x004
-ETL_BFF_REG_WO(uint32_t, PDKEYR,
+ETL_BFF_REG_RW(uint32_t, PDKEYR,
   // RUN_PD in FLASH_ACR key
   ETL_BFF_FIELD(31:0, uint32_t, PDKEYR)
 )
@@ -44,8 +45,7 @@ ETL_BFF_REG_WO(uint32_t, PDKEYR,
 // Flash key register
 //
 //   Offset: 0x008
-ETL_BFF_REG_WO(uint32_t, KEYR,
-  // KEYR
+ETL_BFF_REG_RW(uint32_t, KEYR,
   ETL_BFF_FIELD(31:0, uint32_t, KEYR)
 )
 
@@ -54,7 +54,7 @@ ETL_BFF_REG_WO(uint32_t, KEYR,
 // Option byte key register
 //
 //   Offset: 0x00C
-ETL_BFF_REG_WO(uint32_t, OPTKEYR,
+ETL_BFF_REG_RW(uint32_t, OPTKEYR,
   // Option byte key
   ETL_BFF_FIELD(31:0, uint32_t, OPTKEYR)
 )
@@ -65,13 +65,14 @@ ETL_BFF_REG_WO(uint32_t, OPTKEYR,
 //
 //   Offset: 0x010
 ETL_BFF_REG_RW(uint32_t, SR,
+  // 31:17 reserved
   // Busy
   ETL_BFF_FIELD(16:16, bool, BSY)
   // Option validity error
   ETL_BFF_FIELD(15:15, bool, OPTVERR)
   // PCROP read error
   ETL_BFF_FIELD(14:14, bool, RDERR)
-  // 13 : 10 reserved
+  // 13:10 reserved
   // Fast programming error
   ETL_BFF_FIELD(9:9, bool, FASTERR)
   // Fast programming data miss error
@@ -106,7 +107,6 @@ ETL_BFF_REG_RW(uint32_t, CR,
   ETL_BFF_FIELD(30:30, bool, OPTLOCK)
   // Securable memory area protection bank 2
   ETL_BFF_FIELD(29:29, bool, SEC_PROT2)
-  // SEC_PROT1
   ETL_BFF_FIELD(28:28, bool, SEC_PROT1)
   // Force the option byte loading
   ETL_BFF_FIELD(27:27, bool, OBL_LAUNCH)
@@ -116,7 +116,7 @@ ETL_BFF_REG_RW(uint32_t, CR,
   ETL_BFF_FIELD(25:25, bool, ERRIE)
   // End of operation interrupt enable
   ETL_BFF_FIELD(24:24, bool, EOPIE)
-  // 23 : 19 reserved
+  // 23:19 reserved
   // Fast programming
   ETL_BFF_FIELD(18:18, bool, FSTPG)
   // Options modification start
@@ -125,7 +125,7 @@ ETL_BFF_REG_RW(uint32_t, CR,
   ETL_BFF_FIELD(16:16, bool, STRT)
   // Bank 2 mass erase
   ETL_BFF_FIELD(15:15, bool, MER2)
-  // 14 : 12 reserved
+  // 14:12 reserved
   // Bank erase
   ETL_BFF_FIELD(11:11, bool, BKER)
   // 10 reserved
@@ -153,20 +153,17 @@ ETL_BFF_REG_RW(uint32_t, ECCR,
   ETL_BFF_FIELD(29:29, bool, ECCD2)
   // ECC correction
   ETL_BFF_FIELD(28:28, bool, ECCC2)
-  // 27 : 25 reserved
-  // ECCIE
+  // 27:25 reserved
   ETL_BFF_FIELD(24:24, bool, ECCIE)
   // 23 reserved
-  // SYSF_ECC
   ETL_BFF_FIELD(22:22, bool, SYSF_ECC)
-  // BK_ECC
   ETL_BFF_FIELD(21:21, bool, BK_ECC)
-  // 20 : 19 reserved
+  // 20:19 reserved
   // ECC fail address
   ETL_BFF_FIELD(18:0, uint32_t, ADDR_ECC)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved1, 1)
+ETL_BFF_REG_RESERVED(uint32_t, reserved6, 1)
 
 // OPTR
 //
@@ -175,13 +172,10 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved1, 1)
 //   Offset: 0x020
 //   Reset value: 0xF0000000
 ETL_BFF_REG_RW(uint32_t, OPTR,
-  // IRHEN
+  // 31 reserved
   ETL_BFF_FIELD(30:30, bool, IRHEN)
-  // NRST_MODE
   ETL_BFF_FIELD(29:28, uint8_t, NRST_MODE)
-  // nBOOT0
   ETL_BFF_FIELD(27:27, bool, nBOOT0)
-  // nSWBOOT0
   ETL_BFF_FIELD(26:26, bool, nSWBOOT0)
   // CCM SRAM Erase when system reset
   ETL_BFF_FIELD(25:25, bool, CCMSRAM_RST)
@@ -203,11 +197,8 @@ ETL_BFF_REG_RW(uint32_t, OPTR,
   // Independent watchdog selection
   ETL_BFF_FIELD(16:16, bool, IDWG_SW)
   // 15 reserved
-  // nRST_SHDW
   ETL_BFF_FIELD(14:14, bool, nRST_SHDW)
-  // nRST_STDBY
   ETL_BFF_FIELD(13:13, bool, nRST_STDBY)
-  // nRST_STOP
   ETL_BFF_FIELD(12:12, bool, nRST_STOP)
   // 11 reserved
   // BOR reset Level
@@ -223,6 +214,7 @@ ETL_BFF_REG_RW(uint32_t, OPTR,
 //   Offset: 0x024
 //   Reset value: 0xFFFF0000
 ETL_BFF_REG_RW(uint32_t, PCROP1SR,
+  // 31:15 reserved
   // Bank 1 PCROP area start offset
   ETL_BFF_FIELD(14:0, uint16_t, PCROP1_STRT)
 )
@@ -236,7 +228,7 @@ ETL_BFF_REG_RW(uint32_t, PCROP1SR,
 ETL_BFF_REG_RW(uint32_t, PCROP1ER,
   // PCROP area preserved when RDP level decreased
   ETL_BFF_FIELD(31:31, bool, PCROP_RDP)
-  // 30 : 15 reserved
+  // 30:15 reserved
   // Bank 1 PCROP area end offset
   ETL_BFF_FIELD(14:0, uint16_t, PCROP1_END)
 )
@@ -247,9 +239,10 @@ ETL_BFF_REG_RW(uint32_t, PCROP1ER,
 //
 //   Offset: 0x02C
 ETL_BFF_REG_RW(uint32_t, WRP1AR,
+  // 31:23 reserved
   // Bank 1 WRP first area A end offset
   ETL_BFF_FIELD(22:16, uint8_t, WRP1A_END)
-  // 15 : 7 reserved
+  // 15:7 reserved
   // Bank 1 WRP first area start offset
   ETL_BFF_FIELD(6:0, uint8_t, WRP1A_STRT)
 )
@@ -260,14 +253,15 @@ ETL_BFF_REG_RW(uint32_t, WRP1AR,
 //
 //   Offset: 0x030
 ETL_BFF_REG_RW(uint32_t, WRP1BR,
+  // 31:23 reserved
   // Bank 1 WRP second area B start offset
   ETL_BFF_FIELD(22:16, uint8_t, WRP1B_END)
-  // 15 : 7 reserved
+  // 15:7 reserved
   // Bank 1 WRP second area B end offset
   ETL_BFF_FIELD(6:0, uint8_t, WRP1B_STRT)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved2, 4)
+ETL_BFF_REG_RESERVED(uint32_t, reserved11, 4)
 
 // PCROP2SR
 //
@@ -275,6 +269,7 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved2, 4)
 //
 //   Offset: 0x044
 ETL_BFF_REG_RW(uint32_t, PCROP2SR,
+  // 31:15 reserved
   // PCROP area start offset
   ETL_BFF_FIELD(14:0, uint16_t, PCROP2_STRT)
 )
@@ -285,6 +280,7 @@ ETL_BFF_REG_RW(uint32_t, PCROP2SR,
 //
 //   Offset: 0x048
 ETL_BFF_REG_RW(uint32_t, PCROP2ER,
+  // 31:15 reserved
   // PCROP area end offset
   ETL_BFF_FIELD(14:0, uint16_t, PCROP2_END)
 )
@@ -295,9 +291,10 @@ ETL_BFF_REG_RW(uint32_t, PCROP2ER,
 //
 //   Offset: 0x04C
 ETL_BFF_REG_RW(uint32_t, WRP2AR,
+  // 31:23 reserved
   // WRP first area A end offset
   ETL_BFF_FIELD(22:16, uint8_t, WRP2A_END)
-  // 15 : 7 reserved
+  // 15:7 reserved
   // WRP first area A start offset
   ETL_BFF_FIELD(6:0, uint8_t, WRP2A_STRT)
 )
@@ -308,14 +305,15 @@ ETL_BFF_REG_RW(uint32_t, WRP2AR,
 //
 //   Offset: 0x050
 ETL_BFF_REG_RW(uint32_t, WRP2BR,
+  // 31:23 reserved
   // WRP first area B end offset
   ETL_BFF_FIELD(22:16, uint8_t, WRP2B_END)
-  // 15 : 7 reserved
+  // 15:7 reserved
   // WRP first area B start offset
   ETL_BFF_FIELD(6:0, uint8_t, WRP2B_STRT)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved3, 7)
+ETL_BFF_REG_RESERVED(uint32_t, reserved15, 7)
 
 // SEC1R
 //
@@ -324,10 +322,9 @@ ETL_BFF_REG_RESERVED(uint32_t, reserved3, 7)
 //   Offset: 0x070
 //   Reset value: 0xFF00FF00
 ETL_BFF_REG_RW(uint32_t, SEC1R,
-  // BOOT_LOCK
+  // 31:17 reserved
   ETL_BFF_FIELD(16:16, bool, BOOT_LOCK)
-  // 15 : 8 reserved
-  // SEC_SIZE1
+  // 15:8 reserved
   ETL_BFF_FIELD(7:0, uint8_t, SEC_SIZE1)
 )
 
@@ -337,6 +334,7 @@ ETL_BFF_REG_RW(uint32_t, SEC1R,
 //
 //   Offset: 0x074
 ETL_BFF_REG_RW(uint32_t, SEC2R,
+  // 31:8 reserved
   // number of pages in secure bank 2
   ETL_BFF_FIELD(7:0, uint8_t, SEC_SIZE2)
 )
