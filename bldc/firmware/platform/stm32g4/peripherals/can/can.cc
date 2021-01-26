@@ -51,7 +51,6 @@ static_assert(kMRAMBankSize ==
 }  // namespace can
 
 using can::ExtendedFilter;
-using can::Peripheral;
 using can::kExtendedFilterMemOffset;
 using can::kMRAMAddress;
 using can::kMRAMBankSize;
@@ -59,6 +58,7 @@ using can::kRxFIFO0MemOffset;
 using can::kRxFIFO1MemOffset;
 using can::kTxBufferMemOffset;
 using can::kTxEventFifoMemOffset;
+using can::Peripheral;
 using can::RxBuffer;
 using can::StandardFilter;
 using can::TxBuffer;
@@ -120,8 +120,9 @@ void Can::Init(Can::Instance instance) {
 
   // TODO(blakely): Configure this though an enum to Init()
 
-  standard_filters_[0].SetFilter(StandardFilter::FilterType::dual_id,
-                                 StandardFilter::Action::store_fifo0, 13, 37);
+  //   standard_filters_[0].SetFilter(StandardFilter::FilterType::dual_id,
+  //                                  StandardFilter::Action::store_fifo0, 13,
+  //                                  37);
   peripheral_->Start();
 }
 

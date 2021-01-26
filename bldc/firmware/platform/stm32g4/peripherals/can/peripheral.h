@@ -30,6 +30,8 @@ struct Peripheral {
 
   void TransmitBuffer(uint8_t idx);
 
+  void EnableRxFIFO0Interrupt();
+
   uint8_t TxPut();
   uint8_t TxGet();
 

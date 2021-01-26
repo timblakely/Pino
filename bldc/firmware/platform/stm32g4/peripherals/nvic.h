@@ -25,6 +25,10 @@ enum class Interrupt : int32_t {
   ISysTick = -1,  // Note: Should be SysTick, but ST #defined SysTick... *sigh*
 
   WWDG = 0,
+
+  FDCAN_InterruptLine0 = 21,
+  FDCAN_InterruptLine1 = 22,
+
   Tim1_CaptureCompare = 27,
 
   Tim5 = 50,

@@ -8,9 +8,10 @@
 namespace platform {
 namespace stm32g4 {
 
-template <bool IsFD, uint32_t Id, uint8_t FrameSizeBytes>
+template <bool FDFrame, uint32_t MessageId, uint8_t FrameSizeBytes>
 struct FrameHeader : public can::TxHeader {
-  static constexpr auto ID = Id;
+  static constexpr auto Id = MessageId;
+  static constexpr auto IsFD = FDFrame;
 
   FrameHeader() = delete;
   FrameHeader(FrameHeader&) = delete;

@@ -1,8 +1,10 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_CAN_CAN_H_
 
+#include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "third_party/sg14/inplace_function_wrapper.h"
@@ -46,7 +48,7 @@ class Can {
     peripheral_->TransmitBuffer(idx);
   }
 
-  template <typename FrameType>
+  template <typename FrameType, uint32_t FilterSlot>
   void SetHandler(stdext::Callback<void(FrameType&)> callback) {
     // HACKHACKHACK
     handlers[0] = [&callback](uint32_t* buffer) {
@@ -54,6 +56,12 @@ class Can {
       frame.CopyFromSRAM(buffer);
       callback(static_cast<FrameType&>(frame));
     };
+    if (FrameType::Header::IsFD) {
+      extended_filters_[FilterSlot].SetFilter<typename FrameType::Header>();
+    } else {
+      standard_filters_[FilterSlot].SetFilter<typename FrameType::Header>();
+    }
+    peripheral_->EnableRxFIFO0Interrupt();
   }
 
  private:

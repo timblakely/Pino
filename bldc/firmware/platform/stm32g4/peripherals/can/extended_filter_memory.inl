@@ -22,6 +22,6 @@ ETL_BFF_REG_RW(uint32_t, F1,
     ETL_BFF_ENUM(0b11, disabled)
   )
 
-  ETL_BFF_FIELD(28:0, uint32_t, eFID2)
+  ETL_BFF_FIELD(28:0, uint32_t, EFID2)
 )
 // clang-format on

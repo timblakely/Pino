@@ -78,7 +78,11 @@ void Devboard::Init() {
 
   can_.Init(Can::Instance::Fdcan1);
 
-  can_.SetHandler<SimpleReceiveFrame>([](SimpleReceiveFrame& f) { (void)f; });
+  // can ext 10 3412 FBr
+  can_.SetHandler<SimpleReceiveFrame, 0>([](SimpleReceiveFrame& f) {
+    int i = 0;
+    ++i;
+  });
 
   while (true) {
     AngleFrame frame(ma702_.Angle());
