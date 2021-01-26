@@ -90,8 +90,10 @@ struct FrameHeader : public can::TxHeader {
   }
 };
 
+struct BaseCanFrame {};
+
 template <bool IsFd, uint32_t Id, uint8_t SizeBytes>
-struct CanFrame {
+struct CanFrame : public BaseCanFrame {
   using Header = FrameHeader<IsFd, Id, SizeBytes>;
 
  protected:

@@ -4,9 +4,11 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/can/extended_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/frame.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/can/rx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/standard_filter.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/tx_buffer.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "third_party/sg14/inplace_function_wrapper.h"
 
 namespace platform {
@@ -24,7 +26,7 @@ struct RxBuffer;
 
 class Can {
  public:
-  using ReceiveCallback = stdext::Callback<void(uint32_t*)>;
+  using ReceiveCallback = stdext::Callback<void(BaseCanFrame&)>;
 
   enum class Instance : uint32_t {
     // Note: these are the actual addresses in memory of each peripheral.
@@ -50,21 +52,40 @@ class Can {
 
   template <typename FrameType, uint32_t FilterSlot>
   void SetHandler(stdext::Callback<void(FrameType&)> callback) {
-    // HACKHACKHACK
-    handlers[0] = [&callback](uint32_t* buffer) {
-      FrameType frame;
-      frame.CopyFromSRAM(buffer);
-      callback(static_cast<FrameType&>(frame));
-    };
+    handlers_[next_handler_] = std::make_tuple(
+        FrameType::Header::Id, [&callback](BaseCanFrame& frame) {
+          callback(static_cast<FrameType&>(frame));
+        });
+    ++next_handler_;
+
     if (FrameType::Header::IsFD) {
       extended_filters_[FilterSlot].SetFilter<typename FrameType::Header>();
     } else {
       standard_filters_[FilterSlot].SetFilter<typename FrameType::Header>();
     }
+
     peripheral_->EnableRxFIFO0Interrupt();
+    // Set handler in NVIC.
+    Nvic::SetInterrupt(Interrupt::FDCAN_InterruptLine0, 1, 0, [this]() {
+      peripheral_->ClearRX0Interrupt();  //
+      const auto buffer_id = peripheral_->Rx0Get();
+      FrameType frame;
+      frame.CopyFromSRAM(rx_fifo0_[buffer_id].data);
+      peripheral_->Rx0Ack(buffer_id);
+      // TODO(blakely): Straight iteration is meh here, but don't have a good
+      // statically allocated map yet.
+      for (const auto& handler : handlers_) {
+        if (std::get<0>(handler) == FrameType::Header::Id) {
+          std::get<1>(handler)(static_cast<BaseCanFrame&>(frame));
+        }
+      }
+    });
+    // Finally, enable it.
+    Nvic::EnableInterrupt(Interrupt::FDCAN_InterruptLine0);
   }
 
  private:
+  can::TxBuffer* NextRxFIFO0Buffer();
   Instance instance_;
 
   Gpio::Pin tx_;
@@ -80,8 +101,10 @@ class Can {
   can::TxBuffer* tx_buffer_;
 
   static constexpr uint8_t kMaxNumReceiveHandlers = 10;
-  static inline std::array<ReceiveCallback, kMaxNumReceiveHandlers> handlers = {
-      {}};
+  static uint8_t next_handler_;
+  static inline std::array<std::tuple<uint32_t, ReceiveCallback>,
+                           kMaxNumReceiveHandlers>
+      handlers_ = {{}};
 };
 
 }  // namespace stm32g4

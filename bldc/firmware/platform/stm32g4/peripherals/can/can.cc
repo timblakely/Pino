@@ -64,6 +64,8 @@ using can::StandardFilter;
 using can::TxBuffer;
 using can::TxEvent;
 
+uint8_t Can::next_handler_ = 0;
+
 Can::Can(Gpio::Pin tx, Gpio::Pin rx) : tx_(tx), rx_(rx) {}
 
 void Can::Init(Can::Instance instance) {
@@ -124,6 +126,10 @@ void Can::Init(Can::Instance instance) {
   //                                  StandardFilter::Action::store_fifo0, 13,
   //                                  37);
   peripheral_->Start();
+}
+
+can::TxBuffer* Can::NextRxFIFO0Buffer() {
+  const auto idx = peripheral_->Rx0Get();
 }
 
 }  // namespace stm32g4

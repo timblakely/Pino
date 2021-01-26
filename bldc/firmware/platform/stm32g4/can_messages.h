@@ -19,7 +19,8 @@ struct AngleFrame : public FDFrame<0xA, 2> {
 };
 
 struct SimpleReceiveFrame : public FDFrame<0x10, 2> {
-  void foo(){};
+  uint8_t foo() { return data_[0]; };
+  uint8_t bar() { return data_[1]; };
 };
 
 }  // namespace stm32g4

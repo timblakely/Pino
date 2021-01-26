@@ -1,7 +1,5 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/can/peripheral.h"
 
-#include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
-
 namespace platform {
 namespace stm32g4 {
 namespace can {
@@ -108,10 +106,6 @@ void Peripheral::Start() {
   update_CCCR([](CCCR v) { return v.with_INIT(CCCR::INIT_t::run); });
 }
 
-uint8_t Peripheral::TxPut() { return read_TXFQS().get_TFQPI(); }
-
-uint8_t Peripheral::TxGet() { return read_TXFQS().get_TFGI(); }
-
 void Peripheral::TransmitBuffer(uint8_t idx) {
   update_TXBAR([&idx](TXBAR v) { return v.with_AR(1 << idx); });
 }
@@ -123,14 +117,12 @@ void Peripheral::EnableRxFIFO0Interrupt() {
   update_IE([](IE_value_t v) { return v.with_RF0NE(1); });
   // Enable interrupt line 0.
   update_ILE([](ILE_value_t v) { return v.with_EINT0(1); });
-  // Set handler in NVIC.
-  Nvic::SetInterrupt(Interrupt::FDCAN_InterruptLine0, 1, 0, [this]() {
-    update_IR([](IR_value_t v) {
-      return v.with_RF0N(1);  //
-    });
+}
+
+void Peripheral::ClearRX0Interrupt() {
+  update_IR([](IR_value_t v) {
+    return v.with_RF0N(1);  //
   });
-  // Finally, enable it.
-  Nvic::EnableInterrupt(Interrupt::FDCAN_InterruptLine0);
 }
 
 }  // namespace can

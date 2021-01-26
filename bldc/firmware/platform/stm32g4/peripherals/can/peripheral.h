@@ -32,8 +32,16 @@ struct Peripheral {
 
   void EnableRxFIFO0Interrupt();
 
-  uint8_t TxPut();
-  uint8_t TxGet();
+  void ClearRX0Interrupt();
+
+  inline uint8_t TxPut() { return read_TXFQS().get_TFQPI(); }
+  inline uint8_t TxGet() { return read_TXFQS().get_TFGI(); }
+
+  inline uint8_t Rx0Get() { return read_RXF0S().get_F0GI(); }
+  inline uint8_t Rx0Put() { return read_RXF0S().get_F0PI(); }
+  inline void Rx0Ack(uint8_t idx) {
+    update_RXF0A([&idx](RXF0A_value_t v) { return v.with_F0AI(1 << idx); });
+  }
 
  private:
   using CCCR = CCCR_value_t;
