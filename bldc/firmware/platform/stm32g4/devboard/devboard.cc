@@ -78,10 +78,11 @@ void Devboard::Init() {
 
   can_.Init(Can::Instance::Fdcan1);
 
-  // can ext 10 3412 FBr
-  can_.SetHandler<SimpleReceiveFrame, 0>([](SimpleReceiveFrame& f) {
-    int i = 0;
-    ++i;
+  // can ext 10 1234 FBr
+  can_.SetHandler<0>([](SimpleReceiveFrame& f) {
+    auto foo = f.foo();
+    auto bar = f.bar();
+    ++bar;
   });
 
   while (true) {

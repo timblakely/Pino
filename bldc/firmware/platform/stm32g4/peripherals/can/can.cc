@@ -128,9 +128,5 @@ void Can::Init(Can::Instance instance) {
   peripheral_->Start();
 }
 
-can::TxBuffer* Can::NextRxFIFO0Buffer() {
-  const auto idx = peripheral_->Rx0Get();
-}
-
 }  // namespace stm32g4
 }  // namespace platform
