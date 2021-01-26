@@ -92,3 +92,11 @@ load("@rules_python//python:pip.bzl", "pip_install")
 pip_install(
     requirements = "//:requirements.txt",
 )
+
+new_git_repository(
+    name = "kennytm_utils",
+    build_file = "//third_party/kennytm/utils:repo.BUILD",
+    commit = "8b8c42617ce43cba6cc58b46e7ab3d90e0af8c4d",
+    remote = "https://github.com/kennytm/utils",
+    shallow_since = "1331305353 +0800",
+)

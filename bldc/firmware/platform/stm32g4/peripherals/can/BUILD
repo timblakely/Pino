@@ -32,6 +32,7 @@ cc_library(
         "//bldc/firmware/platform/stm32g4/peripherals:gpio_defines",
         "//bldc/firmware/platform/stm32g4/peripherals:nvic",
         "//third_party/etl:biffield",
+        "//third_party/kennytm/utils:traits",
         "//third_party/sg14:inplace_function",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
