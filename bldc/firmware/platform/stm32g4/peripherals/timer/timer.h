@@ -3,6 +3,8 @@
 
 #include <functional>
 
+#include "bldc/firmware/platform/stm32g4/peripherals/timer/peripheral.h"
+
 namespace platform {
 namespace stm32g4 {
 
@@ -125,6 +127,14 @@ class Tim5 : public Timer {
   void ClearChannelIRQ(Channel channel);
   void EnableChannelDMA(Channel channel);
   void DisableChannelDMA(Channel channel);
+};
+
+class AdvancedTimer {
+ public:
+  AdvancedTimer();
+
+ private:
+  timer::AdvancedPeripheral* peripheral_;
 };
 
 }  // namespace stm32g4

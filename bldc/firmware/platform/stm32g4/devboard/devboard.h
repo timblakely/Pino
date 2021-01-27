@@ -6,6 +6,7 @@
 #include "bldc/firmware/platform/stm32g4/g4_platform.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/can/can.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/spi.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 #include "bldc/firmware/stm32g474/led.h"
 
 namespace platform {

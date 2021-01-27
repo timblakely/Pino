@@ -5,6 +5,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/systick/systick.h"
 // #include "bldc/firmware/stm32g474/led.h"
 
 namespace platform {

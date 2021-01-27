@@ -7,7 +7,6 @@
 namespace platform {
 
 using stm32g4::Gpio;
-using stm32g4::Tim3;
 
 Led::Led(Gpio::Pin& pin, Mode mode) : pin_(pin), mode_(mode) {}
 Led::Led(Gpio::Pin&& pin, Mode mode) : pin_(std::move(pin)), mode_(mode) {}

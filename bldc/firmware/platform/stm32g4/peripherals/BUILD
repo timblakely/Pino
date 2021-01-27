@@ -71,7 +71,7 @@ cc_library(
     hdrs = ["rcc.h"],
     deps = [
         ":gpio_defines",
-        "//bldc/firmware/platform/stm32g4/peripherals/timer:timer_defines",
+        # "//bldc/firmware/platform/stm32g4/peripherals/timer:timer_defines",
     ],
 )
 
@@ -82,9 +82,10 @@ cc_library(
         ":flash",
         ":gpio",
         ":rcc_defines",
-        "//bldc/firmware/platform/stm32g4/peripherals/timer:timer_defines",
+        # "//bldc/firmware/platform/stm32g4/peripherals/timer:timer_defines",
         "//third_party/mapbox/eternal",
         "//third_party/stm32cubeg4:stm32g474xx",
+        "//bldc/firmware/platform/stm32g4/peripherals/systick",
     ],
 )
 
