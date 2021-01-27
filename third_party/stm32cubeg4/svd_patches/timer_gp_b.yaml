@@ -16,7 +16,6 @@ TIM15:
           description: HSE Divided by 32 enable
           msb: 0
           lsb: 0
-
   CR2:
     _delete: [OIS2, TI1S, MMS]
   DIER:

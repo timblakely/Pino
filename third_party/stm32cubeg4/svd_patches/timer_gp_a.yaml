@@ -32,6 +32,13 @@ TIM2:
           description: Capture/control DMA selection
           msb: 3
           lsb: 3
+  CR1:
+    CKD:
+      div1: [0b00, div1]
+      div2: [0b01, div2]
+      div4: [0b10, div4]
+  _include:
+    - "timer_common/smcr.yaml"
   DIER:
     _delete: [COMDE, BIE, COMIE]
   SR:

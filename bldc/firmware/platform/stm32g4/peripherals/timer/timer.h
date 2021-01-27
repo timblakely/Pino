@@ -131,10 +131,42 @@ class Tim5 : public Timer {
 
 class AdvancedTimer {
  public:
-  AdvancedTimer();
+  enum class Instance : uint32_t {
+    Tim1 = 0x4001'2C00,
+    Tim8 = 0x4001'3400,
+    Tim20 = 0x4001'5000,
+  };
+  AdvancedTimer(Instance instance);
 
  private:
   timer::AdvancedPeripheral* peripheral_;
+};
+
+class GeneralPurposeATimer {
+ public:
+  enum class Instance : uint32_t {
+    Tim2 = 0x4000'0000,
+    Tim3 = 0x4000'0400,
+    Tim4 = 0x4000'0800,
+    Tim5 = 0x4000'0C00,
+  };
+  GeneralPurposeATimer(Instance instance);
+
+  // Will attempt to set the timer to the most accurate resolution possible at
+  // the given frequency. Caution: Uses an iterative solver. For frequencies
+  // that cannot be computed directly for current clock frequency, this function
+  // has the potential to take tens of thousands of clock cycles. This scenario
+  // tends to occur more frequently when hz < f_clk / 2^16. If this is an issue,
+  // increase the tolerance limit. Returns whether the exact frequency was able
+  // to be set.
+  bool SetFrequency(float hz, float tolerance = 0.00001f);
+
+  inline void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) {
+    peripheral_->ConfigureTimer(prescalar, auto_reset);
+  }
+
+ private:
+  timer::GPAPeripheral* peripheral_;
 };
 
 }  // namespace stm32g4

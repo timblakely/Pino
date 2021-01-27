@@ -1,16 +1,15 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 
+#include <math.h>
+
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
-// #include "bldc/firmware/stm32g474/system.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_tim.h"
 
 namespace platform {
 namespace stm32g4 {
-
-
 
 struct Timer::TIM_TypeDefI : public TIM_TypeDef {};
 
@@ -323,7 +322,39 @@ void Tim5::DisableChannelDMA(Channel channel) {
   }
 }
 
-AdvancedTimer::AdvancedTimer() {}
+AdvancedTimer::AdvancedTimer(Instance instance)
+    : peripheral_(reinterpret_cast<timer::AdvancedPeripheral*>(instance)) {}
+
+GeneralPurposeATimer::GeneralPurposeATimer(Instance instance)
+    : peripheral_(reinterpret_cast<timer::GPAPeripheral*>(instance)) {}
+
+bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {
+  peripheral_->InternalClock();
+  const uint32_t clock_freq = Rcc::GetSysClockFrequency();
+  uint16_t prescalar = 1;
+  uint16_t closest_prescalar = 1;
+  uint16_t closest_arr = 1 << 16;
+  float diff = INFINITY;
+  while (prescalar < ((1 << 16) - 1)) {
+    uint32_t arr = ceil(clock_freq / (hz * prescalar));
+    if (arr > 1 << 16) {
+      ++prescalar;
+      continue;
+    }
+    float current_diff = abs(float(clock_freq) / (prescalar * arr) - hz);
+    if (current_diff < diff) {
+      closest_prescalar = prescalar;
+      closest_arr = arr;
+      diff = current_diff;
+    }
+    if (diff < tolerance) {
+      break;
+    }
+    ++prescalar;
+  }
+  ConfigureTimer(closest_prescalar, closest_arr);
+  return diff == 0;
+}
 
 }  // namespace stm32g4
 }  // namespace platform

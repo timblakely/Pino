@@ -10,6 +10,6 @@ _include:
   - "spi.yaml"
   - "timer_adv.yaml"
   - "timer_basic.yaml"
-  - "timer_gp_A.yaml"
-  - "timer_gp_B.yaml"
+  - "timer_gp_a.yaml"
+  - "timer_gp_b.yaml"
   - "../../stm32_rs/devices/common_patches/g4_rcc.yaml"

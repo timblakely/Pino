@@ -85,6 +85,9 @@ void Devboard::Init() {
     ++bar;
   });
 
+  GeneralPurposeATimer t3(GeneralPurposeATimer::Instance::Tim3);
+  t3.SetFrequency(1027, 0.01);
+
   while (true) {
     AngleFrame frame(ma702_.Angle());
     can_.SendFrame(frame);

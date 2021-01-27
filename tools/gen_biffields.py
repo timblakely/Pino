@@ -277,7 +277,7 @@ def verify(biffield_path, peripheral):
     os.fsync(f)
 
   out_path = os.path.join(temp_dir, 'out')
-  cmd = f'gcc {cc_path} -c -o {out_path} -I {include_path}'
+  cmd = f'gcc {cc_path} -c -o {out_path} -I {temp_dir}'
   if FLAGS.dump_verify_command:
     print(cmd)
   if os.system(cmd) != 0:
