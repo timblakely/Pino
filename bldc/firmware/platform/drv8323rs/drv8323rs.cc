@@ -28,7 +28,11 @@ void Drv::Disable() { enable_.Low(); }
 
 uint16_t Drv::BlockingReadRegister(Register reg) {
   uint16_t value = 0;
+// TODO(blakely): Correct this
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
   uint16_t data = kReadMask | (static_cast<uint16_t>(reg) << 11);
+#pragma GCC diagnostic pop
   spi_->BlockingTransfer(data, &value);
   return value;
 }

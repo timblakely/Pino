@@ -15,7 +15,10 @@ void Ma702::Init() {
                   Spi::FrameSize::SixteenBit);
   spi_->SetNssMode(Spi::NssMode::Hard);
 
-  // Register values hardcoded for now.
+// Register values hardcoded for now.
+// TODO(blakely): Correct this
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
   uint16_t status = 0;
   status = BlockingReadRegister(Register::ZLow);
   status = BlockingReadRegister(Register::ZHigh);
@@ -27,11 +30,16 @@ void Ma702::Init() {
   status = BlockingReadRegister(Register::RotationDirection);
   status = BlockingReadRegister(Register::MagFieldStatus);
   status = 0;
+#pragma GCC diagnostic pop
 }
 
 uint16_t Ma702::BlockingReadRegister(Register reg) {
   uint16_t value = 0;
+// TODO(blakely): Correct this
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
   uint16_t outbound = kReadRegister | (static_cast<uint16_t>(reg) << 8);
+#pragma GCC diagnostic pop
   // First read's resposne is the angle...
   spi_->BlockingTransfer(outbound, &value);
   // Second read's resposne is the resulting register value.

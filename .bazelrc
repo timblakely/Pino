@@ -1,3 +1,3 @@
-build --incompatible_enable_cc_toolchain_resolution --features=dump_memory_stats --features=newlib.nano --copt=-Wno-volatile
+build --incompatible_enable_cc_toolchain_resolution --features=dump_memory_stats --features=newlib.nano --copt=-Wno-volatile --features=warnings_are_errors
 test --incompatible_enable_cc_toolchain_resolution --copt=-std=c++17 --platforms=
 run --incompatible_enable_cc_toolchain_resolution --copt=-std=c++17 --platforms=
