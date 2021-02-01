@@ -44,7 +44,11 @@ void Nvic::SetSysTickMicros(uint32_t microseconds) {
   // Set tick priority as a lower priority than most.
   __NVIC_SetPriority(SysTick_IRQn, 4);
   const uint32_t core_clock_freq = Rcc::GetSysClockFrequency();
+// TODO(blakely): Correct this
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-conversion"
   SysTick_Config(core_clock_freq * (microseconds / 1e6));
+#pragma GCC diagnostic pop
 }
 
 void Nvic::SetInterrupt(Interrupt interrupt, uint32_t priority,
