@@ -38,6 +38,18 @@ void Devboard::Init() {
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
 
+  GeneralPurposeATimer t3(GeneralPurposeATimer::Instance::Tim3);
+  t3.SetFrequency(1, 0.05f);
+  t3.OutputPWM(GeneralPurposeATimer::Channel::Ch4, 0.5);
+  t3.Start();
+  // tim3.Configure();
+  // tim3.EnableOutput(Tim3::Channel::Ch4);
+  // tim3.Start();
+  green_->Blink();
+  while (true) {
+    asm("nop");
+  }
+
   Dma dma1(Dma::Instance::Dma1);
   dma1.Init();
 
@@ -81,12 +93,17 @@ void Devboard::Init() {
   // can ext 10 1234 FBr
   can_.SetHandler<0>([](SimpleReceiveFrame& f) {
     auto foo = f.foo();
+    (void)foo;
     auto bar = f.bar();
     ++bar;
   });
 
-  GeneralPurposeATimer t3(GeneralPurposeATimer::Instance::Tim3);
-  t3.SetFrequency(1027, 0.01);
+  tim3.Configure();
+  tim3.EnableOutput(Tim3::Channel::Ch4);
+  tim3.Start();
+  green_->Blink();
+  // blue_->On();
+  while (true) asm("nop");
 
   while (true) {
     AngleFrame frame(ma702_.Angle());

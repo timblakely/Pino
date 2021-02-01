@@ -86,7 +86,7 @@ void Tim3::EnableOutput(Channel channel) {
   switch (channel) {
     case Channel::Ch4:
       ll_chan = LL_TIM_CHANNEL_CH4;
-      LL_TIM_OC_SetCompareCH4(timer_, arr_period_ * .95);
+      LL_TIM_OC_SetCompareCH4(timer_, static_cast<uint32_t>(arr_period_ * .95));
       break;
   };
   ConfigureChannel(ll_chan);
@@ -106,7 +106,7 @@ void Tim2::EnableOutput(Channel channel) {
   switch (channel) {
     case Channel::Ch1:
       ll_chan = LL_TIM_CHANNEL_CH1;
-      LL_TIM_OC_SetCompareCH1(timer_, arr_period_ * .5);
+      LL_TIM_OC_SetCompareCH1(timer_, static_cast<uint32_t>(arr_period_ * .5));
       break;
   };
   ConfigureChannel(ll_chan);
@@ -149,7 +149,8 @@ void Tim1::EnableOutput(Channel channel) {
 }
 
 void Tim1::SetPwmDuty(Channel channel, float duty) {
-  return SetCaptureCompare(channel, arr_period_ * duty);
+  return SetCaptureCompare(
+      channel, static_cast<uint32_t>(static_cast<float>(arr_period_) * duty));
 }
 
 void Tim1::SetCaptureCompare(Channel channel, uint32_t value) {
@@ -253,7 +254,8 @@ void Tim5::EnableChannel(Channel channel, uint32_t compare_value) {
 }
 
 void Tim5::EnableChannel(Channel channel, float duty_cycle) {
-  EnableChannel(channel, arr_period_ * duty_cycle);
+  EnableChannel(channel, static_cast<uint32_t>(static_cast<float>(arr_period_) *
+                                               duty_cycle));
 }
 
 void Tim5::EnableChannelIRQ(Channel channel) {
@@ -326,34 +328,48 @@ AdvancedTimer::AdvancedTimer(Instance instance)
     : peripheral_(reinterpret_cast<timer::AdvancedPeripheral*>(instance)) {}
 
 GeneralPurposeATimer::GeneralPurposeATimer(Instance instance)
-    : peripheral_(reinterpret_cast<timer::GPAPeripheral*>(instance)) {}
+    : peripheral_(reinterpret_cast<timer::GPAPeripheral*>(instance)) {
+  // TODO(blakely): Remove LL.
+  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
+}
 
 bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {
   peripheral_->InternalClock();
   const uint32_t clock_freq = Rcc::GetSysClockFrequency();
   uint16_t prescalar = 1;
   uint16_t closest_prescalar = 1;
-  uint16_t closest_arr = 1 << 16;
-  float diff = INFINITY;
+  uint16_t closest_arr = (1 << 16) - 1;
+  float diff = std::numeric_limits<float>::infinity();
   while (prescalar < ((1 << 16) - 1)) {
-    uint32_t arr = ceil(clock_freq / (hz * prescalar));
-    if (arr > 1 << 16) {
+    uint32_t arr = static_cast<uint32_t>(ceil(
+        static_cast<float>(clock_freq) / (hz * static_cast<float>(prescalar))));
+    if (arr > (1 << 16) - 1) {
       ++prescalar;
       continue;
     }
-    float current_diff = abs(float(clock_freq) / (prescalar * arr) - hz);
+    float current_diff = abs(float(clock_freq) / float(prescalar * arr) - hz);
     if (current_diff < diff) {
       closest_prescalar = prescalar;
-      closest_arr = arr;
+      closest_arr = static_cast<uint16_t>(arr);
       diff = current_diff;
     }
     if (diff < tolerance) {
+      closest_prescalar = prescalar;
+      closest_arr = static_cast<uint16_t>(arr);
       break;
     }
     ++prescalar;
   }
   ConfigureTimer(closest_prescalar, closest_arr);
   return diff == 0;
+}
+
+void GeneralPurposeATimer::OutputPWM(Channel channel, float duty_cycle) {
+  peripheral_->EnableOutput(static_cast<uint8_t>(channel));
+  peripheral_->Up();
+  peripheral_->SetCompare(
+      static_cast<uint8_t>(channel),
+      uint16_t(float(peripheral_->GetResetValue()) * duty_cycle));
 }
 
 }  // namespace stm32g4

@@ -6,7 +6,7 @@ TIM2:
   _delete:
     CR2:
     BDTR:
-    CCR[45]:
+    CCR[56]:
     CCMR3_Output:
     DTR2:
   _add:
@@ -37,6 +37,34 @@ TIM2:
       div1: [0b00, div1]
       div2: [0b01, div2]
       div4: [0b10, div4]
+    CMS:
+      up_down: [0b00, _]
+      center_interrupt_down: [0b01, _]
+      center_interrupt_up: [0b10, _]
+      center_interrupt_both: [0b11, _]
+  CCMR1*:
+    CC1S:
+      output: [0b00, _]
+      input_ti1: [0b01, _]
+      input_ti2: [0b10, _]
+      input_trc: [0b11, _]
+    CC2S:
+      output: [0b00, _]
+      input_ti1: [0b01, _]
+      input_ti2: [0b10, _]
+      input_trc: [0b11, _]
+  CCMR2*:
+    CC3S:
+      output: [0b00, _]
+      input_ti1: [0b01, _]
+      input_ti2: [0b10, _]
+      input_trc: [0b11, _]
+    CC4S:
+      output: [0b00, _]
+      input_ti1: [0b01, _]
+      input_ti2: [0b10, _]
+      input_trc: [0b11, _]
+
   _include:
     - "timer_common/smcr.yaml"
   DIER:
@@ -68,3 +96,5 @@ TIM2:
     _delete: ["BK*"]
   AF2:
     _delete: ["BK*"]
+
+

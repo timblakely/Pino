@@ -150,7 +150,22 @@ class GeneralPurposeATimer {
     Tim4 = 0x4000'0800,
     Tim5 = 0x4000'0C00,
   };
+
+  enum class Channel : uint8_t {
+    Ch1 = 1,
+    Ch2 = 2,
+    ch3 = 3,
+    Ch4 = 4,
+    Ch5 = 5,
+  };
+
   GeneralPurposeATimer(Instance instance);
+
+  void OutputPWM(Channel channel, float duty_cycle);
+
+  inline void Start() { peripheral_->Enable(); }
+
+  inline void Stop() { peripheral_->Disable(); }
 
   // Will attempt to set the timer to the most accurate resolution possible at
   // the given frequency. Caution: Uses an iterative solver. For frequencies

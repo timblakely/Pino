@@ -8,7 +8,7 @@ int main() {
   auto* platform = BldcPlatform::Instance();
   platform->Startup();
 
-  uint32_t angle = 0;
+  // uint32_t angle = 0;
 
   while (true) {
     asm("nop");

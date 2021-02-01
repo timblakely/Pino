@@ -21,7 +21,12 @@ ETL_BFF_REG_RW(uint32_t, CR1,
   // Auto-reload preload enable
   ETL_BFF_FIELD(7:7, bool, ARPE)
   // Center-aligned mode selection
-  ETL_BFF_FIELD(6:5, uint8_t, CMS)
+  ETL_BFF_FIELD_E(6:5, uint8_t, CMS,
+    ETL_BFF_ENUM(0b00, up_down)
+    ETL_BFF_ENUM(0b01, center_interrupt_down)
+    ETL_BFF_ENUM(0b10, center_interrupt_up)
+    ETL_BFF_ENUM(0b11, center_interrupt_both)
+  )
   // Direction
   ETL_BFF_FIELD(4:4, bool, DIR)
   // One-pulse mode
@@ -250,7 +255,12 @@ ETL_BFF_REG_RW(uint32_t, CCMR1,
   // Output Compare 2 fast enable
   ETL_BFF_FIELD(10:10, bool, OC2FE)
   // Capture/Compare 2 selection
-  ETL_BFF_FIELD(9:8, uint8_t, CC2S)
+  ETL_BFF_FIELD_E(9:8, uint8_t, CC2S,
+    ETL_BFF_ENUM(0b00, output)
+    ETL_BFF_ENUM(0b01, input_ti1)
+    ETL_BFF_ENUM(0b10, input_ti2)
+    ETL_BFF_ENUM(0b11, input_trc)
+  )
   // Output Compare 1 clear enable
   ETL_BFF_FIELD(7:7, bool, OC1CE)
   // Output Compare 1 mode
@@ -260,7 +270,12 @@ ETL_BFF_REG_RW(uint32_t, CCMR1,
   // Output Compare 1 fast enable
   ETL_BFF_FIELD(2:2, bool, OC1FE)
   // Capture/Compare 1 selection
-  ETL_BFF_FIELD(1:0, uint8_t, CC1S)
+  ETL_BFF_FIELD_E(1:0, uint8_t, CC1S,
+    ETL_BFF_ENUM(0b00, output)
+    ETL_BFF_ENUM(0b01, input_ti1)
+    ETL_BFF_ENUM(0b10, input_ti2)
+    ETL_BFF_ENUM(0b11, input_trc)
+  )
 )
 
 // CCMR2
@@ -284,7 +299,12 @@ ETL_BFF_REG_RW(uint32_t, CCMR2,
   // Output compare 4 fast enable
   ETL_BFF_FIELD(10:10, bool, OC4FE)
   // Capture/Compare 4 selection
-  ETL_BFF_FIELD(9:8, uint8_t, CC4S)
+  ETL_BFF_FIELD_E(9:8, uint8_t, CC4S,
+    ETL_BFF_ENUM(0b00, output)
+    ETL_BFF_ENUM(0b01, input_ti1)
+    ETL_BFF_ENUM(0b10, input_ti2)
+    ETL_BFF_ENUM(0b11, input_trc)
+  )
   // Output compare 3 clear enable
   ETL_BFF_FIELD(7:7, bool, OC3CE)
   // Output compare 3 mode
@@ -294,7 +314,12 @@ ETL_BFF_REG_RW(uint32_t, CCMR2,
   // Output compare 3 fast enable
   ETL_BFF_FIELD(2:2, bool, OC3FE)
   // Capture/Compare 3 selection
-  ETL_BFF_FIELD(1:0, uint8_t, CC3S)
+  ETL_BFF_FIELD_E(1:0, uint8_t, CC3S,
+    ETL_BFF_ENUM(0b00, output)
+    ETL_BFF_ENUM(0b01, input_ti1)
+    ETL_BFF_ENUM(0b10, input_ti2)
+    ETL_BFF_ENUM(0b11, input_trc)
+  )
 )
 
 // CCER
@@ -410,20 +435,18 @@ ETL_BFF_REG_RW(uint32_t, CCR3,
   ETL_BFF_FIELD(15:0, uint16_t, CCR3)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved15, 3)
-
-// CCR6
+// CCR4
 //
 // capture/compare register 4
 //
-//   Offset: 0x04C
-ETL_BFF_REG_RW(uint32_t, CCR6,
+//   Offset: 0x040
+ETL_BFF_REG_RW(uint32_t, CCR4,
   // 31:16 reserved
   // Capture/Compare value
-  ETL_BFF_FIELD(15:0, uint16_t, CCR6)
+  ETL_BFF_FIELD(15:0, uint16_t, CCR4)
 )
 
-ETL_BFF_REG_RESERVED(uint32_t, reserved16, 2)
+ETL_BFF_REG_RESERVED(uint32_t, reserved16, 5)
 
 // ECR
 //
