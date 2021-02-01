@@ -162,6 +162,7 @@ class GeneralPurposeATimer {
   GeneralPurposeATimer(Instance instance);
 
   void OutputPWM(Channel channel, float duty_cycle);
+  void OutputToggle(Channel channel);
 
   inline void Start() { peripheral_->Enable(); }
 

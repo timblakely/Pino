@@ -350,7 +350,7 @@ bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {
     float current_diff = abs(float(clock_freq) / float(prescalar * arr) - hz);
     if (current_diff < diff) {
       closest_prescalar = prescalar;
-      closest_arr = static_cast<uint16_t>(arr);
+      closest_arr = arr;
       diff = current_diff;
     }
     if (diff < tolerance) {
@@ -367,9 +367,15 @@ bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {
 void GeneralPurposeATimer::OutputPWM(Channel channel, float duty_cycle) {
   peripheral_->EnableOutput(static_cast<uint8_t>(channel));
   peripheral_->Up();
-  peripheral_->SetCompare(
-      static_cast<uint8_t>(channel),
-      uint16_t(float(peripheral_->GetResetValue()) * duty_cycle));
+  peripheral_->SetCompare(static_cast<uint8_t>(channel),
+                          peripheral_->GetResetValue() * duty_cycle);
+}
+
+void GeneralPurposeATimer::OutputToggle(Channel channel) {
+  peripheral_->EnableOutputToggle(static_cast<uint8_t>(channel));
+  peripheral_->Up();
+  peripheral_->SetCompare(static_cast<uint8_t>(channel),
+                          peripheral_->GetResetValue());
 }
 
 }  // namespace stm32g4

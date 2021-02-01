@@ -111,6 +111,64 @@ struct GPAPeripheral {
     });
   }
 
+  inline void EnableOutputToggle(uint8_t channel) {
+    // CCSx bits are only writable if channel is off.
+    update_CCER([&](CCER v) {
+      switch (channel) {
+        case 1:
+          return v.with_CC1E(0);
+        case 2:
+          return v.with_CC2E(0);
+        case 3:
+          return v.with_CC3E(0);
+        case 4:
+          return v.with_CC4E(0);
+      }
+      return v;
+    });
+    if (channel <= 2) {
+      update_CCMR1([&](CCMR1 v) {
+        switch (channel) {
+          case 1:
+            return v.with_OC1M(0b011).with_OC1M_3(0).with_CC1S(
+                CCMR1::CC1S_t::output);
+          case 2:
+            return v.with_OC2M(0b011).with_OC2M_3(0).with_CC2S(
+                CCMR1::CC2S_t::output);
+        }
+        return v;
+      });
+    } else {
+      update_CCMR2([&](CCMR2 v) {
+        switch (channel) {
+          case 3:
+            return v.with_OC3M(0b011).with_OC3M_3(0).with_CC3S(
+                CCMR2::CC3S_t::output);
+          case 4:
+            // return v.with_OC4M(0b110).with_OC4M_3(0).with_CC4S(
+            //     CCMR2::CC4S_t::output);
+            return v.with_OC4M(0b011).with_OC4M_3(0).with_CC4S(
+                CCMR2::CC4S_t::output);
+        }
+        return v;
+      });
+    }
+
+    update_CCER([&](CCER v) {
+      switch (channel) {
+        case 1:
+          return v.with_CC1E(1);
+        case 2:
+          return v.with_CC2E(1);
+        case 3:
+          return v.with_CC3E(1);
+        case 4:
+          return v.with_CC4E(1);
+      }
+      return v;
+    });
+  }
+
   inline void Up() {
     update_CR1(
         [](CR1 v) { return v.with_DIR(0).with_CMS(CR1::CMS_t::up_down); });

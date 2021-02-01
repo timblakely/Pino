@@ -40,7 +40,8 @@ void Devboard::Init() {
 
   GeneralPurposeATimer t3(GeneralPurposeATimer::Instance::Tim3);
   t3.SetFrequency(1, 0.05f);
-  t3.OutputPWM(GeneralPurposeATimer::Channel::Ch4, 0.5);
+  // t3.OutputPWM(GeneralPurposeATimer::Channel::Ch4, 0.5);
+  t3.OutputToggle(GeneralPurposeATimer::Channel::Ch4);
   t3.Start();
   // tim3.Configure();
   // tim3.EnableOutput(Tim3::Channel::Ch4);
