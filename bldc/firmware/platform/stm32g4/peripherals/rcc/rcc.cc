@@ -10,6 +10,9 @@
 namespace platform {
 namespace stm32g4 {
 
+const rcc::Peripheral* Rcc::peripheral_ =
+    reinterpret_cast<rcc::Peripheral*>(rcc::kRccInstance);
+
 void Rcc::SetupClocks() {
   // TODO(blakely): Make this more general when needed.
 

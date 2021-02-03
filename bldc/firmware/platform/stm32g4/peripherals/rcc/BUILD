@@ -4,11 +4,15 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "peripheral",
+    srcs = [
+        "peripheral.cc",
+    ],
     hdrs = [
         "peripheral.h",
         "rcc_memory.inl",
     ],
     deps = [
+        "//bldc/firmware/platform/stm32g4/peripherals/timer:peripheral",
         "//third_party/etl:biffield",
     ],
 )
@@ -18,6 +22,7 @@ cc_library(
     name = "rcc_defines",
     hdrs = ["rcc.h"],
     deps = [
+        ":peripheral",
         "//bldc/firmware/platform/stm32g4/peripherals:gpio_defines",
         "//bldc/firmware/platform/stm32g4/peripherals/timer:peripheral",
     ],

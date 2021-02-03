@@ -2,6 +2,7 @@
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_RCC_H_
 
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc/peripheral.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/timer/peripheral.h"
 
 namespace platform {
@@ -16,15 +17,19 @@ class Rcc {
 
   static void Enable(Gpio::Port port);
 
-  // static void EnableClock
+  template <auto Peripheral>
+  static void EnableClock() {
+    peripheral_->EnableClock<Peripheral>();
+  };
 
-      private :
-      // Based on board design.
-      static constexpr uint32_t kHSEOscillatorSpeed = 24'000'000;
+ private:
+  // Based on board design.
+  static constexpr uint32_t kHSEOscillatorSpeed = 24'000'000;
   // From system_stm32g4xx.c
   static constexpr uint8_t AHBPrescTable[16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U,
                                                 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U};
   static constexpr uint8_t APBPrescTable[8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U};
+  static const rcc::Peripheral* peripheral_;
 };
 
 }  // namespace stm32g4
