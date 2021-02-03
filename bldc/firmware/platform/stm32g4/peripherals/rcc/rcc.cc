@@ -1,8 +1,7 @@
-#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc/rcc.h"
 
 #include "bldc/firmware/platform/stm32g4/peripherals/flash.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/systick/systick.h"
-#include "third_party/mapbox/eternal/eternal.hpp"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_pwr.h"

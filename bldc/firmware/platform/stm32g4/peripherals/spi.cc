@@ -1,7 +1,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/spi.h"
 
 #include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc/rcc.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_bus.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_dma.h"
 #include "third_party/stm32cubeg4/stm32g4xx_ll_spi.h"

@@ -41,7 +41,7 @@ cc_library(
     srcs = ["gpio.cc"],
     deps = [
         ":gpio_defines",
-        ":rcc_defines",
+        "//bldc/firmware/platform/stm32g4/peripherals/rcc",
         "//pstd:constexpr_map",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
@@ -60,32 +60,9 @@ cc_library(
     srcs = ["nvic.cc"],
     hdrs = ["nvic.h"],
     deps = [
-        ":rcc",
         "//bldc/firmware:interrupt_table",
+        "//bldc/firmware/platform/stm32g4/peripherals/rcc",
         "//third_party/stm32cubeg4:stm32g474xx",
-    ],
-)
-
-cc_library(
-    name = "rcc_defines",
-    hdrs = ["rcc.h"],
-    deps = [
-        ":gpio_defines",
-        # "//bldc/firmware/platform/stm32g4/peripherals/timer:timer_defines",
-    ],
-)
-
-cc_library(
-    name = "rcc",
-    srcs = ["rcc.cc"],
-    deps = [
-        ":flash",
-        ":gpio",
-        ":rcc_defines",
-        # "//bldc/firmware/platform/stm32g4/peripherals/timer:timer_defines",
-        "//third_party/mapbox/eternal",
-        "//third_party/stm32cubeg4:stm32g474xx",
-        "//bldc/firmware/platform/stm32g4/peripherals/systick",
     ],
 )
 

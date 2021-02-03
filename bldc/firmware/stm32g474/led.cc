@@ -43,6 +43,8 @@ void Led::ConfigureBlink() {
   pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
                  Gpio::AlternateFunction::AF10);
   // pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+  //                Gpio::AlternateFunction::AF2);
+  // pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
   //                Gpio::AlternateFunction::AF1);
 }
 

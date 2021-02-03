@@ -6,7 +6,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/dma.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
-#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc/rcc.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 
 using platform::stm32g4::Dma;
@@ -38,10 +38,20 @@ void Devboard::Init() {
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
 
+  // GeneralPurposeATimer t4(timer::Instance::Tim4);
+  // t4.SetFrequency(1, 0.05f);
+  // t4.OutputToggle(1);
+  // t4.OutputToggle(4);
+  // t4.Start();
+  // red_->Blink();
+  // blue_->Blink();
+  // red_->On();
+  // blue_->Blink();
+
   GeneralPurposeATimer t3(timer::Instance::Tim3);
   t3.SetFrequency(1, 0.05f);
-  t3.OutputPWM(4, 0.5);
-  // t3.OutputToggle(4);
+  // t3.OutputPWM(4, 0.5);
+  t3.OutputToggle(4);
   t3.Start();
   // tim3.Configure();
   // tim3.EnableOutput(Tim3::Channel::Ch4);

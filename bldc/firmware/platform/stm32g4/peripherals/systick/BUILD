@@ -8,7 +8,7 @@ cc_library(
     hdrs = ["systick.h"],
     deps = [
         "//bldc/firmware/platform/stm32g4/peripherals:nvic_defines",
-        "//bldc/firmware/platform/stm32g4/peripherals:rcc_defines",
+        "//bldc/firmware/platform/stm32g4/peripherals/rcc:rcc_defines",
         "//third_party/stm32cubeg4:stm32g474xx",
     ],
     alwayslink = 1,

@@ -4,7 +4,7 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/gpio.h"
 // clang-format on
 
-#include "bldc/firmware/platform/stm32g4/peripherals/rcc.h"
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc/rcc.h"
 #include "pstd/constexpr_map.h"
 
 namespace platform {
