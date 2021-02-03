@@ -144,25 +144,10 @@ class AdvancedTimer {
 
 class GeneralPurposeATimer {
  public:
-  enum class Instance : uint32_t {
-    Tim2 = 0x4000'0000,
-    Tim3 = 0x4000'0400,
-    Tim4 = 0x4000'0800,
-    Tim5 = 0x4000'0C00,
-  };
+  GeneralPurposeATimer(timer::Instance instance);
 
-  enum class Channel : uint8_t {
-    Ch1 = 1,
-    Ch2 = 2,
-    ch3 = 3,
-    Ch4 = 4,
-    Ch5 = 5,
-  };
-
-  GeneralPurposeATimer(Instance instance);
-
-  void OutputPWM(Channel channel, float duty_cycle);
-  void OutputToggle(Channel channel);
+  void OutputPWM(uint8_t channel, float duty_cycle);
+  void OutputToggle(uint8_t channel);
 
   inline void Start() { peripheral_->Enable(); }
 

@@ -327,7 +327,7 @@ void Tim5::DisableChannelDMA(Channel channel) {
 AdvancedTimer::AdvancedTimer(Instance instance)
     : peripheral_(reinterpret_cast<timer::AdvancedPeripheral*>(instance)) {}
 
-GeneralPurposeATimer::GeneralPurposeATimer(Instance instance)
+GeneralPurposeATimer::GeneralPurposeATimer(timer::Instance instance)
     : peripheral_(reinterpret_cast<timer::GPAPeripheral*>(instance)) {
   // TODO(blakely): Remove LL.
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
@@ -364,14 +364,13 @@ bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {
   return diff == 0;
 }
 
-void GeneralPurposeATimer::OutputPWM(Channel channel, float duty_cycle) {
-  peripheral_->EnableOutput(static_cast<uint8_t>(channel));
+void GeneralPurposeATimer::OutputPWM(uint8_t channel, float duty_cycle) {
+  peripheral_->EnableOutput(channel);
   peripheral_->Up();
-  peripheral_->SetCompare(static_cast<uint8_t>(channel),
-                          peripheral_->GetResetValue() * duty_cycle);
+  peripheral_->SetCompare(channel, peripheral_->GetResetValue() * duty_cycle);
 }
 
-void GeneralPurposeATimer::OutputToggle(Channel channel) {
+void GeneralPurposeATimer::OutputToggle(uint8_t channel) {
   peripheral_->EnableOutputToggle(static_cast<uint8_t>(channel));
   peripheral_->Up();
   peripheral_->SetCompare(static_cast<uint8_t>(channel),
