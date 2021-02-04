@@ -23,7 +23,8 @@ void Rcc::SetupClocks() {
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
 
-  // Allow for bumping the core voltage by 80mV during high frequency operation.
+  // Allow for bumping the core voltage by 80mV during high frequency
+  // operation.
   LL_PWR_EnableRange1BoostMode();
 
   // Configure HSE
