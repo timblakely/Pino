@@ -329,8 +329,6 @@ AdvancedTimer::AdvancedTimer(Instance instance)
 
 GeneralPurposeATimer::GeneralPurposeATimer(timer::Instance instance)
     : peripheral_(reinterpret_cast<timer::GPAPeripheral*>(instance)) {
-  // TODO(blakely): Remove LL.
-  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 }
 
 bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {

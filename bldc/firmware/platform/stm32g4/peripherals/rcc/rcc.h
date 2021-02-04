@@ -18,7 +18,7 @@ class Rcc {
   static void Enable(Gpio::Port port);
 
   template <auto Peripheral>
-  static void EnableClock() {
+  inline static void EnableClock() {
     peripheral_->EnableClock<Peripheral>();
   };
 
@@ -29,7 +29,7 @@ class Rcc {
   static constexpr uint8_t AHBPrescTable[16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U,
                                                 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U};
   static constexpr uint8_t APBPrescTable[8] = {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U};
-  static const rcc::Peripheral* peripheral_;
+  static rcc::Peripheral* const peripheral_;
 };
 
 }  // namespace stm32g4

@@ -3,6 +3,7 @@
 
 #include <functional>
 
+#include "bldc/firmware/platform/stm32g4/peripherals/rcc/rcc.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/timer/peripheral.h"
 
 namespace platform {
@@ -154,7 +155,9 @@ class GeneralPurposeATimer {
   inline void Stop() { peripheral_->Disable(); }
 
   template <auto Instance>
-  inline void EnableClock() {}
+  inline void EnableClock() {
+    Rcc::EnableClock<Instance>();
+  }
 
   // Will attempt to set the timer to the most accurate resolution possible at
   // the given frequency. Caution: Uses an iterative solver. For frequencies
@@ -172,18 +175,6 @@ class GeneralPurposeATimer {
  private:
   timer::GPAPeripheral* peripheral_;
 };
-
-template <>
-inline void GeneralPurposeATimer::EnableClock<timer::Instance::Tim3>() {
-  // TODO(blakely): Remove LL.
-  // LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
-}
-
-template <>
-inline void GeneralPurposeATimer::EnableClock<timer::Instance::Tim4>() {
-  // TODO(blakely): Remove LL.
-  // LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
-}
 
 }  // namespace stm32g4
 }  // namespace platform

@@ -40,10 +40,10 @@ void Led::SetMode(Mode mode) {
 
 void Led::ConfigureBlink() {
   // TODO(blakely): Pull AF from GPIO somewhere... maybe pin?
-  pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
-                 Gpio::AlternateFunction::AF10);
   // pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
-  //                Gpio::AlternateFunction::AF2);
+  //                Gpio::AlternateFunction::AF10);
+  pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
+                 Gpio::AlternateFunction::AF2);
   // pin_.Configure(Gpio::OutputMode::PushPull, Gpio::Pullup::None,
   //                Gpio::AlternateFunction::AF1);
 }

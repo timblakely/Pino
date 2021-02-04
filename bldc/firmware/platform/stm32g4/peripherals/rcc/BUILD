@@ -4,9 +4,6 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "peripheral",
-    srcs = [
-        "peripheral.cc",
-    ],
     hdrs = [
         "peripheral.h",
         "rcc_memory.inl",

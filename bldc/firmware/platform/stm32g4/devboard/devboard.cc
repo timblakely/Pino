@@ -38,17 +38,19 @@ void Devboard::Init() {
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
 
-  // GeneralPurposeATimer t4(timer::Instance::Tim4);
-  // t4.SetFrequency(1, 0.05f);
-  // t4.OutputToggle(1);
-  // t4.OutputToggle(4);
-  // t4.Start();
-  // red_->Blink();
-  // blue_->Blink();
+  GeneralPurposeATimer t4(timer::Instance::Tim4);
+  t4.EnableClock<timer::Instance::Tim4>();
+  t4.SetFrequency(2, 0.05f);
+  t4.OutputToggle(1);
+  t4.OutputToggle(4);
+  t4.Start();
+  red_->Blink();
+  blue_->Blink();
   // red_->On();
   // blue_->Blink();
 
   GeneralPurposeATimer t3(timer::Instance::Tim3);
+  t3.EnableClock<timer::Instance::Tim3>();
   t3.SetFrequency(1, 0.05f);
   // t3.OutputPWM(4, 0.5);
   t3.OutputToggle(4);

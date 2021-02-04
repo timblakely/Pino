@@ -1,6 +1,8 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_PERIPHERAL_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_RCC_PERIPHERAL_H_
 
+#include "bldc/firmware/platform/stm32g4/peripherals/timer/peripheral.h"
+
 namespace platform {
 namespace stm32g4 {
 
@@ -22,6 +24,21 @@ struct Peripheral {
   template <auto Peripheral>
   inline void EnableClock();
 };
+
+template <>
+inline void Peripheral::EnableClock<timer::Instance::Tim2>() {
+  update_APB1ENR1([](APB1ENR1 v) { return v.with_TIM2EN(1); });
+}
+
+template <>
+inline void Peripheral::EnableClock<timer::Instance::Tim3>() {
+  update_APB1ENR1([](APB1ENR1 v) { return v.with_TIM3EN(1); });
+}
+
+template <>
+inline void Peripheral::EnableClock<timer::Instance::Tim4>() {
+  update_APB1ENR1([](APB1ENR1 v) { return v.with_TIM4EN(1); });
+}
 
 }  // namespace rcc
 
