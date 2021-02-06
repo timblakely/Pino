@@ -132,16 +132,25 @@ void Rcc::Enable(Gpio::Port port) {
   }
 }
 
-// void Rcc::Enable(AdvancedTimer timer) {
-//   switch (timer) {
-//     case AdvancedTimer::Tim1:
-//       return LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1);
-//     case AdvancedTimer::Tim8:
-//       return LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM8);
-//     case AdvancedTimer::Tim20:
-//       return LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM20);
-//   }
-// }
+template <>
+void Rcc::EnableClock<timer::Instance::Tim2>(bool enable) {
+  peripheral_->EnableTim2(enable);
+};
+
+template <>
+void Rcc::EnableClock<timer::Instance::Tim3>(bool enable) {
+  peripheral_->EnableTim3(enable);
+};
+
+template <>
+void Rcc::EnableClock<timer::Instance::Tim4>(bool enable) {
+  peripheral_->EnableTim4(enable);
+};
+
+template <>
+void Rcc::EnableClock<timer::Instance::Tim5>(bool enable) {
+  peripheral_->EnableTim5(enable);
+};
 
 }  // namespace stm32g4
 }  // namespace platform

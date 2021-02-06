@@ -155,8 +155,8 @@ class GeneralPurposeATimer {
   inline void Stop() { peripheral_->Disable(); }
 
   template <auto Instance>
-  inline void EnableClock() {
-    Rcc::EnableClock<Instance>();
+  inline void EnableClock(bool enable) {
+    Rcc::EnableClock<Instance>(enable);
   }
 
   // Will attempt to set the timer to the most accurate resolution possible at
