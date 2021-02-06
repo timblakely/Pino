@@ -21,19 +21,17 @@ struct Peripheral {
 
   using APB1ENR1 = APB1ENR1_value_t;
 
-  inline void EnableTim2(bool enable) {
-    EnableAPB1Clock(&APB1ENR1::with_TIM2EN, enable);
-  };
-  inline void EnableTim3(bool enable) {
-    EnableAPB1Clock(&APB1ENR1::with_TIM3EN, enable);
-  };
-  inline void EnableTim4(bool enable) {
-    EnableAPB1Clock(&APB1ENR1::with_TIM4EN, enable);
-  };
-  inline void EnableTim5(bool enable) {
-    EnableAPB1Clock(&APB1ENR1::with_TIM5EN, enable);
-  };
+#define APB1CLOCK_ENABLE(name, bit)                     \
+  inline void Enable##name(bool enable) {               \
+    EnableAPB1Clock(&APB1ENR1::with_##bit##EN, enable); \
+  }
 
+  APB1CLOCK_ENABLE(Tim2, TIM2);
+  APB1CLOCK_ENABLE(Tim3, TIM3);
+  APB1CLOCK_ENABLE(Tim4, TIM4);
+  APB1CLOCK_ENABLE(Tim5, TIM5);
+
+#undef APB1CLOCK_ENABLE
  private:
   inline void EnableAPB1Clock(auto bit_selector, bool enable) {
     update_APB1ENR1(
