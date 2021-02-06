@@ -1,8 +1,6 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_TIMER_PERIPHERAL_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_TIMER_PERIPHERAL_H_
 
-#include "bldc/firmware/platform/stm32g4/peripherals/timer/defines.h"
-
 namespace platform {
 namespace stm32g4 {
 

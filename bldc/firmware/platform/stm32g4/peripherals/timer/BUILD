@@ -3,13 +3,6 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
-    name = "defines",
-    hdrs = [
-        "defines.h",
-    ],
-)
-
-cc_library(
     name = "peripheral",
     hdrs = [
         "peripheral.h",
@@ -19,7 +12,6 @@ cc_library(
         "timer_gp_b_memory.inl",
     ],
     deps = [
-        ":defines",
         "//third_party/etl:biffield",
     ],
 )

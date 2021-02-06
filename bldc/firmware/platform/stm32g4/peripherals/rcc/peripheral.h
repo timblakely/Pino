@@ -25,7 +25,6 @@ struct Peripheral {
   inline void Enable##name(bool enable) {               \
     EnableAPB1Clock(&APB1ENR1::with_##bit##EN, enable); \
   }
-
   APB1CLOCK_ENABLE(Tim2, TIM2);
   APB1CLOCK_ENABLE(Tim3, TIM3);
   APB1CLOCK_ENABLE(Tim4, TIM4);
