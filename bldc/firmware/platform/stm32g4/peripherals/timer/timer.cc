@@ -1,7 +1,5 @@
 #include "bldc/firmware/platform/stm32g4/peripherals/timer/timer.h"
 
-#include <math.h>
-
 #include "bldc/firmware/platform/stm32g4/peripherals/nvic.h"
 #include "bldc/firmware/platform/stm32g4/peripherals/rcc/rcc.h"
 #include "third_party/stm32cubeg4/stm32g474xx.h"
@@ -326,54 +324,6 @@ void Tim5::DisableChannelDMA(Channel channel) {
 
 AdvancedTimer::AdvancedTimer(Instance instance)
     : peripheral_(reinterpret_cast<timer::AdvancedPeripheral*>(instance)) {}
-
-GeneralPurposeATimer::GeneralPurposeATimer(timer::Instance instance)
-    : peripheral_(reinterpret_cast<timer::GPAPeripheral*>(instance)) {
-}
-
-bool GeneralPurposeATimer::SetFrequency(float hz, float tolerance) {
-  peripheral_->InternalClock();
-  const uint32_t clock_freq = Rcc::GetSysClockFrequency();
-  uint16_t prescalar = 1;
-  uint16_t closest_prescalar = 1;
-  uint16_t closest_arr = (1 << 16) - 1;
-  float diff = std::numeric_limits<float>::infinity();
-  while (prescalar < ((1 << 16) - 1)) {
-    uint32_t arr = static_cast<uint32_t>(ceil(
-        static_cast<float>(clock_freq) / (hz * static_cast<float>(prescalar))));
-    if (arr > (1 << 16) - 1) {
-      ++prescalar;
-      continue;
-    }
-    float current_diff = abs(float(clock_freq) / float(prescalar * arr) - hz);
-    if (current_diff < diff) {
-      closest_prescalar = prescalar;
-      closest_arr = arr;
-      diff = current_diff;
-    }
-    if (diff < tolerance) {
-      closest_prescalar = prescalar;
-      closest_arr = static_cast<uint16_t>(arr);
-      break;
-    }
-    ++prescalar;
-  }
-  ConfigureTimer(closest_prescalar, closest_arr);
-  return diff == 0;
-}
-
-void GeneralPurposeATimer::OutputPWM(uint8_t channel, float duty_cycle) {
-  peripheral_->EnableOutput(channel);
-  peripheral_->Up();
-  peripheral_->SetCompare(channel, peripheral_->GetResetValue() * duty_cycle);
-}
-
-void GeneralPurposeATimer::OutputToggle(uint8_t channel) {
-  peripheral_->EnableOutputToggle(static_cast<uint8_t>(channel));
-  peripheral_->Up();
-  peripheral_->SetCompare(static_cast<uint8_t>(channel),
-                          peripheral_->GetResetValue());
-}
 
 }  // namespace stm32g4
 }  // namespace platform

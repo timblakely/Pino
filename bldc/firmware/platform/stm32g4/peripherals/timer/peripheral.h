@@ -32,6 +32,16 @@ struct AdvancedPeripheral {
 #undef ETL_BFF_DEFINITION_FILE
 };
 
+template<auto Target, auto... EnumVal>
+concept IsOneOfEnum = ((Target == EnumVal) || ...);
+
+template<auto T>
+concept Is32BitTimer = IsOneOfEnum<T, Instance::Tim2, Instance::Tim5>;
+
+template<auto T>
+concept Is16BitTimer = !IsOneOfEnum<T, Instance::Tim2, Instance::Tim5>;
+
+template<auto Instance>
 struct GPAPeripheral {
   GPAPeripheral() = delete;
   GPAPeripheral(GPAPeripheral&) = delete;
@@ -181,7 +191,7 @@ struct GPAPeripheral {
     update_CR1([](CR1 v) { return v.with_CEN(0); });
   }
 
-  inline void SetCompare(uint8_t channel, uint16_t value) {
+  inline void SetCompare(uint8_t channel, uint16_t value) requires Is16BitTimer<Instance> {
     switch (channel) {
       case 1:
         update_CCR1([&value](CCR1 v) { return v.with_CCR1(value); });
