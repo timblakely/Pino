@@ -51,6 +51,10 @@ void Devboard::Init() {
 
   auto t5 = Timer<timer::Instance::Tim5>();
   (void)t5;
+  (void)t5.GetResetValue();
+  // auto t1 = Timer<timer::Instance::Tim1>();
+  // (void)t1;
+  // (void)t1.GetResetValue();
   green_->Blink();
   while (true) {
     asm("nop");

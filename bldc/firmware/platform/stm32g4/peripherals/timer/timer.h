@@ -147,12 +147,12 @@ class AdvancedTimer {
 
 // old size: 53540
 
-template <timer::ATimer Instance>
-class GeneralPurposeATimer {
+class TimerCommon {
  public:
-  GeneralPurposeATimer(timer::Instance instance)
-      : peripheral_(reinterpret_cast<Instance*>(instance)),
-        instance_(instance) {}
+  explicit TimerCommon(timer::Instance instance) : instance_(instance) {}
+  virtual void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) = 0;
+
+  inline void EnableClock(bool enable) { Rcc::EnableClock(instance_, enable); }
 
   // Will attempt to set the timer to the most accurate resolution possible at
   // the given frequency. Caution: Uses an iterative solver. For frequencies
@@ -161,9 +161,8 @@ class GeneralPurposeATimer {
   // tends to occur more frequently when hz < f_clk / 2^16. If this is an issue,
   // increase the tolerance limit. Returns whether the exact frequency was able
   // to be set.
-  bool SetFrequency(float hz, float tolerance = 0.00001f) {
-    peripheral_->InternalClock();
-    const uint32_t clock_freq = Rcc::GetSysClockFrequency();
+  bool SetFrequency(const uint32_t clock_freq, float hz,
+                    float tolerance = 0.00001f) {
     uint16_t prescalar = 1;
     uint16_t closest_prescalar = 1;
     uint16_t closest_arr = (1 << 16) - 1;
@@ -193,6 +192,17 @@ class GeneralPurposeATimer {
     return diff == 0;
   }
 
+ private:
+  timer::Instance instance_;
+};
+
+template <timer::ATimer Instance>
+class GeneralPurposeATimer : public TimerCommon {
+ public:
+  GeneralPurposeATimer(timer::Instance instance)
+      : TimerCommon(instance),
+        peripheral_(reinterpret_cast<Instance*>(instance)) {}
+
   void OutputPWM(uint8_t channel, float duty_cycle) {
     peripheral_->EnableOutput(channel);
     peripheral_->Up();
@@ -210,20 +220,28 @@ class GeneralPurposeATimer {
 
   inline void Stop() { peripheral_->Disable(); }
 
-  inline void EnableClock(bool enable) { Rcc::EnableClock(instance_, enable); }
-
-  inline void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) {
+  inline void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) override {
     peripheral_->ConfigureTimer(prescalar, auto_reset);
   }
 
+  bool SetFrequency(float hz, float tolerance = 0.00001f) {
+    peripheral_->InternalClock();
+    const uint32_t clock_freq = Rcc::GetSysClockFrequency();
+    return TimerCommon::SetFrequency(clock_freq, hz, tolerance);
+  }
+
+  inline auto GetResetValue() { return peripheral_->GetResetValue(); }
+
  private:
   Instance* peripheral_;
-  timer::Instance instance_;
 };
 
 template <timer::Instance T>
 constexpr static auto TimerType = [] {
-  if constexpr (T == timer::Instance::Tim3) {
+  if constexpr (T == timer::Instance::Tim1) {
+    return GeneralPurposeATimer<timer::AdvancedPeripheral>(
+        timer::Instance::Tim1);
+  } else if constexpr (T == timer::Instance::Tim3) {
     return GeneralPurposeATimer<timer::GPAPeripheral<uint16_t>>(
         timer::Instance::Tim3);
   } else if constexpr (T == timer::Instance::Tim4) {

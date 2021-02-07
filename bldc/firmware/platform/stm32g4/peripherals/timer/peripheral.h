@@ -13,6 +13,11 @@ struct TimerBase {};
 template <typename Depth = uint16_t>
 struct Timer : TimerBase {
   using BitDepth = Depth;
+
+  inline BitDepth GetResetValue();
+  inline void Enable();
+  inline void Disable();
+  inline void ConfigureTimer(uint16_t prescalar, uint16_t reset);
 };
 
 enum class Instance : uint32_t {
@@ -52,6 +57,8 @@ struct AdvancedPeripheral : Timer<> {
   "bldc/firmware/platform/stm32g4/peripherals/timer/timer_adv_memory.inl"
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
+
+  inline BitDepth GetResetValue() { return read_ARR().get_ARR(); }
 };
 // clang-format on
 
