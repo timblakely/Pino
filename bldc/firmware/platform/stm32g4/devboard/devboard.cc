@@ -33,36 +33,24 @@ void Devboard::Init() {
   Nvic::SetInterruptHandler(Interrupt::HardFault, [this] { OnFatal(); });
 
   red_ = new Led({Gpio::Port::B, 6});
-  // green_ = new Led({Gpio::Port::B, 9});  // Correct for v0 board
-  // blue_ = new Led({Gpio::Port::B, 7});
   green_ = new Led({Gpio::Port::B, 7});
   blue_ = new Led({Gpio::Port::B, 9});
 
-  // GeneralPurposeATimer<timer::Tim4> t4;
   auto t4 = Timer<timer::Instance::Tim4>();
-  t4.EnableClock(true);
   t4.SetFrequency(2, 0.05f);
   t4.OutputToggle(1);
   t4.OutputPWM(4, 0.5);
   t4.Start();
   red_->Blink();
   blue_->Blink();
-  // red_->On();
-  // blue_->Blink();
 
-  // GeneralPurposeATimer<timer::Tim3> t3;
   auto t3 = Timer<timer::Instance::Tim3>();
-  t3.EnableClock(true);
   t3.SetFrequency(1, 0.05f);
-  // t3.OutputPWM(4, 0.5);
   t3.OutputToggle(4);
   t3.Start();
 
   auto t5 = Timer<timer::Instance::Tim5>();
   (void)t5;
-  // tim3.Configure();
-  // tim3.EnableOutput(Tim3::Channel::Ch4);
-  // tim3.Start();
   green_->Blink();
   while (true) {
     asm("nop");

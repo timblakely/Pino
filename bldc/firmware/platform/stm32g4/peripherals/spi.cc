@@ -27,6 +27,7 @@ void Spi::Init(Port port) {
       ll_port_ = static_cast<SPI_TypeDefI*>(SPI1);
       LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SPI1);
       break;
+    default:
     case Port::Spi3:
       // TODO(blakely): This doesn't map directly, since SPI2/3 are also on AF5
       // :(

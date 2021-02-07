@@ -10,16 +10,10 @@ namespace timer {
 
 struct TimerBase {};
 
-template <typename Depth>
+template <typename Depth = uint16_t>
 struct Timer : TimerBase {
   using BitDepth = Depth;
 };
-
-struct AdvancedTimer : Timer<uint16_t> {};
-template <typename BitDepth>
-struct GPATimer : Timer<BitDepth> {};
-struct GPBTimer : Timer<uint16_t> {};
-struct BasicTimer : Timer<uint16_t> {};
 
 enum class Instance : uint32_t {
   Tim1 = 0x4001'2C00,
@@ -43,14 +37,14 @@ concept ATimer = requires {
 
 template <typename T>
 concept A32BitTimer = requires {
-  requires std::is_convertible_v<T, GPATimer<uint32_t>>;
+  requires std::is_same_v<typename T::BitDepth, uint32_t>;
 };
 
 template <typename T>
 concept A16BitTimer = !A32BitTimer<T>;
 
 // clang-format off
-struct AdvancedPeripheral {
+struct AdvancedPeripheral : Timer<> {
   AdvancedPeripheral() = delete;
   AdvancedPeripheral(AdvancedPeripheral&) = delete;
   AdvancedPeripheral(AdvancedPeripheral&&) = delete;
@@ -61,9 +55,9 @@ struct AdvancedPeripheral {
 };
 // clang-format on
 
-template <typename Instance>
-struct GPAPeripheral {
-  using BitDepth = Instance::BitDepth;
+template <typename Resolution>
+struct GPAPeripheral : Timer<Resolution> {
+  using BitDepth = Timer<Resolution>::BitDepth;
   GPAPeripheral() = delete;
   GPAPeripheral(GPAPeripheral&) = delete;
   GPAPeripheral(GPAPeripheral&&) = delete;
@@ -230,7 +224,7 @@ struct GPAPeripheral {
   }
 };
 
-struct GPBPeripheral {
+struct GPBPeripheral : Timer<> {
   GPBPeripheral() = delete;
   GPBPeripheral(GPBPeripheral&) = delete;
   GPBPeripheral(GPBPeripheral&&) = delete;
@@ -242,7 +236,7 @@ struct GPBPeripheral {
   // clang-format on
 };
 
-struct BasicPeripheral {
+struct BasicPeripheral : Timer<> {
   BasicPeripheral() = delete;
   BasicPeripheral(BasicPeripheral&) = delete;
   BasicPeripheral(BasicPeripheral&&) = delete;

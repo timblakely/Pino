@@ -151,8 +151,7 @@ template <timer::ATimer Instance>
 class GeneralPurposeATimer {
  public:
   GeneralPurposeATimer(timer::Instance instance)
-      : peripheral_(
-            reinterpret_cast<timer::GPAPeripheral<Instance>*>(instance)),
+      : peripheral_(reinterpret_cast<Instance*>(instance)),
         instance_(instance) {}
 
   // Will attempt to set the timer to the most accurate resolution possible at
@@ -218,22 +217,29 @@ class GeneralPurposeATimer {
   }
 
  private:
-  timer::GPAPeripheral<Instance>* peripheral_;
+  Instance* peripheral_;
   timer::Instance instance_;
 };
 
-template <auto T>
-constexpr static auto Timer = [] {
+template <timer::Instance T>
+constexpr static auto TimerType = [] {
   if constexpr (T == timer::Instance::Tim3) {
-    return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(
+    return GeneralPurposeATimer<timer::GPAPeripheral<uint16_t>>(
         timer::Instance::Tim3);
   } else if constexpr (T == timer::Instance::Tim4) {
-    return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(
+    return GeneralPurposeATimer<timer::GPAPeripheral<uint16_t>>(
         timer::Instance::Tim4);
   } else if constexpr (T == timer::Instance::Tim5) {
-    return GeneralPurposeATimer<timer::GPATimer<uint32_t>>(
+    return GeneralPurposeATimer<timer::GPAPeripheral<uint32_t>>(
         timer::Instance::Tim5);
   }
+};
+
+template <timer::Instance T>
+constexpr static auto Timer = [] {
+  auto timer = TimerType<T>();
+  timer.EnableClock(true);
+  return timer;
 };
 
 }  // namespace stm32g4
