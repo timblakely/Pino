@@ -57,6 +57,9 @@ void Devboard::Init() {
   // t3.OutputPWM(4, 0.5);
   t3.OutputToggle(4);
   t3.Start();
+
+  auto t5 = Timer<timer::Instance::Tim5>();
+  (void)t5;
   // tim3.Configure();
   // tim3.EnableOutput(Tim3::Channel::Ch4);
   // tim3.Start();

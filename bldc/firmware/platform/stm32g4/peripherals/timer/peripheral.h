@@ -36,19 +36,6 @@ enum class Instance : uint32_t {
   Tim20 = 0x4001'5000,
 };
 
-// struct Tim1 : TimerBase<0x4001'2C00> {};
-// struct Tim2 : TimerBase<0x4000'0000> {};
-// struct Tim3 = TimerBase<0x4000'0400>{};
-// struct Tim4 = TimerBase<0x4000'0800>{};
-// struct Tim5 : TimerBase<0x4000'0C00> {};
-// struct Tim6 : TimerBase<0x4001'1000> {};
-// struct Tim7 : TimerBase<0x4001'1400> {};
-// struct Tim8 : TimerBase<0x4001'3400> {};
-// struct Tim15 : TimerBase<0x4001'4000> {};
-// struct Tim16 : TimerBase<0x4001'4400> {};
-// struct Tim17 : TimerBase<0x4001'4800> {};
-// struct Tim20 : TimerBase<0x4001'5000> {};
-
 template <typename T>
 concept ATimer = requires {
   requires std::is_convertible_v<T, TimerBase>;

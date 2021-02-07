@@ -223,16 +223,17 @@ class GeneralPurposeATimer {
 };
 
 template <auto T>
-constexpr static auto Timer = [] {};
-
-template <>
-constexpr auto Timer<timer::Instance::Tim3> = [] {
-  return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(timer::Instance::Tim3);
-};
-
-template <>
-constexpr auto Timer<timer::Instance::Tim4> = [] {
-  return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(timer::Instance::Tim4);
+constexpr static auto Timer = [] {
+  if constexpr (T == timer::Instance::Tim3) {
+    return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(
+        timer::Instance::Tim3);
+  } else if constexpr (T == timer::Instance::Tim4) {
+    return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(
+        timer::Instance::Tim4);
+  } else if constexpr (T == timer::Instance::Tim5) {
+    return GeneralPurposeATimer<timer::GPATimer<uint32_t>>(
+        timer::Instance::Tim5);
+  }
 };
 
 }  // namespace stm32g4
