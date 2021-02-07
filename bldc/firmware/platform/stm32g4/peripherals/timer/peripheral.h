@@ -14,29 +14,22 @@ struct TimerInstance {
   static constexpr uint32_t Address = A;
 };
 
+struct Tim1 : TimerInstance<0x4001'2C00> {};
 struct Tim2 : TimerInstance<0x4000'0000> {};
 struct Tim3 : TimerInstance<0x4000'0400> {};
 struct Tim4 : TimerInstance<0x4000'0800> {};
 struct Tim5 : TimerInstance<0x4000'0C00> {};
+struct Tim6 : TimerInstance<0x400'1000> {};
+struct Tim7 : TimerInstance<0x400'1400> {};
+struct Tim8 : TimerInstance<0x4001'3400> {};
+struct Tim15 : TimerInstance<0x4001'4000> {};
+struct Tim16 : TimerInstance<0x4001'4400> {};
+struct Tim17 : TimerInstance<0x4001'4800> {};
+struct Tim20 : TimerInstance<0x4001'5000> {};
 
 template <typename T>
 concept ATimerInstance = requires {
   requires T::IsTimer;
-};
-
-enum class Instance : uint32_t {
-  Tim1 = 0x4001'2C00,
-  Tim2 = 0x4000'0000,
-  Tim3 = 0x4000'0400,
-  Tim4 = 0x4000'0800,
-  Tim5 = 0x4000'0C00,
-  Tim6 = 0x4000'1000,
-  Tim7 = 0x4000'1400,
-  Tim8 = 0x4001'3400,
-  Tim15 = 0x4001'4000,
-  Tim16 = 0x4001'4400,
-  Tim17 = 0x4001'4800,
-  Tim20 = 0x4001'5000,
 };
 
 // clang-format off
@@ -49,21 +42,7 @@ struct AdvancedPeripheral {
 #include "third_party/etl/biffield/generate.h"
 #undef ETL_BFF_DEFINITION_FILE
 };
-
-template<auto Target, auto... EnumVal>
-concept IsOneOfEnum = ((Target == EnumVal) || ...);
-
-template<auto T>
-concept Is32BitTimer = IsOneOfEnum<T, Instance::Tim2, Instance::Tim5>;
-
-template<auto T>
-concept Is16BitTimer = IsOneOfEnum<T, Instance::Tim3, Instance::Tim4>;
-
-template <auto I, typename T>
-concept RegWidth = requires(T t) {
-  requires (Is32BitTimer<I> && std::same_as<T, uint32_t>) ||
-  (Is16BitTimer<I> && std::same_as<T, uint16_t>);
-};
+// clang-format on
 
 template <typename T>
 concept A32BitTimer = requires {
@@ -72,7 +51,6 @@ concept A32BitTimer = requires {
 
 template <typename T>
 concept A16BitTimer = !A32BitTimer<T>;
-
 
 namespace internal {
 template <typename T>
@@ -87,9 +65,9 @@ template <A16BitTimer T>
 struct BitDepth<T> {
   using depth = uint16_t;
 };
-}
+}  // namespace internal
 
-template<typename Instance>
+template <typename Instance>
 struct GPAPeripheral {
   using BitDepth = internal::BitDepth<Instance>::depth;
   GPAPeripheral() = delete;

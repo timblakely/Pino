@@ -145,9 +145,6 @@ class AdvancedTimer {
   timer::AdvancedPeripheral* peripheral_;
 };
 
-template <auto T>
-concept TimerInstance = std::same_as<decltype(T), timer::Instance>;
-
 template <timer::ATimerInstance Instance>
 class GeneralPurposeATimer {
  public:
