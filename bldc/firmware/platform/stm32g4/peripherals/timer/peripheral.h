@@ -41,6 +41,12 @@ concept Is32BitTimer = IsOneOfEnum<T, Instance::Tim2, Instance::Tim5>;
 template<auto T>
 concept Is16BitTimer = IsOneOfEnum<T, Instance::Tim3, Instance::Tim4>;
 
+template <auto I, typename T>
+concept RegWidth = requires(T t) {
+  requires (Is32BitTimer<I> && std::same_as<T, uint32_t>) ||
+  (Is16BitTimer<I> && std::same_as<T, uint16_t>);
+};
+
 template<auto Instance>
 struct GPAPeripheral {
   GPAPeripheral() = delete;
@@ -65,7 +71,13 @@ struct GPAPeripheral {
   using CCR3 = CCR3_value_t;
   using CCR4 = CCR4_value_t;
 
-  inline uint32_t GetResetValue() { return read_ARR().get_ARR(); }
+  inline auto GetResetValue() {
+    if constexpr (Is32BitTimer<Instance>) {
+      return static_cast<uint32_t>(read_ARR().get_ARR());
+    } else if constexpr (Is16BitTimer<Instance>) {
+      return static_cast<uint16_t>(read_ARR().get_ARR());
+    }
+  }
 
   inline void InternalClock() {
     update_SMCR(
@@ -191,8 +203,9 @@ struct GPAPeripheral {
     update_CR1([](CR1 v) { return v.with_CEN(0); });
   }
 
-  inline void SetCompare(uint8_t channel,
-                         uint16_t value) requires Is16BitTimer<Instance> {
+  template <typename T>
+  requires RegWidth<Instance, T> inline void SetCompare(uint8_t channel,
+                                                        T value) {
     switch (channel) {
       case 1:
         update_CCR1([&value](CCR1 v) { return v.with_CCR1(value); });
