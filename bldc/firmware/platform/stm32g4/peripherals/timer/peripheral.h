@@ -1,10 +1,28 @@
 #ifndef BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_TIMER_PERIPHERAL_H_
 #define BLDC_FIRMWARE_PLATFORM_STM32G4_PERIPHERALS_TIMER_PERIPHERAL_H_
 
+#include <type_traits>
+
 namespace platform {
 namespace stm32g4 {
 
 namespace timer {
+
+template <auto A>
+struct TimerInstance {
+  static constexpr bool IsTimer = true;
+  static constexpr uint32_t Address = A;
+};
+
+struct Tim2 : TimerInstance<0x4000'0000> {};
+struct Tim3 : TimerInstance<0x4000'0400> {};
+struct Tim4 : TimerInstance<0x4000'0800> {};
+struct Tim5 : TimerInstance<0x4000'0C00> {};
+
+template <typename T>
+concept ATimerInstance = requires {
+  requires T::IsTimer;
+};
 
 enum class Instance : uint32_t {
   Tim1 = 0x4001'2C00,
@@ -47,8 +65,33 @@ concept RegWidth = requires(T t) {
   (Is16BitTimer<I> && std::same_as<T, uint16_t>);
 };
 
-template<auto Instance>
+template <typename T>
+concept A32BitTimer = requires {
+  requires std::same_as<T, Tim2> || std::same_as<T, Tim5>;
+};
+
+template <typename T>
+concept A16BitTimer = !A32BitTimer<T>;
+
+
+namespace internal {
+template <typename T>
+struct BitDepth {};
+
+template <A32BitTimer T>
+struct BitDepth<T> {
+  using depth = uint32_t;
+};
+
+template <A16BitTimer T>
+struct BitDepth<T> {
+  using depth = uint16_t;
+};
+}
+
+template<typename Instance>
 struct GPAPeripheral {
+  using BitDepth = internal::BitDepth<Instance>::depth;
   GPAPeripheral() = delete;
   GPAPeripheral(GPAPeripheral&) = delete;
   GPAPeripheral(GPAPeripheral&&) = delete;
@@ -71,13 +114,7 @@ struct GPAPeripheral {
   using CCR3 = CCR3_value_t;
   using CCR4 = CCR4_value_t;
 
-  inline auto GetResetValue() {
-    if constexpr (Is32BitTimer<Instance>) {
-      return static_cast<uint32_t>(read_ARR().get_ARR());
-    } else if constexpr (Is16BitTimer<Instance>) {
-      return static_cast<uint16_t>(read_ARR().get_ARR());
-    }
-  }
+  inline BitDepth GetResetValue() { return read_ARR().get_ARR(); }
 
   inline void InternalClock() {
     update_SMCR(
@@ -203,9 +240,7 @@ struct GPAPeripheral {
     update_CR1([](CR1 v) { return v.with_CEN(0); });
   }
 
-  template <typename T>
-  requires RegWidth<Instance, T> inline void SetCompare(uint8_t channel,
-                                                        T value) {
+  inline void SetCompare(uint8_t channel, BitDepth value) {
     switch (channel) {
       case 1:
         update_CCR1([&value](CCR1 v) { return v.with_CCR1(value); });

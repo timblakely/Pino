@@ -148,12 +148,12 @@ class AdvancedTimer {
 template <auto T>
 concept TimerInstance = std::same_as<decltype(T), timer::Instance>;
 
-template <auto Instance>
-requires TimerInstance<Instance> class GeneralPurposeATimer {
+template <timer::ATimerInstance Instance>
+class GeneralPurposeATimer {
  public:
   GeneralPurposeATimer()
-      : peripheral_(
-            reinterpret_cast<timer::GPAPeripheral<Instance>*>(Instance)) {}
+      : peripheral_(reinterpret_cast<timer::GPAPeripheral<Instance>*>(
+            Instance::Address)) {}
 
   // Will attempt to set the timer to the most accurate resolution possible at
   // the given frequency. Caution: Uses an iterative solver. For frequencies

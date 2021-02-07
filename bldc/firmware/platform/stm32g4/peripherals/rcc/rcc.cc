@@ -132,10 +132,10 @@ void Rcc::Enable(Gpio::Port port) {
   }
 }
 
-#define RCC_ENABLE_TIMER_CLOCK(instance)                          \
-  template <>                                                     \
-  void Rcc::EnableClock<timer::Instance::instance>(bool enable) { \
-    peripheral_->Enable##instance(enable);                        \
+#define RCC_ENABLE_TIMER_CLOCK(instance)                \
+  template <>                                           \
+  void Rcc::EnableClock<timer::instance>(bool enable) { \
+    peripheral_->Enable##instance(enable);              \
   }
 
 RCC_ENABLE_TIMER_CLOCK(Tim2);

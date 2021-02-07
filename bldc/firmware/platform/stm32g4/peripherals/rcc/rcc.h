@@ -17,7 +17,7 @@ class Rcc {
 
   static void Enable(Gpio::Port port);
 
-  template <auto Peripheral>
+  template <typename Peripheral>
   static void EnableClock(bool enable);
 
  private:
