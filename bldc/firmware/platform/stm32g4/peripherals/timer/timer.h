@@ -145,12 +145,15 @@ class AdvancedTimer {
   timer::AdvancedPeripheral* peripheral_;
 };
 
-template <timer::ATimerInstance Instance>
+// old size: 53540
+
+template <timer::ATimer Instance>
 class GeneralPurposeATimer {
  public:
-  GeneralPurposeATimer()
-      : peripheral_(reinterpret_cast<timer::GPAPeripheral<Instance>*>(
-            Instance::Address)) {}
+  GeneralPurposeATimer(timer::Instance instance)
+      : peripheral_(
+            reinterpret_cast<timer::GPAPeripheral<Instance>*>(instance)),
+        instance_(instance) {}
 
   // Will attempt to set the timer to the most accurate resolution possible at
   // the given frequency. Caution: Uses an iterative solver. For frequencies
@@ -208,7 +211,7 @@ class GeneralPurposeATimer {
 
   inline void Stop() { peripheral_->Disable(); }
 
-  inline void EnableClock(bool enable) { Rcc::EnableClock<Instance>(enable); }
+  inline void EnableClock(bool enable) { Rcc::EnableClock(instance_, enable); }
 
   inline void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) {
     peripheral_->ConfigureTimer(prescalar, auto_reset);
@@ -216,6 +219,20 @@ class GeneralPurposeATimer {
 
  private:
   timer::GPAPeripheral<Instance>* peripheral_;
+  timer::Instance instance_;
+};
+
+template <auto T>
+constexpr static auto Timer = [] {};
+
+template <>
+constexpr auto Timer<timer::Instance::Tim3> = [] {
+  return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(timer::Instance::Tim3);
+};
+
+template <>
+constexpr auto Timer<timer::Instance::Tim4> = [] {
+  return GeneralPurposeATimer<timer::GPATimer<uint16_t>>(timer::Instance::Tim4);
 };
 
 }  // namespace stm32g4

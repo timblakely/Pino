@@ -8,29 +8,59 @@ namespace stm32g4 {
 
 namespace timer {
 
-template <auto A>
-struct TimerInstance {
-  static constexpr bool IsTimer = true;
-  static constexpr uint32_t Address = A;
+struct TimerBase {};
+
+template <typename Depth>
+struct Timer : TimerBase {
+  using BitDepth = Depth;
 };
 
-struct Tim1 : TimerInstance<0x4001'2C00> {};
-struct Tim2 : TimerInstance<0x4000'0000> {};
-struct Tim3 : TimerInstance<0x4000'0400> {};
-struct Tim4 : TimerInstance<0x4000'0800> {};
-struct Tim5 : TimerInstance<0x4000'0C00> {};
-struct Tim6 : TimerInstance<0x400'1000> {};
-struct Tim7 : TimerInstance<0x400'1400> {};
-struct Tim8 : TimerInstance<0x4001'3400> {};
-struct Tim15 : TimerInstance<0x4001'4000> {};
-struct Tim16 : TimerInstance<0x4001'4400> {};
-struct Tim17 : TimerInstance<0x4001'4800> {};
-struct Tim20 : TimerInstance<0x4001'5000> {};
+struct AdvancedTimer : Timer<uint16_t> {};
+template <typename BitDepth>
+struct GPATimer : Timer<BitDepth> {};
+struct GPBTimer : Timer<uint16_t> {};
+struct BasicTimer : Timer<uint16_t> {};
+
+enum class Instance : uint32_t {
+  Tim1 = 0x4001'2C00,
+  Tim2 = 0x4000'0000,
+  Tim3 = 0x4000'0400,
+  Tim4 = 0x4000'0800,
+  Tim5 = 0x4000'0C00,
+  Tim6 = 0x4000'1000,
+  Tim7 = 0x4000'1400,
+  Tim8 = 0x4001'3400,
+  Tim15 = 0x4001'4000,
+  Tim16 = 0x4001'4400,
+  Tim17 = 0x4001'4800,
+  Tim20 = 0x4001'5000,
+};
+
+// struct Tim1 : TimerBase<0x4001'2C00> {};
+// struct Tim2 : TimerBase<0x4000'0000> {};
+// struct Tim3 = TimerBase<0x4000'0400>{};
+// struct Tim4 = TimerBase<0x4000'0800>{};
+// struct Tim5 : TimerBase<0x4000'0C00> {};
+// struct Tim6 : TimerBase<0x4001'1000> {};
+// struct Tim7 : TimerBase<0x4001'1400> {};
+// struct Tim8 : TimerBase<0x4001'3400> {};
+// struct Tim15 : TimerBase<0x4001'4000> {};
+// struct Tim16 : TimerBase<0x4001'4400> {};
+// struct Tim17 : TimerBase<0x4001'4800> {};
+// struct Tim20 : TimerBase<0x4001'5000> {};
 
 template <typename T>
-concept ATimerInstance = requires {
-  requires T::IsTimer;
+concept ATimer = requires {
+  requires std::is_convertible_v<T, TimerBase>;
 };
+
+template <typename T>
+concept A32BitTimer = requires {
+  requires std::is_convertible_v<T, GPATimer<uint32_t>>;
+};
+
+template <typename T>
+concept A16BitTimer = !A32BitTimer<T>;
 
 // clang-format off
 struct AdvancedPeripheral {
@@ -44,32 +74,9 @@ struct AdvancedPeripheral {
 };
 // clang-format on
 
-template <typename T>
-concept A32BitTimer = requires {
-  requires std::same_as<T, Tim2> || std::same_as<T, Tim5>;
-};
-
-template <typename T>
-concept A16BitTimer = !A32BitTimer<T>;
-
-namespace internal {
-template <typename T>
-struct BitDepth {};
-
-template <A32BitTimer T>
-struct BitDepth<T> {
-  using depth = uint32_t;
-};
-
-template <A16BitTimer T>
-struct BitDepth<T> {
-  using depth = uint16_t;
-};
-}  // namespace internal
-
 template <typename Instance>
 struct GPAPeripheral {
-  using BitDepth = internal::BitDepth<Instance>::depth;
+  using BitDepth = Instance::BitDepth;
   GPAPeripheral() = delete;
   GPAPeripheral(GPAPeripheral&) = delete;
   GPAPeripheral(GPAPeripheral&&) = delete;

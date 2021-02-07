@@ -132,18 +132,16 @@ void Rcc::Enable(Gpio::Port port) {
   }
 }
 
-#define RCC_ENABLE_TIMER_CLOCK(instance)                \
-  template <>                                           \
-  void Rcc::EnableClock<timer::instance>(bool enable) { \
-    peripheral_->Enable##instance(enable);              \
+void Rcc::EnableClock(timer::Instance instance, bool enable) {
+  switch (instance) {
+    case timer::Instance::Tim3:
+      return peripheral_->EnableTim3(enable);
+    case timer::Instance::Tim4:
+      return peripheral_->EnableTim4(enable);
+    default:
+      return;
   }
-
-RCC_ENABLE_TIMER_CLOCK(Tim2);
-RCC_ENABLE_TIMER_CLOCK(Tim3);
-RCC_ENABLE_TIMER_CLOCK(Tim4);
-RCC_ENABLE_TIMER_CLOCK(Tim5);
-
-#undef RCC_ENABLE_TIMER_CLOCK
+}
 
 }  // namespace stm32g4
 }  // namespace platform
