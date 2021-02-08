@@ -17,7 +17,7 @@ struct Timer : TimerBase {
   inline BitDepth GetResetValue();
   inline void Enable();
   inline void Disable();
-  inline void ConfigureTimer(uint16_t prescalar, uint16_t reset);
+  inline void ConfigureTimer(uint16_t prescalar, BitDepth reset);
 };
 
 enum class Instance : uint32_t {
@@ -77,6 +77,7 @@ struct GPAPeripheral : Timer<Resolution> {
 
   using CR1 = CR1_value_t;
   using SMCR = SMCR_value_t;
+  using DIER = DIER_value_t;
   using PSC = PSC_value_t;
   using ARR = ARR_value_t;
   using CCER = CCER_value_t;
@@ -94,7 +95,7 @@ struct GPAPeripheral : Timer<Resolution> {
         [](SMCR v) { return v.with_SMS(SMCR::SMS_t::disabled).with_SMS_3(0); });
   }
 
-  inline void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) {
+  inline void ConfigureTimer(uint16_t prescalar, BitDepth auto_reset) {
     update_PSC([&prescalar](PSC v) { return v.with_PSC(prescalar); });
     update_ARR([&auto_reset](ARR v) { return v.with_ARR(auto_reset); });
   }
@@ -131,6 +132,22 @@ struct GPAPeripheral : Timer<Resolution> {
       });
     }
     EnableChannel(channel, true);
+  }
+
+  inline void EnableDMARequest(uint8_t channel, bool enable) {
+    update_DIER([&](DIER v) {
+      switch (channel) {
+        case 1:
+          return v.with_CC1DE(enable);
+        case 2:
+          return v.with_CC2DE(enable);
+        case 3:
+          return v.with_CC3DE(enable);
+        case 4:
+          return v.with_CC4DE(enable);
+      }
+      return v;
+    });
   }
 
   inline void EnableChannel(uint8_t channel, bool enable) {
@@ -179,7 +196,6 @@ struct GPAPeripheral : Timer<Resolution> {
         return v;
       });
     }
-
     EnableChannel(channel, true);
   }
 

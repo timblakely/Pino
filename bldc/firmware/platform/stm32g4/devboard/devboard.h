@@ -24,7 +24,7 @@ class Devboard : public G4Platform {
   void InitializeTimers();
 
   void OnFatal();
-  Tim3 tim3;
+  // Tim3 tim3;
   Led* red_;
   Led* green_;
   Led* blue_;

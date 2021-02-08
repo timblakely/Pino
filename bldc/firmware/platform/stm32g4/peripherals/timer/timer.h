@@ -27,186 +27,84 @@ class SysTickTimer {
 
 ////
 
-class Timer {
- public:
-  virtual void Enable() = 0;
-  virtual void Configure(){};
-  void Start();
-  void Stop();
-
-  uint32_t Prescalar() { return prescalar_; }
-  uint32_t Period() { return arr_period_; }
-
-  enum class ClockDivision : uint32_t {
-    DIV1,  // Consistent with LL_TIM_CLOCKDIVISION_DIV1
-    DIV2,
-    DIV4,
-  };
-
-  void ConfigureClock(ClockDivision division, uint32_t prescalar,
-                      uint32_t period, uint32_t repetition);
-
-  inline void SetDivision(ClockDivision division);
-  inline void SetPrescalar(uint32_t prescalar);
-  inline void SetPeriod(uint32_t period);
-  inline void SetRepetition(uint32_t repetition);
-  virtual void ConfigureChannel(uint32_t channel);
-
- protected:
-  // Workaround for the STM libraries using typedef'd anonymous structs.
-  struct TIM_TypeDefI;
-
-  Timer(TIM_TypeDefI* timer);
-  TIM_TypeDefI* timer_;
-  ClockDivision division_;
-  uint32_t prescalar_;
-  uint32_t arr_period_;
-  uint32_t repetition_counter_;
-};
-
-class Tim3 : public Timer {
- public:
-  Tim3();
-  enum class Channel {
-    Ch4,
-  };
-  virtual void Enable() override;
-  virtual void Configure() override;
-  void EnableOutput(Channel channel);
-};
-
-class Tim2 : public Timer {
- public:
-  Tim2();
-  enum class Channel {
-    Ch1,
-  };
-  virtual void Enable() override;
-  virtual void Configure() override;
-  void EnableOutput(Channel channel);
-};
-
-class Tim1 : public Timer {
- public:
-  Tim1();
-  enum class Channel {
-    Ch1,
-    Ch2,
-    Ch3,
-    Ch4,
-
-    // Output compare only, no external.
-    Ch5,
-  };
-
-  virtual void Enable() override;
-  virtual void Configure() override;
-  void EnableOutput(Channel channel);
-
-  virtual void ConfigureChannel(uint32_t channel) override;
-  void SetPwmDuty(Channel channel, float duty);
-  void SetCaptureCompare(Channel channel, uint32_t value);
-
-  void EnableDeadtimeInsertion(float duty);
-  void EnableCCInterrupt(Channel channel);
-  void ClearCCInterrupt(Channel channel);
-};
-
-// 32-bit timer.
-class Tim5 : public Timer {
- public:
-  Tim5();
-  enum class Channel {
-    Ch1,
-    Ch2,
-    Ch3,
-    Ch4,
-  };
-  virtual void Enable() override;
-  void EnableChannel(Channel channel, uint32_t compare_value);
-  void EnableChannel(Channel channel, float duty_cycle);
-  void EnableChannelIRQ(Channel channel);
-  void DisableChannelIRQ(Channel channel);
-  void ClearChannelIRQ(Channel channel);
-  void EnableChannelDMA(Channel channel);
-  void DisableChannelDMA(Channel channel);
-};
-
-class AdvancedTimer {
- public:
-  enum class Instance : uint32_t {
-    Tim1 = 0x4001'2C00,
-    Tim8 = 0x4001'3400,
-    Tim20 = 0x4001'5000,
-  };
-  AdvancedTimer(Instance instance);
-
- private:
-  timer::AdvancedPeripheral* peripheral_;
-};
-
 // old size: 53540
 
-class TimerCommon {
- public:
-  explicit TimerCommon(timer::Instance instance);
-
-  virtual void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) = 0;
-
-  void EnableClock(bool enable);
-
-  // Will attempt to set the timer to the most accurate resolution possible at
-  // the given frequency. Caution: Uses an iterative solver. For frequencies
-  // that cannot be computed directly for current clock frequency, this function
-  // has the potential to take tens of thousands of clock cycles. This scenario
-  // tends to occur more frequently when hz < f_clk / 2^16. If this is an issue,
-  // increase the tolerance limit. Returns whether the exact frequency was able
-  // to be set.
-  bool SetFrequency(const uint32_t clock_freq, float hz,
-                    float tolerance = 0.00001f);
-
- private:
-  timer::Instance instance_;
-};
-
 template <timer::ATimer Instance>
-class GeneralPurposeATimer : public TimerCommon {
+class GeneralPurposeATimer {
  public:
+  using BitDepth = Instance::BitDepth;
   GeneralPurposeATimer(timer::Instance instance)
-      : TimerCommon(instance),
-        peripheral_(reinterpret_cast<Instance*>(instance)) {}
+      : peripheral_(reinterpret_cast<Instance*>(instance)),
+        instance_(instance) {}
+
+  void EnableChannel(uint8_t channel, BitDepth occ_value) {
+    peripheral_->EnableChannel(channel, true);
+    peripheral_->SetCompare(channel, occ_value);
+  }
+
+  void EnableClock(bool enable) { Rcc::EnableClock(instance_, enable); }
 
   void OutputPWM(uint8_t channel, float duty_cycle) {
-    peripheral_->EnableOutput(channel);
     peripheral_->Up();
-    peripheral_->SetCompare(channel, peripheral_->GetResetValue() * duty_cycle);
+    EnableChannel(channel, peripheral_->GetResetValue() * duty_cycle);
+    peripheral_->EnableOutput(channel);
   }
 
   void OutputToggle(uint8_t channel) {
-    peripheral_->EnableOutputToggle(static_cast<uint8_t>(channel));
     peripheral_->Up();
-    peripheral_->SetCompare(static_cast<uint8_t>(channel),
-                            peripheral_->GetResetValue());
+    EnableChannel(channel, peripheral_->GetResetValue());
+    peripheral_->EnableOutputToggle(channel);
   }
 
   inline void Start() { peripheral_->Enable(); }
 
   inline void Stop() { peripheral_->Disable(); }
 
-  inline void ConfigureTimer(uint16_t prescalar, uint16_t auto_reset) override {
+  inline void ConfigureTimer(uint16_t prescalar, BitDepth auto_reset) {
     peripheral_->ConfigureTimer(prescalar, auto_reset);
+  }
+
+  inline void EnableDMARequest(uint8_t channel) {
+    peripheral_->EnableDMARequest(channel, true);
   }
 
   bool SetFrequency(float hz, float tolerance = 0.00001f) {
     peripheral_->InternalClock();
     const uint32_t clock_freq = Rcc::GetSysClockFrequency();
-    return TimerCommon::SetFrequency(clock_freq, hz, tolerance);
+    uint16_t prescalar = 1;
+    uint16_t closest_prescalar = 1;
+    uint16_t closest_arr = (1 << 16) - 1;
+    float diff = std::numeric_limits<float>::infinity();
+    while (prescalar < ((1 << 16) - 1)) {
+      uint32_t arr =
+          static_cast<uint32_t>(ceil(static_cast<float>(clock_freq) /
+                                     (hz * static_cast<float>(prescalar))));
+      if (arr > (1 << 16) - 1) {
+        ++prescalar;
+        continue;
+      }
+      float current_diff = abs(float(clock_freq) / float(prescalar * arr) - hz);
+      if (current_diff < diff) {
+        closest_prescalar = prescalar;
+        closest_arr = arr;
+        diff = current_diff;
+      }
+      if (diff < tolerance) {
+        closest_prescalar = prescalar;
+        closest_arr = static_cast<uint16_t>(arr);
+        break;
+      }
+      ++prescalar;
+    }
+    ConfigureTimer(closest_prescalar, closest_arr);
+    return diff == 0;
   }
 
   inline auto GetResetValue() { return peripheral_->GetResetValue(); }
 
  private:
   Instance* peripheral_;
+  timer::Instance instance_;
 };
 
 template <timer::Instance T>

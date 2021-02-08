@@ -138,6 +138,8 @@ void Rcc::EnableClock(timer::Instance instance, bool enable) {
       return peripheral_->EnableTim3(enable);
     case timer::Instance::Tim4:
       return peripheral_->EnableTim4(enable);
+    case timer::Instance::Tim5:
+      return peripheral_->EnableTim5(enable);
     default:
       return;
   }

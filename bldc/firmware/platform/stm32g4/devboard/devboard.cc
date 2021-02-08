@@ -49,16 +49,13 @@ void Devboard::Init() {
   t3.OutputToggle(4);
   t3.Start();
 
-  auto t5 = Timer<timer::Instance::Tim5>();
-  (void)t5;
-  (void)t5.GetResetValue();
+  // auto t5 = Timer<timer::Instance::Tim5>();
+  // (void)t5;
+  // (void)t5.GetResetValue();
   // auto t1 = Timer<timer::Instance::Tim1>();
   // (void)t1;
   // (void)t1.GetResetValue();
   green_->Blink();
-  while (true) {
-    asm("nop");
-  }
 
   Dma dma1(Dma::Instance::Dma1);
   dma1.Init();
@@ -84,19 +81,18 @@ void Devboard::Init() {
   // uint16_t value = 0;
   // value = drv_.BlockingReadRegister(Drv::Register::GateDriveHigh);
 
-  Tim5 tim5;
-  tim5.Enable();
-  tim5.ConfigureClock(Timer::ClockDivision::DIV1, 0, 170000, 0);
-  tim5.EnableChannel(Tim5::Channel::Ch1, 1UL);
-  tim5.EnableChannel(Tim5::Channel::Ch4, 2048UL + 128 * 1);
-  tim5.EnableChannelDMA(Tim5::Channel::Ch1);
-  tim5.EnableChannelDMA(Tim5::Channel::Ch4);
-  Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
-    while (true) {
-      asm("nop");
-    }
-  });
-  tim5.Start();
+  // auto tim5 = Timer<timer::Instance::Tim5>();
+  // tim5.ConfigureTimer(0, 170000);
+  // tim5.EnableChannel(1, 1);
+  // tim5.EnableChannel(4, 2048 + 128);
+  // tim5.EnableDMARequest(1);
+  // tim5.EnableDMARequest(4);
+  // Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
+  //   while (true) {
+  //     asm("nop");
+  //   }
+  // });
+  // tim5.Start();
 
   can_.Init(Can::Instance::Fdcan1);
 
@@ -108,9 +104,9 @@ void Devboard::Init() {
     ++bar;
   });
 
-  tim3.Configure();
-  tim3.EnableOutput(Tim3::Channel::Ch4);
-  tim3.Start();
+  // tim3.Configure();
+  // tim3.EnableOutput(Tim3::Channel::Ch4);
+  // tim3.Start();
   green_->Blink();
   // blue_->On();
   while (true) asm("nop");
@@ -133,9 +129,9 @@ uint16_t Devboard::Angle() { return ma702_.Angle(); }
 void Devboard::OnFatal() {
   drv_.Disable();
   blue_->Off();
-  tim3.Configure();
-  tim3.EnableOutput(Tim3::Channel::Ch4);
-  tim3.Start();
+  // tim3.Configure();
+  // tim3.EnableOutput(Tim3::Channel::Ch4);
+  // tim3.Start();
   green_->Blink();
   // blue_->On();
   while (true) asm("nop");
