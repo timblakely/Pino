@@ -33,6 +33,9 @@ template <timer::ATimer Instance>
 class GeneralPurposeATimer {
  public:
   using BitDepth = Instance::BitDepth;
+  constexpr static BitDepth kMaxResetValue = static_cast<BitDepth>(0) - 1;
+  constexpr static BitDepth kMaxPrescalar = static_cast<uint16_t>(0) - 1;
+
   GeneralPurposeATimer(timer::Instance instance)
       : peripheral_(reinterpret_cast<Instance*>(instance)),
         instance_(instance) {}
@@ -72,14 +75,14 @@ class GeneralPurposeATimer {
     peripheral_->InternalClock();
     const uint32_t clock_freq = Rcc::GetSysClockFrequency();
     uint16_t prescalar = 1;
-    uint16_t closest_prescalar = 1;
-    uint16_t closest_arr = (1 << 16) - 1;
+    uint16_t closest_prescalar = 0;
+    uint32_t closest_arr = kMaxResetValue;
     float diff = std::numeric_limits<float>::infinity();
-    while (prescalar < ((1 << 16) - 1)) {
+    while (prescalar < kMaxPrescalar - 1) {
       uint32_t arr =
           static_cast<uint32_t>(ceil(static_cast<float>(clock_freq) /
                                      (hz * static_cast<float>(prescalar))));
-      if (arr > (1 << 16) - 1) {
+      if (arr > kMaxResetValue) {
         ++prescalar;
         continue;
       }
@@ -91,7 +94,7 @@ class GeneralPurposeATimer {
       }
       if (diff < tolerance) {
         closest_prescalar = prescalar;
-        closest_arr = static_cast<uint16_t>(arr);
+        closest_arr = static_cast<BitDepth>(arr);
         break;
       }
       ++prescalar;

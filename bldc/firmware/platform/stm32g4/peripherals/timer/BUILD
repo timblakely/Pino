@@ -28,6 +28,5 @@ cc_library(
         ":peripheral",
         "//bldc/firmware/platform/stm32g4/peripherals:nvic_defines",
         "//bldc/firmware/platform/stm32g4/peripherals/rcc",
-        "//third_party/stm32cubeg4:stm32g474xx",
     ],
 )

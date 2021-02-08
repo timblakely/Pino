@@ -96,7 +96,8 @@ struct GPAPeripheral : Timer<Resolution> {
   }
 
   inline void ConfigureTimer(uint16_t prescalar, BitDepth auto_reset) {
-    update_PSC([&prescalar](PSC v) { return v.with_PSC(prescalar); });
+    // Prescalar 1x = PSC==0
+    update_PSC([&prescalar](PSC v) { return v.with_PSC(prescalar - 1); });
     update_ARR([&auto_reset](ARR v) { return v.with_ARR(auto_reset); });
   }
 

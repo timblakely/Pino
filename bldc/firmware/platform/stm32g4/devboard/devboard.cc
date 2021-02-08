@@ -81,18 +81,19 @@ void Devboard::Init() {
   // uint16_t value = 0;
   // value = drv_.BlockingReadRegister(Drv::Register::GateDriveHigh);
 
-  // auto tim5 = Timer<timer::Instance::Tim5>();
+  auto tim5 = Timer<timer::Instance::Tim5>();
   // tim5.ConfigureTimer(0, 170000);
-  // tim5.EnableChannel(1, 1);
-  // tim5.EnableChannel(4, 2048 + 128);
-  // tim5.EnableDMARequest(1);
-  // tim5.EnableDMARequest(4);
-  // Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
-  //   while (true) {
-  //     asm("nop");
-  //   }
-  // });
-  // tim5.Start();
+  tim5.SetFrequency(1000, 0.01);
+  tim5.EnableChannel(1, 1);
+  tim5.EnableChannel(4, 2048 + 128);
+  tim5.EnableDMARequest(1);
+  tim5.EnableDMARequest(4);
+  Nvic::SetInterrupt(Interrupt::Tim5, 1, 1, [] {
+    while (true) {
+      asm("nop");
+    }
+  });
+  tim5.Start();
 
   can_.Init(Can::Instance::Fdcan1);
 
